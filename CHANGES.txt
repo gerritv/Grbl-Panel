@@ -1,8 +1,4 @@
 This file documents changes made:
-2014-09-07
-V0.1.0.1 
-Initial release
-2014-09-08
-V0.1.0.2 
-- Added horizontal scroll bar to Status list
-- Increased Q progress bar max value to 30 (temporary)
+V0.1.0.1	-Initial release
+V0.1.0.2 	- Added horizontal scroll bar to Status list
+			- Increased Q progress bar max value to 30 (temporary)
