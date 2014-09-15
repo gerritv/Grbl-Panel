@@ -1,6 +1,16 @@
 This file documents changes made:
-V0.1.0.1	-Initial release
+V0.1.0.1	- 2014 Sep 8
+			- Initial release
 V0.1.0.2 	- Added horizontal scroll bar to Status list
 			- Increased Q progress bar max value to 30 (temporary)
-V0.1.0.3	- Jog distance and increment now configurable
-			- Fixed some exit race conditions with serialport close
+V0.1.0.3	- 2014 Sep 15
+			- Jog distance and increment now configurable
+			- Fixed some exit race conditions with serial port close
+			- Swapped X+ and X- jog buttons
+			- Gcode is visible on load of file
+			- Made Q and Rbuff progress bar maximums configurable (future proofing)
+			- Added Simulate/Check Mode checkbox
+			- Added Status indicators
+			- Added Pause on Error
+			- Various code cleanups, added GCodeView class
+			- Changed sequence of instantiating some of the objects
