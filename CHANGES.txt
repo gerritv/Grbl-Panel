@@ -14,3 +14,17 @@ V0.1.0.3	- 2014 Sep 15
 			- Added Pause on Error
 			- Various code cleanups, added GCodeView class
 			- Changed sequence of instantiating some of the objects
+V0.1.0.4	- 2014 Sep 21
+			- Add Offsets management: retrieve from Grbl, load and save from/to file
+			- Made screen resizable, flexibly
+			- Added Exception display, in case one happens in the wild
+			- Revamped GUI for compactness
+			- Added G28, G30 command strings to Settings page
+			- Interlocks to prevent silly mistakes while running a gcode program
+			- Simplified Status display
+			- Added button and display for Parser status
+			- ConnectOnLoad option to connect when you start Grbl-Panel
+			- Stability improvements on close
+			- Last Beta before release to the wild
+			- Roughed in retrieve and change of Grbl Settings, not complete yet
+			
