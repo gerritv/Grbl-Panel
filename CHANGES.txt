@@ -27,4 +27,10 @@ V0.1.0.4	- 2014 Sep 21
 			- Stability improvements on close
 			- Last Beta before release to the wild
 			- Roughed in retrieve and change of Grbl Settings, not complete yet
+V0.1.0.5	- 2014 Sep 29
+			- Added keyboard support for jogging, a settings page option
+			- Fixed missing Zero All tag, not triggering an action
+			- Fixed Alarm indication for some cases
+			- Changed Simulate from check-box to button, it wasn't following Grbl's state
+			- Robustness fix for USB cable being yanked
 			
