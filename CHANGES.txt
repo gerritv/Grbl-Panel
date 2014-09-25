@@ -33,4 +33,5 @@ V0.1.0.5	- 2014 Sep 29
 			- Fixed Alarm indication for some cases
 			- Changed Simulate from check-box to button, it wasn't following Grbl's state
 			- Robustness fix for USB cable being yanked
+			- Add Retrieve button to Machine locations on Settings tab
 			
