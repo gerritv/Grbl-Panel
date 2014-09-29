@@ -34,4 +34,20 @@ V0.1.0.5	- 2014 Sep 29
 			- Changed Simulate from check-box to button, it wasn't following Grbl's state
 			- Robustness fix for USB cable being yanked
 			- Add Retrieve button to Machine locations on Settings tab
-			
+			- Fix jog commands to append a G90 so the parser doesn't stay in incremental mode after a jog
+			- Added GUI switch to RH or LH layout
+			- Added Soft Home and Spcl Location buttons to Work tab to avoid switching to Machine tab for those ops	after you set up the work piece
+			- lengthened text box for MDI commands	
+			- Added G90 to end of all jog commands to leave Grbl in likely original state
+			- Added GrblState to follow gcode sent so we know state of things such as G20/21
+			- Added G28 Set button again
+			- Added State box to show/set various gcode parser parameters
+			- Fix: Jog commands sent when no feedrate or distance checkbox set
+			- Add GrblGui object to all object instantiations to they have proper access to UI controls
+			- Harden inputs to GcodeState so MDI commands don't cause problems
+			- Added Connected/Disconnected events to GrblGui, handler in Offsets and State to initiate retrive of Grbl data
+			- Added display of Current work offset on Work tab
+			- Added G90 in front of Work Offset codes to ensure we overwrite the values in Grbl, not Updated them. (according to Peter Smid it matters
+			  whether you are in Incremental or Absolute mode when you set these values but nowhere is it clear what Update means :-(). 
+			  Its a config item, you can change if need be.
+			- Fix crash if you Reset Grbl (by its button)
