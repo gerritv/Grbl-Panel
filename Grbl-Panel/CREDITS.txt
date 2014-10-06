@@ -1,0 +1,12 @@
+This tool would not have been possible without:
+
+- Visual Studio 2013 Express
+- MSDN for providing excellent documentation on .NET
+- Daniel Presman's Repeat Button (http://www.codeproject.com/Articles/5289/A-Simple-Auto-Repeat-Button-on-VB-NET
+ Thank you Daniel
+- Jeff Atwood for a very useful AboutBox implementation: http://www.codinghorror.com
+- http://flaticons.net/ for free, high quality icons
+- Tortoise SVN for providing a simple to use code version control system
+- Sonny Jeon's support by maintaining Grbl and providing useful input to design of GrblPanel as well as testing
+- Legendaire for testing beta versions
+- Peter Smid, for his amazing books on CNC and Gcode

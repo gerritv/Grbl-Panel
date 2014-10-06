@@ -1,0 +1,84 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="My" GeneratedClassName="MySettings" UseMySettingsClassName="true">
+  <Profiles />
+  <Settings>
+    <Setting Name="Port" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="Baud" Type="System.String" Scope="User">
+      <Value Profile="(Default)">115200</Value>
+    </Setting>
+    <Setting Name="JoggingUnitsMetric" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="Work0Cmd" Type="System.String" Scope="User">
+      <Value Profile="(Default)">G90 G10 L20 P0 X0 Y0 Z0</Value>
+    </Setting>
+    <Setting Name="StatusPollEnabled" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="StatusVerbose" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="StatusPollInterval" Type="System.String" Scope="User">
+      <Value Profile="(Default)">200</Value>
+    </Setting>
+    <Setting Name="WorkX0Cmd" Type="System.String" Scope="User">
+      <Value Profile="(Default)">G90 G10 L20 P0 X0</Value>
+    </Setting>
+    <Setting Name="WorkY0Cmd" Type="System.String" Scope="User">
+      <Value Profile="(Default)">G90 G10 L20 P0 Y0</Value>
+    </Setting>
+    <Setting Name="WorkZ0Cmd" Type="System.String" Scope="User">
+      <Value Profile="(Default)">G90 G10 L20 P0 Z0</Value>
+    </Setting>
+    <Setting Name="JoggingFRImperial" Type="System.String" Scope="User">
+      <Value Profile="(Default)">100,50,10,5</Value>
+    </Setting>
+    <Setting Name="JoggingFIImperial" Type="System.String" Scope="User">
+      <Value Profile="(Default)">1,0.1,0.01,0.001</Value>
+    </Setting>
+    <Setting Name="JoggingFIMEtric" Type="System.String" Scope="User">
+      <Value Profile="(Default)">10,1,0.1,0.01 </Value>
+    </Setting>
+    <Setting Name="JoggingFRMetric" Type="System.String" Scope="User">
+      <Value Profile="(Default)">1000,500,100,5</Value>
+    </Setting>
+    <Setting Name="QBuffMaxSize" Type="System.String" Scope="User">
+      <Value Profile="(Default)">17</Value>
+    </Setting>
+    <Setting Name="RBuffMaxSize" Type="System.String" Scope="User">
+      <Value Profile="(Default)">127</Value>
+    </Setting>
+    <Setting Name="JoggingXRepeat" Type="System.String" Scope="User">
+      <Value Profile="(Default)">2.5</Value>
+    </Setting>
+    <Setting Name="JoggingZRepeat" Type="System.String" Scope="User">
+      <Value Profile="(Default)">2.5</Value>
+    </Setting>
+    <Setting Name="JoggingYRepeat" Type="System.String" Scope="User">
+      <Value Profile="(Default)">2.5</Value>
+    </Setting>
+    <Setting Name="GCodePauseOnError" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="GrblConnectOnLoad" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="JoggingUseKeyboard" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="LeftHandedGUI" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="MachineSpclPosition1" Type="System.String" Scope="User">
+      <Value Profile="(Default)">G28</Value>
+    </Setting>
+    <Setting Name="MachineSpclPosition2" Type="System.String" Scope="User">
+      <Value Profile="(Default)">G30</Value>
+    </Setting>
+    <Setting Name="GrblLastParamID" Type="System.String" Scope="User">
+      <Value Profile="(Default)">$132</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>
