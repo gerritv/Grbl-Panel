@@ -51,3 +51,20 @@ V0.1.0.5	- 2014 Sep 29
 			  whether you are in Incremental or Absolute mode when you set these values but nowhere is it clear what Update means :-(). 
 			  Its a config item, you can change if need be.
 			- Fix crash if you Reset Grbl (by its button)
+V0.1.0.6	- 2014 Oct 6
+			- Add an AboutBox, which also provides details of Assemblies referenced (to aid troubleshoointg Mono install problems)
+			- Retargeted to .Net 3.5
+			- Add Grbl settings retrieve and editing
+			- Crimson the Home Cycle button on Connect event
+			- Blocked access to Grbl Settings refresh during file run
+			- ReJig layout of State group box
+			- Add line numbers to Gcode display
+			- Removed At Line, in prep for % complete
+			- Expanded width of Message display
+			- On Unlock, clear Home Cycle hint and refocus to Work tab
+			- If $22 <> 1 (Homing Disabled) then hide the Home Cycle button
+			- Combine Machine psition tab into Work one, move the Home Cycle button as well
+			- Fix Jog repeat functions
+			- Fix save of Jog feed increment and rate settings
+			- Add param to set last/highest Grbl param to retrieve
+			- Block edit of Grbl Settings ID and description columns
