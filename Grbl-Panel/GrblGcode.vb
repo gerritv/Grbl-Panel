@@ -320,13 +320,13 @@ Partial Class GrblGui
                         Dim line As String
                         ' Read another line
                         line = gcode.readGcode()
-                        state.ProcessGCode(line)
                         If Not line.StartsWith("EOF") Then  ' We never hit this but is here just in case the file gets truncated
                             ' count - 1
                             gcode.lineCount -= 1
                             ' show as sent
                             gcodeview.UpdateGcodeSent(gcode.linesDone)                  ' Mark line as sent
                             gcode.linesDone += 1
+                            state.ProcessGCode(line)
                             ' Set Message if it starts with (
                             If line.StartsWith("(") Then
                                 Dim templine As String = line

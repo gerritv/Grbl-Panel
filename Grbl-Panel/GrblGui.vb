@@ -286,10 +286,4 @@ Public Class GrblGui
     ' Raised when we succesfully connected to Grbl
     Public Event Connected(ByVal msg As String)
 
-    Private Sub Button1_Click(sender As Object, e As EventArgs)
-        Dim i As Integer = settings.IsHomingEnabled()
-        i = i
-
-    End Sub
-
 End Class

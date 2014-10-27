@@ -25,6 +25,18 @@ Partial Class GrblGui
                 _gui.btnYMinus.Interval = 1000 / .JoggingYRepeat
                 _gui.btnZPlus.Interval = 1000 / .JoggingZRepeat
                 _gui.btnZMinus.Interval = 1000 / .JoggingZRepeat
+
+                ' Set the default feed rate and increment
+                For Each rb As RadioButton In _gui.gbDistance.Controls
+                    If rb.Tag = My.Settings.JoggingFIDefault Then
+                        rb.Checked = True
+                    End If
+                Next
+                For Each rb As RadioButton In _gui.gbFeedRate.Controls
+                    If rb.Tag = My.Settings.JoggingFRDefault Then
+                        rb.Checked = True
+                    End If
+                Next
             End With
 
         End Sub
@@ -50,10 +62,6 @@ Partial Class GrblGui
     Private Sub btnJogArray_Click(sender As Object, e As EventArgs) Handles btnXPlus.Click, btnXMinus.Click, btnYPlus.Click, btnYMinus.Click, _
                                                                            btnZPlus.Click, btnZMinus.Click
         Dim btn As RepeatButton.RepeatButton = sender
-        If whichDistance() = "" Or whichFeedRate() = "" Then
-            MessageBox.Show("Please set Distance and Feed Rate first", "", MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1, MessageBoxOptions.DefaultDesktopOnly)
-            Return
-        End If
         Select Case btn.Tag
             Case "X+"
                 gcode.sendGCodeLine(createJogCommand("X"))
@@ -77,12 +85,6 @@ Partial Class GrblGui
 
 
         If cbSettingsKeyboardJogging.Checked Then
-            If whichDistance() = "" Or whichFeedRate() = "" Then
-                ' We have no parameters, give message
-                MessageBox.Show("Please set Distance and Feed Rate first")
-                Return
-            End If
-
             Select Case e.KeyCode
                 Case Keys.Left
                     gcode.sendGCodeLine(createJogCommand("X-"))
@@ -195,5 +197,17 @@ Partial Class GrblGui
         End If
     End Function
 
+    Private Sub rbDistancex_CheckedChanged(sender As Object, e As EventArgs) Handles rbDistance1.CheckedChanged, rbDistance2.CheckedChanged, rbDistance3.CheckedChanged, _
+                                                                                    rbDistance4.CheckedChanged, rbFeedRate1.CheckedChanged, rbFeedRate2.CheckedChanged, _
+                                                                                   rbFeedRate3.CheckedChanged, rbFeedRate4.CheckedChanged
+        ' Remember the setting
+        Dim rbtn As RadioButton = sender
+        Select Case rbtn.Tag
+            Case "I1", "I2", "I3", "I4"
+                My.Settings.JoggingFIDefault = rbtn.Tag
+            Case "F1", "F2", "F3", "F4"
+                My.Settings.JoggingFRDefault = rbtn.Tag
+        End Select
+    End Sub
 End Class
 

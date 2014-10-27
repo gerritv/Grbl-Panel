@@ -48,6 +48,9 @@
             Dim gcodeIndex As Integer = 0           ' current entry being processed
 
             Dim comment As Boolean = False
+            If line.Length = 0 Then     ' Deal with blank lines
+                Return
+            End If
             If ignore.Contains(line(0)) Or (Not allcodes.Contains(line(0))) Then
                 Return                              ' ignore lines with no gcode
             End If

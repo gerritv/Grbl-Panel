@@ -92,6 +92,7 @@ Partial Class GrblGui
         Me.Label24 = New System.Windows.Forms.Label()
         Me.prgbRxBuf = New System.Windows.Forms.ProgressBar()
         Me.prgBarQ = New System.Windows.Forms.ProgressBar()
+        Me.cbVerbose = New System.Windows.Forms.CheckBox()
         Me.lbResponses = New System.Windows.Forms.ListBox()
         Me.gbGcode = New System.Windows.Forms.GroupBox()
         Me.tbGCodeMessage = New System.Windows.Forms.TextBox()
@@ -184,6 +185,8 @@ Partial Class GrblGui
         Me.Label21 = New System.Windows.Forms.Label()
         Me.tabPgSettings = New System.Windows.Forms.TabPage()
         Me.gbGrblSettings = New System.Windows.Forms.GroupBox()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.tbSettingsGrblLastParam = New System.Windows.Forms.TextBox()
         Me.dgGrblSettings = New System.Windows.Forms.DataGridView()
         Me.btnSettingsGrbl = New System.Windows.Forms.Button()
         Me.gbSettingsOffsets = New System.Windows.Forms.GroupBox()
@@ -202,60 +205,57 @@ Partial Class GrblGui
         Me.Label69 = New System.Windows.Forms.Label()
         Me.Label42 = New System.Windows.Forms.Label()
         Me.gbSettingsMisc = New System.Windows.Forms.GroupBox()
+        Me.cbSettingsLeftHanded = New System.Windows.Forms.CheckBox()
+        Me.cbSettingsConnectOnLoad = New System.Windows.Forms.CheckBox()
+        Me.cbSettingsPauseOnError = New System.Windows.Forms.CheckBox()
+        Me.cbStatusPollEnable = New System.Windows.Forms.CheckBox()
         Me.btnSettingsRefreshMisc = New System.Windows.Forms.Button()
         Me.Label37 = New System.Windows.Forms.Label()
         Me.Label36 = New System.Windows.Forms.Label()
+        Me.tbSettingsRBuffSize = New System.Windows.Forms.TextBox()
+        Me.tbSettingsQSize = New System.Windows.Forms.TextBox()
         Me.Label26 = New System.Windows.Forms.Label()
+        Me.tbSettingsPollRate = New System.Windows.Forms.TextBox()
         Me.gbSettingsPosition = New System.Windows.Forms.GroupBox()
         Me.Label8 = New System.Windows.Forms.Label()
+        Me.tbSettingsSpclPosition2 = New System.Windows.Forms.TextBox()
         Me.btnSettingsRefreshPosition = New System.Windows.Forms.Button()
         Me.Label29 = New System.Windows.Forms.Label()
+        Me.tbWorkZ0Cmd = New System.Windows.Forms.TextBox()
         Me.Label28 = New System.Windows.Forms.Label()
+        Me.tbWorkY0Cmd = New System.Windows.Forms.TextBox()
         Me.Label13 = New System.Windows.Forms.Label()
         Me.Label12 = New System.Windows.Forms.Label()
+        Me.tbWorkX0Cmd = New System.Windows.Forms.TextBox()
+        Me.tbSettingsZeroXYZCmd = New System.Windows.Forms.TextBox()
         Me.Label11 = New System.Windows.Forms.Label()
+        Me.tbSettingsSpclPosition1 = New System.Windows.Forms.TextBox()
         Me.gbSettingsJogging = New System.Windows.Forms.GroupBox()
+        Me.cbSettingsKeyboardJogging = New System.Windows.Forms.CheckBox()
         Me.btnSettingsRefreshJogging = New System.Windows.Forms.Button()
         Me.Label41 = New System.Windows.Forms.Label()
         Me.Label40 = New System.Windows.Forms.Label()
         Me.Label39 = New System.Windows.Forms.Label()
         Me.Label38 = New System.Windows.Forms.Label()
+        Me.tbSettingsZRepeat = New System.Windows.Forms.TextBox()
+        Me.tbSettingsYRepeat = New System.Windows.Forms.TextBox()
+        Me.tbSettingsXRepeat = New System.Windows.Forms.TextBox()
         Me.Label35 = New System.Windows.Forms.Label()
         Me.Label34 = New System.Windows.Forms.Label()
         Me.Label32 = New System.Windows.Forms.Label()
+        Me.tbSettingsFRMetric = New System.Windows.Forms.TextBox()
         Me.Label33 = New System.Windows.Forms.Label()
+        Me.tbSettingsFIMetric = New System.Windows.Forms.TextBox()
         Me.Label31 = New System.Windows.Forms.Label()
+        Me.tbSettingsFRImperial = New System.Windows.Forms.TextBox()
         Me.Label30 = New System.Windows.Forms.Label()
+        Me.cbSettingsMetric = New System.Windows.Forms.CheckBox()
+        Me.tbSettingsFIImperial = New System.Windows.Forms.TextBox()
         Me.ofdGcodeFile = New System.Windows.Forms.OpenFileDialog()
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
         Me.sfdOffsets = New System.Windows.Forms.SaveFileDialog()
         Me.ofdOffsets = New System.Windows.Forms.OpenFileDialog()
         Me.GrblSettingsBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.Label4 = New System.Windows.Forms.Label()
-        Me.cbVerbose = New System.Windows.Forms.CheckBox()
-        Me.tbSettingsGrblLastParam = New System.Windows.Forms.TextBox()
-        Me.cbSettingsLeftHanded = New System.Windows.Forms.CheckBox()
-        Me.cbSettingsConnectOnLoad = New System.Windows.Forms.CheckBox()
-        Me.cbSettingsPauseOnError = New System.Windows.Forms.CheckBox()
-        Me.cbStatusPollEnable = New System.Windows.Forms.CheckBox()
-        Me.tbSettingsRBuffSize = New System.Windows.Forms.TextBox()
-        Me.tbSettingsQSize = New System.Windows.Forms.TextBox()
-        Me.tbSettingsPollRate = New System.Windows.Forms.TextBox()
-        Me.tbSettingsSpclPosition2 = New System.Windows.Forms.TextBox()
-        Me.tbWorkZ0Cmd = New System.Windows.Forms.TextBox()
-        Me.tbWorkY0Cmd = New System.Windows.Forms.TextBox()
-        Me.tbWorkX0Cmd = New System.Windows.Forms.TextBox()
-        Me.tbSettingsZeroXYZCmd = New System.Windows.Forms.TextBox()
-        Me.tbSettingsSpclPosition1 = New System.Windows.Forms.TextBox()
-        Me.cbSettingsKeyboardJogging = New System.Windows.Forms.CheckBox()
-        Me.tbSettingsZRepeat = New System.Windows.Forms.TextBox()
-        Me.tbSettingsYRepeat = New System.Windows.Forms.TextBox()
-        Me.tbSettingsXRepeat = New System.Windows.Forms.TextBox()
-        Me.tbSettingsFRMetric = New System.Windows.Forms.TextBox()
-        Me.tbSettingsFIMetric = New System.Windows.Forms.TextBox()
-        Me.tbSettingsFRImperial = New System.Windows.Forms.TextBox()
-        Me.cbSettingsMetric = New System.Windows.Forms.CheckBox()
-        Me.tbSettingsFIImperial = New System.Windows.Forms.TextBox()
         Me.MenuStrip1.SuspendLayout()
         Me.TabControl1.SuspendLayout()
         Me.tabPgInterface.SuspendLayout()
@@ -847,6 +847,7 @@ Partial Class GrblGui
         Me.rbFeedRate2.Size = New System.Drawing.Size(14, 13)
         Me.rbFeedRate2.TabIndex = 11
         Me.rbFeedRate2.TabStop = True
+        Me.rbFeedRate2.Tag = "F2"
         Me.rbFeedRate2.UseVisualStyleBackColor = True
         '
         'rbFeedRate1
@@ -857,6 +858,7 @@ Partial Class GrblGui
         Me.rbFeedRate1.Size = New System.Drawing.Size(14, 13)
         Me.rbFeedRate1.TabIndex = 10
         Me.rbFeedRate1.TabStop = True
+        Me.rbFeedRate1.Tag = "F1"
         Me.rbFeedRate1.UseVisualStyleBackColor = True
         '
         'rbFeedRate3
@@ -867,6 +869,7 @@ Partial Class GrblGui
         Me.rbFeedRate3.Size = New System.Drawing.Size(14, 13)
         Me.rbFeedRate3.TabIndex = 12
         Me.rbFeedRate3.TabStop = True
+        Me.rbFeedRate3.Tag = "F3"
         Me.rbFeedRate3.UseVisualStyleBackColor = True
         '
         'rbFeedRate4
@@ -877,6 +880,7 @@ Partial Class GrblGui
         Me.rbFeedRate4.Size = New System.Drawing.Size(14, 13)
         Me.rbFeedRate4.TabIndex = 13
         Me.rbFeedRate4.TabStop = True
+        Me.rbFeedRate4.Tag = "F4"
         Me.rbFeedRate4.UseVisualStyleBackColor = True
         '
         'gbDistance
@@ -901,6 +905,7 @@ Partial Class GrblGui
         Me.rbDistance1.Size = New System.Drawing.Size(14, 13)
         Me.rbDistance1.TabIndex = 6
         Me.rbDistance1.TabStop = True
+        Me.rbDistance1.Tag = "I1"
         Me.rbDistance1.UseVisualStyleBackColor = True
         '
         'rbDistance2
@@ -911,6 +916,7 @@ Partial Class GrblGui
         Me.rbDistance2.Size = New System.Drawing.Size(14, 13)
         Me.rbDistance2.TabIndex = 7
         Me.rbDistance2.TabStop = True
+        Me.rbDistance2.Tag = "I2"
         Me.rbDistance2.UseVisualStyleBackColor = True
         '
         'rbDistance3
@@ -921,6 +927,7 @@ Partial Class GrblGui
         Me.rbDistance3.Size = New System.Drawing.Size(14, 13)
         Me.rbDistance3.TabIndex = 8
         Me.rbDistance3.TabStop = True
+        Me.rbDistance3.Tag = "I3"
         Me.rbDistance3.UseVisualStyleBackColor = True
         '
         'rbDistance4
@@ -931,6 +938,7 @@ Partial Class GrblGui
         Me.rbDistance4.Size = New System.Drawing.Size(14, 13)
         Me.rbDistance4.TabIndex = 9
         Me.rbDistance4.TabStop = True
+        Me.rbDistance4.Tag = "I4"
         Me.rbDistance4.UseVisualStyleBackColor = True
         '
         'cbUnits
@@ -1008,6 +1016,18 @@ Partial Class GrblGui
         Me.prgBarQ.Size = New System.Drawing.Size(60, 15)
         Me.prgBarQ.Style = System.Windows.Forms.ProgressBarStyle.Continuous
         Me.prgBarQ.TabIndex = 20
+        '
+        'cbVerbose
+        '
+        Me.cbVerbose.AutoSize = True
+        Me.cbVerbose.Checked = Global.GrblPanel.My.MySettings.Default.StatusVerbose
+        Me.cbVerbose.DataBindings.Add(New System.Windows.Forms.Binding("Checked", Global.GrblPanel.My.MySettings.Default, "statusVerbose", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
+        Me.cbVerbose.Location = New System.Drawing.Point(87, 20)
+        Me.cbVerbose.Name = "cbVerbose"
+        Me.cbVerbose.Size = New System.Drawing.Size(65, 17)
+        Me.cbVerbose.TabIndex = 15
+        Me.cbVerbose.Text = "Verbose"
+        Me.cbVerbose.UseVisualStyleBackColor = True
         '
         'lbResponses
         '
@@ -2014,6 +2034,25 @@ Partial Class GrblGui
         Me.gbGrblSettings.TabStop = False
         Me.gbGrblSettings.Text = "Grbl Settings"
         '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Location = New System.Drawing.Point(57, 555)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(82, 13)
+        Me.Label4.TabIndex = 7
+        Me.Label4.Text = "Last Grbl Param"
+        '
+        'tbSettingsGrblLastParam
+        '
+        Me.tbSettingsGrblLastParam.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.GrblPanel.My.MySettings.Default, "GrblLastParamID", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
+        Me.tbSettingsGrblLastParam.Location = New System.Drawing.Point(6, 552)
+        Me.tbSettingsGrblLastParam.Name = "tbSettingsGrblLastParam"
+        Me.tbSettingsGrblLastParam.Size = New System.Drawing.Size(45, 20)
+        Me.tbSettingsGrblLastParam.TabIndex = 6
+        Me.tbSettingsGrblLastParam.Text = Global.GrblPanel.My.MySettings.Default.GrblLastParamID
+        Me.ToolTip1.SetToolTip(Me.tbSettingsGrblLastParam, "Change this to reflect the highest Grbl Parameter number")
+        '
         'dgGrblSettings
         '
         Me.dgGrblSettings.AllowUserToAddRows = False
@@ -2218,314 +2257,6 @@ Partial Class GrblGui
         Me.gbSettingsMisc.TabStop = False
         Me.gbSettingsMisc.Text = "Misc"
         '
-        'btnSettingsRefreshMisc
-        '
-        Me.btnSettingsRefreshMisc.Location = New System.Drawing.Point(0, 157)
-        Me.btnSettingsRefreshMisc.Name = "btnSettingsRefreshMisc"
-        Me.btnSettingsRefreshMisc.Size = New System.Drawing.Size(75, 23)
-        Me.btnSettingsRefreshMisc.TabIndex = 6
-        Me.btnSettingsRefreshMisc.Tag = "Misc"
-        Me.btnSettingsRefreshMisc.Text = "Refresh"
-        Me.btnSettingsRefreshMisc.UseVisualStyleBackColor = True
-        '
-        'Label37
-        '
-        Me.Label37.AutoSize = True
-        Me.Label37.Location = New System.Drawing.Point(70, 70)
-        Me.Label37.Name = "Label37"
-        Me.Label37.Size = New System.Drawing.Size(77, 13)
-        Me.Label37.TabIndex = 5
-        Me.Label37.Text = "RBuf Max Size"
-        '
-        'Label36
-        '
-        Me.Label36.AutoSize = True
-        Me.Label36.Location = New System.Drawing.Point(70, 44)
-        Me.Label36.Name = "Label36"
-        Me.Label36.Size = New System.Drawing.Size(61, 13)
-        Me.Label36.TabIndex = 4
-        Me.Label36.Text = "Q Max Size"
-        '
-        'Label26
-        '
-        Me.Label26.AutoSize = True
-        Me.Label26.Location = New System.Drawing.Point(70, 22)
-        Me.Label26.Name = "Label26"
-        Me.Label26.Size = New System.Drawing.Size(84, 13)
-        Me.Label26.TabIndex = 1
-        Me.Label26.Text = "Poll Interval (ms)"
-        '
-        'gbSettingsPosition
-        '
-        Me.gbSettingsPosition.Controls.Add(Me.Label8)
-        Me.gbSettingsPosition.Controls.Add(Me.tbSettingsSpclPosition2)
-        Me.gbSettingsPosition.Controls.Add(Me.btnSettingsRefreshPosition)
-        Me.gbSettingsPosition.Controls.Add(Me.Label29)
-        Me.gbSettingsPosition.Controls.Add(Me.tbWorkZ0Cmd)
-        Me.gbSettingsPosition.Controls.Add(Me.Label28)
-        Me.gbSettingsPosition.Controls.Add(Me.tbWorkY0Cmd)
-        Me.gbSettingsPosition.Controls.Add(Me.Label13)
-        Me.gbSettingsPosition.Controls.Add(Me.Label12)
-        Me.gbSettingsPosition.Controls.Add(Me.tbWorkX0Cmd)
-        Me.gbSettingsPosition.Controls.Add(Me.tbSettingsZeroXYZCmd)
-        Me.gbSettingsPosition.Controls.Add(Me.Label11)
-        Me.gbSettingsPosition.Controls.Add(Me.tbSettingsSpclPosition1)
-        Me.gbSettingsPosition.Location = New System.Drawing.Point(362, 19)
-        Me.gbSettingsPosition.Name = "gbSettingsPosition"
-        Me.gbSettingsPosition.Size = New System.Drawing.Size(239, 209)
-        Me.gbSettingsPosition.TabIndex = 1
-        Me.gbSettingsPosition.TabStop = False
-        Me.gbSettingsPosition.Text = "Position"
-        '
-        'Label8
-        '
-        Me.Label8.AutoSize = True
-        Me.Label8.Location = New System.Drawing.Point(135, 47)
-        Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(94, 13)
-        Me.Label8.TabIndex = 12
-        Me.Label8.Text = "GoTo Spcl Posn 2"
-        '
-        'btnSettingsRefreshPosition
-        '
-        Me.btnSettingsRefreshPosition.Location = New System.Drawing.Point(-2, 182)
-        Me.btnSettingsRefreshPosition.Name = "btnSettingsRefreshPosition"
-        Me.btnSettingsRefreshPosition.Size = New System.Drawing.Size(75, 23)
-        Me.btnSettingsRefreshPosition.TabIndex = 10
-        Me.btnSettingsRefreshPosition.Tag = "Position"
-        Me.btnSettingsRefreshPosition.Text = "Refresh"
-        Me.btnSettingsRefreshPosition.UseVisualStyleBackColor = True
-        '
-        'Label29
-        '
-        Me.Label29.AutoSize = True
-        Me.Label29.Location = New System.Drawing.Point(135, 150)
-        Me.Label29.Name = "Label29"
-        Me.Label29.Size = New System.Drawing.Size(75, 13)
-        Me.Label29.TabIndex = 9
-        Me.Label29.Text = "Work Z 0 cmd"
-        '
-        'Label28
-        '
-        Me.Label28.AutoSize = True
-        Me.Label28.Location = New System.Drawing.Point(135, 124)
-        Me.Label28.Name = "Label28"
-        Me.Label28.Size = New System.Drawing.Size(75, 13)
-        Me.Label28.TabIndex = 7
-        Me.Label28.Text = "Work Y 0 cmd"
-        '
-        'Label13
-        '
-        Me.Label13.AutoSize = True
-        Me.Label13.Location = New System.Drawing.Point(135, 99)
-        Me.Label13.Name = "Label13"
-        Me.Label13.Size = New System.Drawing.Size(75, 13)
-        Me.Label13.TabIndex = 5
-        Me.Label13.Text = "Work X 0 cmd"
-        '
-        'Label12
-        '
-        Me.Label12.AutoSize = True
-        Me.Label12.Location = New System.Drawing.Point(135, 73)
-        Me.Label12.Name = "Label12"
-        Me.Label12.Size = New System.Drawing.Size(67, 13)
-        Me.Label12.TabIndex = 4
-        Me.Label12.Text = "Zero All Cmd"
-        '
-        'Label11
-        '
-        Me.Label11.AutoSize = True
-        Me.Label11.Location = New System.Drawing.Point(135, 21)
-        Me.Label11.Name = "Label11"
-        Me.Label11.Size = New System.Drawing.Size(94, 13)
-        Me.Label11.TabIndex = 1
-        Me.Label11.Text = "Go To Spcl Posn1"
-        Me.ToolTip1.SetToolTip(Me.Label11, "Also known as Soft Home")
-        '
-        'gbSettingsJogging
-        '
-        Me.gbSettingsJogging.Controls.Add(Me.cbSettingsKeyboardJogging)
-        Me.gbSettingsJogging.Controls.Add(Me.btnSettingsRefreshJogging)
-        Me.gbSettingsJogging.Controls.Add(Me.Label41)
-        Me.gbSettingsJogging.Controls.Add(Me.Label40)
-        Me.gbSettingsJogging.Controls.Add(Me.Label39)
-        Me.gbSettingsJogging.Controls.Add(Me.Label38)
-        Me.gbSettingsJogging.Controls.Add(Me.tbSettingsZRepeat)
-        Me.gbSettingsJogging.Controls.Add(Me.tbSettingsYRepeat)
-        Me.gbSettingsJogging.Controls.Add(Me.tbSettingsXRepeat)
-        Me.gbSettingsJogging.Controls.Add(Me.Label35)
-        Me.gbSettingsJogging.Controls.Add(Me.Label34)
-        Me.gbSettingsJogging.Controls.Add(Me.Label32)
-        Me.gbSettingsJogging.Controls.Add(Me.tbSettingsFRMetric)
-        Me.gbSettingsJogging.Controls.Add(Me.Label33)
-        Me.gbSettingsJogging.Controls.Add(Me.tbSettingsFIMetric)
-        Me.gbSettingsJogging.Controls.Add(Me.Label31)
-        Me.gbSettingsJogging.Controls.Add(Me.tbSettingsFRImperial)
-        Me.gbSettingsJogging.Controls.Add(Me.Label30)
-        Me.gbSettingsJogging.Controls.Add(Me.cbSettingsMetric)
-        Me.gbSettingsJogging.Controls.Add(Me.tbSettingsFIImperial)
-        Me.gbSettingsJogging.Location = New System.Drawing.Point(607, 19)
-        Me.gbSettingsJogging.Name = "gbSettingsJogging"
-        Me.gbSettingsJogging.Size = New System.Drawing.Size(220, 324)
-        Me.gbSettingsJogging.TabIndex = 0
-        Me.gbSettingsJogging.TabStop = False
-        Me.gbSettingsJogging.Text = "Jogging"
-        '
-        'btnSettingsRefreshJogging
-        '
-        Me.btnSettingsRefreshJogging.Location = New System.Drawing.Point(0, 301)
-        Me.btnSettingsRefreshJogging.Name = "btnSettingsRefreshJogging"
-        Me.btnSettingsRefreshJogging.Size = New System.Drawing.Size(75, 23)
-        Me.btnSettingsRefreshJogging.TabIndex = 11
-        Me.btnSettingsRefreshJogging.Tag = "Jogging"
-        Me.btnSettingsRefreshJogging.Text = "Refresh"
-        Me.btnSettingsRefreshJogging.UseVisualStyleBackColor = True
-        '
-        'Label41
-        '
-        Me.Label41.AutoSize = True
-        Me.Label41.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label41.Location = New System.Drawing.Point(48, 167)
-        Me.Label41.Name = "Label41"
-        Me.Label41.Size = New System.Drawing.Size(158, 13)
-        Me.Label41.TabIndex = 26
-        Me.Label41.Text = "Button Repeat Rate, r/sec"
-        '
-        'Label40
-        '
-        Me.Label40.AutoSize = True
-        Me.Label40.Location = New System.Drawing.Point(129, 244)
-        Me.Label40.Name = "Label40"
-        Me.Label40.Size = New System.Drawing.Size(78, 13)
-        Me.Label40.TabIndex = 25
-        Me.Label40.Text = "Z Repeat Rate"
-        '
-        'Label39
-        '
-        Me.Label39.AutoSize = True
-        Me.Label39.Location = New System.Drawing.Point(129, 218)
-        Me.Label39.Name = "Label39"
-        Me.Label39.Size = New System.Drawing.Size(78, 13)
-        Me.Label39.TabIndex = 24
-        Me.Label39.Text = "Y Repeat Rate"
-        '
-        'Label38
-        '
-        Me.Label38.AutoSize = True
-        Me.Label38.Location = New System.Drawing.Point(129, 192)
-        Me.Label38.Name = "Label38"
-        Me.Label38.Size = New System.Drawing.Size(78, 13)
-        Me.Label38.TabIndex = 23
-        Me.Label38.Text = "X Repeat Rate"
-        '
-        'Label35
-        '
-        Me.Label35.AutoSize = True
-        Me.Label35.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label35.Location = New System.Drawing.Point(136, 104)
-        Me.Label35.Name = "Label35"
-        Me.Label35.Size = New System.Drawing.Size(42, 13)
-        Me.Label35.TabIndex = 19
-        Me.Label35.Text = "Metric"
-        '
-        'Label34
-        '
-        Me.Label34.AutoSize = True
-        Me.Label34.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label34.Location = New System.Drawing.Point(136, 38)
-        Me.Label34.Name = "Label34"
-        Me.Label34.Size = New System.Drawing.Size(51, 13)
-        Me.Label34.TabIndex = 18
-        Me.Label34.Text = "Imperial"
-        '
-        'Label32
-        '
-        Me.Label32.AutoSize = True
-        Me.Label32.Location = New System.Drawing.Point(129, 146)
-        Me.Label32.Name = "Label32"
-        Me.Label32.Size = New System.Drawing.Size(62, 13)
-        Me.Label32.TabIndex = 17
-        Me.Label32.Text = "Feed Rates"
-        '
-        'Label33
-        '
-        Me.Label33.AutoSize = True
-        Me.Label33.Location = New System.Drawing.Point(129, 120)
-        Me.Label33.Name = "Label33"
-        Me.Label33.Size = New System.Drawing.Size(86, 13)
-        Me.Label33.TabIndex = 15
-        Me.Label33.Text = "Feed Increments"
-        '
-        'Label31
-        '
-        Me.Label31.AutoSize = True
-        Me.Label31.Location = New System.Drawing.Point(129, 85)
-        Me.Label31.Name = "Label31"
-        Me.Label31.Size = New System.Drawing.Size(62, 13)
-        Me.Label31.TabIndex = 13
-        Me.Label31.Text = "Feed Rates"
-        '
-        'Label30
-        '
-        Me.Label30.AutoSize = True
-        Me.Label30.Location = New System.Drawing.Point(129, 59)
-        Me.Label30.Name = "Label30"
-        Me.Label30.Size = New System.Drawing.Size(86, 13)
-        Me.Label30.TabIndex = 11
-        Me.Label30.Text = "Feed Increments"
-        '
-        'ofdGcodeFile
-        '
-        Me.ofdGcodeFile.DefaultExt = "ngc"
-        Me.ofdGcodeFile.FileName = "*.*"
-        Me.ofdGcodeFile.Filter = "All files (*.*)|*.*"
-        '
-        'sfdOffsets
-        '
-        Me.sfdOffsets.DefaultExt = "xml"
-        Me.sfdOffsets.Filter = "WorkOffset Files|*.xml"
-        '
-        'ofdOffsets
-        '
-        Me.ofdOffsets.DefaultExt = "xml"
-        Me.ofdOffsets.FileName = "OpenFileDialog1"
-        Me.ofdOffsets.Filter = "WorkOffset Files|*.xml"
-        '
-        'GrblSettingsBindingSource
-        '
-        Me.GrblSettingsBindingSource.DataSource = GetType(GrblPanel.GrblGui.GrblSettings)
-        '
-        'Label4
-        '
-        Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(57, 555)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(82, 13)
-        Me.Label4.TabIndex = 7
-        Me.Label4.Text = "Last Grbl Param"
-        '
-        'cbVerbose
-        '
-        Me.cbVerbose.AutoSize = True
-        Me.cbVerbose.Checked = Global.GrblPanel.My.MySettings.Default.StatusVerbose
-        Me.cbVerbose.DataBindings.Add(New System.Windows.Forms.Binding("Checked", Global.GrblPanel.My.MySettings.Default, "statusVerbose", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
-        Me.cbVerbose.Location = New System.Drawing.Point(87, 20)
-        Me.cbVerbose.Name = "cbVerbose"
-        Me.cbVerbose.Size = New System.Drawing.Size(65, 17)
-        Me.cbVerbose.TabIndex = 15
-        Me.cbVerbose.Text = "Verbose"
-        Me.cbVerbose.UseVisualStyleBackColor = True
-        '
-        'tbSettingsGrblLastParam
-        '
-        Me.tbSettingsGrblLastParam.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.GrblPanel.My.MySettings.Default, "GrblLastParamID", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
-        Me.tbSettingsGrblLastParam.Location = New System.Drawing.Point(6, 552)
-        Me.tbSettingsGrblLastParam.Name = "tbSettingsGrblLastParam"
-        Me.tbSettingsGrblLastParam.Size = New System.Drawing.Size(45, 20)
-        Me.tbSettingsGrblLastParam.TabIndex = 6
-        Me.tbSettingsGrblLastParam.Text = Global.GrblPanel.My.MySettings.Default.GrblLastParamID
-        Me.ToolTip1.SetToolTip(Me.tbSettingsGrblLastParam, "Change this to reflect the highest Grbl Parameter number")
-        '
         'cbSettingsLeftHanded
         '
         Me.cbSettingsLeftHanded.AutoSize = True
@@ -2577,6 +2308,34 @@ Partial Class GrblGui
         Me.cbStatusPollEnable.Text = "Status Poll"
         Me.cbStatusPollEnable.UseVisualStyleBackColor = True
         '
+        'btnSettingsRefreshMisc
+        '
+        Me.btnSettingsRefreshMisc.Location = New System.Drawing.Point(0, 157)
+        Me.btnSettingsRefreshMisc.Name = "btnSettingsRefreshMisc"
+        Me.btnSettingsRefreshMisc.Size = New System.Drawing.Size(75, 23)
+        Me.btnSettingsRefreshMisc.TabIndex = 6
+        Me.btnSettingsRefreshMisc.Tag = "Misc"
+        Me.btnSettingsRefreshMisc.Text = "Refresh"
+        Me.btnSettingsRefreshMisc.UseVisualStyleBackColor = True
+        '
+        'Label37
+        '
+        Me.Label37.AutoSize = True
+        Me.Label37.Location = New System.Drawing.Point(70, 70)
+        Me.Label37.Name = "Label37"
+        Me.Label37.Size = New System.Drawing.Size(77, 13)
+        Me.Label37.TabIndex = 5
+        Me.Label37.Text = "RBuf Max Size"
+        '
+        'Label36
+        '
+        Me.Label36.AutoSize = True
+        Me.Label36.Location = New System.Drawing.Point(70, 44)
+        Me.Label36.Name = "Label36"
+        Me.Label36.Size = New System.Drawing.Size(61, 13)
+        Me.Label36.TabIndex = 4
+        Me.Label36.Text = "Q Max Size"
+        '
         'tbSettingsRBuffSize
         '
         Me.tbSettingsRBuffSize.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.GrblPanel.My.MySettings.Default, "RBuffMaxSize", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
@@ -2595,6 +2354,15 @@ Partial Class GrblGui
         Me.tbSettingsQSize.TabIndex = 2
         Me.tbSettingsQSize.Text = Global.GrblPanel.My.MySettings.Default.QBuffMaxSize
         '
+        'Label26
+        '
+        Me.Label26.AutoSize = True
+        Me.Label26.Location = New System.Drawing.Point(70, 22)
+        Me.Label26.Name = "Label26"
+        Me.Label26.Size = New System.Drawing.Size(84, 13)
+        Me.Label26.TabIndex = 1
+        Me.Label26.Text = "Poll Interval (ms)"
+        '
         'tbSettingsPollRate
         '
         Me.tbSettingsPollRate.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.GrblPanel.My.MySettings.Default, "statusPollInterval", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
@@ -2603,6 +2371,37 @@ Partial Class GrblGui
         Me.tbSettingsPollRate.Size = New System.Drawing.Size(43, 20)
         Me.tbSettingsPollRate.TabIndex = 0
         Me.tbSettingsPollRate.Text = Global.GrblPanel.My.MySettings.Default.StatusPollInterval
+        '
+        'gbSettingsPosition
+        '
+        Me.gbSettingsPosition.Controls.Add(Me.Label8)
+        Me.gbSettingsPosition.Controls.Add(Me.tbSettingsSpclPosition2)
+        Me.gbSettingsPosition.Controls.Add(Me.btnSettingsRefreshPosition)
+        Me.gbSettingsPosition.Controls.Add(Me.Label29)
+        Me.gbSettingsPosition.Controls.Add(Me.tbWorkZ0Cmd)
+        Me.gbSettingsPosition.Controls.Add(Me.Label28)
+        Me.gbSettingsPosition.Controls.Add(Me.tbWorkY0Cmd)
+        Me.gbSettingsPosition.Controls.Add(Me.Label13)
+        Me.gbSettingsPosition.Controls.Add(Me.Label12)
+        Me.gbSettingsPosition.Controls.Add(Me.tbWorkX0Cmd)
+        Me.gbSettingsPosition.Controls.Add(Me.tbSettingsZeroXYZCmd)
+        Me.gbSettingsPosition.Controls.Add(Me.Label11)
+        Me.gbSettingsPosition.Controls.Add(Me.tbSettingsSpclPosition1)
+        Me.gbSettingsPosition.Location = New System.Drawing.Point(362, 19)
+        Me.gbSettingsPosition.Name = "gbSettingsPosition"
+        Me.gbSettingsPosition.Size = New System.Drawing.Size(239, 209)
+        Me.gbSettingsPosition.TabIndex = 1
+        Me.gbSettingsPosition.TabStop = False
+        Me.gbSettingsPosition.Text = "Position"
+        '
+        'Label8
+        '
+        Me.Label8.AutoSize = True
+        Me.Label8.Location = New System.Drawing.Point(135, 47)
+        Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(94, 13)
+        Me.Label8.TabIndex = 12
+        Me.Label8.Text = "GoTo Spcl Posn 2"
         '
         'tbSettingsSpclPosition2
         '
@@ -2613,6 +2412,25 @@ Partial Class GrblGui
         Me.tbSettingsSpclPosition2.TabIndex = 11
         Me.tbSettingsSpclPosition2.Text = Global.GrblPanel.My.MySettings.Default.MachineSpclPosition2
         '
+        'btnSettingsRefreshPosition
+        '
+        Me.btnSettingsRefreshPosition.Location = New System.Drawing.Point(-2, 182)
+        Me.btnSettingsRefreshPosition.Name = "btnSettingsRefreshPosition"
+        Me.btnSettingsRefreshPosition.Size = New System.Drawing.Size(75, 23)
+        Me.btnSettingsRefreshPosition.TabIndex = 10
+        Me.btnSettingsRefreshPosition.Tag = "Position"
+        Me.btnSettingsRefreshPosition.Text = "Refresh"
+        Me.btnSettingsRefreshPosition.UseVisualStyleBackColor = True
+        '
+        'Label29
+        '
+        Me.Label29.AutoSize = True
+        Me.Label29.Location = New System.Drawing.Point(135, 150)
+        Me.Label29.Name = "Label29"
+        Me.Label29.Size = New System.Drawing.Size(75, 13)
+        Me.Label29.TabIndex = 9
+        Me.Label29.Text = "Work Z 0 cmd"
+        '
         'tbWorkZ0Cmd
         '
         Me.tbWorkZ0Cmd.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.GrblPanel.My.MySettings.Default, "WorkZ0Cmd", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
@@ -2622,6 +2440,15 @@ Partial Class GrblGui
         Me.tbWorkZ0Cmd.TabIndex = 8
         Me.tbWorkZ0Cmd.Text = Global.GrblPanel.My.MySettings.Default.WorkZ0Cmd
         '
+        'Label28
+        '
+        Me.Label28.AutoSize = True
+        Me.Label28.Location = New System.Drawing.Point(135, 124)
+        Me.Label28.Name = "Label28"
+        Me.Label28.Size = New System.Drawing.Size(75, 13)
+        Me.Label28.TabIndex = 7
+        Me.Label28.Text = "Work Y 0 cmd"
+        '
         'tbWorkY0Cmd
         '
         Me.tbWorkY0Cmd.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.GrblPanel.My.MySettings.Default, "WorkY0Cmd", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
@@ -2630,6 +2457,24 @@ Partial Class GrblGui
         Me.tbWorkY0Cmd.Size = New System.Drawing.Size(117, 20)
         Me.tbWorkY0Cmd.TabIndex = 6
         Me.tbWorkY0Cmd.Text = Global.GrblPanel.My.MySettings.Default.WorkY0Cmd
+        '
+        'Label13
+        '
+        Me.Label13.AutoSize = True
+        Me.Label13.Location = New System.Drawing.Point(135, 99)
+        Me.Label13.Name = "Label13"
+        Me.Label13.Size = New System.Drawing.Size(75, 13)
+        Me.Label13.TabIndex = 5
+        Me.Label13.Text = "Work X 0 cmd"
+        '
+        'Label12
+        '
+        Me.Label12.AutoSize = True
+        Me.Label12.Location = New System.Drawing.Point(135, 73)
+        Me.Label12.Name = "Label12"
+        Me.Label12.Size = New System.Drawing.Size(67, 13)
+        Me.Label12.TabIndex = 4
+        Me.Label12.Text = "Zero All Cmd"
         '
         'tbWorkX0Cmd
         '
@@ -2649,6 +2494,16 @@ Partial Class GrblGui
         Me.tbSettingsZeroXYZCmd.TabIndex = 2
         Me.tbSettingsZeroXYZCmd.Text = Global.GrblPanel.My.MySettings.Default.Work0Cmd
         '
+        'Label11
+        '
+        Me.Label11.AutoSize = True
+        Me.Label11.Location = New System.Drawing.Point(135, 21)
+        Me.Label11.Name = "Label11"
+        Me.Label11.Size = New System.Drawing.Size(94, 13)
+        Me.Label11.TabIndex = 1
+        Me.Label11.Text = "Go To Spcl Posn1"
+        Me.ToolTip1.SetToolTip(Me.Label11, "Also known as Soft Home")
+        '
         'tbSettingsSpclPosition1
         '
         Me.tbSettingsSpclPosition1.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.GrblPanel.My.MySettings.Default, "MachineSpclPosition1", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
@@ -2657,6 +2512,35 @@ Partial Class GrblGui
         Me.tbSettingsSpclPosition1.Size = New System.Drawing.Size(117, 20)
         Me.tbSettingsSpclPosition1.TabIndex = 0
         Me.tbSettingsSpclPosition1.Text = Global.GrblPanel.My.MySettings.Default.MachineSpclPosition1
+        '
+        'gbSettingsJogging
+        '
+        Me.gbSettingsJogging.Controls.Add(Me.cbSettingsKeyboardJogging)
+        Me.gbSettingsJogging.Controls.Add(Me.btnSettingsRefreshJogging)
+        Me.gbSettingsJogging.Controls.Add(Me.Label41)
+        Me.gbSettingsJogging.Controls.Add(Me.Label40)
+        Me.gbSettingsJogging.Controls.Add(Me.Label39)
+        Me.gbSettingsJogging.Controls.Add(Me.Label38)
+        Me.gbSettingsJogging.Controls.Add(Me.tbSettingsZRepeat)
+        Me.gbSettingsJogging.Controls.Add(Me.tbSettingsYRepeat)
+        Me.gbSettingsJogging.Controls.Add(Me.tbSettingsXRepeat)
+        Me.gbSettingsJogging.Controls.Add(Me.Label35)
+        Me.gbSettingsJogging.Controls.Add(Me.Label34)
+        Me.gbSettingsJogging.Controls.Add(Me.Label32)
+        Me.gbSettingsJogging.Controls.Add(Me.tbSettingsFRMetric)
+        Me.gbSettingsJogging.Controls.Add(Me.Label33)
+        Me.gbSettingsJogging.Controls.Add(Me.tbSettingsFIMetric)
+        Me.gbSettingsJogging.Controls.Add(Me.Label31)
+        Me.gbSettingsJogging.Controls.Add(Me.tbSettingsFRImperial)
+        Me.gbSettingsJogging.Controls.Add(Me.Label30)
+        Me.gbSettingsJogging.Controls.Add(Me.cbSettingsMetric)
+        Me.gbSettingsJogging.Controls.Add(Me.tbSettingsFIImperial)
+        Me.gbSettingsJogging.Location = New System.Drawing.Point(607, 19)
+        Me.gbSettingsJogging.Name = "gbSettingsJogging"
+        Me.gbSettingsJogging.Size = New System.Drawing.Size(220, 324)
+        Me.gbSettingsJogging.TabIndex = 0
+        Me.gbSettingsJogging.TabStop = False
+        Me.gbSettingsJogging.Text = "Jogging"
         '
         'cbSettingsKeyboardJogging
         '
@@ -2670,6 +2554,53 @@ Partial Class GrblGui
         Me.cbSettingsKeyboardJogging.Text = "Enable keyboard arrows"
         Me.ToolTip1.SetToolTip(Me.cbSettingsKeyboardJogging, "Allow arrows, pg up, pg dn to do jogging")
         Me.cbSettingsKeyboardJogging.UseVisualStyleBackColor = True
+        '
+        'btnSettingsRefreshJogging
+        '
+        Me.btnSettingsRefreshJogging.Location = New System.Drawing.Point(0, 301)
+        Me.btnSettingsRefreshJogging.Name = "btnSettingsRefreshJogging"
+        Me.btnSettingsRefreshJogging.Size = New System.Drawing.Size(75, 23)
+        Me.btnSettingsRefreshJogging.TabIndex = 11
+        Me.btnSettingsRefreshJogging.Tag = "Jogging"
+        Me.btnSettingsRefreshJogging.Text = "Refresh"
+        Me.btnSettingsRefreshJogging.UseVisualStyleBackColor = True
+        '
+        'Label41
+        '
+        Me.Label41.AutoSize = True
+        Me.Label41.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label41.Location = New System.Drawing.Point(48, 167)
+        Me.Label41.Name = "Label41"
+        Me.Label41.Size = New System.Drawing.Size(158, 13)
+        Me.Label41.TabIndex = 26
+        Me.Label41.Text = "Button Repeat Rate, r/sec"
+        '
+        'Label40
+        '
+        Me.Label40.AutoSize = True
+        Me.Label40.Location = New System.Drawing.Point(129, 244)
+        Me.Label40.Name = "Label40"
+        Me.Label40.Size = New System.Drawing.Size(78, 13)
+        Me.Label40.TabIndex = 25
+        Me.Label40.Text = "Z Repeat Rate"
+        '
+        'Label39
+        '
+        Me.Label39.AutoSize = True
+        Me.Label39.Location = New System.Drawing.Point(129, 218)
+        Me.Label39.Name = "Label39"
+        Me.Label39.Size = New System.Drawing.Size(78, 13)
+        Me.Label39.TabIndex = 24
+        Me.Label39.Text = "Y Repeat Rate"
+        '
+        'Label38
+        '
+        Me.Label38.AutoSize = True
+        Me.Label38.Location = New System.Drawing.Point(129, 192)
+        Me.Label38.Name = "Label38"
+        Me.Label38.Size = New System.Drawing.Size(78, 13)
+        Me.Label38.TabIndex = 23
+        Me.Label38.Text = "X Repeat Rate"
         '
         'tbSettingsZRepeat
         '
@@ -2698,6 +2629,35 @@ Partial Class GrblGui
         Me.tbSettingsXRepeat.TabIndex = 20
         Me.tbSettingsXRepeat.Text = Global.GrblPanel.My.MySettings.Default.JoggingXRepeat
         '
+        'Label35
+        '
+        Me.Label35.AutoSize = True
+        Me.Label35.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label35.Location = New System.Drawing.Point(136, 104)
+        Me.Label35.Name = "Label35"
+        Me.Label35.Size = New System.Drawing.Size(42, 13)
+        Me.Label35.TabIndex = 19
+        Me.Label35.Text = "Metric"
+        '
+        'Label34
+        '
+        Me.Label34.AutoSize = True
+        Me.Label34.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label34.Location = New System.Drawing.Point(136, 38)
+        Me.Label34.Name = "Label34"
+        Me.Label34.Size = New System.Drawing.Size(51, 13)
+        Me.Label34.TabIndex = 18
+        Me.Label34.Text = "Imperial"
+        '
+        'Label32
+        '
+        Me.Label32.AutoSize = True
+        Me.Label32.Location = New System.Drawing.Point(129, 146)
+        Me.Label32.Name = "Label32"
+        Me.Label32.Size = New System.Drawing.Size(62, 13)
+        Me.Label32.TabIndex = 17
+        Me.Label32.Text = "Feed Rates"
+        '
         'tbSettingsFRMetric
         '
         Me.tbSettingsFRMetric.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.GrblPanel.My.MySettings.Default, "JoggingFRMetric", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
@@ -2706,6 +2666,15 @@ Partial Class GrblGui
         Me.tbSettingsFRMetric.Size = New System.Drawing.Size(117, 20)
         Me.tbSettingsFRMetric.TabIndex = 16
         Me.tbSettingsFRMetric.Text = Global.GrblPanel.My.MySettings.Default.JoggingFRMetric
+        '
+        'Label33
+        '
+        Me.Label33.AutoSize = True
+        Me.Label33.Location = New System.Drawing.Point(129, 120)
+        Me.Label33.Name = "Label33"
+        Me.Label33.Size = New System.Drawing.Size(86, 13)
+        Me.Label33.TabIndex = 15
+        Me.Label33.Text = "Feed Increments"
         '
         'tbSettingsFIMetric
         '
@@ -2716,6 +2685,15 @@ Partial Class GrblGui
         Me.tbSettingsFIMetric.TabIndex = 14
         Me.tbSettingsFIMetric.Text = Global.GrblPanel.My.MySettings.Default.JoggingFIMEtric
         '
+        'Label31
+        '
+        Me.Label31.AutoSize = True
+        Me.Label31.Location = New System.Drawing.Point(129, 85)
+        Me.Label31.Name = "Label31"
+        Me.Label31.Size = New System.Drawing.Size(62, 13)
+        Me.Label31.TabIndex = 13
+        Me.Label31.Text = "Feed Rates"
+        '
         'tbSettingsFRImperial
         '
         Me.tbSettingsFRImperial.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.GrblPanel.My.MySettings.Default, "JoggingFRImperial", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
@@ -2724,6 +2702,15 @@ Partial Class GrblGui
         Me.tbSettingsFRImperial.Size = New System.Drawing.Size(117, 20)
         Me.tbSettingsFRImperial.TabIndex = 12
         Me.tbSettingsFRImperial.Text = Global.GrblPanel.My.MySettings.Default.JoggingFRImperial
+        '
+        'Label30
+        '
+        Me.Label30.AutoSize = True
+        Me.Label30.Location = New System.Drawing.Point(129, 59)
+        Me.Label30.Name = "Label30"
+        Me.Label30.Size = New System.Drawing.Size(86, 13)
+        Me.Label30.TabIndex = 11
+        Me.Label30.Text = "Feed Increments"
         '
         'cbSettingsMetric
         '
@@ -2745,6 +2732,27 @@ Partial Class GrblGui
         Me.tbSettingsFIImperial.Size = New System.Drawing.Size(117, 20)
         Me.tbSettingsFIImperial.TabIndex = 10
         Me.tbSettingsFIImperial.Text = Global.GrblPanel.My.MySettings.Default.JoggingFIImperial
+        '
+        'ofdGcodeFile
+        '
+        Me.ofdGcodeFile.DefaultExt = "ngc"
+        Me.ofdGcodeFile.FileName = "*.*"
+        Me.ofdGcodeFile.Filter = "All files (*.*)|*.*"
+        '
+        'sfdOffsets
+        '
+        Me.sfdOffsets.DefaultExt = "xml"
+        Me.sfdOffsets.Filter = "WorkOffset Files|*.xml"
+        '
+        'ofdOffsets
+        '
+        Me.ofdOffsets.DefaultExt = "xml"
+        Me.ofdOffsets.FileName = "OpenFileDialog1"
+        Me.ofdOffsets.Filter = "WorkOffset Files|*.xml"
+        '
+        'GrblSettingsBindingSource
+        '
+        Me.GrblSettingsBindingSource.DataSource = GetType(GrblPanel.GrblGui.GrblSettings)
         '
         'GrblGui
         '

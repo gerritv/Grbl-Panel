@@ -68,3 +68,8 @@ V0.1.0.6	- 2014 Oct 6
 			- Fix save of Jog feed increment and rate settings
 			- Add param to set last/highest Grbl param to retrieve
 			- Block edit of Grbl Settings ID and description columns
+V1.0.1.0	- 2014 Oct 13
+			- Issue 10 Add defaults and settings save for Jog feed Increment and Distance radio buttons
+			- Remove message box warnings about empty Feed rate and distance settings
+			- Protect from Status Report Mask <> 15 (Issue 5)
+			- Handle empty gcode lines (Issue 9)

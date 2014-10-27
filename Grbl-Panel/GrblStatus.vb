@@ -128,7 +128,9 @@ Partial Class GrblGui
             If Me.cbVerbose.Checked Then
                 ' Show data in the Status screen (from our own thread)
                 Me.lbResponses.Items.Add(data)
-                Me.lbResponses.TopIndex = Me.lbResponses.Items.Count - 1
+                If Me.lbResponses.Items.Count > 1 Then      ' handle case where user doesn't have 
+                    Me.lbResponses.TopIndex = Me.lbResponses.Items.Count - 1
+                End If
             Else
                 ' filter out <> , ok, $G, $$ response messages
                 If data.Length > 0 And Not (data.First() = "<") And Not (data.First = "o") And Not (data.First = "$") And _
@@ -150,10 +152,14 @@ Partial Class GrblGui
                 ' Lets display the values
                 data = data.Remove(data.Length - 2, 2)   ' Remove the "> " at end
                 Dim positions = Split(data, ":")
-                Dim buffer = Split(positions(3), ",")
-                Dim rx = Split(positions(4), ",")
-                prgbRxBuf.Value = rx(0)
-                prgBarQ.Value = buffer(0)
+                Try
+                    Dim buffer = Split(positions(3), ",")
+                    Dim rx = Split(positions(4), ",")
+                    prgbRxBuf.Value = rx(0)
+                    prgBarQ.Value = buffer(0)
+                Catch
+                    ' do nothing, should have Status Report mask = 15
+                End Try
             End If
 
             ' Show status on the buttons
@@ -186,7 +192,7 @@ Partial Class GrblGui
             ' Major problem so cancel the file
             ' Let GrblGcode class handle the error
             'gcode.sendGCodeFileStop()
-        End If
+            End If
 
         ' Display the Parser state if that is the message type
         If data(0) = "[" And data.Contains("F") Then        ' we have a Parser status message
