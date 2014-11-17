@@ -1,5 +1,6 @@
 ﻿Imports System.IO
-Imports GrblPanel.GrblIF
+Imports GrblPanel.GrblCOM
+Imports GrblPanel.GrblIP
 
 Partial Class GrblGui
 
@@ -30,9 +31,11 @@ Partial Class GrblGui
             If action = True Then
                 ' Enable looking at responses now, for use by manual commands
                 _gui.grblPort.addRcvDelegate(AddressOf _gui.processLineEvent)
+                _gui.grblIP.addRcvDelegate(AddressOf _gui.processLineEvent)
                 _gui.btnFileSelect.Enabled = True
             Else
                 _gui.grblPort.deleteRcvDelegate(AddressOf _gui.processLineEvent)
+                _gui.grblIP.deleteRcvDelegate(AddressOf _gui.processLineEvent)
             End If
         End Sub
 
@@ -104,7 +107,12 @@ Partial Class GrblGui
                 wtgForAck = True
             End If
             _gui.state.ProcessGCode(data)            ' Keep Gcode State object in the loop
-            _gui.grblPort.sendData(data)
+
+            If _gui.grblPort.Connected Then
+                _gui.grblPort.sendData(data)
+            ElseIf _gui.grblIP.Connected Then
+                _gui.grblIP.sendData(data)
+            End If
 
         End Sub
 
@@ -338,8 +346,15 @@ Partial Class GrblGui
                             line = line.Replace(" ", "")
                             ' set wtg for Ack
                             gcode.wtgForAck = True
+
                             ' Ship it Dano!
-                            grblPort.sendData(line)
+                            'grblPort.sendData(line)
+                            If grblPort.Connected Then
+                                grblPort.sendData(line)
+                            ElseIf grblIP.Connected Then
+                                grblIP.sendData(line)
+                            End If
+
                         End If
                     Else
                         ' We reached the EOF aka linecount=0, yippee
@@ -367,7 +382,14 @@ Partial Class GrblGui
     Private Sub btnCheckMode_Click(sender As Object, e As EventArgs) Handles btnCheckMode.Click
         ' Enable/disable Check mode in Grbl
         ' Just send a $C, this toggles Check state in Grbl
-        grblPort.sendData("$C")
+
+        'grblPort.sendData("$C")
+        If grblPort.Connected Then
+            grblPort.sendData("$C")
+        ElseIf grblIP.Connected Then
+            grblIP.sendData("$C")
+        End If
+
     End Sub
 
     Private Sub btnFileGroup_Click(sender As Object, e As EventArgs) Handles btnFileSend.Click, btnFileSelect.Click, btnFilePause.Click, btnFileStop.Click

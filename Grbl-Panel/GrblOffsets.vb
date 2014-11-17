@@ -1,4 +1,5 @@
-﻿Imports GrblPanel.GrblIF
+﻿Imports GrblPanel.GrblCOM
+Imports GrblPanel.GrblIP
 Imports System.Xml
 Partial Class GrblGui
     Public Class GrblOffsets
@@ -18,8 +19,10 @@ Partial Class GrblGui
             _gui.gbStatus.Enabled = action
             If action = True Then
                 _gui.grblPort.addRcvDelegate(AddressOf _gui.showGrblOffsets)
+                _gui.grblIP.addRcvDelegate(AddressOf _gui.showGrblOffsets)
             Else
                 _gui.grblPort.deleteRcvDelegate(AddressOf _gui.showGrblOffsets)
+                _gui.grblIP.deleteRcvDelegate(AddressOf _gui.showGrblOffsets)
             End If
         End Sub
 

@@ -34,6 +34,16 @@ Partial Class GrblGui
         Me.AboutToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.tabPgInterface = New System.Windows.Forms.TabPage()
+        Me.gbGrbl = New System.Windows.Forms.GroupBox()
+        Me.ConnectionTab = New System.Windows.Forms.TabControl()
+        Me.grblCOMtab = New System.Windows.Forms.TabPage()
+        Me.cbPorts = New System.Windows.Forms.ComboBox()
+        Me.btnRescanPorts = New System.Windows.Forms.Button()
+        Me.btnConnect = New System.Windows.Forms.Button()
+        Me.cbBaud = New System.Windows.Forms.ComboBox()
+        Me.grblIPtab = New System.Windows.Forms.TabPage()
+        Me.txtIPAddress = New System.Windows.Forms.TextBox()
+        Me.btnIPConnect = New System.Windows.Forms.Button()
         Me.gbState = New System.Windows.Forms.GroupBox()
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.tbStateFeedRate = New System.Windows.Forms.TextBox()
@@ -108,11 +118,6 @@ Partial Class GrblGui
         Me.lvColLineNo = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.lvColGCode = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.btnFileStop = New System.Windows.Forms.Button()
-        Me.gbGrbl = New System.Windows.Forms.GroupBox()
-        Me.btnRescanPorts = New System.Windows.Forms.Button()
-        Me.cbBaud = New System.Windows.Forms.ComboBox()
-        Me.cbPorts = New System.Windows.Forms.ComboBox()
-        Me.btnConnect = New System.Windows.Forms.Button()
         Me.gbPosition = New System.Windows.Forms.GroupBox()
         Me.tabCtlPosition = New System.Windows.Forms.TabControl()
         Me.tpWork = New System.Windows.Forms.TabPage()
@@ -259,6 +264,10 @@ Partial Class GrblGui
         Me.MenuStrip1.SuspendLayout()
         Me.TabControl1.SuspendLayout()
         Me.tabPgInterface.SuspendLayout()
+        Me.gbGrbl.SuspendLayout()
+        Me.ConnectionTab.SuspendLayout()
+        Me.grblCOMtab.SuspendLayout()
+        Me.grblIPtab.SuspendLayout()
         Me.gbState.SuspendLayout()
         Me.Panel2.SuspendLayout()
         Me.Panel1.SuspendLayout()
@@ -269,7 +278,6 @@ Partial Class GrblGui
         Me.gbDistance.SuspendLayout()
         Me.gbStatus.SuspendLayout()
         Me.gbGcode.SuspendLayout()
-        Me.gbGrbl.SuspendLayout()
         Me.gbPosition.SuspendLayout()
         Me.tabCtlPosition.SuspendLayout()
         Me.tpWork.SuspendLayout()
@@ -360,13 +368,13 @@ Partial Class GrblGui
         '
         'tabPgInterface
         '
+        Me.tabPgInterface.Controls.Add(Me.gbGrbl)
         Me.tabPgInterface.Controls.Add(Me.gbState)
         Me.tabPgInterface.Controls.Add(Me.gbControl)
         Me.tabPgInterface.Controls.Add(Me.gbMDI)
         Me.tabPgInterface.Controls.Add(Me.gbJogging)
         Me.tabPgInterface.Controls.Add(Me.gbStatus)
         Me.tabPgInterface.Controls.Add(Me.gbGcode)
-        Me.tabPgInterface.Controls.Add(Me.gbGrbl)
         Me.tabPgInterface.Controls.Add(Me.gbPosition)
         Me.tabPgInterface.Location = New System.Drawing.Point(4, 22)
         Me.tabPgInterface.Name = "tabPgInterface"
@@ -375,6 +383,107 @@ Partial Class GrblGui
         Me.tabPgInterface.TabIndex = 0
         Me.tabPgInterface.Text = "Interface"
         Me.tabPgInterface.UseVisualStyleBackColor = True
+        '
+        'gbGrbl
+        '
+        Me.gbGrbl.Controls.Add(Me.ConnectionTab)
+        Me.gbGrbl.Location = New System.Drawing.Point(3, 3)
+        Me.gbGrbl.Name = "gbGrbl"
+        Me.gbGrbl.Size = New System.Drawing.Size(178, 108)
+        Me.gbGrbl.TabIndex = 3
+        Me.gbGrbl.TabStop = False
+        Me.gbGrbl.Text = "Grbl"
+        '
+        'ConnectionTab
+        '
+        Me.ConnectionTab.Controls.Add(Me.grblCOMtab)
+        Me.ConnectionTab.Controls.Add(Me.grblIPtab)
+        Me.ConnectionTab.Location = New System.Drawing.Point(6, 14)
+        Me.ConnectionTab.Name = "ConnectionTab"
+        Me.ConnectionTab.SelectedIndex = 0
+        Me.ConnectionTab.Size = New System.Drawing.Size(162, 89)
+        Me.ConnectionTab.TabIndex = 6
+        '
+        'grblCOMtab
+        '
+        Me.grblCOMtab.Controls.Add(Me.cbPorts)
+        Me.grblCOMtab.Controls.Add(Me.btnRescanPorts)
+        Me.grblCOMtab.Controls.Add(Me.btnConnect)
+        Me.grblCOMtab.Controls.Add(Me.cbBaud)
+        Me.grblCOMtab.Location = New System.Drawing.Point(4, 22)
+        Me.grblCOMtab.Name = "grblCOMtab"
+        Me.grblCOMtab.Padding = New System.Windows.Forms.Padding(3)
+        Me.grblCOMtab.Size = New System.Drawing.Size(154, 63)
+        Me.grblCOMtab.TabIndex = 0
+        Me.grblCOMtab.Text = "COM"
+        Me.grblCOMtab.UseVisualStyleBackColor = True
+        '
+        'cbPorts
+        '
+        Me.cbPorts.FormattingEnabled = True
+        Me.cbPorts.Location = New System.Drawing.Point(6, 6)
+        Me.cbPorts.Name = "cbPorts"
+        Me.cbPorts.Size = New System.Drawing.Size(72, 21)
+        Me.cbPorts.TabIndex = 3
+        '
+        'btnRescanPorts
+        '
+        Me.btnRescanPorts.FlatStyle = System.Windows.Forms.FlatStyle.System
+        Me.btnRescanPorts.Location = New System.Drawing.Point(84, 35)
+        Me.btnRescanPorts.Name = "btnRescanPorts"
+        Me.btnRescanPorts.Size = New System.Drawing.Size(68, 23)
+        Me.btnRescanPorts.TabIndex = 5
+        Me.btnRescanPorts.Text = "ReScan"
+        Me.btnRescanPorts.UseVisualStyleBackColor = True
+        '
+        'btnConnect
+        '
+        Me.btnConnect.FlatStyle = System.Windows.Forms.FlatStyle.System
+        Me.btnConnect.Location = New System.Drawing.Point(84, 4)
+        Me.btnConnect.Name = "btnConnect"
+        Me.btnConnect.Size = New System.Drawing.Size(68, 23)
+        Me.btnConnect.TabIndex = 1
+        Me.btnConnect.Text = "Connect"
+        Me.btnConnect.UseVisualStyleBackColor = True
+        '
+        'cbBaud
+        '
+        Me.cbBaud.FormattingEnabled = True
+        Me.cbBaud.Items.AddRange(New Object() {"9600", "115200"})
+        Me.cbBaud.Location = New System.Drawing.Point(6, 36)
+        Me.cbBaud.Name = "cbBaud"
+        Me.cbBaud.Size = New System.Drawing.Size(72, 21)
+        Me.cbBaud.TabIndex = 4
+        '
+        'grblIPtab
+        '
+        Me.grblIPtab.Controls.Add(Me.txtIPAddress)
+        Me.grblIPtab.Controls.Add(Me.btnIPConnect)
+        Me.grblIPtab.Location = New System.Drawing.Point(4, 22)
+        Me.grblIPtab.Name = "grblIPtab"
+        Me.grblIPtab.Padding = New System.Windows.Forms.Padding(3)
+        Me.grblIPtab.Size = New System.Drawing.Size(154, 63)
+        Me.grblIPtab.TabIndex = 1
+        Me.grblIPtab.Text = "IP"
+        Me.grblIPtab.UseVisualStyleBackColor = True
+        '
+        'txtIPAddress
+        '
+        Me.txtIPAddress.Location = New System.Drawing.Point(6, 6)
+        Me.txtIPAddress.Name = "txtIPAddress"
+        Me.txtIPAddress.Size = New System.Drawing.Size(142, 20)
+        Me.txtIPAddress.TabIndex = 10
+        Me.ToolTip1.SetToolTip(Me.txtIPAddress, "Use the format ""<ip address>:<port>"" to specify a port number")
+        '
+        'btnIPConnect
+        '
+        Me.btnIPConnect.FlatStyle = System.Windows.Forms.FlatStyle.System
+        Me.btnIPConnect.Location = New System.Drawing.Point(6, 35)
+        Me.btnIPConnect.Name = "btnIPConnect"
+        Me.btnIPConnect.Size = New System.Drawing.Size(145, 23)
+        Me.btnIPConnect.TabIndex = 6
+        Me.btnIPConnect.Text = "Connect"
+        Me.btnIPConnect.UseVisualStyleBackColor = True
         '
         'gbState
         '
@@ -700,7 +809,7 @@ Partial Class GrblGui
         Me.gbMDI.Controls.Add(Me.tbSendData)
         Me.gbMDI.Location = New System.Drawing.Point(187, 3)
         Me.gbMDI.Name = "gbMDI"
-        Me.gbMDI.Size = New System.Drawing.Size(336, 79)
+        Me.gbMDI.Size = New System.Drawing.Size(336, 108)
         Me.gbMDI.TabIndex = 15
         Me.gbMDI.TabStop = False
         Me.gbMDI.Text = "MDI"
@@ -745,7 +854,7 @@ Partial Class GrblGui
         Me.gbJogging.Controls.Add(Me.gbDistance)
         Me.gbJogging.Controls.Add(Me.cbUnits)
         Me.gbJogging.Enabled = False
-        Me.gbJogging.Location = New System.Drawing.Point(3, 83)
+        Me.gbJogging.Location = New System.Drawing.Point(3, 117)
         Me.gbJogging.Name = "gbJogging"
         Me.gbJogging.Size = New System.Drawing.Size(520, 215)
         Me.gbJogging.TabIndex = 0
@@ -1055,9 +1164,9 @@ Partial Class GrblGui
         Me.gbGcode.Controls.Add(Me.lvGcode)
         Me.gbGcode.Controls.Add(Me.btnFileStop)
         Me.gbGcode.Enabled = False
-        Me.gbGcode.Location = New System.Drawing.Point(3, 298)
+        Me.gbGcode.Location = New System.Drawing.Point(3, 338)
         Me.gbGcode.Name = "gbGcode"
-        Me.gbGcode.Size = New System.Drawing.Size(520, 376)
+        Me.gbGcode.Size = New System.Drawing.Size(520, 336)
         Me.gbGcode.TabIndex = 14
         Me.gbGcode.TabStop = False
         Me.gbGcode.Text = "GCode"
@@ -1150,7 +1259,7 @@ Partial Class GrblGui
         Me.lvGcode.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable
         Me.lvGcode.Location = New System.Drawing.Point(6, 84)
         Me.lvGcode.Name = "lvGcode"
-        Me.lvGcode.Size = New System.Drawing.Size(503, 283)
+        Me.lvGcode.Size = New System.Drawing.Size(503, 243)
         Me.lvGcode.TabIndex = 18
         Me.lvGcode.UseCompatibleStateImageBehavior = False
         Me.lvGcode.View = System.Windows.Forms.View.Details
@@ -1180,56 +1289,6 @@ Partial Class GrblGui
         Me.btnFileStop.TabIndex = 9
         Me.btnFileStop.Tag = "Stop"
         Me.btnFileStop.UseVisualStyleBackColor = True
-        '
-        'gbGrbl
-        '
-        Me.gbGrbl.Controls.Add(Me.btnRescanPorts)
-        Me.gbGrbl.Controls.Add(Me.cbBaud)
-        Me.gbGrbl.Controls.Add(Me.cbPorts)
-        Me.gbGrbl.Controls.Add(Me.btnConnect)
-        Me.gbGrbl.Location = New System.Drawing.Point(3, 3)
-        Me.gbGrbl.Name = "gbGrbl"
-        Me.gbGrbl.Size = New System.Drawing.Size(178, 79)
-        Me.gbGrbl.TabIndex = 3
-        Me.gbGrbl.TabStop = False
-        Me.gbGrbl.Text = "Grbl"
-        '
-        'btnRescanPorts
-        '
-        Me.btnRescanPorts.FlatStyle = System.Windows.Forms.FlatStyle.System
-        Me.btnRescanPorts.Location = New System.Drawing.Point(90, 46)
-        Me.btnRescanPorts.Name = "btnRescanPorts"
-        Me.btnRescanPorts.Size = New System.Drawing.Size(68, 23)
-        Me.btnRescanPorts.TabIndex = 5
-        Me.btnRescanPorts.Text = "ReScan"
-        Me.btnRescanPorts.UseVisualStyleBackColor = True
-        '
-        'cbBaud
-        '
-        Me.cbBaud.FormattingEnabled = True
-        Me.cbBaud.Items.AddRange(New Object() {"9600", "115200"})
-        Me.cbBaud.Location = New System.Drawing.Point(12, 47)
-        Me.cbBaud.Name = "cbBaud"
-        Me.cbBaud.Size = New System.Drawing.Size(72, 21)
-        Me.cbBaud.TabIndex = 4
-        '
-        'cbPorts
-        '
-        Me.cbPorts.FormattingEnabled = True
-        Me.cbPorts.Location = New System.Drawing.Point(12, 17)
-        Me.cbPorts.Name = "cbPorts"
-        Me.cbPorts.Size = New System.Drawing.Size(72, 21)
-        Me.cbPorts.TabIndex = 3
-        '
-        'btnConnect
-        '
-        Me.btnConnect.FlatStyle = System.Windows.Forms.FlatStyle.System
-        Me.btnConnect.Location = New System.Drawing.Point(90, 15)
-        Me.btnConnect.Name = "btnConnect"
-        Me.btnConnect.Size = New System.Drawing.Size(68, 23)
-        Me.btnConnect.TabIndex = 1
-        Me.btnConnect.Text = "Connect"
-        Me.btnConnect.UseVisualStyleBackColor = True
         '
         'gbPosition
         '
@@ -2771,6 +2830,11 @@ Partial Class GrblGui
         Me.MenuStrip1.PerformLayout()
         Me.TabControl1.ResumeLayout(False)
         Me.tabPgInterface.ResumeLayout(False)
+        Me.gbGrbl.ResumeLayout(False)
+        Me.ConnectionTab.ResumeLayout(False)
+        Me.grblCOMtab.ResumeLayout(False)
+        Me.grblIPtab.ResumeLayout(False)
+        Me.grblIPtab.PerformLayout()
         Me.gbState.ResumeLayout(False)
         Me.gbState.PerformLayout()
         Me.Panel2.ResumeLayout(False)
@@ -2791,7 +2855,6 @@ Partial Class GrblGui
         Me.gbStatus.PerformLayout()
         Me.gbGcode.ResumeLayout(False)
         Me.gbGcode.PerformLayout()
-        Me.gbGrbl.ResumeLayout(False)
         Me.gbPosition.ResumeLayout(False)
         Me.tabCtlPosition.ResumeLayout(False)
         Me.tpWork.ResumeLayout(False)
@@ -3056,6 +3119,11 @@ Partial Class GrblGui
     Friend WithEvents Panel4 As System.Windows.Forms.Panel
     Friend WithEvents Label4 As System.Windows.Forms.Label
     Friend WithEvents tbSettingsGrblLastParam As System.Windows.Forms.TextBox
+    Friend WithEvents ConnectionTab As System.Windows.Forms.TabControl
+    Friend WithEvents grblCOMtab As System.Windows.Forms.TabPage
+    Friend WithEvents grblIPtab As System.Windows.Forms.TabPage
+    Friend WithEvents btnIPConnect As System.Windows.Forms.Button
+    Friend WithEvents txtIPAddress As System.Windows.Forms.TextBox
 
 
 End Class
