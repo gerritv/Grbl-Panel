@@ -57,14 +57,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="GrblPanel.exe" size="197120">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="GrblPanel.exe" size="197632">
       <assemblyIdentity name="GrblPanel" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>AjYEakxcF+2eiBqyQb0ER3JU54U=</dsig:DigestValue>
+        <dsig:DigestValue>NuFYwWiv6G1AVw8Nb+RMa2kjxOg=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -76,7 +76,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>iV/Fjx3oxK7lFE69v5S7lQABJ1Y=</dsig:DigestValue>
+        <dsig:DigestValue>4lFeIkvgwhLnEqdDW3R2Ot7AMqE=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -98,13 +98,13 @@
       <dsig:DigestValue>yXtLDhJxh3UyrU+I2KO572BkgYU=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="GrblPanel.exe.config" size="4385">
+  <file name="GrblPanel.exe.config" size="4621">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>/e31n005msdm5cT/EDeECm+j/f0=</dsig:DigestValue>
+      <dsig:DigestValue>yZkKyr3W30Os2/prQDKobNcysp4=</dsig:DigestValue>
     </hash>
   </file>
   <file name="LICENSE.txt" size="1188">

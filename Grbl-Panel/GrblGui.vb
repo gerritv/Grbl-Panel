@@ -2,8 +2,7 @@
 
 Public Class GrblGui
 
-    Public WithEvents grblPort As GrblCOM   ' Public so that the timer thread can see grblPort
-    Public grblIP As GrblIP                 ' Public so that the timer thread can see grblPort
+    Public WithEvents grblPort As GrblConnection   ' Public so that the timer thread can see grblPort
     Private status As GrblStatus            ' For status polling
     Private jogging As GrblJogging          ' for jogging control
     Private position As GrblPosition        ' for machine and work positioning
@@ -37,8 +36,7 @@ Public Class GrblGui
 
         SwitchSides(cbSettingsLeftHanded.Checked)
 
-        grblPort = New GrblCOM
-        grblIP = New GrblIP
+        grblPort = New GrblConnection
         settings = New GrblSettings(Me)
         status = New GrblStatus(Me)
         jogging = New GrblJogging(Me)
@@ -88,7 +86,6 @@ Public Class GrblGui
     Private Sub tidyClose()
         ' Close down in a tidy fashion
         grblPort.Disconnect()
-        grblIP.Disconnect()
         gcode.shutdown()
         status.shutdown()
         jogging.shutdown()
@@ -132,7 +129,7 @@ Public Class GrblGui
         ' set desired com port
         ' always remember as new default
         ' allow re-connect to new port
-        grblPort.port = cbPorts.SelectedItem
+        grblPort.comport = cbPorts.SelectedItem
         ' Set as new default
         My.Settings.Port = cbPorts.SelectedItem
         btnConnect.Enabled = True
@@ -158,7 +155,7 @@ Public Class GrblGui
         End If
 
 
-        If grblPort.port = "" Then
+        If grblPort.comport = "" Then
             MessageBox.Show("Please select a Com port" + vbCr + "or connect the cable", "Connect Error", MessageBoxButtons.OK)
             grblPort.rescan()
             Return
@@ -166,7 +163,7 @@ Public Class GrblGui
 
         Select Case btn.Text
             Case "Connect"
-                If grblPort.Connect() = True Then
+                If grblPort.Connect(GrblConnection.ConnectionType.Serial) = True Then
                     ' disable Connect button to prevent reconnects
                     btnConnect.Text = "Disconnect"
 
@@ -225,17 +222,17 @@ Public Class GrblGui
         End If
 
         Dim Address As String() = txtIPAddress.Text.Split({":"}, StringSplitOptions.RemoveEmptyEntries)
-        grblIP.host = System.Net.IPAddress.Parse(Address(0))
-        grblIP.portnum = Integer.Parse(Address(1))
+        grblPort.host = System.Net.IPAddress.Parse(Address(0))
+        grblPort.portnum = Integer.Parse(Address(1))
 
-        If grblIP.portnum = 0 Then
+        If grblPort.portnum = 0 Then
             MessageBox.Show("Please enter and IP Address" + vbCr + "and a port number in the format" + vbCr + """<ip address>:<port number>""", "Connect Error", MessageBoxButtons.OK)
             Return
         End If
 
         Select Case btn.Text
             Case "Connect"
-                If grblIP.Connect() = True Then
+                If grblPort.Connect(GrblConnection.ConnectionType.IP) = True Then
                     ' disable Connect button to prevent reconnects
                     btnIPConnect.Text = "Disconnect"
 
@@ -259,7 +256,7 @@ Public Class GrblGui
                 End If
             Case "Disconnect"
                 ' it must be a disconnect
-                grblIP.Disconnect()
+                grblPort.Disconnect()
                 btnIPConnect.Text = "Connect"
 
                 ' Stop the status poller

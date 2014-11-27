@@ -57,14 +57,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="GrblPanel.exe" size="199168">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="GrblPanel.exe" size="197632">
       <assemblyIdentity name="GrblPanel" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>yEySYLO+yb4yjhM7Chpchj68akM=</dsig:DigestValue>
+        <dsig:DigestValue>NuFYwWiv6G1AVw8Nb+RMa2kjxOg=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -76,7 +76,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>nFmMrcobIUzCLlia3bsz3wppEFM=</dsig:DigestValue>
+        <dsig:DigestValue>4lFeIkvgwhLnEqdDW3R2Ot7AMqE=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

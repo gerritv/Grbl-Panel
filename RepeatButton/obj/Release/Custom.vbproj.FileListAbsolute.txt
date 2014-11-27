@@ -6,3 +6,11 @@ F:\Users\Tyler\Documents\GitHub\Grbl-Panel\RepeatButton\obj\Release\Custom.vbpro
 F:\Users\Tyler\Documents\GitHub\Grbl-Panel\RepeatButton\obj\Release\RepeatButton.dll
 F:\Users\Tyler\Documents\GitHub\Grbl-Panel\RepeatButton\obj\Release\RepeatButton.xml
 F:\Users\Tyler\Documents\GitHub\Grbl-Panel\RepeatButton\obj\Release\RepeatButton.pdb
+C:\Users\tyler\Documents\Visual Studio 2012\Projects\Grbl-Panel\RepeatButton\bin\Release\RepeatButton.dll
+C:\Users\tyler\Documents\Visual Studio 2012\Projects\Grbl-Panel\RepeatButton\bin\Release\RepeatButton.pdb
+C:\Users\tyler\Documents\Visual Studio 2012\Projects\Grbl-Panel\RepeatButton\bin\Release\RepeatButton.xml
+C:\Users\tyler\Documents\Visual Studio 2012\Projects\Grbl-Panel\RepeatButton\obj\Release\RepeatButton.Resources.resources
+C:\Users\tyler\Documents\Visual Studio 2012\Projects\Grbl-Panel\RepeatButton\obj\Release\Custom.vbproj.GenerateResource.Cache
+C:\Users\tyler\Documents\Visual Studio 2012\Projects\Grbl-Panel\RepeatButton\obj\Release\RepeatButton.dll
+C:\Users\tyler\Documents\Visual Studio 2012\Projects\Grbl-Panel\RepeatButton\obj\Release\RepeatButton.xml
+C:\Users\tyler\Documents\Visual Studio 2012\Projects\Grbl-Panel\RepeatButton\obj\Release\RepeatButton.pdb

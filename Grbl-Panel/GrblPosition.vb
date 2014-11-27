@@ -1,5 +1,4 @@
-﻿Imports GrblPanel.GrblCOM
-Imports GrblPanel.GrblIP
+﻿Imports GrblPanel.GrblConnection
 
 Partial Class GrblGui
     Public Class GrblPosition
@@ -16,10 +15,8 @@ Partial Class GrblGui
             _gui.gbPosition.Enabled = action
             If action = True Then
                 _gui.grblPort.addRcvDelegate(AddressOf _gui.showGrblPositions)
-                _gui.grblIP.addRcvDelegate(AddressOf _gui.showGrblPositions)
             Else
                 _gui.grblPort.deleteRcvDelegate(AddressOf _gui.showGrblPositions)
-                _gui.grblIP.deleteRcvDelegate(AddressOf _gui.showGrblPositions)
             End If
         End Sub
 

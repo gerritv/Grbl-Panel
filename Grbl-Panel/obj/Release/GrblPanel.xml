@@ -6,7 +6,20 @@ GrblPanel
 </name>
 </assembly>
 <members>
-<member name="P:GrblPanel.AboutBox.AppEntryAssembly">
+<member name="P:GrblPanel.My.Resources.Resources.ResourceManager">
+	<summary>
+  Returns the cached ResourceManager instance used by this class.
+</summary>
+</member><member name="P:GrblPanel.My.Resources.Resources.Culture">
+	<summary>
+  Overrides the current thread's CurrentUICulture property for all
+  resource lookups using this strongly typed resource class.
+</summary>
+</member><member name="T:GrblPanel.My.Resources.Resources">
+	<summary>
+  A strongly-typed resource class, for looking up localized strings, etc.
+</summary>
+</member><member name="P:GrblPanel.AboutBox.AppEntryAssembly">
 	<summary>
  Returns the entry assembly for the current application domain
  </summary>
@@ -189,19 +202,6 @@ GrblPanel
  
  With modifications and enhancements by Gerrit Visser for use with GrblPanel
  </remarks>
-</member><member name="P:GrblPanel.My.Resources.Resources.ResourceManager">
-	<summary>
-  Returns the cached ResourceManager instance used by this class.
-</summary>
-</member><member name="P:GrblPanel.My.Resources.Resources.Culture">
-	<summary>
-  Overrides the current thread's CurrentUICulture property for all
-  resource lookups using this strongly typed resource class.
-</summary>
-</member><member name="T:GrblPanel.My.Resources.Resources">
-	<summary>
-  A strongly-typed resource class, for looking up localized strings, etc.
-</summary>
 </member>
 </members>
 </doc>

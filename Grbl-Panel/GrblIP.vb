@@ -3,7 +3,7 @@ Imports System.Collections.Queue
 Imports System.Text
 Imports System.Net.Sockets
 Imports System.Net
-Imports GrblPanel.GrblCOM
+Imports GrblPanel.GrblConnection
 
 '
 ' Usefule serialport tips, #3 is important!!!!

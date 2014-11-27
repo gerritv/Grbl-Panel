@@ -1,6 +1,5 @@
 ﻿Imports System.Threading
-Imports GrblPanel.GrblCOM
-Imports GrblPanel.GrblIP
+Imports GrblPanel.GrblConnection
 
 Partial Class GrblGui
     Public Class GrblStatus
@@ -23,10 +22,8 @@ Partial Class GrblGui
             _gui.gbStatus.Enabled = action
             If action = True Then
                 _gui.grblPort.addRcvDelegate(AddressOf _gui.showGrblStatus)
-                _gui.grblIP.addRcvDelegate(AddressOf _gui.showGrblStatus)
             Else
                 _gui.grblPort.deleteRcvDelegate(AddressOf _gui.showGrblStatus)
-                _gui.grblIP.deleteRcvDelegate(AddressOf _gui.showGrblStatus)
             End If
             Return True
 
@@ -80,65 +77,36 @@ Partial Class GrblGui
             ' TODO , Change Grbl command for $G grblPort.sendData("$G")     ' Ask for Parser status
         End If
         If cbStatusPollEnable.CheckState Then
-            If grblPort.Connected Then
                 grblPort.sendData("?")
-            ElseIf grblIP.Connected Then
-                grblIP.sendData("?")
-            End If
         End If
     End Sub
 
     'End Class
     Private Sub btnUnlock_Click(sender As Object, e As EventArgs) Handles btnUnlock.Click
         ' Send Unlock ($x) to Grbl
-        'grblPort.sendData("$x")
-        If grblPort.Connected Then
-            grblPort.sendData("$x")
-        ElseIf grblIP.Connected Then
-            grblIP.sendData("$x")
-        End If
+        grblPort.sendData("$x")
         tabCtlPosition.SelectedTab = tpWork         ' refocus to Work tab
         btnHome.BackColor = Color.Transparent       ' Use decided not to Home Cycle, so clear hint
     End Sub
 
     Private Sub btnReset_Click(sender As Object, e As EventArgs) Handles btnReset.Click
         ' Send Reset command to Grbl
-        'grblPort.sendData(Chr(24))      ' ctl-X
-        If grblPort.Connected Then
-            grblPort.sendData(Chr(24))      ' ctl-X
-        ElseIf grblIP.Connected Then
-            grblIP.sendData(Chr(24))      ' ctl-X
-        End If
+        grblPort.sendData(Chr(24))      ' ctl-X
     End Sub
 
     Private Sub btnHold_Click(sender As Object, e As EventArgs) Handles btnHold.Click
         ' Send Reset command to Grbl
-        'grblPort.sendData("!")
-        If grblPort.Connected Then
-            grblPort.sendData("!")
-        ElseIf grblIP.Connected Then
-            grblIP.sendData("!")
-        End If
+        grblPort.sendData("!")
     End Sub
 
     Private Sub btnStartResume_Click(sender As Object, e As EventArgs) Handles btnStartResume.Click
         ' Send Reset command to Grbl
-        'grblPort.sendData("~")
-        If grblPort.Connected Then
-            grblPort.sendData("~")
-        ElseIf grblIP.Connected Then
-            grblIP.sendData("~")
-        End If
+        grblPort.sendData("~")
     End Sub
 
     Private Sub btnStatusGetParser_Click(sender As Object, e As EventArgs) Handles btnStatusGetParser.Click
         ' Send request for Parser State, response handler picks it up and displays
-        'grblPort.sendData("$G")
-        If grblPort.Connected Then
-            grblPort.sendData("$G")
-        ElseIf grblIP.Connected Then
-            grblIP.sendData("$G")
-        End If
+        grblPort.sendData("$G")
     End Sub
 
     Public Sub showGrblStatus(ByVal data As String)

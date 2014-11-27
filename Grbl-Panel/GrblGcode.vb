@@ -1,6 +1,5 @@
 ﻿Imports System.IO
-Imports GrblPanel.GrblCOM
-Imports GrblPanel.GrblIP
+Imports GrblPanel.GrblConnection
 
 Partial Class GrblGui
 
@@ -31,11 +30,9 @@ Partial Class GrblGui
             If action = True Then
                 ' Enable looking at responses now, for use by manual commands
                 _gui.grblPort.addRcvDelegate(AddressOf _gui.processLineEvent)
-                _gui.grblIP.addRcvDelegate(AddressOf _gui.processLineEvent)
                 _gui.btnFileSelect.Enabled = True
             Else
                 _gui.grblPort.deleteRcvDelegate(AddressOf _gui.processLineEvent)
-                _gui.grblIP.deleteRcvDelegate(AddressOf _gui.processLineEvent)
             End If
         End Sub
 
@@ -108,11 +105,7 @@ Partial Class GrblGui
             End If
             _gui.state.ProcessGCode(data)            ' Keep Gcode State object in the loop
 
-            If _gui.grblPort.Connected Then
                 _gui.grblPort.sendData(data)
-            ElseIf _gui.grblIP.Connected Then
-                _gui.grblIP.sendData(data)
-            End If
 
         End Sub
 
@@ -349,11 +342,7 @@ Partial Class GrblGui
 
                             ' Ship it Dano!
                             'grblPort.sendData(line)
-                            If grblPort.Connected Then
                                 grblPort.sendData(line)
-                            ElseIf grblIP.Connected Then
-                                grblIP.sendData(line)
-                            End If
 
                         End If
                     Else
@@ -384,11 +373,7 @@ Partial Class GrblGui
         ' Just send a $C, this toggles Check state in Grbl
 
         'grblPort.sendData("$C")
-        If grblPort.Connected Then
             grblPort.sendData("$C")
-        ElseIf grblIP.Connected Then
-            grblIP.sendData("$C")
-        End If
 
     End Sub
 
