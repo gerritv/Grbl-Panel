@@ -1,4 +1,4 @@
-﻿Imports GrblPanel.GrblIF
+﻿Imports GrblPanel.GrblConnection
 Imports System.Xml
 Partial Class GrblGui
     Public Class GrblOffsets

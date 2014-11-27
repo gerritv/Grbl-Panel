@@ -1,0 +1,75 @@
+This file documents changes made:
+V0.1.0.1	- 2014 Sep 8
+			- Initial release
+V0.1.0.2 	- Added horizontal scroll bar to Status list
+			- Increased Q progress bar max value to 30 (temporary)
+V0.1.0.3	- 2014 Sep 15
+			- Jog distance and increment now configurable
+			- Fixed some exit race conditions with serial port close
+			- Swapped X+ and X- jog buttons
+			- Gcode is visible on load of file
+			- Made Q and Rbuff progress bar maximums configurable (future proofing)
+			- Added Simulate/Check Mode checkbox
+			- Added Status indicators
+			- Added Pause on Error
+			- Various code cleanups, added GCodeView class
+			- Changed sequence of instantiating some of the objects
+V0.1.0.4	- 2014 Sep 21
+			- Add Offsets management: retrieve from Grbl, load and save from/to file
+			- Made screen resizable, flexibly
+			- Added Exception display, in case one happens in the wild
+			- Revamped GUI for compactness
+			- Added G28, G30 command strings to Settings page
+			- Interlocks to prevent silly mistakes while running a gcode program
+			- Simplified Status display
+			- Added button and display for Parser status
+			- ConnectOnLoad option to connect when you start Grbl-Panel
+			- Stability improvements on close
+			- Last Beta before release to the wild
+			- Roughed in retrieve and change of Grbl Settings, not complete yet
+V0.1.0.5	- 2014 Sep 29
+			- Added keyboard support for jogging, a settings page option
+			- Fixed missing Zero All tag, not triggering an action
+			- Fixed Alarm indication for some cases
+			- Changed Simulate from check-box to button, it wasn't following Grbl's state
+			- Robustness fix for USB cable being yanked
+			- Add Retrieve button to Machine locations on Settings tab
+			- Fix jog commands to append a G90 so the parser doesn't stay in incremental mode after a jog
+			- Added GUI switch to RH or LH layout
+			- Added Soft Home and Spcl Location buttons to Work tab to avoid switching to Machine tab for those ops	after you set up the work piece
+			- lengthened text box for MDI commands	
+			- Added G90 to end of all jog commands to leave Grbl in likely original state
+			- Added GrblState to follow gcode sent so we know state of things such as G20/21
+			- Added G28 Set button again
+			- Added State box to show/set various gcode parser parameters
+			- Fix: Jog commands sent when no feedrate or distance checkbox set
+			- Add GrblGui object to all object instantiations to they have proper access to UI controls
+			- Harden inputs to GcodeState so MDI commands don't cause problems
+			- Added Connected/Disconnected events to GrblGui, handler in Offsets and State to initiate retrive of Grbl data
+			- Added display of Current work offset on Work tab
+			- Added G90 in front of Work Offset codes to ensure we overwrite the values in Grbl, not Updated them. (according to Peter Smid it matters
+			  whether you are in Incremental or Absolute mode when you set these values but nowhere is it clear what Update means :-(). 
+			  Its a config item, you can change if need be.
+			- Fix crash if you Reset Grbl (by its button)
+V0.1.0.6	- 2014 Oct 6
+			- Add an AboutBox, which also provides details of Assemblies referenced (to aid troubleshoointg Mono install problems)
+			- Retargeted to .Net 3.5
+			- Add Grbl settings retrieve and editing
+			- Crimson the Home Cycle button on Connect event
+			- Blocked access to Grbl Settings refresh during file run
+			- ReJig layout of State group box
+			- Add line numbers to Gcode display
+			- Removed At Line, in prep for % complete
+			- Expanded width of Message display
+			- On Unlock, clear Home Cycle hint and refocus to Work tab
+			- If $22 <> 1 (Homing Disabled) then hide the Home Cycle button
+			- Combine Machine psition tab into Work one, move the Home Cycle button as well
+			- Fix Jog repeat functions
+			- Fix save of Jog feed increment and rate settings
+			- Add param to set last/highest Grbl param to retrieve
+			- Block edit of Grbl Settings ID and description columns
+V1.0.1.0	- 2014 Oct 13
+			- Issue 10 Add defaults and settings save for Jog feed Increment and Distance radio buttons
+			- Remove message box warnings about empty Feed rate and distance settings
+			- Protect from Status Report Mask <> 15 (Issue 5)
+			- Handle empty gcode lines (Issue 9)

@@ -1,5 +1,5 @@
 ﻿Imports System.Threading
-Imports GrblPanel.GrblIF
+Imports GrblPanel.GrblConnection
 
 Partial Class GrblGui
     Public Class GrblStatus
@@ -77,7 +77,7 @@ Partial Class GrblGui
             ' TODO , Change Grbl command for $G grblPort.sendData("$G")     ' Ask for Parser status
         End If
         If cbStatusPollEnable.CheckState Then
-            grblPort.sendData("?")
+                grblPort.sendData("?")
         End If
     End Sub
 

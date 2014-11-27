@@ -1,5 +1,5 @@
 ﻿Imports System.IO
-Imports GrblPanel.GrblIF
+Imports GrblPanel.GrblConnection
 
 Partial Class GrblGui
 
@@ -104,7 +104,8 @@ Partial Class GrblGui
                 wtgForAck = True
             End If
             _gui.state.ProcessGCode(data)            ' Keep Gcode State object in the loop
-            _gui.grblPort.sendData(data)
+
+                _gui.grblPort.sendData(data)
 
         End Sub
 
@@ -338,8 +339,11 @@ Partial Class GrblGui
                             line = line.Replace(" ", "")
                             ' set wtg for Ack
                             gcode.wtgForAck = True
+
                             ' Ship it Dano!
-                            grblPort.sendData(line)
+                            'grblPort.sendData(line)
+                                grblPort.sendData(line)
+
                         End If
                     Else
                         ' We reached the EOF aka linecount=0, yippee
@@ -367,7 +371,10 @@ Partial Class GrblGui
     Private Sub btnCheckMode_Click(sender As Object, e As EventArgs) Handles btnCheckMode.Click
         ' Enable/disable Check mode in Grbl
         ' Just send a $C, this toggles Check state in Grbl
-        grblPort.sendData("$C")
+
+        'grblPort.sendData("$C")
+            grblPort.sendData("$C")
+
     End Sub
 
     Private Sub btnFileGroup_Click(sender As Object, e As EventArgs) Handles btnFileSend.Click, btnFileSelect.Click, btnFilePause.Click, btnFileStop.Click

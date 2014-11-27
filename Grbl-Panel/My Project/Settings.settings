@@ -80,5 +80,17 @@
     <Setting Name="GrblLastParamID" Type="System.String" Scope="User">
       <Value Profile="(Default)">$132</Value>
     </Setting>
+    <Setting Name="JoggingFIDefault" Type="System.String" Scope="User">
+      <Value Profile="(Default)">I2</Value>
+    </Setting>
+    <Setting Name="JoggingFRDefault" Type="System.String" Scope="User">
+      <Value Profile="(Default)">F2</Value>
+    </Setting>
+    <Setting Name="IPAddress" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="ConnectionType" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
   </Settings>
 </SettingsFile>
