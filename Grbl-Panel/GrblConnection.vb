@@ -94,6 +94,7 @@ Public Class GrblConnection
     Public Sub Disconnect()
         Select Case _type
             Case ConnectionType.IP
+                _client.Close()
             Case ConnectionType.Serial
         End Select
         ' disconnect from Grbl
