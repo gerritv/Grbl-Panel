@@ -222,7 +222,7 @@ Public Class GrblGui
         End If
 
         Dim Address As String() = txtIPAddress.Text.Split({":"}, StringSplitOptions.RemoveEmptyEntries)
-        grblPort.host = System.Net.IPAddress.Parse(Address(0))
+        grblPort.ipaddress = System.Net.IPAddress.Parse(Address(0))
         grblPort.portnum = Integer.Parse(Address(1))
 
         If grblPort.portnum = 0 Then

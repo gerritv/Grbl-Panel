@@ -43,6 +43,11 @@ Public Class GrblConnection
 
     End Sub
 
+    ''' <summary>
+    ''' Starts the connection to grbl, via IP or Serial (COM). Expects to have the needed properties set beforehand.
+    ''' </summary>
+    ''' <param name="typeIn">Specifies if we're connecting via IP or Serial. None as safety/exception case</param>
+    ''' <returns>Returns True if the connection succeeded, false otherwise.</returns>
     Public Function Connect(typeIn As ConnectionType) As Boolean
         _type = typeIn
 
@@ -91,6 +96,9 @@ Public Class GrblConnection
         End Select
     End Function
 
+    ''' <summary>
+    ''' Closes the connection.
+    ''' </summary>
     Public Sub Disconnect()
         Select Case _type
             Case ConnectionType.IP
@@ -116,7 +124,10 @@ Public Class GrblConnection
         ' scan for com ports again
         Return IO.Ports.SerialPort.GetPortNames
     End Function
-
+    ''' <summary>
+    ''' Lists the available COM ports on the system.
+    ''' </summary>
+    ''' <returns>String Array of COM ports</returns>
     ReadOnly Property comports() As String()
         Get
             ' get list of available com ports
@@ -125,6 +136,11 @@ Public Class GrblConnection
         End Get
     End Property
 
+    ''' <summary>
+    ''' COM port to use if connected via COM
+    ''' </summary>
+    ''' <value>The COM port to use</value>
+    ''' <returns>The selected COM port</returns>
     Property comport() As String
         Get
             Return _commport
@@ -134,6 +150,11 @@ Public Class GrblConnection
         End Set
     End Property
 
+    ''' <summary>
+    ''' Baudrate to use if connected via COM
+    ''' </summary>
+    ''' <value>The baudrate, as an integer. 9600 (0.8c) and 115200 (0.9g) are common values.</value>
+    ''' <returns>The configured baudrate</returns>
     Property baudrate() As Integer
         Get
             Return _baudrate
@@ -143,7 +164,12 @@ Public Class GrblConnection
         End Set
     End Property
 
-    Property host() As IPAddress
+    ''' <summary>
+    ''' IP Address to use if connected via IP
+    ''' </summary>
+    ''' <value>The IP Address to connect to</value>
+    ''' <returns>The IP Address currently configured</returns>
+    Property ipaddress() As IPAddress
         Get
             Return _remoteHost
         End Get
@@ -152,15 +178,30 @@ Public Class GrblConnection
         End Set
     End Property
 
+    ''' <summary>
+    ''' Port Number to use if connected via IP
+    ''' </summary>
+    ''' <value>Port number to use, as an integer between 1 and 65,535. WiFly defaults to 2000</value>
+    ''' <returns></returns>
+    ''' <remarks></remarks>
     Property portnum() As Integer
         Get
             Return _portNum
         End Get
         Set(value As Integer)
-            _portNum = value
+            If value > 65535 Or value < 0 Then
+                'port number passed in is outside of valid bounds, default to 2000.
+                _portNum = 2000
+            Else
+                _portNum = value
+            End If
+
         End Set
     End Property
 
+    ''' <summary>
+    ''' Are we connected to grbl?
+    ''' </summary>
     ReadOnly Property Connected
         ' Are we connected to Grbl?
         Get
@@ -254,6 +295,11 @@ Public Class GrblConnection
 
     End Sub
 
+    ''' <summary>
+    ''' Sends a byte of data to grbl
+    ''' </summary>
+    ''' <param name="data">The data to send to grbl</param>
+    ''' <returns>True if send was successful, false otherwise</returns>
     Public Function sendData(ByVal data As String) As Boolean
 
         Select Case _type
