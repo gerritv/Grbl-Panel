@@ -365,6 +365,54 @@ Namespace My
                 Me("GrblLastParamID") = value
             End Set
         End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("I2")>  _
+        Public Property JoggingFIDefault() As String
+            Get
+                Return CType(Me("JoggingFIDefault"),String)
+            End Get
+            Set
+                Me("JoggingFIDefault") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("F2")>  _
+        Public Property JoggingFRDefault() As String
+            Get
+                Return CType(Me("JoggingFRDefault"),String)
+            End Get
+            Set
+                Me("JoggingFRDefault") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("1.5")>  _
+        Public Property StartupDelay() As String
+            Get
+                Return CType(Me("StartupDelay"),String)
+            End Get
+            Set
+                Me("StartupDelay") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("")>  _
+        Public Property DefaultFileExt() As String
+            Get
+                Return CType(Me("DefaultFileExt"),String)
+            End Get
+            Set
+                Me("DefaultFileExt") = value
+            End Set
+        End Property
     End Class
 End Namespace
 

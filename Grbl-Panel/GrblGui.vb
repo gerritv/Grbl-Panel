@@ -169,7 +169,7 @@ Public Class GrblGui
                     settings.EnableState(True)
                     ' Start the status poller
                     statusPrompt("Start")
-                    Sleep(1500)             ' Give Grbl time to wake up from Reset
+                    Sleep(tbSettingsStartupDelay.Text * 1000)             ' Give Grbl time to wake up from Reset
 
                     RaiseEvent Connected("Connected")      ' tell everyone of the happy event
                 Else

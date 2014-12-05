@@ -83,30 +83,31 @@ Partial Class GrblGui
 
         ' Handle key press events, if configured to do so
 
-
-        If cbSettingsKeyboardJogging.Checked Then
-            Select Case e.KeyCode
-                Case Keys.Left
-                    gcode.sendGCodeLine(createJogCommand("X-"))
-                    e.Handled = True
-                Case Keys.Right
-                    gcode.sendGCodeLine(createJogCommand("X"))
-                    e.Handled = True
-                Case Keys.Up
-                    gcode.sendGCodeLine(createJogCommand("Y"))
-                    e.Handled = True
-                Case Keys.Down
-                    gcode.sendGCodeLine(createJogCommand("Y-"))
-                    e.Handled = True
-                Case Keys.PageUp
-                    gcode.sendGCodeLine(createJogCommand("Z"))
-                    e.Handled = True
-                Case Keys.PageDown
-                    gcode.sendGCodeLine(createJogCommand("Z-"))
-                    e.Handled = True
-            End Select
-            If e.Handled Then
-                gcode.sendGCodeLine("G90")
+        If gbJogging.Enabled And Not tbSendData.ContainsFocus Then
+            If cbSettingsKeyboardJogging.Checked Then
+                Select Case e.KeyCode
+                    Case Keys.Left
+                        gcode.sendGCodeLine(createJogCommand("X-"))
+                        e.Handled = True
+                    Case Keys.Right
+                        gcode.sendGCodeLine(createJogCommand("X"))
+                        e.Handled = True
+                    Case Keys.Up
+                        gcode.sendGCodeLine(createJogCommand("Y"))
+                        e.Handled = True
+                    Case Keys.Down
+                        gcode.sendGCodeLine(createJogCommand("Y-"))
+                        e.Handled = True
+                    Case Keys.PageUp
+                        gcode.sendGCodeLine(createJogCommand("Z"))
+                        e.Handled = True
+                    Case Keys.PageDown
+                        gcode.sendGCodeLine(createJogCommand("Z-"))
+                        e.Handled = True
+                End Select
+                If e.Handled Then
+                    gcode.sendGCodeLine("G90")
+                End If
             End If
         End If
     End Sub

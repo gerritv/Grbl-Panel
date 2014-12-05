@@ -370,7 +370,8 @@ Partial Class GrblGui
         grblPort.sendData("$C")
     End Sub
 
-    Private Sub btnFileGroup_Click(sender As Object, e As EventArgs) Handles btnFileSend.Click, btnFileSelect.Click, btnFilePause.Click, btnFileStop.Click
+    Private Sub btnFileGroup_Click(sender As Object, e As EventArgs) Handles btnFileSend.Click, btnFileSelect.Click, btnFilePause.Click, btnFileStop.Click, _
+                                    btnFileReload.Click
         ' This event handler deals with the gcode file related buttons
         ' Implements a simple state machine to keep user from clicking the wrong buttons
         ' Uses button.tag instead of .text so the text doesn't mess up the images on the buttons
@@ -379,7 +380,11 @@ Partial Class GrblGui
             Case "File"
                 Dim str As String = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments)
                 ofdGcodeFile.InitialDirectory = Path.Combine(Path.GetFullPath(str), "*")
-                ofdGcodeFile.FileName = "*"
+                If tbSettingsDefaultExt.Text <> "" Then
+                    ofdGcodeFile.Filter = String.Format("Gcode |*.{0}|All Files |*.*", tbSettingsDefaultExt.Text)
+                    ofdGcodeFile.DefaultExt = String.Format(".{0}", tbSettingsDefaultExt.Text)
+                End If
+                ofdGcodeFile.FileName = "File"
                 If ofdGcodeFile.ShowDialog() = Windows.Forms.DialogResult.OK Then
                     'gcode.openGCodeFile(ofdGcodeFile.FileName)
                     gcode.loadGCodeFile(ofdGcodeFile.FileName)
@@ -390,7 +395,10 @@ Partial Class GrblGui
                     btnFileSend.Enabled = True
                     btnFilePause.Enabled = False
                     btnFileStop.Enabled = False
-
+                    btnFileReload.Enabled = False
+                    ' reset filter in case user changes ext on Settings tab
+                    ofdGcodeFile.Filter = ""
+                    ofdGcodeFile.DefaultExt = ""
                 End If
             Case "Send"
                 ' Send a gcode file to Grbl
@@ -400,6 +408,7 @@ Partial Class GrblGui
                 btnFileSend.Enabled = False
                 btnFilePause.Enabled = True
                 btnFileStop.Enabled = True
+                btnFileReload.Enabled = False
 
             Case "Pause"
                 gcode.sendGCodeFilePause()
@@ -409,6 +418,7 @@ Partial Class GrblGui
                 btnFileSend.Enabled = True
                 btnFilePause.Enabled = False
                 btnFileStop.Enabled = True
+                btnFileReload.Enabled = False
 
             Case "Stop"
                 gcode.sendGCodeFilePause()
@@ -421,6 +431,7 @@ Partial Class GrblGui
                 btnFileSend.Enabled = False
                 btnFilePause.Enabled = False
                 btnFileStop.Enabled = False
+                btnFileReload.Enabled = True
 
             Case "Resume"
                 gcode.sendGCodeFileResume()
@@ -430,6 +441,20 @@ Partial Class GrblGui
                 btnFileSend.Enabled = False
                 btnFilePause.Enabled = True
                 btnFileStop.Enabled = True
+                btnFileReload.Enabled = False
+
+            Case "Reload"
+                ' Reload the same file 
+                gcode.loadGCodeFile(ofdGcodeFile.FileName)
+                tbGcodeFile.Text = ofdGcodeFile.FileName
+                lblTotalLines.Text = gcode.lineCount.ToString
+
+                btnFileSelect.Enabled = True    ' Allow changing your mind about the file
+                btnFileSend.Enabled = True
+                btnFilePause.Enabled = False
+                btnFileStop.Enabled = False
+                btnFileReload.Enabled = False
+
 
         End Select
     End Sub
