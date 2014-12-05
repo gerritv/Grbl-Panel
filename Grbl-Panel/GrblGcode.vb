@@ -1,5 +1,5 @@
 ﻿Imports System.IO
-Imports GrblPanel.GrblConnection
+Imports GrblPanel.GrblIF
 
 Partial Class GrblGui
 

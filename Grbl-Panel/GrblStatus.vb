@@ -1,5 +1,5 @@
 ﻿Imports System.Threading
-Imports GrblPanel.GrblConnection
+Imports GrblPanel.GrblIF
 
 Partial Class GrblGui
     Public Class GrblStatus

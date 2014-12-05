@@ -1,4 +1,4 @@
-﻿Imports GrblPanel.GrblConnection
+﻿Imports GrblPanel.GrblIF
 
 Partial Class GrblGui
     Public Class GrblPosition

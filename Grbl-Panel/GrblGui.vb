@@ -2,7 +2,7 @@
 
 Public Class GrblGui
 
-    Public WithEvents grblPort As GrblConnection   ' Public so that the timer thread can see grblPort
+    Public WithEvents grblPort As GrblIF   ' Public so that the timer thread can see grblPort
     Private status As GrblStatus            ' For status polling
     Private jogging As GrblJogging          ' for jogging control
     Private position As GrblPosition        ' for machine and work positioning
@@ -36,7 +36,7 @@ Public Class GrblGui
 
         SwitchSides(cbSettingsLeftHanded.Checked)
 
-        grblPort = New GrblConnection
+        grblPort = New GrblIF
         settings = New GrblSettings(Me)
         status = New GrblStatus(Me)
         jogging = New GrblJogging(Me)
@@ -163,7 +163,7 @@ Public Class GrblGui
 
         Select Case btn.Text
             Case "Connect"
-                If grblPort.Connect(GrblConnection.ConnectionType.Serial) = True Then
+                If grblPort.Connect(GrblIF.ConnectionType.Serial) = True Then
                     ' disable Connect button to prevent reconnects
                     btnConnect.Text = "Disconnect"
 
@@ -232,7 +232,7 @@ Public Class GrblGui
 
         Select Case btn.Text
             Case "Connect"
-                If grblPort.Connect(GrblConnection.ConnectionType.IP) = True Then
+                If grblPort.Connect(GrblIF.ConnectionType.IP) = True Then
                     ' disable Connect button to prevent reconnects
                     btnIPConnect.Text = "Disconnect"
 

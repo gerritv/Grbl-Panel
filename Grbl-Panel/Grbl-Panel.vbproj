@@ -147,7 +147,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <Compile Include="GrblConnection.vb" />
+    <Compile Include="GrblIF.vb" />
     <Compile Include="GrblStatus.vb">
       <SubType>Form</SubType>
     </Compile>
