@@ -1,4 +1,10 @@
 This file documents changes made:
+V1.0.3.0	- 2014 Dec 30
+			- Release file handle immediately after loading, Issue #19
+			- Ensure we always treat '.' as decimal, force Locale, Issue #17
+			- Ignore "%" in gcode file, Issue #20
+			- Fix layout errors when screen is set to 125%, Issue #18 and others
+			- Add IP address as a connection, thanks Tyler for designing and implementing this feature.
 V1.0.2.0	- 2014 Dec 5
 			- Prevent keyboard jogging if running a gcode file or in MDI, Issue #15
 			- Add Reload for gcode file, reloads same file from scratch, Issue #11-5, 15

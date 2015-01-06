@@ -37,6 +37,7 @@ Partial Class GrblGui
         End Sub
 
         Public Function loadGCodeFile(ByVal file As String) As Boolean
+            Dim data As String
 
             ' Start from clean slate
             resetGcode(True)
@@ -45,11 +46,19 @@ Partial Class GrblGui
             ' count the lines while loading up
             _inputcount = 0
             Do While Not _inputfh.EndOfStream
-                _gui.gcodeview.Insert(_inputfh.ReadLine(), _inputcount)
-                _inputcount += 1
+                data = _inputfh.ReadLine()    ' Issue #20, ignore '%'
+                If data <> "%" Then
+                    _gui.gcodeview.Insert(data, _inputcount)
+                    _inputcount += 1
+                End If
             Loop
 
             lineCount = _inputcount
+
+            If Not IsNothing(_inputfh) Then
+                _inputfh.Close()
+            End If        ' Issue #19
+
             Return True
 
         End Function

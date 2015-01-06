@@ -9,4 +9,5 @@ This tool would not have been possible without:
 - Tortoise SVN for providing a simple to use code version control system
 - Sonny Jeon's support by maintaining Grbl and providing useful input to design of GrblPanel as well as testing
 - Legendaire for testing beta versions
+- Tyler for adding IP connectivity
 - Peter Smid, for his amazing books on CNC and Gcode

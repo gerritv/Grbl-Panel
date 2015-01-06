@@ -10,6 +10,7 @@ Partial Class GrblGui
             _gui = gui
 
             ' Do set up things
+
             With My.Settings
                 _gui.tbSettingsFIImperial.Text = .JoggingFIImperial
                 _gui.tbSettingsFRImperial.Text = .JoggingFRImperial

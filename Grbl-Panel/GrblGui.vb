@@ -1,4 +1,7 @@
-﻿Imports System.Threading.Thread
+﻿Imports System.Globalization
+Imports System.Threading
+Imports System.Threading.Thread
+
 
 Public Class GrblGui
 
@@ -13,7 +16,7 @@ Public Class GrblGui
     Public settings As GrblSettings         ' To handle Settings related ops
 
     Public Sub myhandler(ByVal sender As Object, args As UnhandledExceptionEventArgs)
-        ' Show exception in useable manner
+        ' Show exception in usable manner
         Dim e As Exception = DirectCast(args.ExceptionObject, Exception)
         MessageBox.Show("Exception: " + e.Message + vbLf + e.InnerException.Message + vbLf + e.StackTrace)
     End Sub
@@ -22,6 +25,9 @@ Public Class GrblGui
     Private Sub grblgui_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles MyBase.Load
         ' Use handler below to trap wierd problems at Form creation, e.g. when going from .Net 4 to 3.5
         AddHandler AppDomain.CurrentDomain.UnhandledException, AddressOf myhandler
+
+        ' Ensure that we always interpret things such as '.' as decimal (instead of ',' in EU)
+        Thread.CurrentThread.CurrentCulture = CultureInfo.CreateSpecificCulture("en-CA")
 
         ' Set user preferences/defaults
         Application.EnableVisualStyles()
@@ -52,8 +58,10 @@ Public Class GrblGui
         End If
 
         cbBaud.SelectedText = My.Settings.Baud
-
         grblPort.baudrate = Convert.ToInt32(My.Settings.Baud)
+
+        tcConnection.SelectedIndex = My.Settings.ConnectionType
+        tbIPAddress.Text = My.Settings.IPAddress
 
         If cbSettingsConnectOnLoad.Checked Then
             ' auto connect
@@ -92,29 +100,36 @@ Public Class GrblGui
     End Sub
 
     Private Sub SwitchSides(ByVal side As Boolean)
-        ' We switch GUI sides, this needs to be fixed EVERYTIME that the layout changes!
+        ' We switch GUI sides
+
         Dim ctl As Control
+
+        ' Get existing locations for X      ' Issue #17,18 and others fix
+        Dim left_X As Integer
+        Dim right_X As Integer
+        left_X = gbJogging.Width + 3
+        right_X = gbPosition.Width + 3
+
         If side Then    ' we are going left handed
             For Each ctl In {gbGrbl, gbJogging, gbGcode}
                 ctl.Location = New Point(3, ctl.Location.Y)
             Next
-            gbMDI.Location = New Point(3 + 184, gbMDI.Location.Y)
+            gbMDI.Location = New Point(3 + gbGrbl.Width + 3, gbMDI.Location.Y)
 
             For Each ctl In {gbPosition, gbStatus, gbControl}
-
-                ctl.Location = New Point(3 + 3 + 520, ctl.Location.Y)
+                ctl.Location = New Point(3 + left_X, ctl.Location.Y)
             Next
         Else
             For Each ctl In {gbGrbl, gbJogging, gbGcode}
-                ctl.Location = New Point(3 + 403, ctl.Location.Y)
+                ctl.Location = New Point(3 + right_X, ctl.Location.Y)
             Next
-            gbMDI.Location = New Point(3 + 400 + 187, gbMDI.Location.Y)
+            gbMDI.Location = New Point(3 + right_X + gbGrbl.Width + 3, gbMDI.Location.Y)
 
             For Each ctl In {gbPosition, gbStatus, gbControl}
-
                 ctl.Location = New Point(3, ctl.Location.Y)
             Next
         End If
+
     End Sub
 
     Private Sub cbSettingsLeftHanded_CheckedChanged(sender As Object, e As EventArgs) Handles cbSettingsLeftHanded.CheckedChanged
@@ -126,7 +141,7 @@ Public Class GrblGui
         ' set desired com port
         ' always remember as new default
         ' allow re-connect to new port
-        grblPort.port = cbPorts.SelectedItem
+        grblPort.comport = cbPorts.SelectedItem
         ' Set as new default
         My.Settings.Port = cbPorts.SelectedItem
         btnConnect.Enabled = True
@@ -142,22 +157,53 @@ Public Class GrblGui
 
     End Sub
 
-    Private Sub btnConnDisconnect_Click(sender As Object, e As EventArgs) Handles btnConnect.Click
+    Private Sub btnConnDisconnect_Click(sender As Object, e As EventArgs) Handles btnConnect.Click, btnIPConnect.Click
         ' Open connection to Grbl
-        Dim btn As Button = sender
+        ' This routine is used for both Com and IP connections. Buttons are differentiated by using Tag property.
 
-        If grblPort.port = "" Then
-            MessageBox.Show("Please select a Com port" + vbCr + "or connect the cable", "Connect Error", MessageBoxButtons.OK)
-            grblPort.rescan()
-            Return
-        End If
+        Dim btn As Button = sender
+        Dim connected As Boolean
 
         Select Case btn.Text
             Case "Connect"
-                If grblPort.Connect() = True Then
-                    ' disable Connect button to prevent reconnects
-                    btnConnect.Text = "Disconnect"
+                Select Case btn.Tag
+                    Case "COM"
+                        connected = grblPort.Connect(GrblIF.ConnectionType.Serial)
+                        If connected = True Then
+                            ' disable other Connect button to prevent reconnects
+                            btn.Text = "Disconnect"
+                            btnIPConnect.Enabled = False
+                        Else
+                            MessageBox.Show("Please select a Com port" + vbCr + "or connect the cable", "Connect Error", MessageBoxButtons.OK)
+                            grblPort.rescan()
+                            Return
+                        End If
+                    Case "IP"
+                        If tbIPAddress.TextLength <= 0 Then
+                            MessageBox.Show("Please enter an IP Address" + vbCr + "and a port number in the format" + vbCr + """<ip address>:<port number>""", "Connect Error", MessageBoxButtons.OK)
+                            Return
+                        End If
 
+                        Dim address As String() = tbIPAddress.Text.Split({":"}, StringSplitOptions.RemoveEmptyEntries)
+                        grblPort.ipaddress = System.Net.IPAddress.Parse(address(0))
+                        grblPort.portnum = Integer.Parse(address(1))
+
+                        If grblPort.portnum = 0 Then
+                            MessageBox.Show("Please enter an IP Address" + vbCr + "and a port number in the format" + vbCr + """<ip address>:<port number>""", "Connect Error", MessageBoxButtons.OK)
+                            Return
+                        End If
+                        ' finally we try to connect
+                        connected = grblPort.Connect(GrblIF.ConnectionType.IP)
+                        If connected = True Then
+                            ' disable other Connect button to prevent reconnects
+                            btn.Text = "Disconnect"
+                            btnConnect.Enabled = False
+                        Else
+                            MessageBox.Show("Please enter an IP Address" + vbCr + "and a port number in the format" + vbCr + """<ip address>:<port number>""", "Connect Error", MessageBoxButtons.OK)
+                            Return
+                        End If
+                End Select
+                If connected = True Then
                     ' Wake up the subsystems
                     ' TODO Replace these calls with Event Connected handling in each object
                     status.enableStatus(True)
@@ -172,15 +218,14 @@ Public Class GrblGui
                     Sleep(tbSettingsStartupDelay.Text * 1000)             ' Give Grbl time to wake up from Reset
 
                     RaiseEvent Connected("Connected")      ' tell everyone of the happy event
-                Else
-                    MessageBox.Show("Please select a Com port" + vbCr + "or connect the cable", "Connect Error", MessageBoxButtons.OK)
-                    grblPort.rescan()
-                    Return
                 End If
             Case "Disconnect"
                 ' it must be a disconnect
                 grblPort.Disconnect()
                 btnConnect.Text = "Connect"
+                btnIPConnect.Text = "Connect"
+                btnConnect.Enabled = True
+                btnIPConnect.Enabled = True
 
                 ' Stop the status poller
                 ' TODO Replace these calls with Event Disconnected handling in each object
@@ -285,5 +330,6 @@ Public Class GrblGui
 
     ' Raised when we succesfully connected to Grbl
     Public Event Connected(ByVal msg As String)
+
 
 End Class
