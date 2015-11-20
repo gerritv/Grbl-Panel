@@ -14,6 +14,7 @@ Partial Class GrblGui
         Private _sendAnotherLine As Boolean = False   '
         Private _lineCount As Integer = 0               ' No of lines left to send
         Private _linesDone As Integer = 0
+        Private _m30Flag As Boolean = False             ' M30 detected in gcode stream
 
         ' Handle file read (Gcode in) and Write (Gcode save)
         ' While we are sending the file, lock out manual functions
@@ -75,6 +76,19 @@ Partial Class GrblGui
             Dim lv As ListView = _gui.lvGcode
             If _lineCount > 0 Then
                 Return lv.Items(_linesDone).SubItems(2).Text
+            Else
+                Return "EOF"
+            End If
+        End Function
+        ''' <summary>
+        ''' Peek at line previously sent
+        ''' </summary>
+        ''' <returns>Previous Gcode line</returns>
+        Public Function readGcodePrevious() As String
+            ' Read a line, if EOF then return EOF
+            Dim lv As ListView = _gui.lvGcode
+            If _lineCount > 0 Then
+                Return lv.Items(_linesDone - 1).SubItems(2).Text
             Else
                 Return "EOF"
             End If
@@ -146,12 +160,54 @@ Partial Class GrblGui
             End If
 
         End Sub
+        Public Sub sendGCodeFileRewind()
+
+            ' reset state variables
+            If runMode Then
+                wtgForAck = False
+                runMode = False
+                sendAnotherLine = False
+                _gui.gcodeview.fileMode = False        ' allow manual mode gcode send
+
+                gcode.sendGCodeFilePause()
+                'gcode.closeGCodeFile()
+                With _gui
+                    ' Re-enable manual control
+                    .setSubPanels("Idle")
+                    .btnFileSelect.Enabled = True
+                    .btnFileSend.Tag = "Send"
+                    .btnFileSend.Enabled = True
+                    .btnFilePause.Enabled = False
+                    .btnFileStop.Enabled = False
+                    .btnFileReload.Enabled = True
+                End With
+            End If
+            _gui.gcodeview.Rewind()
+        End Sub
 
         Public Sub shutdown()
             ' Close up shop
             resetGcode(True)
         End Sub
 
+        Private Sub resetGcode(ByVal fullstop As Boolean)
+            ' Clear out all variables etc to initial state
+            lineCount = 0
+            linesDone = 0
+            _gui.lblTotalLines.Text = ""
+            _gui.tbGCodeMessage.Text = ""
+            ' reset state variables
+            wtgForAck = False
+            runMode = False
+            sendAnotherLine = False
+
+            If fullstop Then
+                ' clear out the file name etc
+                closeGCodeFile()
+                ' Clear the list of gcode block sent
+                _gui.gcodeview.Clear()
+            End If
+        End Sub
 #Region "Properties"
 
         Property runMode() As Boolean
@@ -196,26 +252,18 @@ Partial Class GrblGui
                 _lineCount = value
             End Set
         End Property
+        Property m30Flag As Boolean
+            Get
+                Return _m30Flag
+            End Get
+            Set(value As Boolean)
+                _m30Flag = value
+            End Set
+        End Property
+
 #End Region
 
-        Private Sub resetGcode(ByVal fullstop As Boolean)
-            ' Clear out all variables etc to initial state
-            lineCount = 0
-            linesDone = 0
-            _gui.lblTotalLines.Text = ""
-            _gui.tbGCodeMessage.Text = ""
-            ' clear out the file name etc
-            closeGCodeFile()
-            ' reset state variables
-            wtgForAck = False
-            runMode = False
-            sendAnotherLine = False
 
-            If fullstop Then
-                ' Clear the list of gcode block sent
-                _gui.gcodeview.Clear()
-            End If
-        End Sub
     End Class
 
     Public Class GrblGcodeView
@@ -273,6 +321,17 @@ Partial Class GrblGui
             _lview.Update()
 
         End Sub
+        ''' <summary>
+        ''' Rewind the Gcode view (for M30)
+        ''' </summary>
+        Public Sub Rewind()
+            ' clear status and colouring, leave commands
+            For Each lvi As ListViewItem In _lview.Items
+                lvi.BackColor = Color.Transparent
+                lvi.Text = ""
+            Next
+            _lview.EnsureVisible(0)           ' show top of file for user to verify etc
+        End Sub
 
         ReadOnly Property count As Integer
             Get
@@ -288,6 +347,7 @@ Partial Class GrblGui
                 _filemode = value
             End Set
         End Property
+
     End Class
 
     Public Sub processLineEvent(ByVal data As String)
@@ -314,6 +374,11 @@ Partial Class GrblGui
                     gcodeview.UpdateGCodeStatus(data, gcode.linesDone - 1)
                     ' No longer waiting for Ack
                     gcode.wtgForAck = False
+                    ' Handle rewind of gcode if this ack/ok was for an M30
+                    If gcode.m30Flag = True Then
+                        gcode.m30Flag = False
+                        gcode.sendGCodeFileRewind() ' reset to beginning
+                    End If
                     If gcode.runMode Then               ' if not paused or stopped
                         ' Mark sendAnotherLine
                         gcode.sendAnotherLine = True
@@ -342,6 +407,10 @@ Partial Class GrblGui
                                 templine = templine.Remove(0, 1)
                                 templine = templine.Remove(templine.Length - 1, 1)
                                 tbGCodeMessage.Text = templine
+                            End If
+                            If line.StartsWith("m30") Or line.StartsWith("M30") Then
+                                ' Set M30 flag to rewind on 'ok'
+                                gcode.m30Flag = True
                             End If
                             ' Remove all whitespace
                             line = line.Replace(" ", "")
@@ -379,7 +448,7 @@ Partial Class GrblGui
         grblPort.sendData("$C")
     End Sub
 
-    Private Sub btnFileGroup_Click(sender As Object, e As EventArgs) Handles btnFileSend.Click, btnFileSelect.Click, btnFilePause.Click, btnFileStop.Click, _
+    Private Sub btnFileGroup_Click(sender As Object, e As EventArgs) Handles btnFileSend.Click, btnFileSelect.Click, btnFilePause.Click, btnFileStop.Click,
                                     btnFileReload.Click
         ' This event handler deals with the gcode file related buttons
         ' Implements a simple state machine to keep user from clicking the wrong buttons

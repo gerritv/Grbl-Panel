@@ -1,4 +1,6 @@
 This file documents changes made:
+V1.0.6.0	- 2015 Nov 20
+			- Added M30 handling to rewind gcode file
 V1.0.5.0	- 2015 Nov 4
 			- Clean up compiler warnings
 			- Fix delayed send of Start for Mega2560
