@@ -67,7 +67,6 @@ Partial Class GrblGui
             params(1) = params(1).Replace(" ", "")         ' strip trailing blanks
             _paramTable.Rows.Add(params(0), params(1), params(2))
             _nextParam += 1
-            ' TODO Make this a setting for future proofing
             If params(0) = _gui.tbSettingsGrblLastParam.Text Then ' We got the last one
                 _nextParam = 0            ' in case user does a MDI $$
                 With _gui.dgGrblSettings
@@ -96,7 +95,7 @@ Partial Class GrblGui
 
     Private Sub btnSettingsRefreshMisc_Click(sender As Object, e As EventArgs) Handles btnSettingsRefreshMisc.Click, btnSettingsRefreshPosition.Click, btnSettingsRefreshJogging.Click
         Dim b As Button = sender
-        Select Case b.Tag
+        Select Case DirectCast(b.Tag, String)
             Case "Misc"
                 changeStatusRate(My.Settings.StatusPollInterval)
                 prgBarQ.Maximum = My.Settings.QBuffMaxSize
@@ -146,7 +145,7 @@ Partial Class GrblGui
         Dim gridView As DataGridView = sender
         If Not IsNothing(gridView.EditingControl) Then
             ' we have something to change (aka ignore errant double clicks)
-            Dim param As String = gridView.Rows(e.RowIndex).Cells(0).Value + "=" + gridView.EditingControl.Text
+            Dim param As String = gridView.Rows(e.RowIndex).Cells(0).Value.ToString & "=" & gridView.EditingControl.Text
             gcode.sendGCodeLine(param)
             Sleep(200)              ' Have to wait for EEProm write
             gcode.sendGCodeLine("$$")   ' Refresh

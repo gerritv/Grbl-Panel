@@ -81,7 +81,7 @@ Partial Class GrblGui
 
     Private Sub btnPosition_Click(sender As Object, e As EventArgs) Handles btnWork0.Click, btnHome.Click, btnWorkSoftHome.Click, btnWorkSpclPosition.Click
         Dim b As Button = sender
-        Select Case b.Tag
+        Select Case DirectCast(b.Tag, String)
             Case "HomeCycle"
                 ' Send Home command string
                 gcode.sendGCodeLine("$H")
@@ -98,7 +98,7 @@ Partial Class GrblGui
     End Sub
     Private Sub btnWorkXYZ0_Click(sender As Object, e As EventArgs) Handles btnWorkX0.Click, btnWorkY0.Click, btnWorkZ0.Click
         Dim btn As Button = sender
-        Select Case btn.Tag
+        Select Case DirectCast(btn.Tag, String)
             Case "X"
                 gcode.sendGCodeLine(My.Settings.WorkX0Cmd)
             Case "Y"

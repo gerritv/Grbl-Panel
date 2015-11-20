@@ -197,7 +197,7 @@ Public Class GrblIF
     ''' <summary>
     ''' Are we connected to grbl?
     ''' </summary>
-    ReadOnly Property Connected
+    ReadOnly Property Connected As Boolean
         ' Are we connected to Grbl?
         Get
             Return _connected

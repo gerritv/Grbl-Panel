@@ -385,7 +385,7 @@ Partial Class GrblGui
         ' Implements a simple state machine to keep user from clicking the wrong buttons
         ' Uses button.tag instead of .text so the text doesn't mess up the images on the buttons
         Dim args As Button = sender
-        Select Case args.Tag
+        Select Case DirectCast(args.Tag, String)
             Case "File"
                 Dim str As String = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments)
                 ofdGcodeFile.InitialDirectory = Path.Combine(Path.GetFullPath(str), "*")

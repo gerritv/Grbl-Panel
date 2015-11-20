@@ -68,6 +68,9 @@ Public Class GrblGui
             btnConnDisconnect_Click(btnConnect, Nothing)
         End If
 
+        ' Capture all keyboard events so that we get to see arrow keys. If we don't do this then
+        ' the various controls keep the arrow keys if one gets focus
+        Application.AddMessageFilter(New MsgFilter(Me))
     End Sub
 
     Private Sub grblgui_unload() Handles MyBase.FormClosing
@@ -98,6 +101,98 @@ Public Class GrblGui
 
         Application.Exit()
     End Sub
+    Public Class MsgFilter : Implements IMessageFilter
+        Private _gui As GrblGui
+        Public Sub New(ByRef owner As GrblGui)
+            _gui = owner
+        End Sub
+
+        ''' <summary>
+        ''' Handle key press overrides and keyboard mapping
+        ''' </summary>
+        ''' <param name="msg"></param>
+        ''' <returns>True if key msg was handled</returns>
+        <DebuggerStepThrough()> Private Function PreFilterMessage(ByRef msg As Message) As Boolean Implements IMessageFilter.PreFilterMessage
+            Dim handled As Boolean
+
+            If msg.Msg = &H100 Then  ' We have a KeyDown event
+
+                If _gui.gbJogging.Enabled And Not _gui.tbSendData.ContainsFocus Then
+                    If _gui.cbSettingsKeyboardJogging.Checked Then
+                        Select Case msg.WParam   ' ignoring modifiers for now
+                            Case Keys.Left
+                                _gui.btnXMinus.PerformClick()
+                                handled = True
+                            Case Keys.Right
+                                _gui.btnXPlus.PerformClick()
+                                handled = True
+                            Case Keys.Up
+                                _gui.btnYPlus.PerformClick()
+                                handled = True
+                            Case Keys.Down
+                                _gui.btnYMinus.PerformClick()
+                                handled = True
+                            Case Keys.PageUp
+                                _gui.btnZPlus.PerformClick()
+                                handled = True
+                            Case Keys.PageDown
+                                _gui.btnZMinus.PerformClick()
+                                handled = True
+                        End Select
+                        If handled Then
+                            Return True
+                        End If
+                    End If
+                End If
+
+                ' Non-jog mappings
+                If Not _gui.tbSendData.ContainsFocus Then ' in case user is working in MDI
+                    Select Case msg.WParam
+                        ' Act on Distance Increment keyboard requests
+                        Case Keys.Add
+                            _gui.changeDistanceIncrement(True)
+                            handled = True
+                        Case Keys.Subtract
+                            _gui.changeDistanceIncrement(False)
+                            handled = True
+
+                        ' Act on Feed Rate keyboard requests
+                        Case Keys.Divide
+                            _gui.changeFeedRate(True)
+                            handled = True
+                        Case Keys.Multiply
+                            _gui.changeFeedRate(False)
+                            handled = True
+
+                        ' Reset x,y,z axis to 0
+                        Case Keys.X
+                            _gui.btnWorkX0.PerformClick()
+                            handled = True
+                        Case Keys.Y
+                            _gui.btnWorkY0.PerformClick()
+                            handled = True
+                        Case Keys.Z
+                            _gui.btnWorkZ0.PerformClick()
+                            handled = True
+
+                        ' Reset all axes to 0
+                        Case Keys.Insert
+                        Case Keys.NumPad0
+                            _gui.btnWork0.PerformClick()
+                            handled = True
+                    End Select
+                End If
+                If handled = True Then
+                    Return True
+                End If
+            End If
+
+            ' We didn't handle event so pass it along
+            Return False
+        End Function
+
+    End Class
+
 
     Private Sub SwitchSides(ByVal side As Boolean)
         ' We switch GUI sides
@@ -166,7 +261,7 @@ Public Class GrblGui
 
         Select Case btn.Text
             Case "Connect"
-                Select Case btn.Tag
+                Select Case DirectCast(btn.Tag, String)
                     Case "COM"
                         connected = grblPort.Connect(GrblIF.ConnectionType.Serial)
                         If connected = True Then
@@ -217,7 +312,7 @@ Public Class GrblGui
                     statusPrompt("Start")
                     Sleep(tbSettingsStartupDelay.Text * 1000)             ' Give Grbl time to wake up from Reset
 
-                    RaiseEvent Connected("Connected")      ' tell everyone of the happy event
+                    RaiseEvent connected("Connected")      ' tell everyone of the happy event
                 End If
             Case "Disconnect"
                 ' it must be a disconnect
@@ -238,7 +333,7 @@ Public Class GrblGui
                 state.EnableState(False)
                 settings.EnableState(False)
 
-                RaiseEvent Connected("Disconnected")
+                RaiseEvent connected("Disconnected")
                 Return
         End Select
     End Sub
@@ -331,5 +426,7 @@ Public Class GrblGui
     ' Raised when we succesfully connected to Grbl
     Public Event Connected(ByVal msg As String)
 
+    Private Sub rbFeedRate1_CheckedChanged(sender As Object, e As EventArgs) Handles rbFeedRate2.CheckedChanged
 
+    End Sub
 End Class

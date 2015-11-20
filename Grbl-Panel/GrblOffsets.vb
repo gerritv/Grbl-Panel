@@ -92,27 +92,27 @@ Partial Class GrblGui
             End While
         End Sub
 
-        Property OffsetsWtgForGrbl
+        Property OffsetsWtgForGrbl As Boolean
             ' Used to enable watch for $ parameters
             Get
                 Return _wtgForGrbl
             End Get
-            Set(value)
+            Set(value As Boolean)
                 _wtgForGrbl = value
             End Set
         End Property
 
-        Property CollectingOffsets
+        Property CollectingOffsets As Boolean
             ' True is we are collecting params from response stream
             Get
                 Return _collecting
             End Get
-            Set(value)
+            Set(value As Boolean)
                 _collecting = value
             End Set
         End Property
 
-        ReadOnly Property Offsets
+        ReadOnly Property Offsets As List(Of String)
             Get
                 Return _offsets
             End Get

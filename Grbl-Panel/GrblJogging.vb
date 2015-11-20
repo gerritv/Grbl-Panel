@@ -29,12 +29,12 @@ Partial Class GrblGui
 
                 ' Set the default feed rate and increment
                 For Each rb As RadioButton In _gui.gbDistance.Controls
-                    If rb.Tag = My.Settings.JoggingFIDefault Then
+                    If DirectCast(rb.Tag, String) = My.Settings.JoggingFIDefault Then
                         rb.Checked = True
                     End If
                 Next
                 For Each rb As RadioButton In _gui.gbFeedRate.Controls
-                    If rb.Tag = My.Settings.JoggingFRDefault Then
+                    If DirectCast(rb.Tag, String) = My.Settings.JoggingFRDefault Then
                         rb.Checked = True
                     End If
                 Next
@@ -53,17 +53,11 @@ Partial Class GrblGui
         End Sub
 
     End Class
-    'Private Sub btnJogArray_MouseClick(sender As Object, e As EventArgs) Handles btnXPlus.Click, btnXMinus.Click, btnYPlus.Click, btnYMinus.Click, _
-    '                                                                       btnZPlus.Click, btnZMinus.Click
-    '    If whichDistance() = "" Or whichFeedRate() = "" Then
-    '        MessageBox.Show("Please set Distance and Feed Rate first")
-    '        Return
-    '    End If
-    'End Sub
+
     Private Sub btnJogArray_Click(sender As Object, e As EventArgs) Handles btnXPlus.Click, btnXMinus.Click, btnYPlus.Click, btnYMinus.Click, _
                                                                            btnZPlus.Click, btnZMinus.Click
         Dim btn As RepeatButton.RepeatButton = sender
-        Select Case btn.Tag
+        Select Case DirectCast(btn.Tag, String)
             Case "X+"
                 gcode.sendGCodeLine(createJogCommand("X"))
             Case "X-"
@@ -78,39 +72,6 @@ Partial Class GrblGui
                 gcode.sendGCodeLine(createJogCommand("Z-"))
         End Select
         gcode.sendGCodeLine("G90")
-    End Sub
-
-    Private Sub btnJogArray_KeyDown(sender As Object, e As KeyEventArgs) Handles MyBase.KeyDown
-
-        ' Handle key press events, if configured to do so
-
-        If gbJogging.Enabled And Not tbSendData.ContainsFocus Then
-            If cbSettingsKeyboardJogging.Checked Then
-                Select Case e.KeyCode
-                    Case Keys.Left
-                        gcode.sendGCodeLine(createJogCommand("X-"))
-                        e.Handled = True
-                    Case Keys.Right
-                        gcode.sendGCodeLine(createJogCommand("X"))
-                        e.Handled = True
-                    Case Keys.Up
-                        gcode.sendGCodeLine(createJogCommand("Y"))
-                        e.Handled = True
-                    Case Keys.Down
-                        gcode.sendGCodeLine(createJogCommand("Y-"))
-                        e.Handled = True
-                    Case Keys.PageUp
-                        gcode.sendGCodeLine(createJogCommand("Z"))
-                        e.Handled = True
-                    Case Keys.PageDown
-                        gcode.sendGCodeLine(createJogCommand("Z-"))
-                        e.Handled = True
-                End Select
-                If e.Handled Then
-                    gcode.sendGCodeLine("G90")
-                End If
-            End If
-        End If
     End Sub
 
     Private Sub cbSettingsMetric_CheckedChanged(sender As Object, e As EventArgs) Handles cbSettingsMetric.CheckedChanged
@@ -155,18 +116,30 @@ Partial Class GrblGui
         End If
 
     End Sub
+    ''' <summary>
+    ''' Changes Distance and Feed Rate to new units
+    ''' </summary>
+    ''' <param name="sender">The sender.</param>
+    ''' <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
     Private Sub cbUnits_CheckedChanged(sender As CheckBox, e As EventArgs) Handles cbUnits.CheckedChanged
         ' Set reasonable values into the Distance and Feed Rate radio buttons
 
         setDistanceMetric(sender.Checked)
     End Sub
-
-    Private Function createJogCommand(ByVal axis As String) As String
+    ''' <summary>
+    ''' Creates a jog command string.
+    ''' </summary>
+    ''' <param name="axis">The axis.</param>
+    ''' <returns></returns>
+    Public Function createJogCommand(ByVal axis As String) As String
         ' Builds a jog command from various inputs
         ' Jog in incremental mode, leave parser in absolute mode!
         Return "G91 " + whichUnits() + " G01 " + axis + whichDistance() + " F" + whichFeedRate()
     End Function
-
+    ''' <summary>
+    ''' Return value of current Distance Increment
+    ''' </summary>
+    ''' <returns>distance</returns>
     Private Function whichDistance() As String
         ' Return the value of cbDistance that is checked
         Dim distance As String
@@ -178,7 +151,10 @@ Partial Class GrblGui
         Next
         Return ""
     End Function
-
+    ''' <summary>
+    ''' Return value of current feed rate.
+    ''' </summary>
+    ''' <returns>feed rate</returns>
     Private Function whichFeedRate() As String
         ' Return the value of cbDistance that is checked
         Dim rate As String
@@ -190,7 +166,10 @@ Partial Class GrblGui
         Next
         Return ""
     End Function
-
+    ''' <summary>
+    ''' Returns Units gcode
+    ''' </summary>
+    ''' <returns>G20 or G21</returns>
     Private Function whichUnits() As String
         If cbUnits.Checked Then
             Return "G21"
@@ -198,18 +177,78 @@ Partial Class GrblGui
             Return "G20"
         End If
     End Function
-
-    Private Sub rbDistancex_CheckedChanged(sender As Object, e As EventArgs) Handles rbDistance1.CheckedChanged, rbDistance2.CheckedChanged, rbDistance3.CheckedChanged, _
-                                                                                    rbDistance4.CheckedChanged, rbFeedRate1.CheckedChanged, rbFeedRate2.CheckedChanged, _
+    ''' <summary>
+    ''' Handles the CheckedChanged event of the rbDistancex control.
+    ''' </summary>
+    ''' <param name="sender">The source of the event.</param>
+    ''' <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+    Private Sub rbDistancex_CheckedChanged(sender As Object, e As EventArgs) Handles rbDistance1.CheckedChanged, rbDistance2.CheckedChanged, rbDistance3.CheckedChanged,
+                                                                                    rbDistance4.CheckedChanged, rbFeedRate2.CheckedChanged, rbFeedRate1.CheckedChanged,
                                                                                    rbFeedRate3.CheckedChanged, rbFeedRate4.CheckedChanged
         ' Remember the setting
         Dim rbtn As RadioButton = sender
-        Select Case rbtn.Tag
+        Select Case DirectCast(rbtn.Tag, String)
             Case "I1", "I2", "I3", "I4"
                 My.Settings.JoggingFIDefault = rbtn.Tag
             Case "F1", "F2", "F3", "F4"
                 My.Settings.JoggingFRDefault = rbtn.Tag
         End Select
+    End Sub
+    ''' <summary>
+    ''' Changes the distance increment, up or down.
+    ''' </summary>
+    ''' <param name="up">if set to <c>true</c> [direction].</param>
+    Public Sub changeDistanceIncrement(ByVal up As Boolean)
+        ' We don't wrap, if we are at bottom of group and asked to go down again, we ignore request
+        Dim index As Integer = 0
+        ' find the one selected at present
+        For Each rb As RadioButton In gbDistance.Controls
+            If rb.Checked Then
+                Exit For
+            End If
+            index += 1
+        Next
+        If up = False Then
+            If index < 3 Then
+                ' we check the next one down
+                Dim rb As RadioButton = gbDistance.Controls(index + 1)
+                rb.Checked = True
+            End If
+        Else
+            If index > 0 Then
+                ' we check the next one up
+                Dim rb As RadioButton = gbDistance.Controls(index - 1)
+                rb.Checked = True
+            End If
+        End If
+    End Sub
+    ''' <summary>
+    ''' Changes the feed rate, up or down.
+    ''' </summary>
+    ''' <param name="up">if set to <c>true</c> [up].</param>
+    Public Sub changeFeedRate(ByVal up As Boolean)
+        ' We don't wrap, if we are at bottom of group and asked to go down again, we ignore request
+        Dim index As Integer = 0
+        ' find the one selected at present
+        For Each rb As RadioButton In gbFeedRate.Controls
+            If rb.Checked Then
+                Exit For
+            End If
+            index += 1
+        Next
+        If up = False Then
+            If index < 3 Then
+                ' we check the next one down
+                Dim rb As RadioButton = gbFeedRate.Controls(index + 1)
+                rb.Checked = True
+            End If
+        Else
+            If index > 0 Then
+                ' we check the next one up
+                Dim rb As RadioButton = gbFeedRate.Controls(index - 1)
+                rb.Checked = True
+            End If
+        End If
     End Sub
 End Class
 

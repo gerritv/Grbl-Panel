@@ -76,8 +76,8 @@ Partial Class GrblGui
         Me.btnXMinus = New RepeatButton.RepeatButton()
         Me.btnYPlus = New RepeatButton.RepeatButton()
         Me.gbFeedRate = New System.Windows.Forms.GroupBox()
-        Me.rbFeedRate2 = New System.Windows.Forms.RadioButton()
         Me.rbFeedRate1 = New System.Windows.Forms.RadioButton()
+        Me.rbFeedRate2 = New System.Windows.Forms.RadioButton()
         Me.rbFeedRate3 = New System.Windows.Forms.RadioButton()
         Me.rbFeedRate4 = New System.Windows.Forms.RadioButton()
         Me.gbDistance = New System.Windows.Forms.GroupBox()
@@ -336,7 +336,7 @@ Partial Class GrblGui
         '
         Me.ToolsToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.OptionsToolStripMenuItem})
         Me.ToolsToolStripMenuItem.Name = "ToolsToolStripMenuItem"
-        Me.ToolsToolStripMenuItem.Size = New System.Drawing.Size(48, 20)
+        Me.ToolsToolStripMenuItem.Size = New System.Drawing.Size(47, 20)
         Me.ToolsToolStripMenuItem.Text = "Tools"
         '
         'OptionsToolStripMenuItem
@@ -842,8 +842,8 @@ Partial Class GrblGui
         '
         'gbFeedRate
         '
-        Me.gbFeedRate.Controls.Add(Me.rbFeedRate2)
         Me.gbFeedRate.Controls.Add(Me.rbFeedRate1)
+        Me.gbFeedRate.Controls.Add(Me.rbFeedRate2)
         Me.gbFeedRate.Controls.Add(Me.rbFeedRate3)
         Me.gbFeedRate.Controls.Add(Me.rbFeedRate4)
         Me.gbFeedRate.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -854,27 +854,28 @@ Partial Class GrblGui
         Me.gbFeedRate.TabStop = False
         Me.gbFeedRate.Text = "Feed Rate"
         '
-        'rbFeedRate2
-        '
-        Me.rbFeedRate2.AutoSize = True
-        Me.rbFeedRate2.Location = New System.Drawing.Point(6, 34)
-        Me.rbFeedRate2.Name = "rbFeedRate2"
-        Me.rbFeedRate2.Size = New System.Drawing.Size(14, 13)
-        Me.rbFeedRate2.TabIndex = 11
-        Me.rbFeedRate2.TabStop = True
-        Me.rbFeedRate2.Tag = "F2"
-        Me.rbFeedRate2.UseVisualStyleBackColor = True
-        '
         'rbFeedRate1
         '
         Me.rbFeedRate1.AutoSize = True
-        Me.rbFeedRate1.Location = New System.Drawing.Point(6, 15)
+        Me.rbFeedRate1.Cursor = System.Windows.Forms.Cursors.Default
+        Me.rbFeedRate1.Location = New System.Drawing.Point(6, 19)
         Me.rbFeedRate1.Name = "rbFeedRate1"
         Me.rbFeedRate1.Size = New System.Drawing.Size(14, 13)
-        Me.rbFeedRate1.TabIndex = 10
+        Me.rbFeedRate1.TabIndex = 11
         Me.rbFeedRate1.TabStop = True
         Me.rbFeedRate1.Tag = "F1"
         Me.rbFeedRate1.UseVisualStyleBackColor = True
+        '
+        'rbFeedRate2
+        '
+        Me.rbFeedRate2.AutoSize = True
+        Me.rbFeedRate2.Location = New System.Drawing.Point(6, 35)
+        Me.rbFeedRate2.Name = "rbFeedRate2"
+        Me.rbFeedRate2.Size = New System.Drawing.Size(14, 13)
+        Me.rbFeedRate2.TabIndex = 10
+        Me.rbFeedRate2.TabStop = True
+        Me.rbFeedRate2.Tag = "F2"
+        Me.rbFeedRate2.UseVisualStyleBackColor = True
         '
         'rbFeedRate3
         '
@@ -1295,7 +1296,7 @@ Partial Class GrblGui
         Me.tbGrblIP.Location = New System.Drawing.Point(4, 22)
         Me.tbGrblIP.Name = "tbGrblIP"
         Me.tbGrblIP.Padding = New System.Windows.Forms.Padding(3)
-        Me.tbGrblIP.Size = New System.Drawing.Size(154, 61)
+        Me.tbGrblIP.Size = New System.Drawing.Size(154, 45)
         Me.tbGrblIP.TabIndex = 1
         Me.tbGrblIP.Text = "IP"
         Me.tbGrblIP.UseVisualStyleBackColor = True
@@ -2964,8 +2965,8 @@ Partial Class GrblGui
     Friend WithEvents gbJogging As System.Windows.Forms.GroupBox
     Friend WithEvents rbFeedRate4 As System.Windows.Forms.RadioButton
     Friend WithEvents rbFeedRate3 As System.Windows.Forms.RadioButton
-    Friend WithEvents rbFeedRate2 As System.Windows.Forms.RadioButton
     Friend WithEvents rbFeedRate1 As System.Windows.Forms.RadioButton
+    Friend WithEvents rbFeedRate2 As System.Windows.Forms.RadioButton
     Friend WithEvents rbDistance4 As System.Windows.Forms.RadioButton
     Friend WithEvents rbDistance3 As System.Windows.Forms.RadioButton
     Friend WithEvents rbDistance2 As System.Windows.Forms.RadioButton
