@@ -309,8 +309,8 @@ Public Class GrblGui
                     state.EnableState(True)
                     settings.EnableState(True)
                     ' Start the status poller
-                    statusPrompt("Start")
                     Sleep(tbSettingsStartupDelay.Text * 1000)             ' Give Grbl time to wake up from Reset
+                    statusPrompt("Start")
 
                     RaiseEvent connected("Connected")      ' tell everyone of the happy event
                 End If
