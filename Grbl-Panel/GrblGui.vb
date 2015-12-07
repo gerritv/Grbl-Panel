@@ -1,6 +1,7 @@
 ﻿Imports System.Globalization
 Imports System.Threading
 Imports System.Threading.Thread
+Imports Microsoft.Win32
 
 
 Public Class GrblGui
@@ -67,6 +68,8 @@ Public Class GrblGui
             ' auto connect
             btnConnDisconnect_Click(btnConnect, Nothing)
         End If
+
+        EnableMacroButtons()
 
         ' Capture all keyboard events so that we get to see arrow keys. If we don't do this then
         ' the various controls keep the arrow keys if one gets focus
@@ -429,4 +432,67 @@ Public Class GrblGui
     Private Sub rbFeedRate1_CheckedChanged(sender As Object, e As EventArgs) Handles rbFeedRate2.CheckedChanged
 
     End Sub
+
+    Private Sub MacroButtonEditorToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles MacroButtonEditorToolStripMenuItem.Click
+        GrblMacroButtons.ShowDialog()
+        EnableMacroButtons()
+    End Sub
+
+    Private Sub EnableMacroButtons()
+
+        Dim b As Button
+        Dim iButtonCounter As Int16
+        Dim iButtonMargin As Int16 = 7
+        Dim iButtonRowSum As Int16 = 0
+        Dim iButtonRowTop As Int16 = 62
+        Dim DefaultDimension As Size = New Size(58, 20)
+
+        Dim strRegSubKey As String = "Software\GrblPanel\Macros"
+        Dim instance As RegistryKey = Registry.CurrentUser.OpenSubKey(strRegSubKey)
+        Dim tempkey As RegistryKey
+
+        ' make sure there are no macro buttons in the group before we add new ones
+        For iLoopCounter As Integer = (gbMDI.Controls.Count - 1) To 0 Step -1
+            Dim mButton As Control = gbMDI.Controls(iLoopCounter)
+
+            If mButton.Name Like "btnMacro*" Then
+                gbMDI.Controls.Remove(mButton)
+                mButton.Dispose()
+            End If
+        Next iLoopCounter
+
+
+        ' now start adding buttons for each macro item in the registry
+        If Not (instance Is Nothing) Then
+            For Each tempKeyName As String In instance.GetSubKeyNames()
+
+                b = New Button
+                b.Size = DefaultDimension
+                b.Location = New Point(iButtonRowSum + iButtonMargin, iButtonRowTop)
+                b.Name = "btnMacro" & iButtonCounter
+                b.Text = tempKeyName
+
+                tempkey = instance.OpenSubKey(tempKeyName)
+
+                b.Tag = tempkey.GetValue("GCode", "").ToString
+
+                AddHandler b.Click, AddressOf MacroButton_Click
+                gbMDI.Controls.Add(b)
+                iButtonRowSum += iButtonMargin + b.Width
+                iButtonCounter += 1
+            Next
+        End If
+    End Sub
+
+    Private Sub MacroButton_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
+
+        Dim iCounter As Int16
+        Dim aData() As String
+
+        aData = Split(Trim(CType(sender, Button).Tag), vbCrLf) ' split the gcode in case the user uses multiple lines 
+        For iCounter = 0 To aData.Count - 1
+            gcode.sendGCodeLine(aData(iCounter))
+        Next
+    End Sub
+
 End Class
