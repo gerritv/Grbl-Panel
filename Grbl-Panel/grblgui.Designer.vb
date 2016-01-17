@@ -30,6 +30,7 @@ Partial Class GrblGui
         Me.ExitToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.OptionsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.MacroButtonEditorToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.HelpToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.AboutToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.TabControl1 = New System.Windows.Forms.TabControl()
@@ -334,7 +335,7 @@ Partial Class GrblGui
         '
         'ToolsToolStripMenuItem
         '
-        Me.ToolsToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.OptionsToolStripMenuItem})
+        Me.ToolsToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.OptionsToolStripMenuItem, Me.MacroButtonEditorToolStripMenuItem})
         Me.ToolsToolStripMenuItem.Name = "ToolsToolStripMenuItem"
         Me.ToolsToolStripMenuItem.Size = New System.Drawing.Size(47, 20)
         Me.ToolsToolStripMenuItem.Text = "Tools"
@@ -342,8 +343,14 @@ Partial Class GrblGui
         'OptionsToolStripMenuItem
         '
         Me.OptionsToolStripMenuItem.Name = "OptionsToolStripMenuItem"
-        Me.OptionsToolStripMenuItem.Size = New System.Drawing.Size(116, 22)
+        Me.OptionsToolStripMenuItem.Size = New System.Drawing.Size(181, 22)
         Me.OptionsToolStripMenuItem.Text = "Options"
+        '
+        'MacroButtonEditorToolStripMenuItem
+        '
+        Me.MacroButtonEditorToolStripMenuItem.Name = "MacroButtonEditorToolStripMenuItem"
+        Me.MacroButtonEditorToolStripMenuItem.Size = New System.Drawing.Size(181, 22)
+        Me.MacroButtonEditorToolStripMenuItem.Text = "Macro Button Editor"
         '
         'HelpToolStripMenuItem
         '
@@ -3194,6 +3201,7 @@ Partial Class GrblGui
     Friend WithEvents tbGrblIP As System.Windows.Forms.TabPage
     Friend WithEvents btnIPConnect As System.Windows.Forms.Button
     Friend WithEvents tbIPAddress As System.Windows.Forms.TextBox
+    Friend WithEvents MacroButtonEditorToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
 
 
 End Class

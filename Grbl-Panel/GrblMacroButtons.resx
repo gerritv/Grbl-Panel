@@ -117,70 +117,10 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <metadata name="MenuStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
+  <metadata name="Column1.UserAddedColumn" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
   </metadata>
-  <metadata name="ToolTip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>526, 15</value>
-  </metadata>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="btnFileReload.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAcJJREFUWEft
-        lL9LQlEUx/3x1Ofz+SszdJEnQkOIKIR/QKA0ZINDNDRFODY1uDZFU0Q0OkhDg4P0B0g0RTRFY1OTOEY0
-        OMTrc71aiK/J5yC8D1zOeeee9+4933Pvczk4ODgsLbFYbNPv918oitJjPPp8vo6qqg3DMPRxymJIp9MR
-        Fr7FNa2Gx+MZhEKhHXz7yWQyGtU+4YrFvqm6S9VHgUBgj02der3e98mcpmn7WHthoUuM6Xa7P8Lh8JaM
-        /pHL5VQ2dYMrcr4SiYQhZ2wgBXx0iGvqul6X0VlKpRIiSZVQ5VpG54B+niDzOdV3eRQ9/qTKJhI38/l8
-        RGZNwzu7GJON9GVkDljoEDN10MSgujbWkmKxuIqZ5M5HrVbzUMkD7u/iqNCnIyti3opyuSzm7NmAgDu/
-        Mem/GEj87xkQcEa2MSa3YiAjNsAZOMMI6TsyYk2lUhGK3eOanJWWjNpANpvV+OBzMplMjUMz0HuFjV7h
-        ims4jMfj63LGJgqFgjp2hSJ3qNEKBoN1JK/yfIzkr0yN2sThbYwSF0E0Gh312GqInxSLH+AvFv6EVVrS
-        pt8v2DdsDxWa3I61cYqDg4PDMuBy/QBTm19yV5itLgAAAABJRU5ErkJggg==
-</value>
-  </data>
-  <data name="btnFilePause.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAEBJREFUSEtj
-        GAWjgHaAjY2tCkj9h2EmJqajIHEo2ArEcDlWVtZ2kCBJYNQCgmDUAoJg1AKCYOhbMApGAZGAgQEASONn
-        UbG6bmEAAAAASUVORK5CYII=
-</value>
-  </data>
-  <data name="btnFileSelect.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAHxJREFUSEtj
-        GAWjgLaAmZl5N5D6j4xZWVm7eXh4Uvj5+SWAfMoALgvY2Nj6mZiYrgMtkQKKkQ/wWQBiAy25zcfHJwdk
-        kwdwWcDLy6vDzs4eAMJAC0yA4uQBbBYA8WMgPoyEQb4hD+CwAB2D1JAHRi0gCEYtGAWjgBqAgQEAiN5m
-        +5yYLNYAAAAASUVORK5CYII=
-</value>
-  </data>
-  <data name="btnFileSend.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAMdJREFUSEtj
-        GAWjgLZAVlZWjpWVdbKMjAwHVIi6QEpKSg5I/WdiYrrIw8OjARGlIoBZAMKMjIxf2dnZk8AS1ALIFsAw
-        CwvLchERET4gm3KAzQIQBgbZXS4uLgsgmzKAywIo/s3GxlZmZGTEBGSTBwhY8BeYwlo1NDRYgGzyAC4L
-        gBH+lJOT0wnIpgzgiOStgoKCIkA25QDNgp/AZFpgZWVFfpijA5gFwFRzk5ub2wgiSkUgLS0tBwyShaKi
-        ojxQoVEwCugOGBgApuw5jJYVGoYAAAAASUVORK5CYII=
-</value>
-  </data>
-  <data name="btnFileStop.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAEJJREFUSEvt
-        zLEJAEAMgMDsv/T/AiJYpMuBrXPOqhfLaGJlNLEymlgZTayMJlZGEyujiZXRxMpoYmU0sTKaWOesmPmJ
-        VY9x1qIGtwAAAABJRU5ErkJggg==
-</value>
-  </data>
-  <metadata name="ofdGcodeFile.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>241, 15</value>
-  </metadata>
-  <metadata name="sfdOffsets.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>625, 15</value>
-  </metadata>
-  <metadata name="ofdOffsets.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>731, 15</value>
-  </metadata>
-  <metadata name="GrblSettingsBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>839, 15</value>
-  </metadata>
-  <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>60</value>
+  <metadata name="Column2.UserAddedColumn" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
   </metadata>
 </root>
