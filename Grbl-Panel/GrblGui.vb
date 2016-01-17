@@ -1,7 +1,6 @@
 ﻿Imports System.Globalization
 Imports System.Threading
 Imports System.Threading.Thread
-Imports Microsoft.Win32
 
 
 Public Class GrblGui
@@ -149,7 +148,8 @@ Public Class GrblGui
                 End If
 
                 ' Non-jog mappings
-                If Not _gui.tbSendData.ContainsFocus Then ' in case user is working in MDI
+                If Not _gui.tbSendData.ContainsFocus And
+                    Not _gui.gbEditor.ContainsFocus Then ' in case user is working in MDI
                     Select Case msg.WParam
                         ' Act on Distance Increment keyboard requests
                         Case Keys.Add
@@ -429,27 +429,21 @@ Public Class GrblGui
     ' Raised when we succesfully connected to Grbl
     Public Event Connected(ByVal msg As String)
 
-    Private Sub rbFeedRate1_CheckedChanged(sender As Object, e As EventArgs) Handles rbFeedRate2.CheckedChanged
 
-    End Sub
-
-    Private Sub MacroButtonEditorToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles MacroButtonEditorToolStripMenuItem.Click
-        GrblMacroButtons.ShowDialog()
-        EnableMacroButtons()
-    End Sub
+    'Private Sub MacroButtonEditorToolStripMenuItem_Click(sender As Object, e As EventArgs)
+    '    GrblMacroButtons.ShowDialog()
+    '    EnableMacroButtons()
+    'End Sub
 
     Private Sub EnableMacroButtons()
-
         Dim b As Button
-        Dim iButtonCounter As Int16
-        Dim iButtonMargin As Int16 = 7
-        Dim iButtonRowSum As Int16 = 0
-        Dim iButtonRowTop As Int16 = 62
+        Dim iButtonCounter As Integer
+        Dim iButtonMargin As Integer = 7
+        Dim iButtonRowSum As Integer = 0
+        Dim iButtonRowTop As Integer = 62
         Dim DefaultDimension As Size = New Size(58, 20)
 
-        Dim strRegSubKey As String = "Software\GrblPanel\Macros"
-        Dim instance As RegistryKey = Registry.CurrentUser.OpenSubKey(strRegSubKey)
-        Dim tempkey As RegistryKey
+        Dim macro As String()
 
         ' make sure there are no macro buttons in the group before we add new ones
         For iLoopCounter As Integer = (gbMDI.Controls.Count - 1) To 0 Step -1
@@ -463,30 +457,29 @@ Public Class GrblGui
 
 
         ' now start adding buttons for each macro item in the registry
-        If Not (instance Is Nothing) Then
-            For Each tempKeyName As String In instance.GetSubKeyNames()
-
+        'If Not (instance Is Nothing) Then
+        For Each item As String In macroNames
+            macro = Split(My.Settings(item), ":")
+            If macro.Count = 2 Then
                 b = New Button
                 b.Size = DefaultDimension
                 b.Location = New Point(iButtonRowSum + iButtonMargin, iButtonRowTop)
                 b.Name = "btnMacro" & iButtonCounter
-                b.Text = tempKeyName
-
-                tempkey = instance.OpenSubKey(tempKeyName)
-
-                b.Tag = tempkey.GetValue("GCode", "").ToString
+                b.Text = macro(0).ToString
+                b.Tag = macro(1).ToString
 
                 AddHandler b.Click, AddressOf MacroButton_Click
                 gbMDI.Controls.Add(b)
                 iButtonRowSum += iButtonMargin + b.Width
                 iButtonCounter += 1
-            Next
-        End If
+            End If
+        Next
+        'End If
     End Sub
 
     Private Sub MacroButton_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
 
-        Dim iCounter As Int16
+        Dim iCounter As Integer
         Dim aData() As String
 
         aData = Split(Trim(CType(sender, Button).Tag), vbCrLf) ' split the gcode in case the user uses multiple lines 

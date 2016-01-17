@@ -351,10 +351,10 @@ Public Class GrblIF
                         Dim c As Byte() = ASCIIEncoding.ASCII.GetBytes(data)
                         Try
                             _port.BaseStream.Write(c, 0, c.Length)
-                        Catch
+                        Catch e As Exception
                             _connected = False
                             ' _port.Close()
-                            MessageBox.Show("Fatal error on write to Grbl")
+                            MessageBox.Show("Fatal error on write to Grbl, " + e.Message)
                         End Try
 
                         'Console.WriteLine("GrblIF::sendData Sent: " + data + " to Grbl")
@@ -362,10 +362,10 @@ Public Class GrblIF
                         Dim c As Byte() = ASCIIEncoding.ASCII.GetBytes(data + vbLf)
                         Try
                             _port.BaseStream.Write(c, 0, c.Length)
-                        Catch
+                        Catch e As Exception
                             _connected = False
                             '_port.Close()
-                            MessageBox.Show("Fatal error on write to Grbl")
+                            MessageBox.Show("Fatal error on write to Grbl, " + e.Message)
                         End Try
                         'Console.WriteLine("GrblIF::sendData Sent: " + data + " to Grbl")
                     End If

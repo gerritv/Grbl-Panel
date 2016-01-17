@@ -30,7 +30,6 @@ Partial Class GrblGui
         Me.ExitToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.OptionsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.MacroButtonEditorToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.HelpToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.AboutToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.TabControl1 = New System.Windows.Forms.TabControl()
@@ -262,6 +261,20 @@ Partial Class GrblGui
         Me.Label30 = New System.Windows.Forms.Label()
         Me.cbSettingsMetric = New System.Windows.Forms.CheckBox()
         Me.tbSettingsFIImperial = New System.Windows.Forms.TextBox()
+        Me.TabPage1 = New System.Windows.Forms.TabPage()
+        Me.gbEditor = New System.Windows.Forms.GroupBox()
+        Me.btnAdd = New System.Windows.Forms.Button()
+        Me.lblGCode = New System.Windows.Forms.Label()
+        Me.tbGCode = New System.Windows.Forms.TextBox()
+        Me.lblName = New System.Windows.Forms.Label()
+        Me.tbName = New System.Windows.Forms.TextBox()
+        Me.btnCancel = New System.Windows.Forms.Button()
+        Me.btnOK = New System.Windows.Forms.Button()
+        Me.dgMacros = New System.Windows.Forms.DataGridView()
+        Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.lblStatusLabel = New System.Windows.Forms.Label()
+        Me.btnDeleteMacro = New System.Windows.Forms.Button()
         Me.ofdGcodeFile = New System.Windows.Forms.OpenFileDialog()
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
         Me.sfdOffsets = New System.Windows.Forms.SaveFileDialog()
@@ -299,6 +312,9 @@ Partial Class GrblGui
         Me.gbSettingsMisc.SuspendLayout()
         Me.gbSettingsPosition.SuspendLayout()
         Me.gbSettingsJogging.SuspendLayout()
+        Me.TabPage1.SuspendLayout()
+        Me.gbEditor.SuspendLayout()
+        CType(Me.dgMacros, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.GrblSettingsBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -335,7 +351,7 @@ Partial Class GrblGui
         '
         'ToolsToolStripMenuItem
         '
-        Me.ToolsToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.OptionsToolStripMenuItem, Me.MacroButtonEditorToolStripMenuItem})
+        Me.ToolsToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.OptionsToolStripMenuItem})
         Me.ToolsToolStripMenuItem.Name = "ToolsToolStripMenuItem"
         Me.ToolsToolStripMenuItem.Size = New System.Drawing.Size(47, 20)
         Me.ToolsToolStripMenuItem.Text = "Tools"
@@ -343,14 +359,8 @@ Partial Class GrblGui
         'OptionsToolStripMenuItem
         '
         Me.OptionsToolStripMenuItem.Name = "OptionsToolStripMenuItem"
-        Me.OptionsToolStripMenuItem.Size = New System.Drawing.Size(181, 22)
+        Me.OptionsToolStripMenuItem.Size = New System.Drawing.Size(116, 22)
         Me.OptionsToolStripMenuItem.Text = "Options"
-        '
-        'MacroButtonEditorToolStripMenuItem
-        '
-        Me.MacroButtonEditorToolStripMenuItem.Name = "MacroButtonEditorToolStripMenuItem"
-        Me.MacroButtonEditorToolStripMenuItem.Size = New System.Drawing.Size(181, 22)
-        Me.MacroButtonEditorToolStripMenuItem.Text = "Macro Button Editor"
         '
         'HelpToolStripMenuItem
         '
@@ -371,6 +381,7 @@ Partial Class GrblGui
             Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.TabControl1.Controls.Add(Me.tabPgInterface)
         Me.TabControl1.Controls.Add(Me.tabPgSettings)
+        Me.TabControl1.Controls.Add(Me.TabPage1)
         Me.TabControl1.Location = New System.Drawing.Point(0, 24)
         Me.TabControl1.Name = "TabControl1"
         Me.TabControl1.SelectedIndex = 0
@@ -2868,6 +2879,145 @@ Partial Class GrblGui
         Me.tbSettingsFIImperial.TabIndex = 10
         Me.tbSettingsFIImperial.Text = Global.GrblPanel.My.MySettings.Default.JoggingFIImperial
         '
+        'TabPage1
+        '
+        Me.TabPage1.Controls.Add(Me.gbEditor)
+        Me.TabPage1.Controls.Add(Me.btnCancel)
+        Me.TabPage1.Controls.Add(Me.btnOK)
+        Me.TabPage1.Controls.Add(Me.dgMacros)
+        Me.TabPage1.Controls.Add(Me.lblStatusLabel)
+        Me.TabPage1.Controls.Add(Me.btnDeleteMacro)
+        Me.TabPage1.Location = New System.Drawing.Point(4, 22)
+        Me.TabPage1.Name = "TabPage1"
+        Me.TabPage1.Size = New System.Drawing.Size(1134, 677)
+        Me.TabPage1.TabIndex = 2
+        Me.TabPage1.Text = "Macros"
+        Me.TabPage1.UseVisualStyleBackColor = True
+        '
+        'gbEditor
+        '
+        Me.gbEditor.Controls.Add(Me.btnAdd)
+        Me.gbEditor.Controls.Add(Me.lblGCode)
+        Me.gbEditor.Controls.Add(Me.tbGCode)
+        Me.gbEditor.Controls.Add(Me.lblName)
+        Me.gbEditor.Controls.Add(Me.tbName)
+        Me.gbEditor.Location = New System.Drawing.Point(6, 147)
+        Me.gbEditor.Name = "gbEditor"
+        Me.gbEditor.Size = New System.Drawing.Size(246, 111)
+        Me.gbEditor.TabIndex = 8
+        Me.gbEditor.TabStop = False
+        Me.gbEditor.Text = "Editor"
+        '
+        'btnAdd
+        '
+        Me.btnAdd.Location = New System.Drawing.Point(166, 17)
+        Me.btnAdd.Name = "btnAdd"
+        Me.btnAdd.Size = New System.Drawing.Size(64, 23)
+        Me.btnAdd.TabIndex = 4
+        Me.btnAdd.Text = "Add"
+        Me.btnAdd.UseVisualStyleBackColor = True
+        '
+        'lblGCode
+        '
+        Me.lblGCode.Location = New System.Drawing.Point(9, 51)
+        Me.lblGCode.Name = "lblGCode"
+        Me.lblGCode.Size = New System.Drawing.Size(50, 15)
+        Me.lblGCode.TabIndex = 3
+        Me.lblGCode.Text = "G Code:"
+        Me.lblGCode.TextAlign = System.Drawing.ContentAlignment.TopRight
+        '
+        'tbGCode
+        '
+        Me.tbGCode.AcceptsReturn = True
+        Me.tbGCode.Location = New System.Drawing.Point(62, 48)
+        Me.tbGCode.Multiline = True
+        Me.tbGCode.Name = "tbGCode"
+        Me.tbGCode.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
+        Me.tbGCode.Size = New System.Drawing.Size(168, 57)
+        Me.tbGCode.TabIndex = 2
+        '
+        'lblName
+        '
+        Me.lblName.Location = New System.Drawing.Point(9, 22)
+        Me.lblName.Name = "lblName"
+        Me.lblName.Size = New System.Drawing.Size(50, 15)
+        Me.lblName.TabIndex = 1
+        Me.lblName.Text = "Name:"
+        Me.lblName.TextAlign = System.Drawing.ContentAlignment.TopRight
+        '
+        'tbName
+        '
+        Me.tbName.Location = New System.Drawing.Point(61, 19)
+        Me.tbName.Name = "tbName"
+        Me.tbName.Size = New System.Drawing.Size(99, 20)
+        Me.tbName.TabIndex = 0
+        '
+        'btnCancel
+        '
+        Me.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel
+        Me.btnCancel.Location = New System.Drawing.Point(177, 32)
+        Me.btnCancel.Name = "btnCancel"
+        Me.btnCancel.Size = New System.Drawing.Size(75, 23)
+        Me.btnCancel.TabIndex = 10
+        Me.btnCancel.Text = "Cancel"
+        Me.btnCancel.UseVisualStyleBackColor = True
+        '
+        'btnOK
+        '
+        Me.btnOK.Location = New System.Drawing.Point(177, 3)
+        Me.btnOK.Name = "btnOK"
+        Me.btnOK.Size = New System.Drawing.Size(75, 23)
+        Me.btnOK.TabIndex = 9
+        Me.btnOK.Text = "OK"
+        Me.btnOK.UseVisualStyleBackColor = True
+        '
+        'dgMacros
+        '
+        Me.dgMacros.AllowUserToAddRows = False
+        Me.dgMacros.AllowUserToDeleteRows = False
+        Me.dgMacros.AllowUserToResizeColumns = False
+        Me.dgMacros.AllowUserToResizeRows = False
+        Me.dgMacros.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.dgMacros.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column1, Me.Column2})
+        Me.dgMacros.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically
+        Me.dgMacros.Location = New System.Drawing.Point(18, 3)
+        Me.dgMacros.Name = "dgMacros"
+        Me.dgMacros.ReadOnly = True
+        Me.dgMacros.RowHeadersVisible = False
+        Me.dgMacros.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing
+        Me.dgMacros.ScrollBars = System.Windows.Forms.ScrollBars.None
+        Me.dgMacros.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+        Me.dgMacros.Size = New System.Drawing.Size(148, 134)
+        Me.dgMacros.TabIndex = 11
+        '
+        'Column1
+        '
+        Me.Column1.HeaderText = "Name"
+        Me.Column1.Name = "Column1"
+        Me.Column1.ReadOnly = True
+        '
+        'Column2
+        '
+        Me.Column2.HeaderText = "GCode"
+        Me.Column2.Name = "Column2"
+        Me.Column2.ReadOnly = True
+        '
+        'lblStatusLabel
+        '
+        Me.lblStatusLabel.Location = New System.Drawing.Point(9, 263)
+        Me.lblStatusLabel.Name = "lblStatusLabel"
+        Me.lblStatusLabel.Size = New System.Drawing.Size(242, 23)
+        Me.lblStatusLabel.TabIndex = 13
+        '
+        'btnDeleteMacro
+        '
+        Me.btnDeleteMacro.Location = New System.Drawing.Point(177, 102)
+        Me.btnDeleteMacro.Name = "btnDeleteMacro"
+        Me.btnDeleteMacro.Size = New System.Drawing.Size(74, 34)
+        Me.btnDeleteMacro.TabIndex = 12
+        Me.btnDeleteMacro.Text = "Delete Selected"
+        Me.btnDeleteMacro.UseVisualStyleBackColor = True
+        '
         'ofdGcodeFile
         '
         Me.ofdGcodeFile.DefaultExt = "ngc"
@@ -2954,6 +3104,10 @@ Partial Class GrblGui
         Me.gbSettingsPosition.PerformLayout()
         Me.gbSettingsJogging.ResumeLayout(False)
         Me.gbSettingsJogging.PerformLayout()
+        Me.TabPage1.ResumeLayout(False)
+        Me.gbEditor.ResumeLayout(False)
+        Me.gbEditor.PerformLayout()
+        CType(Me.dgMacros, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.GrblSettingsBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
@@ -3201,7 +3355,18 @@ Partial Class GrblGui
     Friend WithEvents tbGrblIP As System.Windows.Forms.TabPage
     Friend WithEvents btnIPConnect As System.Windows.Forms.Button
     Friend WithEvents tbIPAddress As System.Windows.Forms.TextBox
-    Friend WithEvents MacroButtonEditorToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-
-
+    Friend WithEvents TabPage1 As TabPage
+    Public WithEvents gbEditor As GroupBox
+    Private WithEvents btnAdd As Button
+    Private WithEvents lblGCode As Label
+    Public WithEvents tbGCode As TextBox
+    Private WithEvents lblName As Label
+    Public WithEvents tbName As TextBox
+    Private WithEvents btnCancel As Button
+    Private WithEvents btnOK As Button
+    Private WithEvents dgMacros As DataGridView
+    Friend WithEvents Column1 As DataGridViewTextBoxColumn
+    Friend WithEvents Column2 As DataGridViewTextBoxColumn
+    Private WithEvents lblStatusLabel As Label
+    Private WithEvents btnDeleteMacro As Button
 End Class

@@ -113,8 +113,7 @@
     <Compile Include="AboutBox.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ApplicationEvents.vb" />
-    <Compile Include="GrblMacroButtons.Designer.vb">
+    <Compile Include="ApplicationEvents.vb" >
       <DependentUpon>GrblMacroButtons.vb</DependentUpon>
     </Compile>
     <Compile Include="GrblMacroButtons.vb">
@@ -168,9 +167,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GrblGui.resx">
       <DependentUpon>GrblGui.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="GrblMacroButtons.resx">
-      <DependentUpon>GrblMacroButtons.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
