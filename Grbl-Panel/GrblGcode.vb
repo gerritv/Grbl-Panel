@@ -52,6 +52,10 @@ Partial Class GrblGui
                     _gui.gcodeview.Insert(data, _inputcount)
                     _inputcount += 1
                 End If
+                ' Allow UI to be somewhat responsive while loading large files
+                If _inputcount Mod 100 = 0 Then
+                    Application.DoEvents()
+                End If
             Loop
 
             lineCount = _inputcount
