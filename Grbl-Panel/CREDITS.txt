@@ -12,3 +12,4 @@ This tool would not have been possible without:
 - Tyler for adding IP connectivity
 - Peter Smid, for his amazing books on CNC and Gcode
 - Ed Reed, aka JoeBananas10 for the Macro button code
+- matmurdock for adding the icon

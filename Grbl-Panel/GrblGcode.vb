@@ -463,7 +463,8 @@ Partial Class GrblGui
                     ofdGcodeFile.DefaultExt = String.Format(".{0}", tbSettingsDefaultExt.Text)
                 End If
                 ofdGcodeFile.FileName = "File"
-                If ofdGcodeFile.ShowDialog() = Windows.Forms.DialogResult.OK Then
+
+                If ofdGcodeFile.ShowDialog() = DialogResult.OK Then
                     'gcode.openGCodeFile(ofdGcodeFile.FileName)
                     gcode.loadGCodeFile(ofdGcodeFile.FileName)
                     tbGcodeFile.Text = ofdGcodeFile.FileName

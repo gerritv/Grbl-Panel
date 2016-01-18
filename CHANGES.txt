@@ -1,4 +1,9 @@
 This file documents changes made:
+V1.0.7.0	- 2016 Jan 17
+			- Added exception info to Serial Write error
+			- Added Macro button enhancement from @joebananas, thank you!!!! Issue 38
+			- Changed target to .NET 4.5.2 to fix issue #39, thanks matmurdock
+			- Added icon, thanks matmurdock
 V1.0.6.0	- 2015 Nov 20
 			- Added M30 handling to rewind gcode file
 V1.0.5.0	- 2015 Nov 4

@@ -3043,6 +3043,7 @@ Partial Class GrblGui
         Me.ClientSize = New System.Drawing.Size(1143, 729)
         Me.Controls.Add(Me.TabControl1)
         Me.Controls.Add(Me.MenuStrip1)
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.KeyPreview = True
         Me.MainMenuStrip = Me.MenuStrip1
         Me.Name = "GrblGui"
