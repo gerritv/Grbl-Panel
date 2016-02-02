@@ -1,5 +1,4 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class GrblGui
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> Partial Class GrblGui
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
@@ -30,7 +29,6 @@ Partial Class GrblGui
         Me.ExitToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.OptionsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.MacroButtonEditorToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.HelpToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.AboutToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.TabControl1 = New System.Windows.Forms.TabControl()
@@ -145,6 +143,12 @@ Partial Class GrblGui
         Me.btnWorkZ0 = New System.Windows.Forms.Button()
         Me.btnWorkY0 = New System.Windows.Forms.Button()
         Me.tpOffsets = New System.Windows.Forms.TabPage()
+        Me.btnSetOffsetG59 = New System.Windows.Forms.Button()
+        Me.btnSetOffsetG58 = New System.Windows.Forms.Button()
+        Me.btnSetOffsetG57 = New System.Windows.Forms.Button()
+        Me.btnSetOffsetG56 = New System.Windows.Forms.Button()
+        Me.btnSetOffsetG55 = New System.Windows.Forms.Button()
+        Me.btnSetOffsetG54 = New System.Windows.Forms.Button()
         Me.Label10 = New System.Windows.Forms.Label()
         Me.Label71 = New System.Windows.Forms.Label()
         Me.tbOffSetsMachZ = New System.Windows.Forms.TextBox()
@@ -155,10 +159,7 @@ Partial Class GrblGui
         Me.tbOffsetsG56Z = New System.Windows.Forms.TextBox()
         Me.tbOffSetsMachX = New System.Windows.Forms.TextBox()
         Me.btnOffsetsG57Zero = New System.Windows.Forms.Button()
-        Me.Label64 = New System.Windows.Forms.Label()
         Me.tbOffsetsG54X = New System.Windows.Forms.TextBox()
-        Me.Label65 = New System.Windows.Forms.Label()
-        Me.Label70 = New System.Windows.Forms.Label()
         Me.btnOffsetsG56Zero = New System.Windows.Forms.Button()
         Me.tbOffsetsG54Y = New System.Windows.Forms.TextBox()
         Me.tbOffsetsG57Z = New System.Windows.Forms.TextBox()
@@ -175,15 +176,12 @@ Partial Class GrblGui
         Me.tbOffsetsG59X = New System.Windows.Forms.TextBox()
         Me.btnOffsetsG58Zero = New System.Windows.Forms.Button()
         Me.btnOffsetsG43Zero = New System.Windows.Forms.Button()
-        Me.Label63 = New System.Windows.Forms.Label()
         Me.tbOffsetsG59Y = New System.Windows.Forms.TextBox()
-        Me.Label66 = New System.Windows.Forms.Label()
         Me.tbOffsetsG43Z = New System.Windows.Forms.TextBox()
         Me.btnOffsetsG55Zero = New System.Windows.Forms.Button()
         Me.tbOffsetsG59Z = New System.Windows.Forms.TextBox()
         Me.tbOffsetsG58Z = New System.Windows.Forms.TextBox()
         Me.Label60 = New System.Windows.Forms.Label()
-        Me.Label67 = New System.Windows.Forms.Label()
         Me.tbOffsetsG58Y = New System.Windows.Forms.TextBox()
         Me.Label20 = New System.Windows.Forms.Label()
         Me.Label43 = New System.Windows.Forms.Label()
@@ -262,6 +260,20 @@ Partial Class GrblGui
         Me.Label30 = New System.Windows.Forms.Label()
         Me.cbSettingsMetric = New System.Windows.Forms.CheckBox()
         Me.tbSettingsFIImperial = New System.Windows.Forms.TextBox()
+        Me.TabPage1 = New System.Windows.Forms.TabPage()
+        Me.gbEditor = New System.Windows.Forms.GroupBox()
+        Me.btnAdd = New System.Windows.Forms.Button()
+        Me.lblGCode = New System.Windows.Forms.Label()
+        Me.tbGCode = New System.Windows.Forms.TextBox()
+        Me.lblName = New System.Windows.Forms.Label()
+        Me.tbName = New System.Windows.Forms.TextBox()
+        Me.btnCancel = New System.Windows.Forms.Button()
+        Me.btnOK = New System.Windows.Forms.Button()
+        Me.dgMacros = New System.Windows.Forms.DataGridView()
+        Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.lblStatusLabel = New System.Windows.Forms.Label()
+        Me.btnDeleteMacro = New System.Windows.Forms.Button()
         Me.ofdGcodeFile = New System.Windows.Forms.OpenFileDialog()
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
         Me.sfdOffsets = New System.Windows.Forms.SaveFileDialog()
@@ -299,6 +311,9 @@ Partial Class GrblGui
         Me.gbSettingsMisc.SuspendLayout()
         Me.gbSettingsPosition.SuspendLayout()
         Me.gbSettingsJogging.SuspendLayout()
+        Me.TabPage1.SuspendLayout()
+        Me.gbEditor.SuspendLayout()
+        CType(Me.dgMacros, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.GrblSettingsBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -335,7 +350,7 @@ Partial Class GrblGui
         '
         'ToolsToolStripMenuItem
         '
-        Me.ToolsToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.OptionsToolStripMenuItem, Me.MacroButtonEditorToolStripMenuItem})
+        Me.ToolsToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.OptionsToolStripMenuItem})
         Me.ToolsToolStripMenuItem.Name = "ToolsToolStripMenuItem"
         Me.ToolsToolStripMenuItem.Size = New System.Drawing.Size(47, 20)
         Me.ToolsToolStripMenuItem.Text = "Tools"
@@ -343,14 +358,8 @@ Partial Class GrblGui
         'OptionsToolStripMenuItem
         '
         Me.OptionsToolStripMenuItem.Name = "OptionsToolStripMenuItem"
-        Me.OptionsToolStripMenuItem.Size = New System.Drawing.Size(181, 22)
+        Me.OptionsToolStripMenuItem.Size = New System.Drawing.Size(116, 22)
         Me.OptionsToolStripMenuItem.Text = "Options"
-        '
-        'MacroButtonEditorToolStripMenuItem
-        '
-        Me.MacroButtonEditorToolStripMenuItem.Name = "MacroButtonEditorToolStripMenuItem"
-        Me.MacroButtonEditorToolStripMenuItem.Size = New System.Drawing.Size(181, 22)
-        Me.MacroButtonEditorToolStripMenuItem.Text = "Macro Button Editor"
         '
         'HelpToolStripMenuItem
         '
@@ -371,6 +380,7 @@ Partial Class GrblGui
             Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.TabControl1.Controls.Add(Me.tabPgInterface)
         Me.TabControl1.Controls.Add(Me.tabPgSettings)
+        Me.TabControl1.Controls.Add(Me.TabPage1)
         Me.TabControl1.Location = New System.Drawing.Point(0, 24)
         Me.TabControl1.Name = "TabControl1"
         Me.TabControl1.SelectedIndex = 0
@@ -1629,6 +1639,12 @@ Partial Class GrblGui
         '
         'tpOffsets
         '
+        Me.tpOffsets.Controls.Add(Me.btnSetOffsetG59)
+        Me.tpOffsets.Controls.Add(Me.btnSetOffsetG58)
+        Me.tpOffsets.Controls.Add(Me.btnSetOffsetG57)
+        Me.tpOffsets.Controls.Add(Me.btnSetOffsetG56)
+        Me.tpOffsets.Controls.Add(Me.btnSetOffsetG55)
+        Me.tpOffsets.Controls.Add(Me.btnSetOffsetG54)
         Me.tpOffsets.Controls.Add(Me.Label10)
         Me.tpOffsets.Controls.Add(Me.Label71)
         Me.tpOffsets.Controls.Add(Me.tbOffSetsMachZ)
@@ -1639,10 +1655,7 @@ Partial Class GrblGui
         Me.tpOffsets.Controls.Add(Me.tbOffsetsG56Z)
         Me.tpOffsets.Controls.Add(Me.tbOffSetsMachX)
         Me.tpOffsets.Controls.Add(Me.btnOffsetsG57Zero)
-        Me.tpOffsets.Controls.Add(Me.Label64)
         Me.tpOffsets.Controls.Add(Me.tbOffsetsG54X)
-        Me.tpOffsets.Controls.Add(Me.Label65)
-        Me.tpOffsets.Controls.Add(Me.Label70)
         Me.tpOffsets.Controls.Add(Me.btnOffsetsG56Zero)
         Me.tpOffsets.Controls.Add(Me.tbOffsetsG54Y)
         Me.tpOffsets.Controls.Add(Me.tbOffsetsG57Z)
@@ -1659,15 +1672,12 @@ Partial Class GrblGui
         Me.tpOffsets.Controls.Add(Me.tbOffsetsG59X)
         Me.tpOffsets.Controls.Add(Me.btnOffsetsG58Zero)
         Me.tpOffsets.Controls.Add(Me.btnOffsetsG43Zero)
-        Me.tpOffsets.Controls.Add(Me.Label63)
         Me.tpOffsets.Controls.Add(Me.tbOffsetsG59Y)
-        Me.tpOffsets.Controls.Add(Me.Label66)
         Me.tpOffsets.Controls.Add(Me.tbOffsetsG43Z)
         Me.tpOffsets.Controls.Add(Me.btnOffsetsG55Zero)
         Me.tpOffsets.Controls.Add(Me.tbOffsetsG59Z)
         Me.tpOffsets.Controls.Add(Me.tbOffsetsG58Z)
         Me.tpOffsets.Controls.Add(Me.Label60)
-        Me.tpOffsets.Controls.Add(Me.Label67)
         Me.tpOffsets.Controls.Add(Me.tbOffsetsG58Y)
         Me.tpOffsets.Controls.Add(Me.Label20)
         Me.tpOffsets.Controls.Add(Me.Label43)
@@ -1681,6 +1691,72 @@ Partial Class GrblGui
         Me.tpOffsets.TabIndex = 2
         Me.tpOffsets.Text = "Offsets"
         Me.tpOffsets.UseVisualStyleBackColor = True
+        '
+        'btnSetOffsetG59
+        '
+        Me.btnSetOffsetG59.Location = New System.Drawing.Point(23, 275)
+        Me.btnSetOffsetG59.Name = "btnSetOffsetG59"
+        Me.btnSetOffsetG59.Size = New System.Drawing.Size(35, 20)
+        Me.btnSetOffsetG59.TabIndex = 28
+        Me.btnSetOffsetG59.Tag = "G59Set"
+        Me.btnSetOffsetG59.Text = "G59"
+        Me.ToolTip1.SetToolTip(Me.btnSetOffsetG59, "Set G59 to Current Mach Position")
+        Me.btnSetOffsetG59.UseVisualStyleBackColor = True
+        '
+        'btnSetOffsetG58
+        '
+        Me.btnSetOffsetG58.Location = New System.Drawing.Point(23, 249)
+        Me.btnSetOffsetG58.Name = "btnSetOffsetG58"
+        Me.btnSetOffsetG58.Size = New System.Drawing.Size(35, 20)
+        Me.btnSetOffsetG58.TabIndex = 23
+        Me.btnSetOffsetG58.Tag = "G58Set"
+        Me.btnSetOffsetG58.Text = "G58"
+        Me.ToolTip1.SetToolTip(Me.btnSetOffsetG58, "Set G58 to Current Mach Position")
+        Me.btnSetOffsetG58.UseVisualStyleBackColor = True
+        '
+        'btnSetOffsetG57
+        '
+        Me.btnSetOffsetG57.Location = New System.Drawing.Point(23, 223)
+        Me.btnSetOffsetG57.Name = "btnSetOffsetG57"
+        Me.btnSetOffsetG57.Size = New System.Drawing.Size(35, 20)
+        Me.btnSetOffsetG57.TabIndex = 18
+        Me.btnSetOffsetG57.Tag = "G57Set"
+        Me.btnSetOffsetG57.Text = "G57"
+        Me.ToolTip1.SetToolTip(Me.btnSetOffsetG57, "Set G57 to Current Mach Position")
+        Me.btnSetOffsetG57.UseVisualStyleBackColor = True
+        '
+        'btnSetOffsetG56
+        '
+        Me.btnSetOffsetG56.Location = New System.Drawing.Point(23, 197)
+        Me.btnSetOffsetG56.Name = "btnSetOffsetG56"
+        Me.btnSetOffsetG56.Size = New System.Drawing.Size(35, 20)
+        Me.btnSetOffsetG56.TabIndex = 13
+        Me.btnSetOffsetG56.Tag = "G56Set"
+        Me.btnSetOffsetG56.Text = "G56"
+        Me.ToolTip1.SetToolTip(Me.btnSetOffsetG56, "Set G56 to Current Mach Position")
+        Me.btnSetOffsetG56.UseVisualStyleBackColor = True
+        '
+        'btnSetOffsetG55
+        '
+        Me.btnSetOffsetG55.Location = New System.Drawing.Point(23, 171)
+        Me.btnSetOffsetG55.Name = "btnSetOffsetG55"
+        Me.btnSetOffsetG55.Size = New System.Drawing.Size(35, 20)
+        Me.btnSetOffsetG55.TabIndex = 8
+        Me.btnSetOffsetG55.Tag = "G55Set"
+        Me.btnSetOffsetG55.Text = "G55"
+        Me.ToolTip1.SetToolTip(Me.btnSetOffsetG55, "Set G55 to Current Mach Position")
+        Me.btnSetOffsetG55.UseVisualStyleBackColor = True
+        '
+        'btnSetOffsetG54
+        '
+        Me.btnSetOffsetG54.Location = New System.Drawing.Point(23, 144)
+        Me.btnSetOffsetG54.Name = "btnSetOffsetG54"
+        Me.btnSetOffsetG54.Size = New System.Drawing.Size(35, 20)
+        Me.btnSetOffsetG54.TabIndex = 3
+        Me.btnSetOffsetG54.Tag = "G54Set"
+        Me.btnSetOffsetG54.Text = "G54"
+        Me.ToolTip1.SetToolTip(Me.btnSetOffsetG54, "Set G54 to Current Mach Position")
+        Me.btnSetOffsetG54.UseVisualStyleBackColor = True
         '
         'Label10
         '
@@ -1726,7 +1802,7 @@ Partial Class GrblGui
         Me.tbOffsetsG56Y.Location = New System.Drawing.Point(160, 197)
         Me.tbOffsetsG56Y.Name = "tbOffsetsG56Y"
         Me.tbOffsetsG56Y.Size = New System.Drawing.Size(79, 20)
-        Me.tbOffsetsG56Y.TabIndex = 76
+        Me.tbOffsetsG56Y.TabIndex = 15
         Me.tbOffsetsG56Y.Tag = "G56Y"
         '
         'tbOffSetsMachY
@@ -1744,7 +1820,7 @@ Partial Class GrblGui
         Me.tbOffsetsG56X.Location = New System.Drawing.Point(75, 197)
         Me.tbOffsetsG56X.Name = "tbOffsetsG56X"
         Me.tbOffsetsG56X.Size = New System.Drawing.Size(79, 20)
-        Me.tbOffsetsG56X.TabIndex = 75
+        Me.tbOffsetsG56X.TabIndex = 14
         Me.tbOffsetsG56X.Tag = "G56X"
         '
         'tbOffsetsG56Z
@@ -1752,7 +1828,7 @@ Partial Class GrblGui
         Me.tbOffsetsG56Z.Location = New System.Drawing.Point(245, 197)
         Me.tbOffsetsG56Z.Name = "tbOffsetsG56Z"
         Me.tbOffsetsG56Z.Size = New System.Drawing.Size(79, 20)
-        Me.tbOffsetsG56Z.TabIndex = 77
+        Me.tbOffsetsG56Z.TabIndex = 16
         Me.tbOffsetsG56Z.Tag = "G56Z"
         '
         'tbOffSetsMachX
@@ -1771,48 +1847,18 @@ Partial Class GrblGui
         Me.btnOffsetsG57Zero.Location = New System.Drawing.Point(330, 222)
         Me.btnOffsetsG57Zero.Name = "btnOffsetsG57Zero"
         Me.btnOffsetsG57Zero.Size = New System.Drawing.Size(35, 23)
-        Me.btnOffsetsG57Zero.TabIndex = 74
+        Me.btnOffsetsG57Zero.TabIndex = 22
         Me.btnOffsetsG57Zero.Tag = "G57Zero"
         Me.btnOffsetsG57Zero.Text = "0"
         Me.btnOffsetsG57Zero.UseVisualStyleBackColor = True
-        '
-        'Label64
-        '
-        Me.Label64.AutoSize = True
-        Me.Label64.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label64.Location = New System.Drawing.Point(23, 200)
-        Me.Label64.Name = "Label64"
-        Me.Label64.Size = New System.Drawing.Size(30, 13)
-        Me.Label64.TabIndex = 78
-        Me.Label64.Text = "G56"
         '
         'tbOffsetsG54X
         '
         Me.tbOffsetsG54X.Location = New System.Drawing.Point(75, 145)
         Me.tbOffsetsG54X.Name = "tbOffsetsG54X"
         Me.tbOffsetsG54X.Size = New System.Drawing.Size(79, 20)
-        Me.tbOffsetsG54X.TabIndex = 56
+        Me.tbOffsetsG54X.TabIndex = 4
         Me.tbOffsetsG54X.Tag = "G54X"
-        '
-        'Label65
-        '
-        Me.Label65.AutoSize = True
-        Me.Label65.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label65.Location = New System.Drawing.Point(23, 226)
-        Me.Label65.Name = "Label65"
-        Me.Label65.Size = New System.Drawing.Size(30, 13)
-        Me.Label65.TabIndex = 73
-        Me.Label65.Text = "G57"
-        '
-        'Label70
-        '
-        Me.Label70.AutoSize = True
-        Me.Label70.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label70.Location = New System.Drawing.Point(23, 147)
-        Me.Label70.Name = "Label70"
-        Me.Label70.Size = New System.Drawing.Size(30, 13)
-        Me.Label70.TabIndex = 110
-        Me.Label70.Text = "G54"
         '
         'btnOffsetsG56Zero
         '
@@ -1820,7 +1866,7 @@ Partial Class GrblGui
         Me.btnOffsetsG56Zero.Location = New System.Drawing.Point(330, 196)
         Me.btnOffsetsG56Zero.Name = "btnOffsetsG56Zero"
         Me.btnOffsetsG56Zero.Size = New System.Drawing.Size(35, 23)
-        Me.btnOffsetsG56Zero.TabIndex = 79
+        Me.btnOffsetsG56Zero.TabIndex = 17
         Me.btnOffsetsG56Zero.Tag = "G56Zero"
         Me.btnOffsetsG56Zero.Text = "0"
         Me.btnOffsetsG56Zero.UseVisualStyleBackColor = True
@@ -1830,7 +1876,7 @@ Partial Class GrblGui
         Me.tbOffsetsG54Y.Location = New System.Drawing.Point(160, 145)
         Me.tbOffsetsG54Y.Name = "tbOffsetsG54Y"
         Me.tbOffsetsG54Y.Size = New System.Drawing.Size(79, 20)
-        Me.tbOffsetsG54Y.TabIndex = 57
+        Me.tbOffsetsG54Y.TabIndex = 5
         Me.tbOffsetsG54Y.Tag = "G54Y"
         '
         'tbOffsetsG57Z
@@ -1838,7 +1884,7 @@ Partial Class GrblGui
         Me.tbOffsetsG57Z.Location = New System.Drawing.Point(245, 223)
         Me.tbOffsetsG57Z.Name = "tbOffsetsG57Z"
         Me.tbOffsetsG57Z.Size = New System.Drawing.Size(79, 20)
-        Me.tbOffsetsG57Z.TabIndex = 72
+        Me.tbOffsetsG57Z.TabIndex = 21
         Me.tbOffsetsG57Z.Tag = "G57Z"
         '
         'btnOffsetsSave
@@ -1846,7 +1892,7 @@ Partial Class GrblGui
         Me.btnOffsetsSave.Location = New System.Drawing.Point(160, 299)
         Me.btnOffsetsSave.Name = "btnOffsetsSave"
         Me.btnOffsetsSave.Size = New System.Drawing.Size(75, 23)
-        Me.btnOffsetsSave.TabIndex = 107
+        Me.btnOffsetsSave.TabIndex = 34
         Me.btnOffsetsSave.Text = "Save"
         Me.ToolTip1.SetToolTip(Me.btnOffsetsSave, "Save Work Offsets to File")
         Me.btnOffsetsSave.UseVisualStyleBackColor = True
@@ -1856,7 +1902,7 @@ Partial Class GrblGui
         Me.tbOffsetsG55X.Location = New System.Drawing.Point(75, 171)
         Me.tbOffsetsG55X.Name = "tbOffsetsG55X"
         Me.tbOffsetsG55X.Size = New System.Drawing.Size(79, 20)
-        Me.tbOffsetsG55X.TabIndex = 80
+        Me.tbOffsetsG55X.TabIndex = 9
         Me.tbOffsetsG55X.Tag = "G55X"
         '
         'tbOffsetsG54Z
@@ -1864,7 +1910,7 @@ Partial Class GrblGui
         Me.tbOffsetsG54Z.Location = New System.Drawing.Point(245, 145)
         Me.tbOffsetsG54Z.Name = "tbOffsetsG54Z"
         Me.tbOffsetsG54Z.Size = New System.Drawing.Size(79, 20)
-        Me.tbOffsetsG54Z.TabIndex = 58
+        Me.tbOffsetsG54Z.TabIndex = 6
         Me.tbOffsetsG54Z.Tag = "G54Z"
         '
         'tbOffsetsG57Y
@@ -1872,7 +1918,7 @@ Partial Class GrblGui
         Me.tbOffsetsG57Y.Location = New System.Drawing.Point(160, 223)
         Me.tbOffsetsG57Y.Name = "tbOffsetsG57Y"
         Me.tbOffsetsG57Y.Size = New System.Drawing.Size(79, 20)
-        Me.tbOffsetsG57Y.TabIndex = 71
+        Me.tbOffsetsG57Y.TabIndex = 20
         Me.tbOffsetsG57Y.Tag = "G57Y"
         '
         'btnOffsetsRetrieve
@@ -1880,7 +1926,7 @@ Partial Class GrblGui
         Me.btnOffsetsRetrieve.Location = New System.Drawing.Point(245, 299)
         Me.btnOffsetsRetrieve.Name = "btnOffsetsRetrieve"
         Me.btnOffsetsRetrieve.Size = New System.Drawing.Size(75, 23)
-        Me.btnOffsetsRetrieve.TabIndex = 106
+        Me.btnOffsetsRetrieve.TabIndex = 35
         Me.btnOffsetsRetrieve.Text = "Retrieve"
         Me.ToolTip1.SetToolTip(Me.btnOffsetsRetrieve, "Get from Grbl")
         Me.btnOffsetsRetrieve.UseVisualStyleBackColor = True
@@ -1890,7 +1936,7 @@ Partial Class GrblGui
         Me.tbOffsetsG55Y.Location = New System.Drawing.Point(160, 171)
         Me.tbOffsetsG55Y.Name = "tbOffsetsG55Y"
         Me.tbOffsetsG55Y.Size = New System.Drawing.Size(79, 20)
-        Me.tbOffsetsG55Y.TabIndex = 81
+        Me.tbOffsetsG55Y.TabIndex = 10
         Me.tbOffsetsG55Y.Tag = "G55Y"
         '
         'btnOffsetsG54Zero
@@ -1899,7 +1945,7 @@ Partial Class GrblGui
         Me.btnOffsetsG54Zero.Location = New System.Drawing.Point(330, 144)
         Me.btnOffsetsG54Zero.Name = "btnOffsetsG54Zero"
         Me.btnOffsetsG54Zero.Size = New System.Drawing.Size(35, 23)
-        Me.btnOffsetsG54Zero.TabIndex = 59
+        Me.btnOffsetsG54Zero.TabIndex = 7
         Me.btnOffsetsG54Zero.Tag = "G54Zero"
         Me.btnOffsetsG54Zero.Text = "0"
         Me.btnOffsetsG54Zero.UseVisualStyleBackColor = True
@@ -1909,7 +1955,7 @@ Partial Class GrblGui
         Me.tbOffsetsG57X.Location = New System.Drawing.Point(75, 223)
         Me.tbOffsetsG57X.Name = "tbOffsetsG57X"
         Me.tbOffsetsG57X.Size = New System.Drawing.Size(79, 20)
-        Me.tbOffsetsG57X.TabIndex = 70
+        Me.tbOffsetsG57X.TabIndex = 19
         Me.tbOffsetsG57X.Tag = "G57X"
         '
         'btnOffsetsLoad
@@ -1917,7 +1963,7 @@ Partial Class GrblGui
         Me.btnOffsetsLoad.Location = New System.Drawing.Point(75, 300)
         Me.btnOffsetsLoad.Name = "btnOffsetsLoad"
         Me.btnOffsetsLoad.Size = New System.Drawing.Size(75, 23)
-        Me.btnOffsetsLoad.TabIndex = 105
+        Me.btnOffsetsLoad.TabIndex = 33
         Me.btnOffsetsLoad.Text = "Load"
         Me.ToolTip1.SetToolTip(Me.btnOffsetsLoad, "Load Work Offsets from File")
         Me.btnOffsetsLoad.UseVisualStyleBackColor = True
@@ -1927,7 +1973,7 @@ Partial Class GrblGui
         Me.tbOffsetsG55Z.Location = New System.Drawing.Point(245, 171)
         Me.tbOffsetsG55Z.Name = "tbOffsetsG55Z"
         Me.tbOffsetsG55Z.Size = New System.Drawing.Size(79, 20)
-        Me.tbOffsetsG55Z.TabIndex = 82
+        Me.tbOffsetsG55Z.TabIndex = 11
         Me.tbOffsetsG55Z.Tag = "G55Z"
         '
         'tbOffsetsG59X
@@ -1935,7 +1981,7 @@ Partial Class GrblGui
         Me.tbOffsetsG59X.Location = New System.Drawing.Point(75, 275)
         Me.tbOffsetsG59X.Name = "tbOffsetsG59X"
         Me.tbOffsetsG59X.Size = New System.Drawing.Size(79, 20)
-        Me.tbOffsetsG59X.TabIndex = 60
+        Me.tbOffsetsG59X.TabIndex = 29
         Me.tbOffsetsG59X.Tag = "G59X"
         '
         'btnOffsetsG58Zero
@@ -1944,7 +1990,7 @@ Partial Class GrblGui
         Me.btnOffsetsG58Zero.Location = New System.Drawing.Point(330, 248)
         Me.btnOffsetsG58Zero.Name = "btnOffsetsG58Zero"
         Me.btnOffsetsG58Zero.Size = New System.Drawing.Size(35, 23)
-        Me.btnOffsetsG58Zero.TabIndex = 69
+        Me.btnOffsetsG58Zero.TabIndex = 27
         Me.btnOffsetsG58Zero.Tag = "G58Zero"
         Me.btnOffsetsG58Zero.Text = "0"
         Me.btnOffsetsG58Zero.UseVisualStyleBackColor = True
@@ -1955,45 +2001,25 @@ Partial Class GrblGui
         Me.btnOffsetsG43Zero.Location = New System.Drawing.Point(330, 104)
         Me.btnOffsetsG43Zero.Name = "btnOffsetsG43Zero"
         Me.btnOffsetsG43Zero.Size = New System.Drawing.Size(35, 23)
-        Me.btnOffsetsG43Zero.TabIndex = 103
+        Me.btnOffsetsG43Zero.TabIndex = 2
         Me.btnOffsetsG43Zero.Tag = "G43Zero"
         Me.btnOffsetsG43Zero.Text = "0"
         Me.btnOffsetsG43Zero.UseVisualStyleBackColor = True
-        '
-        'Label63
-        '
-        Me.Label63.AutoSize = True
-        Me.Label63.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label63.Location = New System.Drawing.Point(23, 174)
-        Me.Label63.Name = "Label63"
-        Me.Label63.Size = New System.Drawing.Size(30, 13)
-        Me.Label63.TabIndex = 83
-        Me.Label63.Text = "G55"
         '
         'tbOffsetsG59Y
         '
         Me.tbOffsetsG59Y.Location = New System.Drawing.Point(160, 275)
         Me.tbOffsetsG59Y.Name = "tbOffsetsG59Y"
         Me.tbOffsetsG59Y.Size = New System.Drawing.Size(79, 20)
-        Me.tbOffsetsG59Y.TabIndex = 61
+        Me.tbOffsetsG59Y.TabIndex = 30
         Me.tbOffsetsG59Y.Tag = "G59Y"
-        '
-        'Label66
-        '
-        Me.Label66.AutoSize = True
-        Me.Label66.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label66.Location = New System.Drawing.Point(23, 252)
-        Me.Label66.Name = "Label66"
-        Me.Label66.Size = New System.Drawing.Size(30, 13)
-        Me.Label66.TabIndex = 68
-        Me.Label66.Text = "G58"
         '
         'tbOffsetsG43Z
         '
         Me.tbOffsetsG43Z.Location = New System.Drawing.Point(245, 105)
         Me.tbOffsetsG43Z.Name = "tbOffsetsG43Z"
         Me.tbOffsetsG43Z.Size = New System.Drawing.Size(79, 20)
-        Me.tbOffsetsG43Z.TabIndex = 102
+        Me.tbOffsetsG43Z.TabIndex = 1
         Me.tbOffsetsG43Z.Tag = "G43Z"
         '
         'btnOffsetsG55Zero
@@ -2002,7 +2028,7 @@ Partial Class GrblGui
         Me.btnOffsetsG55Zero.Location = New System.Drawing.Point(330, 170)
         Me.btnOffsetsG55Zero.Name = "btnOffsetsG55Zero"
         Me.btnOffsetsG55Zero.Size = New System.Drawing.Size(35, 23)
-        Me.btnOffsetsG55Zero.TabIndex = 84
+        Me.btnOffsetsG55Zero.TabIndex = 12
         Me.btnOffsetsG55Zero.Tag = "G55Zero"
         Me.btnOffsetsG55Zero.Text = "0"
         Me.btnOffsetsG55Zero.UseVisualStyleBackColor = True
@@ -2012,7 +2038,7 @@ Partial Class GrblGui
         Me.tbOffsetsG59Z.Location = New System.Drawing.Point(245, 275)
         Me.tbOffsetsG59Z.Name = "tbOffsetsG59Z"
         Me.tbOffsetsG59Z.Size = New System.Drawing.Size(79, 20)
-        Me.tbOffsetsG59Z.TabIndex = 62
+        Me.tbOffsetsG59Z.TabIndex = 31
         Me.tbOffsetsG59Z.Tag = "G59Z"
         '
         'tbOffsetsG58Z
@@ -2020,7 +2046,7 @@ Partial Class GrblGui
         Me.tbOffsetsG58Z.Location = New System.Drawing.Point(245, 249)
         Me.tbOffsetsG58Z.Name = "tbOffsetsG58Z"
         Me.tbOffsetsG58Z.Size = New System.Drawing.Size(79, 20)
-        Me.tbOffsetsG58Z.TabIndex = 67
+        Me.tbOffsetsG58Z.TabIndex = 26
         Me.tbOffsetsG58Z.Tag = "G58Z"
         '
         'Label60
@@ -2033,29 +2059,19 @@ Partial Class GrblGui
         Me.Label60.TabIndex = 85
         Me.Label60.Text = "X"
         '
-        'Label67
-        '
-        Me.Label67.AutoSize = True
-        Me.Label67.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label67.Location = New System.Drawing.Point(23, 278)
-        Me.Label67.Name = "Label67"
-        Me.Label67.Size = New System.Drawing.Size(30, 13)
-        Me.Label67.TabIndex = 63
-        Me.Label67.Text = "G59"
-        '
         'tbOffsetsG58Y
         '
         Me.tbOffsetsG58Y.Location = New System.Drawing.Point(160, 249)
         Me.tbOffsetsG58Y.Name = "tbOffsetsG58Y"
         Me.tbOffsetsG58Y.Size = New System.Drawing.Size(79, 20)
-        Me.tbOffsetsG58Y.TabIndex = 66
+        Me.tbOffsetsG58Y.TabIndex = 25
         Me.tbOffsetsG58Y.Tag = "G58Y"
         '
         'Label20
         '
         Me.Label20.AutoSize = True
         Me.Label20.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label20.Location = New System.Drawing.Point(28, 129)
+        Me.Label20.Location = New System.Drawing.Point(73, 129)
         Me.Label20.Name = "Label20"
         Me.Label20.Size = New System.Drawing.Size(81, 13)
         Me.Label20.TabIndex = 99
@@ -2077,7 +2093,7 @@ Partial Class GrblGui
         Me.btnOffsetsG59Zero.Location = New System.Drawing.Point(330, 274)
         Me.btnOffsetsG59Zero.Name = "btnOffsetsG59Zero"
         Me.btnOffsetsG59Zero.Size = New System.Drawing.Size(35, 23)
-        Me.btnOffsetsG59Zero.TabIndex = 64
+        Me.btnOffsetsG59Zero.TabIndex = 32
         Me.btnOffsetsG59Zero.Tag = "G59Zero"
         Me.btnOffsetsG59Zero.Text = "0"
         Me.btnOffsetsG59Zero.UseVisualStyleBackColor = True
@@ -2087,7 +2103,7 @@ Partial Class GrblGui
         Me.tbOffsetsG58X.Location = New System.Drawing.Point(75, 249)
         Me.tbOffsetsG58X.Name = "tbOffsetsG58X"
         Me.tbOffsetsG58X.Size = New System.Drawing.Size(79, 20)
-        Me.tbOffsetsG58X.TabIndex = 65
+        Me.tbOffsetsG58X.TabIndex = 24
         Me.tbOffsetsG58X.Tag = "G58X"
         '
         'Label21
@@ -2868,6 +2884,145 @@ Partial Class GrblGui
         Me.tbSettingsFIImperial.TabIndex = 10
         Me.tbSettingsFIImperial.Text = Global.GrblPanel.My.MySettings.Default.JoggingFIImperial
         '
+        'TabPage1
+        '
+        Me.TabPage1.Controls.Add(Me.gbEditor)
+        Me.TabPage1.Controls.Add(Me.btnCancel)
+        Me.TabPage1.Controls.Add(Me.btnOK)
+        Me.TabPage1.Controls.Add(Me.dgMacros)
+        Me.TabPage1.Controls.Add(Me.lblStatusLabel)
+        Me.TabPage1.Controls.Add(Me.btnDeleteMacro)
+        Me.TabPage1.Location = New System.Drawing.Point(4, 22)
+        Me.TabPage1.Name = "TabPage1"
+        Me.TabPage1.Size = New System.Drawing.Size(1134, 677)
+        Me.TabPage1.TabIndex = 2
+        Me.TabPage1.Text = "Macros"
+        Me.TabPage1.UseVisualStyleBackColor = True
+        '
+        'gbEditor
+        '
+        Me.gbEditor.Controls.Add(Me.btnAdd)
+        Me.gbEditor.Controls.Add(Me.lblGCode)
+        Me.gbEditor.Controls.Add(Me.tbGCode)
+        Me.gbEditor.Controls.Add(Me.lblName)
+        Me.gbEditor.Controls.Add(Me.tbName)
+        Me.gbEditor.Location = New System.Drawing.Point(6, 147)
+        Me.gbEditor.Name = "gbEditor"
+        Me.gbEditor.Size = New System.Drawing.Size(246, 111)
+        Me.gbEditor.TabIndex = 8
+        Me.gbEditor.TabStop = False
+        Me.gbEditor.Text = "Editor"
+        '
+        'btnAdd
+        '
+        Me.btnAdd.Location = New System.Drawing.Point(166, 17)
+        Me.btnAdd.Name = "btnAdd"
+        Me.btnAdd.Size = New System.Drawing.Size(64, 23)
+        Me.btnAdd.TabIndex = 4
+        Me.btnAdd.Text = "Add"
+        Me.btnAdd.UseVisualStyleBackColor = True
+        '
+        'lblGCode
+        '
+        Me.lblGCode.Location = New System.Drawing.Point(9, 51)
+        Me.lblGCode.Name = "lblGCode"
+        Me.lblGCode.Size = New System.Drawing.Size(50, 15)
+        Me.lblGCode.TabIndex = 3
+        Me.lblGCode.Text = "G Code:"
+        Me.lblGCode.TextAlign = System.Drawing.ContentAlignment.TopRight
+        '
+        'tbGCode
+        '
+        Me.tbGCode.AcceptsReturn = True
+        Me.tbGCode.Location = New System.Drawing.Point(62, 48)
+        Me.tbGCode.Multiline = True
+        Me.tbGCode.Name = "tbGCode"
+        Me.tbGCode.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
+        Me.tbGCode.Size = New System.Drawing.Size(168, 57)
+        Me.tbGCode.TabIndex = 2
+        '
+        'lblName
+        '
+        Me.lblName.Location = New System.Drawing.Point(9, 22)
+        Me.lblName.Name = "lblName"
+        Me.lblName.Size = New System.Drawing.Size(50, 15)
+        Me.lblName.TabIndex = 1
+        Me.lblName.Text = "Name:"
+        Me.lblName.TextAlign = System.Drawing.ContentAlignment.TopRight
+        '
+        'tbName
+        '
+        Me.tbName.Location = New System.Drawing.Point(61, 19)
+        Me.tbName.Name = "tbName"
+        Me.tbName.Size = New System.Drawing.Size(99, 20)
+        Me.tbName.TabIndex = 0
+        '
+        'btnCancel
+        '
+        Me.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel
+        Me.btnCancel.Location = New System.Drawing.Point(177, 32)
+        Me.btnCancel.Name = "btnCancel"
+        Me.btnCancel.Size = New System.Drawing.Size(75, 23)
+        Me.btnCancel.TabIndex = 10
+        Me.btnCancel.Text = "Cancel"
+        Me.btnCancel.UseVisualStyleBackColor = True
+        '
+        'btnOK
+        '
+        Me.btnOK.Location = New System.Drawing.Point(177, 3)
+        Me.btnOK.Name = "btnOK"
+        Me.btnOK.Size = New System.Drawing.Size(75, 23)
+        Me.btnOK.TabIndex = 9
+        Me.btnOK.Text = "OK"
+        Me.btnOK.UseVisualStyleBackColor = True
+        '
+        'dgMacros
+        '
+        Me.dgMacros.AllowUserToAddRows = False
+        Me.dgMacros.AllowUserToDeleteRows = False
+        Me.dgMacros.AllowUserToResizeColumns = False
+        Me.dgMacros.AllowUserToResizeRows = False
+        Me.dgMacros.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.dgMacros.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column1, Me.Column2})
+        Me.dgMacros.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically
+        Me.dgMacros.Location = New System.Drawing.Point(18, 3)
+        Me.dgMacros.Name = "dgMacros"
+        Me.dgMacros.ReadOnly = True
+        Me.dgMacros.RowHeadersVisible = False
+        Me.dgMacros.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing
+        Me.dgMacros.ScrollBars = System.Windows.Forms.ScrollBars.None
+        Me.dgMacros.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+        Me.dgMacros.Size = New System.Drawing.Size(148, 134)
+        Me.dgMacros.TabIndex = 11
+        '
+        'Column1
+        '
+        Me.Column1.HeaderText = "Name"
+        Me.Column1.Name = "Column1"
+        Me.Column1.ReadOnly = True
+        '
+        'Column2
+        '
+        Me.Column2.HeaderText = "GCode"
+        Me.Column2.Name = "Column2"
+        Me.Column2.ReadOnly = True
+        '
+        'lblStatusLabel
+        '
+        Me.lblStatusLabel.Location = New System.Drawing.Point(9, 263)
+        Me.lblStatusLabel.Name = "lblStatusLabel"
+        Me.lblStatusLabel.Size = New System.Drawing.Size(242, 23)
+        Me.lblStatusLabel.TabIndex = 13
+        '
+        'btnDeleteMacro
+        '
+        Me.btnDeleteMacro.Location = New System.Drawing.Point(177, 102)
+        Me.btnDeleteMacro.Name = "btnDeleteMacro"
+        Me.btnDeleteMacro.Size = New System.Drawing.Size(74, 34)
+        Me.btnDeleteMacro.TabIndex = 12
+        Me.btnDeleteMacro.Text = "Delete Selected"
+        Me.btnDeleteMacro.UseVisualStyleBackColor = True
+        '
         'ofdGcodeFile
         '
         Me.ofdGcodeFile.DefaultExt = "ngc"
@@ -2893,6 +3048,7 @@ Partial Class GrblGui
         Me.ClientSize = New System.Drawing.Size(1143, 729)
         Me.Controls.Add(Me.TabControl1)
         Me.Controls.Add(Me.MenuStrip1)
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.KeyPreview = True
         Me.MainMenuStrip = Me.MenuStrip1
         Me.Name = "GrblGui"
@@ -2954,6 +3110,10 @@ Partial Class GrblGui
         Me.gbSettingsPosition.PerformLayout()
         Me.gbSettingsJogging.ResumeLayout(False)
         Me.gbSettingsJogging.PerformLayout()
+        Me.TabPage1.ResumeLayout(False)
+        Me.gbEditor.ResumeLayout(False)
+        Me.gbEditor.PerformLayout()
+        CType(Me.dgMacros, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.GrblSettingsBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
@@ -3093,27 +3253,22 @@ Partial Class GrblGui
     Friend WithEvents Label43 As System.Windows.Forms.Label
     Friend WithEvents Label60 As System.Windows.Forms.Label
     Friend WithEvents btnOffsetsG55Zero As System.Windows.Forms.Button
-    Friend WithEvents Label63 As System.Windows.Forms.Label
     Friend WithEvents tbOffsetsG55Z As System.Windows.Forms.TextBox
     Friend WithEvents tbOffsetsG55Y As System.Windows.Forms.TextBox
     Friend WithEvents tbOffsetsG55X As System.Windows.Forms.TextBox
     Friend WithEvents btnOffsetsG56Zero As System.Windows.Forms.Button
-    Friend WithEvents Label64 As System.Windows.Forms.Label
     Friend WithEvents tbOffsetsG56Z As System.Windows.Forms.TextBox
     Friend WithEvents tbOffsetsG56Y As System.Windows.Forms.TextBox
     Friend WithEvents tbOffsetsG56X As System.Windows.Forms.TextBox
     Friend WithEvents btnOffsetsG57Zero As System.Windows.Forms.Button
-    Friend WithEvents Label65 As System.Windows.Forms.Label
     Friend WithEvents tbOffsetsG57Z As System.Windows.Forms.TextBox
     Friend WithEvents tbOffsetsG57Y As System.Windows.Forms.TextBox
     Friend WithEvents tbOffsetsG57X As System.Windows.Forms.TextBox
     Friend WithEvents btnOffsetsG58Zero As System.Windows.Forms.Button
-    Friend WithEvents Label66 As System.Windows.Forms.Label
     Friend WithEvents tbOffsetsG58Z As System.Windows.Forms.TextBox
     Friend WithEvents tbOffsetsG58Y As System.Windows.Forms.TextBox
     Friend WithEvents tbOffsetsG58X As System.Windows.Forms.TextBox
     Friend WithEvents btnOffsetsG59Zero As System.Windows.Forms.Button
-    Friend WithEvents Label67 As System.Windows.Forms.Label
     Friend WithEvents tbOffsetsG59Z As System.Windows.Forms.TextBox
     Friend WithEvents tbOffsetsG59Y As System.Windows.Forms.TextBox
     Friend WithEvents tbOffsetsG59X As System.Windows.Forms.TextBox
@@ -3121,7 +3276,6 @@ Partial Class GrblGui
     Friend WithEvents tbOffsetsG54Z As System.Windows.Forms.TextBox
     Friend WithEvents tbOffsetsG54Y As System.Windows.Forms.TextBox
     Friend WithEvents tbOffsetsG54X As System.Windows.Forms.TextBox
-    Friend WithEvents Label70 As System.Windows.Forms.Label
     Friend WithEvents Label69 As System.Windows.Forms.Label
     Friend WithEvents Label68 As System.Windows.Forms.Label
     Friend WithEvents tbOffSetsMachZ As System.Windows.Forms.TextBox
@@ -3201,7 +3355,24 @@ Partial Class GrblGui
     Friend WithEvents tbGrblIP As System.Windows.Forms.TabPage
     Friend WithEvents btnIPConnect As System.Windows.Forms.Button
     Friend WithEvents tbIPAddress As System.Windows.Forms.TextBox
-    Friend WithEvents MacroButtonEditorToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-
-
+    Friend WithEvents TabPage1 As TabPage
+    Public WithEvents gbEditor As GroupBox
+    Private WithEvents btnAdd As Button
+    Private WithEvents lblGCode As Label
+    Public WithEvents tbGCode As TextBox
+    Private WithEvents lblName As Label
+    Public WithEvents tbName As TextBox
+    Private WithEvents btnCancel As Button
+    Private WithEvents btnOK As Button
+    Private WithEvents dgMacros As DataGridView
+    Friend WithEvents Column1 As DataGridViewTextBoxColumn
+    Friend WithEvents Column2 As DataGridViewTextBoxColumn
+    Private WithEvents lblStatusLabel As Label
+    Private WithEvents btnDeleteMacro As Button
+    Private WithEvents btnSetOffsetG54 As System.Windows.Forms.Button
+    Private WithEvents btnSetOffsetG59 As System.Windows.Forms.Button
+    Private WithEvents btnSetOffsetG58 As System.Windows.Forms.Button
+    Private WithEvents btnSetOffsetG57 As System.Windows.Forms.Button
+    Private WithEvents btnSetOffsetG56 As System.Windows.Forms.Button
+    Private WithEvents btnSetOffsetG55 As System.Windows.Forms.Button
 End Class

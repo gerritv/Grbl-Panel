@@ -139,16 +139,34 @@ Partial Class GrblGui
             Select Case tag
                 Case "G54"
                     index = "P1"
+                    tbOffsetsG54X.Text = "0.000"                    ' this is kind of a lame way to do this but I couldn't think of a better way
+                    tbOffsetsG54Y.Text = "0.000"
+                    tbOffsetsG54Z.Text = "0.000"
                 Case "G55"
                     index = "P2"
+                    tbOffsetsG55X.Text = "0.000"                    ' this is kind of a lame way to do this but I couldn't think of a better way
+                    tbOffsetsG55Y.Text = "0.000"
+                    tbOffsetsG55Z.Text = "0.000"
                 Case "G56"
                     index = "P3"
+                    tbOffsetsG56X.Text = "0.000"                    ' this is kind of a lame way to do this but I couldn't think of a better way
+                    tbOffsetsG56Y.Text = "0.000"
+                    tbOffsetsG56Z.Text = "0.000"
                 Case "G57"
                     index = "P4"
+                    tbOffsetsG57X.Text = "0.000"                    ' this is kind of a lame way to do this but I couldn't think of a better way
+                    tbOffsetsG57Y.Text = "0.000"
+                    tbOffsetsG57Z.Text = "0.000"
                 Case "G58"
                     index = "P5"
+                    tbOffsetsG58X.Text = "0.000"                    ' this is kind of a lame way to do this but I couldn't think of a better way
+                    tbOffsetsG58Y.Text = "0.000"
+                    tbOffsetsG58Z.Text = "0.000"
                 Case "G59"
                     index = "P6"
+                    tbOffsetsG59X.Text = "0.000"                    ' this is kind of a lame way to do this but I couldn't think of a better way
+                    tbOffsetsG59Y.Text = "0.000"
+                    tbOffsetsG59Z.Text = "0.000"
             End Select
             gcode.sendGCodeLine("G10 L2 " + index + " X0 Y0 Z0")
         ElseIf tag.StartsWith("G28") Or tag.StartsWith("G30") Then
@@ -190,6 +208,52 @@ Partial Class GrblGui
             End Select
             gcode.sendGCodeLine("G10 L2 " + index + " " + axis + tb.Text)
         End If
+    End Sub
+
+
+    Private Sub btnSetOffset_Click(sender As Object, e As EventArgs) Handles btnSetOffsetG54.Click, btnSetOffsetG55.Click, btnSetOffsetG56.Click, _
+                                                                             btnSetOffsetG57.Click, btnSetOffsetG58.Click, btnSetOffsetG59.Click
+        Dim btn As Button = sender
+        Dim index As String = ""
+        Dim tag As String = btn.Text.ToString
+        Dim XValue As String = tbOffSetsMachX.Text.ToString
+        Dim YValue As String = tbOffSetsMachY.Text.ToString
+        Dim ZValue As String = tbOffSetsMachZ.Text.ToString
+
+        Select Case tag.Substring(0, 3)  ' Get the offset value
+            Case "G54"
+                index = "P1"
+                tbOffsetsG54X.Text = XValue                    ' this is kind of a lame way to do this but I couldn't think of a better way
+                tbOffsetsG54Y.Text = YValue
+                tbOffsetsG54Z.Text = ZValue
+            Case "G55"
+                index = "P2"
+                tbOffsetsG55X.Text = XValue                    ' this is kind of a lame way to do this but I couldn't think of a better way
+                tbOffsetsG55Y.Text = YValue
+                tbOffsetsG55Z.Text = ZValue
+            Case "G56"
+                index = "P3"
+                tbOffsetsG56X.Text = XValue                    ' this is kind of a lame way to do this but I couldn't think of a better way
+                tbOffsetsG56Y.Text = YValue
+                tbOffsetsG56Z.Text = ZValue
+            Case "G57"
+                index = "P4"
+                tbOffsetsG57X.Text = XValue                    ' this is kind of a lame way to do this but I couldn't think of a better way
+                tbOffsetsG57Y.Text = YValue
+                tbOffsetsG57Z.Text = ZValue
+            Case "G58"
+                index = "P5"
+                tbOffsetsG58X.Text = XValue                    ' this is kind of a lame way to do this but I couldn't think of a better way
+                tbOffsetsG58Y.Text = YValue
+                tbOffsetsG58Z.Text = ZValue
+            Case "G59"
+                index = "P6"
+                tbOffsetsG59X.Text = XValue                    ' this is kind of a lame way to do this but I couldn't think of a better way
+                tbOffsetsG59Y.Text = YValue
+                tbOffsetsG59Z.Text = ZValue
+        End Select
+
+        gcode.sendGCodeLine("G10 L2 " + index + " " + "X" + XValue + "Y" + YValue + "Z" + ZValue)
     End Sub
 
     Private Sub btnOffsetsRetrieve_Click(sender As Object, e As EventArgs) Handles btnOffsetsRetrieve.Click, btnSettingsRetrieveLocations.Click
