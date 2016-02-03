@@ -1,6 +1,6 @@
 ﻿Imports System.Windows.Forms
 Partial Class GrblGui
-    Private bDataChanged As Boolean
+    Private bDataChanged As Boolean = False
     ''' <summary>
     ''' The fixed names of Macros in Settings
     ''' </summary>
@@ -9,7 +9,7 @@ Partial Class GrblGui
     Private Sub GrblMacroButtons_FormClosing(sender As Object, e As FormClosingEventArgs) Handles Me.FormClosing
         Dim retval As Integer
         If bDataChanged Then
-            retval = MsgBox("Are you sure you want to exit without saving your changes?", MsgBoxStyle.YesNo + MsgBoxStyle.Critical, "Confirm exit without saving.")
+            retval = MsgBox("Are you sure you want to exit without saving your Macro changes?", MsgBoxStyle.YesNo + MsgBoxStyle.Critical, "Confirm exit without saving.")
             If retval = vbYes Then
                 e.Cancel = False
             Else
@@ -22,10 +22,10 @@ Partial Class GrblGui
         FillListFromSettings()
         With dgMacros
             .Columns(0).Width = .Width         ' resize the first column to the width of the entire grid, this hides the Gcode column
-            If .RowCount = 0 Then              ' if there are no macros add a default one to the list as an example
-                .Rows.Add("Probe", "G38.2 Z-30 F10")
-                bDataChanged = True
-            End If
+            'If .RowCount = 0 Then              ' if there are no macros add a default one to the list as an example
+            '    .Rows.Add("Probe", "G38.2 Z-30 F10")
+            '    bDataChanged = True
+            'End If
         End With
         btnAdd.Text = "Add"
         tbName.Text = ""

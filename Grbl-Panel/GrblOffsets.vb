@@ -71,7 +71,7 @@ Partial Class GrblGui
         Public Sub LoadOffsets()
             ' Load Work and TLO Offsets
             ' This lets the user double click on values for which there is a fixture etc. for quick set up
-            If Not _gui.ofdOffsets.ShowDialog() = System.windows.forms.dialogresult.ok Then
+            If Not _gui.ofdOffsets.ShowDialog() = System.Windows.Forms.DialogResult.OK Then
                 Return
             End If
 
@@ -126,13 +126,13 @@ Partial Class GrblGui
     End Class
 
 
-    Private Sub btnOffsetsZero_Click(sender As Object, e As EventArgs) Handles btnOffsetsG43Zero.Click, btnOffsetsG55Zero.Click, btnOffsetsG56Zero.Click, _
-                                                                                     btnOffsetsG57Zero.Click, btnOffsetsG58Zero.Click, btnOffsetsG59Zero.Click, _
+    Private Sub btnOffsetsZero_Click(sender As Object, e As EventArgs) Handles btnOffsetsG43Zero.Click, btnOffsetsG55Zero.Click, btnOffsetsG56Zero.Click,
+                                                                                     btnOffsetsG57Zero.Click, btnOffsetsG58Zero.Click, btnOffsetsG59Zero.Click,
                                                                                      btnOffsetsG28Set.Click, btnOffsetsG30Set.Click, btnOffsetsG54Zero.Click
 
-        Dim b As Button = sender
+        Dim btn As Button = sender
         Dim index As String = ""
-        Dim tag As String = b.Tag.ToString
+        Dim tag As String = DirectCast(btn.Tag, String)
         tag = tag.Substring(0, 3)
         ' Set the Offset to zero
         If tag.StartsWith("G5") Then
@@ -158,20 +158,22 @@ Partial Class GrblGui
             gcode.sendGCodeLine("G43.1 Z0")
         End If
 
+        ' Get new values
+        btnOffsetsRetrieve_Click(Nothing, Nothing)
     End Sub
 
-    Private Sub tbOffsets_DoubleClick(sender As Object, e As EventArgs) Handles tbOffsetsG43Z.DoubleClick, tbOffsetsG54X.DoubleClick, tbOffsetsG54Y.DoubleClick, _
-                                                                                tbOffsetsG54Z.DoubleClick, tbOffsetsG55X.DoubleClick, tbOffsetsG55Y.DoubleClick, _
-                                                                                tbOffsetsG55Z.DoubleClick, tbOffsetsG56X.DoubleClick, tbOffsetsG56Y.DoubleClick, _
-                                                                                tbOffsetsG56Z.DoubleClick, tbOffsetsG57X.DoubleClick, tbOffsetsG57Y.DoubleClick, _
-                                                                                tbOffsetsG57Z.DoubleClick, tbOffsetsG58X.DoubleClick, tbOffsetsG58Y.DoubleClick, _
-                                                                                tbOffsetsG58Z.DoubleClick, tbOffsetsG59X.DoubleClick, tbOffsetsG59Y.DoubleClick, _
+    Private Sub tbOffsets_DoubleClick(sender As Object, e As EventArgs) Handles tbOffsetsG43Z.DoubleClick, tbOffsetsG54X.DoubleClick, tbOffsetsG54Y.DoubleClick,
+                                                                                tbOffsetsG54Z.DoubleClick, tbOffsetsG55X.DoubleClick, tbOffsetsG55Y.DoubleClick,
+                                                                                tbOffsetsG55Z.DoubleClick, tbOffsetsG56X.DoubleClick, tbOffsetsG56Y.DoubleClick,
+                                                                                tbOffsetsG56Z.DoubleClick, tbOffsetsG57X.DoubleClick, tbOffsetsG57Y.DoubleClick,
+                                                                                tbOffsetsG57Z.DoubleClick, tbOffsetsG58X.DoubleClick, tbOffsetsG58Y.DoubleClick,
+                                                                                tbOffsetsG58Z.DoubleClick, tbOffsetsG59X.DoubleClick, tbOffsetsG59Y.DoubleClick,
                                                                                 tbOffsetsG59Z.DoubleClick
 
         ' Set a specific offset and axis to entered value
         Dim tb As TextBox = sender
         Dim index As String = ""
-        Dim tag As String = tb.Tag.ToString
+        Dim tag As String = DirectCast(tb.Tag, String)
         Dim axis As String = tag(3)
         If tag.Contains("G5") Then
             Select Case tag.Substring(0, 3)  ' Get the offset value
@@ -190,6 +192,40 @@ Partial Class GrblGui
             End Select
             gcode.sendGCodeLine("G10 L2 " + index + " " + axis + tb.Text)
         End If
+
+    End Sub
+    ''' <summary>
+    ''' Set an offset to current machine coordinates
+    ''' </summary>
+    ''' <param name="sender">The source of the event.</param>
+    ''' <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+    Private Sub btnSetOffset_Click(sender As Object, e As EventArgs) Handles btnSetOffsetG54.Click, btnSetOffsetG55.Click, btnSetOffsetG56.Click,
+                                                                             btnSetOffsetG57.Click, btnSetOffsetG58.Click, btnSetOffsetG59.Click
+        Dim btn As Button = sender
+        Dim index As String = ""
+        Dim tag As String = DirectCast(btn.Tag, String)
+        Dim XValue As String = tbOffSetsMachX.Text.ToString
+        Dim YValue As String = tbOffSetsMachY.Text.ToString
+        Dim ZValue As String = tbOffSetsMachZ.Text.ToString
+
+        Select Case tag.Substring(0, 3)  ' Get the offset value
+            Case "G54"
+                index = "P1"
+            Case "G55"
+                index = "P2"
+            Case "G56"
+                index = "P3"
+            Case "G57"
+                index = "P4"
+            Case "G58"
+                index = "P5"
+            Case "G59"
+                index = "P6"
+        End Select
+        gcode.sendGCodeLine("G10 L2 " + index + " " + "X" + XValue + "Y" + YValue + "Z" + ZValue)
+        ' Get new values
+        btnOffsetsRetrieve_Click(Nothing, Nothing)
+
     End Sub
 
     Private Sub btnOffsetsRetrieve_Click(sender As Object, e As EventArgs) Handles btnOffsetsRetrieve.Click, btnSettingsRetrieveLocations.Click

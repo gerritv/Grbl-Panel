@@ -11,5 +11,5 @@ This tool would not have been possible without:
 - Legendaire for testing beta versions
 - Tyler for adding IP connectivity
 - Peter Smid, for his amazing books on CNC and Gcode
-- Ed Reed, aka JoeBananas10 for the Macro button code
+- Ed Reed, aka JoeBananas10 for the Macro button code and OffSet setting changes
 - matmurdock for adding the icon

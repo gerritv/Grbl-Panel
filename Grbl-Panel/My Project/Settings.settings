@@ -99,7 +99,7 @@
       <Value Profile="(Default)">0</Value>
     </Setting>
     <Setting Name="Macro1" Type="System.String" Scope="User">
-      <Value Profile="(Default)" />
+      <Value Profile="(Default)">Probe,G38.2 Z-30 F10</Value>
     </Setting>
     <Setting Name="Macro2" Type="System.String" Scope="User">
       <Value Profile="(Default)" />

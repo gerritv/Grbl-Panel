@@ -305,17 +305,19 @@ Public Class GrblGui
                     ' Wake up the subsystems
                     ' TODO Replace these calls with Event Connected handling in each object
                     status.enableStatus(True)
+                    Sleep(tbSettingsStartupDelay.Text * 1000)             ' Give Grbl time to wake up from Reset
+
+                    gcode.enableGCode(True)
                     jogging.enableJogging(True)
                     position.enablePosition(True)
-                    gcode.enableGCode(True)
                     offsets.enableOffsets(True)
                     state.EnableState(True)
                     settings.EnableState(True)
-                    ' Start the status poller
-                    Sleep(tbSettingsStartupDelay.Text * 1000)             ' Give Grbl time to wake up from Reset
-                    statusPrompt("Start")
 
                     RaiseEvent connected("Connected")      ' tell everyone of the happy event
+                    setSubPanels("Idle")
+                    ' Start the status poller
+                    statusPrompt("Start")
                 End If
             Case "Disconnect"
                 ' it must be a disconnect
@@ -337,6 +339,7 @@ Public Class GrblGui
                 settings.EnableState(False)
 
                 RaiseEvent connected("Disconnected")
+                setSubPanels("Disconnected") ' block GUI 
                 Return
         End Select
     End Sub
@@ -395,6 +398,21 @@ Public Class GrblGui
                 gbPosition.Enabled = False
                 gbMDI.Enabled = False
                 gbGrbl.Enabled = False
+                gbState.Enabled = False
+
+                gbSettingsJogging.Enabled = False
+                gbSettingsMisc.Enabled = False
+                gbSettingsOffsets.Enabled = False
+                gbSettingsPosition.Enabled = False
+                gbGrblSettings.Enabled = False
+
+                btnStatusGetParser.Enabled = False
+            Case "Disconnected"
+                ' We are not connected so not much you can do
+                gbJogging.Enabled = False
+                gbPosition.Enabled = False
+                gbMDI.Enabled = False
+                gbGrbl.Enabled = True   ' Allow only Connect
                 gbState.Enabled = False
 
                 gbSettingsJogging.Enabled = False
@@ -486,6 +504,36 @@ Public Class GrblGui
         For iCounter = 0 To aData.Count - 1
             gcode.sendGCodeLine(aData(iCounter))
         Next
+    End Sub
+    ''' <summary>
+    ''' Handles the Click event of the btnFeedOverride controls.
+    ''' </summary>
+    ''' <param name="sender">The source of the event.</param>
+    ''' <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+    Private Sub btnFeedOverride_Click(sender As Object, e As EventArgs) Handles btnFeedCoarsePlus.Click, btnFeedCoarseMinus.Click,
+                                                btnFeedFinePlus.Click, btnFeedFineMinus.Click
+
+        Dim btn As Button = sender
+
+        Select Case DirectCast(btn.Tag, String)
+            Case "Coarse"
+                If btn.Text = "+" Then
+                    grblPort.sendData(Chr(94))
+                Else
+                    grblPort.sendData(Chr(42))
+                End If
+            Case "Fine"
+                If btn.Text = "+" Then
+                    grblPort.sendData(Chr(147))  ' 0x93
+                Else
+                    grblPort.sendData(Chr(148))  ' 0x94
+                End If
+        End Select
+    End Sub
+
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+
+        grblPort.sendData("#")
     End Sub
 
 End Class

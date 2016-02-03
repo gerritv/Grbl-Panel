@@ -440,7 +440,7 @@ Namespace My
         
         <Global.System.Configuration.UserScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("")>  _
+         Global.System.Configuration.DefaultSettingValueAttribute("Probe,G38.2 Z-30 F10")>  _
         Public Property Macro1() As String
             Get
                 Return CType(Me("Macro1"),String)

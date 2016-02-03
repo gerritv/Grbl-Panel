@@ -54,6 +54,7 @@ Partial Class GrblGui
                 End If
                 ' Allow UI to be somewhat responsive while loading large files
                 If _inputcount Mod 100 = 0 Then
+                    ' Console.WriteLine("loadGcodeFile: line count: {0}", _inputcount)
                     Application.DoEvents()
                 End If
             Loop
@@ -429,7 +430,7 @@ Partial Class GrblGui
                     End If
                 End If
             End If
-            ' Check for status repsonses that we need to handle here
+            ' Check for status responses that we need to handle here
             ' Extract status
             Dim status = Split(data, ",")
             If status(0) = "<Alarm" Or status(0).StartsWith("ALARM") Then

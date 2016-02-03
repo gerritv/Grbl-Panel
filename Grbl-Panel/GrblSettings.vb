@@ -50,7 +50,7 @@ Partial Class GrblGui
 
         Public Sub FillSettings(ByVal data As String)
             ' Add a settings line to the display
-            Console.WriteLine(" $ Data is : " + data)
+            'Console.WriteLine("GrblSettings: $ Data is : " + data)
             ' Return
             Dim params() As String
             If _nextParam = 0 Then
@@ -67,6 +67,9 @@ Partial Class GrblGui
             params(1) = params(1).Replace(" ", "")         ' strip trailing blanks
             _paramTable.Rows.Add(params(0), params(1), params(2))
             _nextParam += 1
+
+            Application.DoEvents()
+
             If params(0) = _gui.tbSettingsGrblLastParam.Text Then ' We got the last one
                 _nextParam = 0            ' in case user does a MDI $$
                 With _gui.dgGrblSettings

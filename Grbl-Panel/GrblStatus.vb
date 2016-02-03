@@ -122,7 +122,7 @@ Partial Class GrblGui
             ' TODO This needs tidying up, pre-process message to remove leading, trailing < [ , etc. so 
             ' we have a clean code flow below, create a messageType variable?
             'Console.WriteLine("showGrblStatus: " + data)
-            If data(0) = vbLf Then
+            If data(0) = vbLf Or data(0) = vbCr Then
                 Return                  ' nothing to do
             End If
             If Me.cbVerbose.Checked Then
@@ -199,10 +199,12 @@ Partial Class GrblGui
             state.ProcessGCode(data)
         End If
 
-        If data(0) = "$" Then
+        If data(0) = "$" And IsNumeric(data(1)) Then
             ' we have a Grbl Settings response
             settings.FillSettings(data)
         End If
+
+        Application.DoEvents()
     End Sub
 
     Private Sub statusSetIndicators(ByVal status As String)

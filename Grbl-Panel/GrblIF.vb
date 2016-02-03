@@ -19,7 +19,7 @@ Public Class GrblIF
     ' A class to handle serial port list/open/close/read/write
 
     Private _commports As String()           ' the comm ports available
-    Private WithEvents _port As IO.Ports.SerialPort '
+    Private WithEvents _port As SerialPort '
     Private _commport As String             ' desired comm port
     Private _baudrate As Integer            ' active baudrate
     Private _connected As Boolean = False
@@ -36,7 +36,7 @@ Public Class GrblIF
     Private _recvDelegates As List(Of grblDataReceived)   ' who should get called when a line arrives
 
     Public Sub New()
-        _port = New IO.Ports.SerialPort()
+        _port = New SerialPort()
         _port.ReceivedBytesThreshold = 2            ' wait for this # of bytes to raise event
 
         _recvDelegates = New List(Of grblDataReceived)
@@ -75,7 +75,7 @@ Public Class GrblIF
                 End If
                 _port.PortName = _commport
                 _port.BaudRate = _baudrate
-
+                _port.ReadTimeout = 5000
                 Try
                     _port.Open()
                 Catch ex As System.IO.IOException
@@ -85,6 +85,7 @@ Public Class GrblIF
                 _port.DtrEnable = True
                 _port.DtrEnable = False
                 _connected = True
+                _client_ComReadData()   ' Start reading
                 Return True
             Case Else
                 Return False ' This should never happen, just in case.
@@ -99,17 +100,17 @@ Public Class GrblIF
             Case ConnectionType.IP
                 _client.Close()
             Case ConnectionType.Serial
-        ' disconnect from Grbl
-        Try
-            If _port.IsOpen Then
-                '_port.BaseStream.Close()
-                _port.Close()     ' There is a known problem that hangs the program if you are using Invoke in the ReceiveData event (I now use BeforeInvoke)
-                ' See http://social.msdn.microsoft.com/Forums/en-US/ce8ce1a3-64ed-4f26-b9ad-e2ff1d3be0a5/serial-port-hangs-whilst-closing?forum=Vsexpressvcs
-            End If
-        Catch
-            ' This happens for sure if user disconnects the USB cable
-            MessageBox.Show("Error on close of Grbl port")
-        End Try
+                ' disconnect from Grbl
+                Try
+                    If _port.IsOpen Then
+                        _port.BaseStream.Close()
+                        ' _port.Close()     ' There is a known problem that hangs the program if you are using Invoke in the ReceiveData event (I now use BeforeInvoke)
+                        ' See http://social.msdn.microsoft.com/Forums/en-US/ce8ce1a3-64ed-4f26-b9ad-e2ff1d3be0a5/serial-port-hangs-whilst-closing?forum=Vsexpressvcs
+                    End If
+                Catch
+                    ' This happens for sure if user disconnects the USB cable
+                    MessageBox.Show("Error on close of Grbl port")
+                End Try
         End Select
         _connected = False
         _type = ConnectionType.None
@@ -119,6 +120,8 @@ Public Class GrblIF
         ' scan for com ports again
         Return IO.Ports.SerialPort.GetPortNames
     End Function
+#Region "Properties"
+
     ''' <summary>
     ''' Lists the available COM ports on the system.
     ''' </summary>
@@ -203,6 +206,7 @@ Public Class GrblIF
             Return _connected
         End Get
     End Property
+#End Region
 
     ' **** Receive Queue Management
     ' calls delegates (callbacks) to consumers of the data
@@ -245,12 +249,10 @@ Public Class GrblIF
                     'If lines.Length > 0 Then
                     'For Each line In lines
                     For Each callback In _recvDelegates
-                        'Console.WriteLine("recvDelegates:")
                         callback.Invoke(data)
                     Next
                     'Next
                     'End If
-
                 End If
 
             Catch ex As Exception
@@ -266,30 +268,56 @@ Public Class GrblIF
 
     End Sub
 
-    Private Sub _port_COM_DataReceived(sender As Object, e As IO.Ports.SerialDataReceivedEventArgs) Handles _port.DataReceived
-        ' THIS RUNS IN ITS OWN THREAD!!!!! with no direct access to UI elements
-        ' By using ReadLine here, we should block this thread until the rest of a line is available, set ReceivedBytesThreshold low (2)
-        ' All registered delegates are called, any new receive events get queued up 'in the system'
+    Dim readBuffer(256) As Byte
 
-        Dim data As String
+    Private Async Sub _client_ComReadData()
         Try
-            data = _port.ReadLine()
-        Catch ex As Exception
-            ' various exceptions occur when closing app
-            ' all due to race conditions because we process receive events on 
-            ' different thread from gui.
-            ' This Catch handles data=Nothing from passing to rest of code at exit
-            Return
-        End Try
+            'Debug.WriteLine("XbeeSerial: Start async read, loop {0} ", counter)
+            Dim _actualLength As Integer = Await _port.BaseStream.ReadAsync(readBuffer, 0, 200)
+            'Int actualLength = Await _port.BaseStream.ReadAsync(readBuffer, 0, 200)
+            Dim _received(_actualLength) As Byte
+            Buffer.BlockCopy(readBuffer, 0, _received, 0, _actualLength)
+            'Console.WriteLine("_client_ComReadData: Finished async read, bytes {0}", _actualLength)
+            raiseAppSerialDataEvent(System.Text.ASCIIEncoding.ASCII.GetString(_received))
 
-        'Console.WriteLine("port_DataReceived: " + data)
-        For Each callback In _recvDelegates
-            'Console.WriteLine("recvDelegates:")
-            callback.Invoke(data)
+        Catch e As System.InvalidOperationException
+        Catch e As System.IO.IOException
+            Debug.WriteLine("_client_ComReadData: error on reading from port " + e.Message)
+        Catch e As TimeoutException
+            Debug.WriteLine("XbeeSerial: Timeout exception {0}", e.Message)
+        End Try
+    End Sub
+    ''' <summary>
+    ''' Handles the application serial data event.
+    ''' </summary>
+    ''' <remarks>
+    ''' Processes the received data into lines
+    ''' For each line, calls the registered delegates
+    ''' </remarks>
+    ''' <param name="data">The (possibly partial) data.</param>
+    Private Sub raiseAppSerialDataEvent(data As String)
+        Static line As New StringBuilder()
+
+        For Each ch As Char In data
+            If ch <> vbNullChar Then ' ignore the Null at end of received data
+                If ch = vbLf Then
+                    line.Append(ch)
+                    'Send for processing
+                    ' Console.WriteLine("raiseAppSerialDataEvent: {0} ", line)
+                    For Each callback In _recvDelegates
+                        'Console.WriteLine("recvDelegates: calling " + callback.Method.Name)
+                        callback.Invoke(line.ToString)
+                    Next
+                    ' Get ready for next portion
+                    line.Clear()
+                Else
+                    line.Append(ch)
+                End If
+            End If
         Next
+        _client_ComReadData() ' reprime the read
 
     End Sub
-
     ''' <summary>
     ''' Sends a byte of data to grbl
     ''' </summary>
@@ -310,7 +338,7 @@ Public Class GrblIF
                     ' For now we just write
                     If data.Length = 1 Then     ' no CRLF at end, it should be an immediate command such as ! or ~ or ?
                         '_port.Write(data)
-                        Dim c As Byte() = ASCIIEncoding.ASCII.GetBytes(data)
+                        Dim c As Byte() = System.Text.Encoding.GetEncoding(1252).GetBytes(data)
                         Try
                             _client.GetStream().Write(c, 0, c.Length)
                         Catch
@@ -321,6 +349,7 @@ Public Class GrblIF
 
                         'Console.WriteLine("GrblIF::sendData Sent: " + data + " to Grbl")
                     Else
+                        ' Note that this encoding allows only 7 bit Ascii characters!
                         Dim c As Byte() = ASCIIEncoding.ASCII.GetBytes(data + vbLf)
                         Try
                             _client.GetStream().Write(c, 0, c.Length)
@@ -347,8 +376,7 @@ Public Class GrblIF
                     ' This requires tracking ok's, see Grbl Wiki
                     ' For now we just write
                     If data.Length = 1 Then     ' no CRLF at end, it should be an immediate command such as ! or ~ or ?
-                        '_port.Write(data)
-                        Dim c As Byte() = ASCIIEncoding.ASCII.GetBytes(data)
+                        Dim c As Byte() = System.Text.Encoding.GetEncoding(1252).GetBytes(data)
                         Try
                             _port.BaseStream.Write(c, 0, c.Length)
                         Catch e As Exception
@@ -357,8 +385,9 @@ Public Class GrblIF
                             MessageBox.Show("Fatal error on write to Grbl, " + e.Message)
                         End Try
 
-                        'Console.WriteLine("GrblIF::sendData Sent: " + data + " to Grbl")
+                        ' Console.WriteLine("GrblIF:char:sendData Sent: " + data + " to Grbl")
                     Else
+                        ' Note that this encoding allows only 7 bit Ascii characters!
                         Dim c As Byte() = ASCIIEncoding.ASCII.GetBytes(data + vbLf)
                         Try
                             _port.BaseStream.Write(c, 0, c.Length)
@@ -367,7 +396,8 @@ Public Class GrblIF
                             '_port.Close()
                             MessageBox.Show("Fatal error on write to Grbl, " + e.Message)
                         End Try
-                        'Console.WriteLine("GrblIF::sendData Sent: " + data + " to Grbl")
+                        ' Console.WriteLine(String.Format("Sent as byte: {0:X} {1:X}", c(0), c(1)))
+                        ' Console.WriteLine("GrblIF:line:sendData Sent: " + data + " to Grbl")
                     End If
                     Return True
                 Else
