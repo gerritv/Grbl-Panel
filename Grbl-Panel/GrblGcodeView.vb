@@ -156,24 +156,43 @@
 
         Public Sub UpdateGCodeStatus(ByVal stat As String, ByVal index As Integer)
             ' Set the Status column of the line item
+            ' Keep current active line visible in the view
+
+            Dim a As Integer = 0
+
+            Dim b As Integer = 0
+            With _dgview
+                a = .FirstDisplayedScrollingRowIndex
+                b = .DisplayedRowCount(True)
+            End With
+            Console.WriteLine("a,b, index{0} {1} {2})", a, b, index)
+
+
             If _filemode Then
                 _gcodeTable(index).status = stat
+                If index < _dgview.FirstDisplayedScrollingRowIndex Then
+                    ' Make top of queue visible again
+                    _dgview.FirstDisplayedScrollingRowIndex = 0
+                Else
+                    If (_dgview.FirstDisplayedScrollingRowIndex + _dgview.DisplayedRowCount(True) <= index) Then
+                        _dgview.FirstDisplayedScrollingRowIndex = index - _dgview.DisplayedRowCount(True) + 5
+                    End If
+                End If
             Else            ' we always pick the last entry
                 _gcodeTable(_gcodeTable.Count - 1).status = stat
-            End If
-            If index = -1 Then
                 ' we are in MDI mode so use bottom
                 index = _dgview.RowCount
-            End If
-            ' Keep current active line visible
-            If index < _dgview.FirstDisplayedScrollingRowIndex Then
-                ' Make top of queue visible again
-                _dgview.FirstDisplayedScrollingRowIndex = 0
-            Else
-                If (_dgview.FirstDisplayedScrollingRowIndex + _dgview.DisplayedRowCount(True) <= index) Then
-                    _dgview.FirstDisplayedScrollingRowIndex = index - _dgview.DisplayedRowCount(False) + 5
+                If index < _dgview.FirstDisplayedScrollingRowIndex Then
+                    ' Make top of queue visible again
+                    _dgview.FirstDisplayedScrollingRowIndex = 0
+                Else
+                    If (_dgview.FirstDisplayedScrollingRowIndex + _dgview.DisplayedRowCount(True) <= index) Then
+                        _dgview.FirstDisplayedScrollingRowIndex = index - _dgview.DisplayedRowCount(True) + 1
+                    End If
                 End If
             End If
+
+
             _dgview.Refresh()
         End Sub
 
