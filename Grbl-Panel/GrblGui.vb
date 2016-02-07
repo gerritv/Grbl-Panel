@@ -10,7 +10,7 @@ Public Class GrblGui
     Private jogging As GrblJogging          ' for jogging control
     Private position As GrblPosition        ' for machine and work positioning
     Public Shared gcode As GrblGcode        ' For processing gcode file
-    Public gcodeview As GrblGcodeView       ' for display of gcode
+    Public Shared gcodeview As GrblGcodeView       ' for display of gcode
     Public offsets As GrblOffsets           ' for handling of offsets
     Public state As GrblState              ' to track gcode state
     Public settings As GrblSettings         ' To handle Settings related ops
@@ -48,7 +48,7 @@ Public Class GrblGui
         jogging = New GrblJogging(Me)
         position = New GrblPosition(Me)
         gcode = New GrblGcode(Me)
-        gcodeview = New GrblGcodeView(lvGcode)
+        gcodeview = New GrblGcodeView(dgvGcode)
         offsets = New GrblOffsets(Me)
         state = New GrblState(Me)
 
@@ -180,7 +180,7 @@ Public Class GrblGui
 
                         ' Reset all axes to 0
                         Case Keys.Insert
-                        Case Keys.NumPad0
+                        Case Keys.A
                             _gui.btnWork0.PerformClick()
                             handled = True
                     End Select

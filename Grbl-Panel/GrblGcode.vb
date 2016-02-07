@@ -3,11 +3,13 @@ Imports GrblPanel.GrblIF
 
 Partial Class GrblGui
 
+
     Public Class GrblGcode
 
         ' A Class to handle reading, parsing, removing white space
         '   - Handles the sending to Grbl using either the simple or advanced protocols
         '   - Handles introducing canned cycles (M06, G81/2/3)
+        ' While we are sending the file, lock out manual functions
         Private _gui As GrblGui
         Private _wtgForAck As Boolean = False         '
         Private _runMode As Boolean = True            '
@@ -17,12 +19,13 @@ Partial Class GrblGui
         Private _m30Flag As Boolean = False             ' M30 detected in gcode stream
 
         ' Handle file read (Gcode in) and Write (Gcode save)
-        ' While we are sending the file, lock out manual functions
         Private _inputfh As StreamReader
         Private _inputcount As Integer
 
+
         Public Sub New(ByRef gui As GrblGui)
             _gui = gui
+
         End Sub
 
         Public Sub enableGCode(ByVal action As Boolean)
@@ -39,27 +42,24 @@ Partial Class GrblGui
 
         Public Function loadGCodeFile(ByVal file As String) As Boolean
             Dim data As String
-
+            Dim _stopwatch As Stopwatch = New Stopwatch
             ' Start from clean slate
             resetGcode(True)
             ' Load the file, count lines
             _inputfh = My.Computer.FileSystem.OpenTextFileReader(file)
             ' count the lines while loading up
             _inputcount = 0
+
             Do While Not _inputfh.EndOfStream
                 data = _inputfh.ReadLine()    ' Issue #20, ignore '%'
                 If data <> "%" Then
-                    _gui.gcodeview.Insert(data, _inputcount)
+                    gcodeview.Insert(data, "File", (_inputcount + 1).ToString)         ' Plan B
                     _inputcount += 1
                 End If
-                ' Allow UI to be somewhat responsive while loading large files
-                If _inputcount Mod 100 = 0 Then
-                    ' Console.WriteLine("loadGcodeFile: line count: {0}", _inputcount)
-                    Application.DoEvents()
-                End If
             Loop
-
             lineCount = _inputcount
+
+            gcodeview.RefreshView() ' refresh data to the DataGridView
 
             If Not IsNothing(_inputfh) Then
                 _inputfh.Close()
@@ -76,28 +76,6 @@ Partial Class GrblGui
             _inputcount = 0
 
         End Sub
-        Public Function readGcode() As String
-            ' Read a line, if EOF then return EOF
-            Dim lv As ListView = _gui.lvGcode
-            If _lineCount > 0 Then
-                Return lv.Items(_linesDone).SubItems(2).Text
-            Else
-                Return "EOF"
-            End If
-        End Function
-        ''' <summary>
-        ''' Peek at line previously sent
-        ''' </summary>
-        ''' <returns>Previous Gcode line</returns>
-        Public Function readGcodePrevious() As String
-            ' Read a line, if EOF then return EOF
-            Dim lv As ListView = _gui.lvGcode
-            If _lineCount > 0 Then
-                Return lv.Items(_linesDone - 1).SubItems(2).Text
-            Else
-                Return "EOF"
-            End If
-        End Function
 
         Public Sub sendGcodeFile()
 
@@ -111,7 +89,7 @@ Partial Class GrblGui
             wtgForAck = False
             runMode = True
             sendAnotherLine = True
-            _gui.gcodeview.fileMode = True
+            gcodeview.fileMode = True
             _gui.processLineEvent("")              ' Prime the pump
 
         End Sub
@@ -120,14 +98,17 @@ Partial Class GrblGui
             ' Send a line immediately
             ' This can only happen when not sending a file, buttons are interlocked
             _runMode = False
-            _gui.gcodeview.fileMode = False
+            gcodeview.fileMode = False
 
             If Not (data.StartsWith("$") Or data.StartsWith("?")) Then
                 ' add to display
-                _gui.gcodeview.Insert(data, 0)
-                gcode.lineCount += 1        ' TODO is this necessary?
-                ' we are always be the last item in manual mode
-                _gui.gcodeview.UpdateGcodeSent(-1)
+                ' _gui.gcodeview.Insert(data, 0)
+                With gcodeview
+                    .Insert(data, "MDI", 0)
+                    gcode.lineCount += 1
+                    ' we are always be the last item in manual mode
+                    .UpdateGcodeSent(-1)
+                End With
                 ' Expect a response from Grbl
                 wtgForAck = True
             End If
@@ -146,7 +127,7 @@ Partial Class GrblGui
             ' Resume sending of file
             _sendAnotherLine = True
             _runMode = True
-            _gui.gcodeview.fileMode = True
+            gcodeview.fileMode = True
             _gui.processLineEvent("")              ' Prime the pump again
 
         End Sub
@@ -157,7 +138,7 @@ Partial Class GrblGui
                 wtgForAck = False
                 runMode = False
                 sendAnotherLine = False
-                _gui.gcodeview.fileMode = False        ' allow manual mode gcode send
+                gcodeview.fileMode = False        ' allow manual mode gcode send
 
                 ' Make the fileStop button go click, to stop the file send
                 ' and set the buttons
@@ -172,7 +153,7 @@ Partial Class GrblGui
                 wtgForAck = False
                 runMode = False
                 sendAnotherLine = False
-                _gui.gcodeview.fileMode = False        ' allow manual mode gcode send
+                gcodeview.fileMode = False        ' allow manual mode gcode send
 
                 gcode.sendGCodeFilePause()
                 'gcode.closeGCodeFile()
@@ -187,7 +168,7 @@ Partial Class GrblGui
                     .btnFileReload.Enabled = True
                 End With
             End If
-            _gui.gcodeview.Rewind()
+            gcodeview.Rewind()
         End Sub
 
         Public Sub shutdown()
@@ -210,9 +191,10 @@ Partial Class GrblGui
                 ' clear out the file name etc
                 closeGCodeFile()
                 ' Clear the list of gcode block sent
-                _gui.gcodeview.Clear()
+                gcodeview.Clear()
             End If
         End Sub
+
 #Region "Properties"
 
         Property runMode() As Boolean
@@ -268,105 +250,18 @@ Partial Class GrblGui
 
 #End Region
 
-
-    End Class
-
-    Public Class GrblGcodeView
-        ' A class to manage the Gcode list view
-        ' This contains the GCode queue going to Grbl
-        ' GrblGui owns the lvGcode control but this class manages its content
-
-        Private _lview As ListView
-        Private _filemode As Boolean = False ' True if in File Send mode
-
-        Public Sub New(ByRef view As ListView)
-            _lview = view
-        End Sub
-        Public Sub Clear()
-            _lview.Items.Clear()
-            _filemode = False
-            _lview.Update()
-        End Sub
-
-        Public Sub Insert(ByVal data As String, ByVal lineNumber As Integer)
-            ' Insert a new item into the view
-            Dim lvi As New ListViewItem
-            lvi.Text = ""                       ' This is for Status of command
-            lvi.SubItems.Add(lineNumber.ToString)    ' file line number
-            lvi.SubItems.Add(data)              ' This is the Gcode block
-            _lview.Items.Add(lvi)
-
-            _lview.EnsureVisible(0)           ' show top of file for user to verify etc
-            '_lview.Update()
-        End Sub
-
-        Public Sub UpdateGCodeStatus(ByVal stat As String, ByVal index As Integer)
-            ' Set the Status column of the line item
-            If _filemode Then
-                _lview.Items(index).Text = stat
-                _lview.EnsureVisible(index)
-            Else            ' we always pick the last entry
-                _lview.Items(_lview.Items.Count - 1).Text = stat
-                _lview.EnsureVisible(_lview.Items.Count - 1)
-            End If
-
-            _lview.Update()
-        End Sub
-
-        Public Sub UpdateGcodeSent(ByVal index As Integer)
-            '  Set background to indicate the gcode line was sent
-            If _filemode Then       ' Are we running a file
-                _lview.Items(index).BackColor = Color.LightBlue
-                _lview.EnsureVisible(index)
-            Else
-                _lview.Items(_lview.Items.Count + index).BackColor = Color.LightBlue
-                _lview.EnsureVisible(_lview.Items.Count + index)
-            End If
-
-            _lview.Update()
-
-        End Sub
-        ''' <summary>
-        ''' Rewind the Gcode view (for M30)
-        ''' </summary>
-        Public Sub Rewind()
-            ' clear status and colouring, leave commands
-            For Each lvi As ListViewItem In _lview.Items
-                lvi.BackColor = Color.Transparent
-                lvi.Text = ""
-            Next
-            _lview.EnsureVisible(0)           ' show top of file for user to verify etc
-        End Sub
-
-        ReadOnly Property count As Integer
-            Get
-                Return GrblGui.lvGcode.Items.Count
-            End Get
-        End Property
-        Property fileMode As Boolean
-            ' Set true if we are running a gcode file
-            Get
-                Return _filemode
-            End Get
-            Set(value As Boolean)
-                _filemode = value
-            End Set
-        End Property
-
     End Class
 
     Public Sub processLineEvent(ByVal data As String)
 
         ' This event handles processing and sending GCode lines from the file as well as ok/error responses from Grbl
         ' Implements simple protocol (send block, wait for ok/error loop)
-        ' TODO implement stuffing protocol
         ' It runs on the UI thread, and is raised for each line received from Grbl
         ' even when there is no file to send, e.g. due to status poll response
-        ' TODO THIS WILL ALL BE REPLACED WHEN we add Gcode editing and Macro insertion (for canned cycles, tool change etc)
 
         ' we need this to run in the UI thread so:
         'Console.WriteLine("processLineEvent: " + data)
-        If Me.lvGcode.InvokeRequired Then
+        If Me.dgvGcode.InvokeRequired Then
             ' we need to cross thread this callback
             Dim ncb As New grblDataReceived(AddressOf Me.processLineEvent)
             Me.BeginInvoke(ncb, New Object() {data})
@@ -374,6 +269,7 @@ Partial Class GrblGui
             ' are we waiting for Ack?
             If gcode.wtgForAck Then
                 ' is recvData ok or error?
+
                 If data.StartsWith("ok") Or data.StartsWith("error") Then
                     ' Mark gcode item as ok/error
                     gcodeview.UpdateGCodeStatus(data, gcode.linesDone - 1)
@@ -398,7 +294,7 @@ Partial Class GrblGui
                     If gcode.lineCount > 0 Then
                         Dim line As String
                         ' Read another line
-                        line = gcode.readGcode()
+                        line = gcodeview.readGcode(gcode.lineCount, gcode.linesDone)
                         If Not line.StartsWith("EOF") Then  ' We never hit this but is here just in case the file gets truncated
                             ' count - 1
                             gcode.lineCount -= 1

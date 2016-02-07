@@ -6,7 +6,6 @@
 
         ' Gets fed each line of Gcode before it is sent to 
         ' Gets fed the response to $G (Parser state)
-        ' TODO Use List instead of Array()
         Private _gui As GrblGui
 
         Public Sub New(ByRef gui As GrblGui)

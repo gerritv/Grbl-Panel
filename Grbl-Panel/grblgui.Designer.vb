@@ -78,6 +78,12 @@ Partial Class GrblGui
         Me.btnSend = New System.Windows.Forms.Button()
         Me.tbSendData = New System.Windows.Forms.TextBox()
         Me.gbJogging = New System.Windows.Forms.GroupBox()
+        Me.btnZMinus = New RepeatButton.RepeatButton()
+        Me.btnZPlus = New RepeatButton.RepeatButton()
+        Me.btnXPlus = New RepeatButton.RepeatButton()
+        Me.btnYMinus = New RepeatButton.RepeatButton()
+        Me.btnXMinus = New RepeatButton.RepeatButton()
+        Me.btnYPlus = New RepeatButton.RepeatButton()
         Me.gbFeedRate = New System.Windows.Forms.GroupBox()
         Me.rbFeedRate1 = New System.Windows.Forms.RadioButton()
         Me.rbFeedRate2 = New System.Windows.Forms.RadioButton()
@@ -98,6 +104,7 @@ Partial Class GrblGui
         Me.cbVerbose = New System.Windows.Forms.CheckBox()
         Me.lbResponses = New System.Windows.Forms.ListBox()
         Me.gbGcode = New System.Windows.Forms.GroupBox()
+        Me.dgvGcode = New System.Windows.Forms.DataGridView()
         Me.btnFileReload = New System.Windows.Forms.Button()
         Me.tbGCodeMessage = New System.Windows.Forms.TextBox()
         Me.Label27 = New System.Windows.Forms.Label()
@@ -107,10 +114,6 @@ Partial Class GrblGui
         Me.tbGcodeFile = New System.Windows.Forms.TextBox()
         Me.btnFileSelect = New System.Windows.Forms.Button()
         Me.btnFileSend = New System.Windows.Forms.Button()
-        Me.lvGcode = New System.Windows.Forms.ListView()
-        Me.lvColStatus = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
-        Me.lvColLineNo = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
-        Me.lvColGCode = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.btnFileStop = New System.Windows.Forms.Button()
         Me.gbGrbl = New System.Windows.Forms.GroupBox()
         Me.tcConnection = New System.Windows.Forms.TabControl()
@@ -283,12 +286,6 @@ Partial Class GrblGui
         Me.sfdOffsets = New System.Windows.Forms.SaveFileDialog()
         Me.ofdOffsets = New System.Windows.Forms.OpenFileDialog()
         Me.GrblSettingsBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.btnZMinus = New RepeatButton.RepeatButton()
-        Me.btnZPlus = New RepeatButton.RepeatButton()
-        Me.btnXPlus = New RepeatButton.RepeatButton()
-        Me.btnYMinus = New RepeatButton.RepeatButton()
-        Me.btnXMinus = New RepeatButton.RepeatButton()
-        Me.btnYPlus = New RepeatButton.RepeatButton()
         Me.MenuStrip1.SuspendLayout()
         Me.TabControl1.SuspendLayout()
         Me.tabPgInterface.SuspendLayout()
@@ -303,6 +300,7 @@ Partial Class GrblGui
         Me.gbDistance.SuspendLayout()
         Me.gbStatus.SuspendLayout()
         Me.gbGcode.SuspendLayout()
+        CType(Me.dgvGcode, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.gbGrbl.SuspendLayout()
         Me.tcConnection.SuspendLayout()
         Me.tbGrblCOM.SuspendLayout()
@@ -891,6 +889,79 @@ Partial Class GrblGui
         Me.gbJogging.TabStop = False
         Me.gbJogging.Text = "Jogging"
         '
+        'btnZMinus
+        '
+        Me.btnZMinus.Font = New System.Drawing.Font("Microsoft Sans Serif", 27.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnZMinus.Interval = 100
+        Me.btnZMinus.Location = New System.Drawing.Point(399, 145)
+        Me.btnZMinus.Name = "btnZMinus"
+        Me.btnZMinus.Size = New System.Drawing.Size(80, 58)
+        Me.btnZMinus.TabIndex = 23
+        Me.btnZMinus.Tag = "Z-"
+        Me.btnZMinus.Text = "Z-"
+        Me.btnZMinus.UseVisualStyleBackColor = True
+        '
+        'btnZPlus
+        '
+        Me.btnZPlus.Font = New System.Drawing.Font("Microsoft Sans Serif", 27.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnZPlus.Interval = 100
+        Me.btnZPlus.Location = New System.Drawing.Point(399, 18)
+        Me.btnZPlus.Name = "btnZPlus"
+        Me.btnZPlus.Size = New System.Drawing.Size(80, 58)
+        Me.btnZPlus.TabIndex = 22
+        Me.btnZPlus.Tag = "Z+"
+        Me.btnZPlus.Text = "Z+"
+        Me.btnZPlus.UseVisualStyleBackColor = True
+        '
+        'btnXPlus
+        '
+        Me.btnXPlus.Font = New System.Drawing.Font("Microsoft Sans Serif", 27.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnXPlus.Interval = 100
+        Me.btnXPlus.Location = New System.Drawing.Point(299, 81)
+        Me.btnXPlus.Name = "btnXPlus"
+        Me.btnXPlus.Size = New System.Drawing.Size(80, 58)
+        Me.btnXPlus.TabIndex = 21
+        Me.btnXPlus.Tag = "X+"
+        Me.btnXPlus.Text = "X+"
+        Me.btnXPlus.UseVisualStyleBackColor = True
+        '
+        'btnYMinus
+        '
+        Me.btnYMinus.Font = New System.Drawing.Font("Microsoft Sans Serif", 27.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnYMinus.Interval = 100
+        Me.btnYMinus.Location = New System.Drawing.Point(233, 144)
+        Me.btnYMinus.Name = "btnYMinus"
+        Me.btnYMinus.Size = New System.Drawing.Size(80, 58)
+        Me.btnYMinus.TabIndex = 20
+        Me.btnYMinus.Tag = "Y-"
+        Me.btnYMinus.Text = "Y-"
+        Me.btnYMinus.TextAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.btnYMinus.UseVisualStyleBackColor = True
+        '
+        'btnXMinus
+        '
+        Me.btnXMinus.Font = New System.Drawing.Font("Microsoft Sans Serif", 27.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnXMinus.Interval = 100
+        Me.btnXMinus.Location = New System.Drawing.Point(185, 81)
+        Me.btnXMinus.Name = "btnXMinus"
+        Me.btnXMinus.Size = New System.Drawing.Size(80, 58)
+        Me.btnXMinus.TabIndex = 19
+        Me.btnXMinus.Tag = "X-"
+        Me.btnXMinus.Text = "X-"
+        Me.btnXMinus.UseVisualStyleBackColor = True
+        '
+        'btnYPlus
+        '
+        Me.btnYPlus.Font = New System.Drawing.Font("Microsoft Sans Serif", 27.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnYPlus.Interval = 100
+        Me.btnYPlus.Location = New System.Drawing.Point(233, 18)
+        Me.btnYPlus.Name = "btnYPlus"
+        Me.btnYPlus.Size = New System.Drawing.Size(80, 58)
+        Me.btnYPlus.TabIndex = 18
+        Me.btnYPlus.Tag = "Y+"
+        Me.btnYPlus.Text = "Y+"
+        Me.btnYPlus.UseVisualStyleBackColor = True
+        '
         'gbFeedRate
         '
         Me.gbFeedRate.Controls.Add(Me.rbFeedRate1)
@@ -1112,6 +1183,7 @@ Partial Class GrblGui
         Me.gbGcode.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.gbGcode.Controls.Add(Me.dgvGcode)
         Me.gbGcode.Controls.Add(Me.btnFileReload)
         Me.gbGcode.Controls.Add(Me.tbGCodeMessage)
         Me.gbGcode.Controls.Add(Me.Label27)
@@ -1121,7 +1193,6 @@ Partial Class GrblGui
         Me.gbGcode.Controls.Add(Me.tbGcodeFile)
         Me.gbGcode.Controls.Add(Me.btnFileSelect)
         Me.gbGcode.Controls.Add(Me.btnFileSend)
-        Me.gbGcode.Controls.Add(Me.lvGcode)
         Me.gbGcode.Controls.Add(Me.btnFileStop)
         Me.gbGcode.Enabled = False
         Me.gbGcode.Location = New System.Drawing.Point(3, 310)
@@ -1130,6 +1201,26 @@ Partial Class GrblGui
         Me.gbGcode.TabIndex = 14
         Me.gbGcode.TabStop = False
         Me.gbGcode.Text = "GCode"
+        '
+        'dgvGcode
+        '
+        Me.dgvGcode.AccessibleRole = System.Windows.Forms.AccessibleRole.None
+        Me.dgvGcode.AllowUserToAddRows = False
+        Me.dgvGcode.AllowUserToDeleteRows = False
+        Me.dgvGcode.AllowUserToResizeColumns = False
+        Me.dgvGcode.AllowUserToResizeRows = False
+        Me.dgvGcode.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.dgvGcode.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.dgvGcode.Location = New System.Drawing.Point(6, 87)
+        Me.dgvGcode.MultiSelect = False
+        Me.dgvGcode.Name = "dgvGcode"
+        Me.dgvGcode.ReadOnly = True
+        Me.dgvGcode.RowHeadersVisible = False
+        Me.dgvGcode.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
+        Me.dgvGcode.Size = New System.Drawing.Size(503, 283)
+        Me.dgvGcode.StandardTab = True
+        Me.dgvGcode.TabIndex = 22
         '
         'btnFileReload
         '
@@ -1224,35 +1315,6 @@ Partial Class GrblGui
         Me.btnFileSend.Tag = "Send"
         Me.ToolTip1.SetToolTip(Me.btnFileSend, "Start/Resume sending")
         Me.btnFileSend.UseVisualStyleBackColor = True
-        '
-        'lvGcode
-        '
-        Me.lvGcode.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.lvGcode.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.lvColStatus, Me.lvColLineNo, Me.lvColGCode})
-        Me.lvGcode.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lvGcode.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable
-        Me.lvGcode.Location = New System.Drawing.Point(6, 84)
-        Me.lvGcode.Name = "lvGcode"
-        Me.lvGcode.Size = New System.Drawing.Size(503, 283)
-        Me.lvGcode.TabIndex = 18
-        Me.lvGcode.UseCompatibleStateImageBehavior = False
-        Me.lvGcode.View = System.Windows.Forms.View.Details
-        '
-        'lvColStatus
-        '
-        Me.lvColStatus.Text = "Sts"
-        Me.lvColStatus.Width = 46
-        '
-        'lvColLineNo
-        '
-        Me.lvColLineNo.Text = "Line"
-        Me.lvColLineNo.Width = 46
-        '
-        'lvColGCode
-        '
-        Me.lvColGCode.Text = "GCode"
-        Me.lvColGCode.Width = 459
         '
         'btnFileStop
         '
@@ -3075,79 +3137,6 @@ Partial Class GrblGui
         Me.ofdOffsets.FileName = "OpenFileDialog1"
         Me.ofdOffsets.Filter = "WorkOffset Files|*.xml"
         '
-        'btnZMinus
-        '
-        Me.btnZMinus.Font = New System.Drawing.Font("Microsoft Sans Serif", 27.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnZMinus.Interval = 100
-        Me.btnZMinus.Location = New System.Drawing.Point(399, 145)
-        Me.btnZMinus.Name = "btnZMinus"
-        Me.btnZMinus.Size = New System.Drawing.Size(80, 58)
-        Me.btnZMinus.TabIndex = 23
-        Me.btnZMinus.Tag = "Z-"
-        Me.btnZMinus.Text = "Z-"
-        Me.btnZMinus.UseVisualStyleBackColor = True
-        '
-        'btnZPlus
-        '
-        Me.btnZPlus.Font = New System.Drawing.Font("Microsoft Sans Serif", 27.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnZPlus.Interval = 100
-        Me.btnZPlus.Location = New System.Drawing.Point(399, 18)
-        Me.btnZPlus.Name = "btnZPlus"
-        Me.btnZPlus.Size = New System.Drawing.Size(80, 58)
-        Me.btnZPlus.TabIndex = 22
-        Me.btnZPlus.Tag = "Z+"
-        Me.btnZPlus.Text = "Z+"
-        Me.btnZPlus.UseVisualStyleBackColor = True
-        '
-        'btnXPlus
-        '
-        Me.btnXPlus.Font = New System.Drawing.Font("Microsoft Sans Serif", 27.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnXPlus.Interval = 100
-        Me.btnXPlus.Location = New System.Drawing.Point(299, 81)
-        Me.btnXPlus.Name = "btnXPlus"
-        Me.btnXPlus.Size = New System.Drawing.Size(80, 58)
-        Me.btnXPlus.TabIndex = 21
-        Me.btnXPlus.Tag = "X+"
-        Me.btnXPlus.Text = "X+"
-        Me.btnXPlus.UseVisualStyleBackColor = True
-        '
-        'btnYMinus
-        '
-        Me.btnYMinus.Font = New System.Drawing.Font("Microsoft Sans Serif", 27.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnYMinus.Interval = 100
-        Me.btnYMinus.Location = New System.Drawing.Point(233, 144)
-        Me.btnYMinus.Name = "btnYMinus"
-        Me.btnYMinus.Size = New System.Drawing.Size(80, 58)
-        Me.btnYMinus.TabIndex = 20
-        Me.btnYMinus.Tag = "Y-"
-        Me.btnYMinus.Text = "Y-"
-        Me.btnYMinus.TextAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnYMinus.UseVisualStyleBackColor = True
-        '
-        'btnXMinus
-        '
-        Me.btnXMinus.Font = New System.Drawing.Font("Microsoft Sans Serif", 27.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnXMinus.Interval = 100
-        Me.btnXMinus.Location = New System.Drawing.Point(185, 81)
-        Me.btnXMinus.Name = "btnXMinus"
-        Me.btnXMinus.Size = New System.Drawing.Size(80, 58)
-        Me.btnXMinus.TabIndex = 19
-        Me.btnXMinus.Tag = "X-"
-        Me.btnXMinus.Text = "X-"
-        Me.btnXMinus.UseVisualStyleBackColor = True
-        '
-        'btnYPlus
-        '
-        Me.btnYPlus.Font = New System.Drawing.Font("Microsoft Sans Serif", 27.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnYPlus.Interval = 100
-        Me.btnYPlus.Location = New System.Drawing.Point(233, 18)
-        Me.btnYPlus.Name = "btnYPlus"
-        Me.btnYPlus.Size = New System.Drawing.Size(80, 58)
-        Me.btnYPlus.TabIndex = 18
-        Me.btnYPlus.Tag = "Y+"
-        Me.btnYPlus.Text = "Y+"
-        Me.btnYPlus.UseVisualStyleBackColor = True
-        '
         'GrblGui
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -3188,6 +3177,7 @@ Partial Class GrblGui
         Me.gbStatus.PerformLayout()
         Me.gbGcode.ResumeLayout(False)
         Me.gbGcode.PerformLayout()
+        CType(Me.dgvGcode, System.ComponentModel.ISupportInitialize).EndInit()
         Me.gbGrbl.ResumeLayout(False)
         Me.tcConnection.ResumeLayout(False)
         Me.tbGrblCOM.ResumeLayout(False)
@@ -3296,9 +3286,6 @@ Partial Class GrblGui
     Friend WithEvents lblTotalLines As System.Windows.Forms.Label
     Friend WithEvents Label23 As System.Windows.Forms.Label
     Friend WithEvents cbStatusPollEnable As System.Windows.Forms.CheckBox
-    Friend WithEvents lvGcode As System.Windows.Forms.ListView
-    Friend WithEvents lvColStatus As System.Windows.Forms.ColumnHeader
-    Friend WithEvents lvColGCode As System.Windows.Forms.ColumnHeader
     Friend WithEvents prgBarQ As System.Windows.Forms.ProgressBar
     Friend WithEvents Label25 As System.Windows.Forms.Label
     Friend WithEvents Label24 As System.Windows.Forms.Label
@@ -3449,7 +3436,6 @@ Partial Class GrblGui
     Friend WithEvents gbStatus As System.Windows.Forms.GroupBox
     Friend WithEvents Panel2 As System.Windows.Forms.Panel
     Friend WithEvents Panel1 As System.Windows.Forms.Panel
-    Friend WithEvents lvColLineNo As System.Windows.Forms.ColumnHeader
     Friend WithEvents Panel3 As System.Windows.Forms.Panel
     Friend WithEvents Panel5 As System.Windows.Forms.Panel
     Friend WithEvents Panel4 As System.Windows.Forms.Panel
@@ -3494,4 +3480,5 @@ Partial Class GrblGui
     Friend WithEvents btnSetOffsetG56 As Button
     Friend WithEvents btnSetOffsetG55 As Button
     Friend WithEvents btnSetOffsetG54 As Button
+    Friend WithEvents dgvGcode As DataGridView
 End Class

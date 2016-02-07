@@ -331,7 +331,6 @@ Public Class GrblIF
 
                 If _connected And _client.Connected Then
                     ' Write data to Grbl
-                    ' TODO implement simple and aggressive sending
                     ' Simple is send data, wait for ok before sending next block
                     ' Aggressive is determing how full the Grbl buffer is and sending as much as possible.
                     ' This requires tracking ok's, see Grbl Wiki
@@ -370,7 +369,6 @@ Public Class GrblIF
 
                 If _connected And _port.IsOpen Then
                     ' Write data to Grbl
-                    ' TODO implement simple and aggressive sending
                     ' Simple is send data, wait for ok before sending next block
                     ' Aggressive is determing how full the Grbl buffer is and sending as much as possible.
                     ' This requires tracking ok's, see Grbl Wiki

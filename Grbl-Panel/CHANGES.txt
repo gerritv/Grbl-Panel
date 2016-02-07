@@ -1,4 +1,10 @@
 This file documents changes made:
+V1.0.9.0	= 2016 Feb 7
+			- Change Set All Axis to Zero from Keypad.0 to key.A Issue #45
+			- Fix load time on large/huge file, Issue #44
+			- Replaced ListView with DataGridView for gcode display. Sets up for editing and MDI history in future
+			- Moved GcodeView class to its own file, refactored code to improve separation
+			- Removed out of date TODO's
 V1.0.8.0	- 2016 Feb 3
 			- Replace Readline style serial io with Async Read for responsiveness, reliability
 			- Disable MDI if not connected
