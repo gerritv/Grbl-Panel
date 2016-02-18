@@ -272,20 +272,19 @@ Public Class GrblIF
 
     Private Async Sub _client_ComReadData()
         Try
-            'Debug.WriteLine("XbeeSerial: Start async read, loop {0} ", counter)
             Dim _actualLength As Integer = Await _port.BaseStream.ReadAsync(readBuffer, 0, 200)
-            'Int actualLength = Await _port.BaseStream.ReadAsync(readBuffer, 0, 200)
             Dim _received(_actualLength) As Byte
             Buffer.BlockCopy(readBuffer, 0, _received, 0, _actualLength)
             'Console.WriteLine("_client_ComReadData: Finished async read, bytes {0}", _actualLength)
             raiseAppSerialDataEvent(System.Text.ASCIIEncoding.ASCII.GetString(_received))
-
+            _client_ComReadData() ' reprime the read
         Catch e As System.InvalidOperationException
         Catch e As System.IO.IOException
             Debug.WriteLine("_client_ComReadData: error on reading from port " + e.Message)
         Catch e As TimeoutException
-            Debug.WriteLine("XbeeSerial: Timeout exception {0}", e.Message)
+            Debug.WriteLine("_client_ComReadData: Timeout exception {0}", e.Message)
         End Try
+
     End Sub
     ''' <summary>
     ''' Handles the application serial data event.
@@ -315,7 +314,6 @@ Public Class GrblIF
                 End If
             End If
         Next
-        _client_ComReadData() ' reprime the read
 
     End Sub
     ''' <summary>

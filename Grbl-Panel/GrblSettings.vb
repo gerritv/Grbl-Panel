@@ -68,8 +68,6 @@ Partial Class GrblGui
             _paramTable.Rows.Add(params(0), params(1), params(2))
             _nextParam += 1
 
-            Application.DoEvents()
-
             If params(0) = _gui.tbSettingsGrblLastParam.Text Then ' We got the last one
                 _nextParam = 0            ' in case user does a MDI $$
                 With _gui.dgGrblSettings

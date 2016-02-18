@@ -286,6 +286,9 @@ Partial Class GrblGui
         Me.sfdOffsets = New System.Windows.Forms.SaveFileDialog()
         Me.ofdOffsets = New System.Windows.Forms.OpenFileDialog()
         Me.GrblSettingsBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.stat = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.lineNum = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.data = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.MenuStrip1.SuspendLayout()
         Me.TabControl1.SuspendLayout()
         Me.tabPgInterface.SuspendLayout()
@@ -1212,15 +1215,17 @@ Partial Class GrblGui
         Me.dgvGcode.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.dgvGcode.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.dgvGcode.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.stat, Me.lineNum, Me.data})
         Me.dgvGcode.Location = New System.Drawing.Point(6, 87)
         Me.dgvGcode.MultiSelect = False
         Me.dgvGcode.Name = "dgvGcode"
-        Me.dgvGcode.ReadOnly = True
         Me.dgvGcode.RowHeadersVisible = False
         Me.dgvGcode.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
+        Me.dgvGcode.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.dgvGcode.Size = New System.Drawing.Size(503, 283)
         Me.dgvGcode.StandardTab = True
         Me.dgvGcode.TabIndex = 22
+        Me.dgvGcode.VirtualMode = True
         '
         'btnFileReload
         '
@@ -3137,6 +3142,24 @@ Partial Class GrblGui
         Me.ofdOffsets.FileName = "OpenFileDialog1"
         Me.ofdOffsets.Filter = "WorkOffset Files|*.xml"
         '
+        'stat
+        '
+        Me.stat.HeaderText = "Sts"
+        Me.stat.Name = "stat"
+        Me.stat.ReadOnly = True
+        '
+        'lineNum
+        '
+        Me.lineNum.HeaderText = "Line"
+        Me.lineNum.Name = "lineNum"
+        Me.lineNum.ReadOnly = True
+        '
+        'data
+        '
+        Me.data.HeaderText = "GCode"
+        Me.data.Name = "data"
+        Me.data.ReadOnly = True
+        '
         'GrblGui
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -3481,4 +3504,7 @@ Partial Class GrblGui
     Friend WithEvents btnSetOffsetG55 As Button
     Friend WithEvents btnSetOffsetG54 As Button
     Friend WithEvents dgvGcode As DataGridView
+    Friend WithEvents stat As DataGridViewTextBoxColumn
+    Friend WithEvents lineNum As DataGridViewTextBoxColumn
+    Friend WithEvents data As DataGridViewTextBoxColumn
 End Class

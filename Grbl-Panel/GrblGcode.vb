@@ -5,7 +5,6 @@ Partial Class GrblGui
 
 
     Public Class GrblGcode
-
         ' A Class to handle reading, parsing, removing white space
         '   - Handles the sending to Grbl using either the simple or advanced protocols
         '   - Handles introducing canned cycles (M06, G81/2/3)
@@ -25,7 +24,6 @@ Partial Class GrblGui
 
         Public Sub New(ByRef gui As GrblGui)
             _gui = gui
-
         End Sub
 
         Public Sub enableGCode(ByVal action As Boolean)
@@ -59,7 +57,7 @@ Partial Class GrblGui
             Loop
             lineCount = _inputcount
 
-            gcodeview.RefreshView() ' refresh data to the DataGridView
+            gcodeview.RefreshView(lineCount) ' refresh data to the DataGridView
 
             If Not IsNothing(_inputfh) Then
                 _inputfh.Close()
@@ -91,7 +89,6 @@ Partial Class GrblGui
             sendAnotherLine = True
             gcodeview.fileMode = True
             _gui.processLineEvent("")              ' Prime the pump
-
         End Sub
 
         Public Sub sendGCodeLine(ByVal data As String)
@@ -434,7 +431,8 @@ Partial Class GrblGui
                 btnFilePause.Enabled = False
                 btnFileStop.Enabled = False
                 btnFileReload.Enabled = False
-
+                ' ensure display is at top of gcode
+                gcodeview.DisplayTop()
 
         End Select
     End Sub

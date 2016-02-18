@@ -204,7 +204,6 @@ Partial Class GrblGui
             settings.FillSettings(data)
         End If
 
-        Application.DoEvents()
     End Sub
 
     Private Sub statusSetIndicators(ByVal status As String)

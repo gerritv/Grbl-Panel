@@ -74,37 +74,39 @@
         Public Sub New(ByRef view As DataGridView)
 
             _gcodeTable = New List(Of GrblGcodeView.gcodeItem)
-            _source.DataSource = _gcodeTable
+            '_source.DataSource = _gcodeTable
+            '_dgview.DataSource = _source
             _dgview = view
-            _dgview.DataSource = _source
 
             With _dgview
                 .DefaultCellStyle.Font = New Font("microsoft san serif", 10)
                 .RowTemplate.Height = 17
-                .Columns("file").Visible = False
-                .Columns("Status").Width = 46
-                .Columns("Status").HeaderText = "Sts"
+                .RowCount = 17      ' For Virtual mode
+                '.Columns("file").Visible = False
+                .Columns("stat").Width = 46
+                .Columns("stat").HeaderText = "Sts"
                 .Columns("lineNum").Width = 46
                 .Columns("lineNum").HeaderText = "Line"
-                .Columns("gcode").Width = 459
-                .Columns("gcode").HeaderText = "Gcode"
-                .Columns("sent").Visible = False
-                .Columns("acked").Visible = False
+                .Columns("data").Width = 459
+                .Columns("data").HeaderText = "Gcode"
+                '.Columns("sent").Visible = False
+                '.Columns("acked").Visible = False
             End With
         End Sub
-
+        ''' <summary>
+        ''' Clears the gcode list/queue.
+        ''' </summary>
         Public Sub Clear()
-            '_lview.Items.Clear()
-            '_filemode = False
-            '_lview.Update()
-            ' Clear the gcode queue
-            ' Plan B
             _gcodeTable.Clear()
             _filemode = False  ' need to move this to Gcode obj
-            _dgview.Update()
+            _dgview.Refresh()
         End Sub
-
-
+        ''' <summary>
+        ''' Inserts a gcode line into the list/queuea.
+        ''' </summary>
+        ''' <param name="data">The data.</param>
+        ''' <param name="source">The source. "File" or "MDI"</param>
+        ''' <param name="lineNumber">The line number. Line in file or 0 for MDI</param>
         Public Sub Insert(ByVal data As String, ByVal source As String, ByVal lineNumber As String)
             ' Inserts gcode line into the dt
             ' Scans for interesting blocks such as M0, M6
@@ -120,7 +122,7 @@
                 Case "MDI"
                     newGcode.file = False
                     _gcodeTable.Add(newGcode)
-                    RefreshView()  ' keep the view updated
+                    RefreshView(_gcodeTable.Count)  ' keep the view updated
             End Select
             ' TODO Add special cases
             'gcodes = ParseGcode(data)
@@ -132,15 +134,34 @@
             'End If
             '_gcodeTable.Rows.InsertAt(newR, InsertPtr)       ' This is what we need for editing
         End Sub
-
+        ''' <summary>
+        ''' Gets a gcode line.
+        ''' </summary>
+        ''' <param name="lineCount">The line count.</param>
+        ''' <param name="linesDone">The lines done.</param>
+        ''' <returns></returns>
         Public Function readGcode(ByVal lineCount As Int64, ByVal linesDone As Int64) As String
             ' Read a line, if EOF then return EOF
             If lineCount > 0 Then
-                Return _dgview.Rows(linesDone).Cells(2).Value
+                'Return _dgview.Rows(linesDone).Cells(2).Value
+                Return _gcodeTable(linesDone).gcode
             Else
                 Return "EOF"
             End If
         End Function
+
+        ''' <summary>
+        ''' Gets a gcode item.
+        ''' </summary>
+        ''' <param name="index">The index.</param>
+        ''' <returns></returns>
+        Public Function GetGcodeItem(ByVal index As Int64) As gcodeItem
+            If _gcodeTable.Count > 0 Then
+                Return _gcodeTable(index)
+            Else Return Nothing
+            End If
+        End Function
+
         ''' <summary>
         ''' Peek at line previously sent
         ''' </summary>
@@ -148,93 +169,103 @@
         Public Function readGcodePrevious(ByVal lineCount As Int64, ByVal linesDone As Int64) As String
             ' Read a line, if EOF then return EOF
             If lineCount >= 0 Then
-                Return _dgview.Rows(linesDone - 1).Cells(2).Value
+                Return _gcodeTable(linesDone - 1).gcode
             Else
                 Return "EOF"
             End If
         End Function
-
+        ''' <summary>
+        ''' Updates the gcode line display status.
+        ''' </summary>
+        ''' <param name="stat">The status, e.g. "ok", "error", "sent".</param>
+        ''' <param name="index">The index.</param>
         Public Sub UpdateGCodeStatus(ByVal stat As String, ByVal index As Integer)
             ' Set the Status column of the line item
             ' Keep current active line visible in the view
 
-            Dim a As Integer = 0
-
-            Dim b As Integer = 0
-            With _dgview
-                a = .FirstDisplayedScrollingRowIndex
-                b = .DisplayedRowCount(True)
-            End With
-            Console.WriteLine("a,b, index{0} {1} {2})", a, b, index)
-
+            ' locals to boost performance, these methods have an apparent performance impact
+            Dim firstDisplayed As Integer = _dgview.FirstDisplayedScrollingRowIndex
+            Dim displayCount As Integer = _dgview.DisplayedRowCount(False)
 
             If _filemode Then
                 _gcodeTable(index).status = stat
-                If index < _dgview.FirstDisplayedScrollingRowIndex Then
+                '_dgview.Rows(index).Cells(0).Value = stat
+                If index < firstDisplayed Then
                     ' Make top of queue visible again
                     _dgview.FirstDisplayedScrollingRowIndex = 0
                 Else
-                    If (_dgview.FirstDisplayedScrollingRowIndex + _dgview.DisplayedRowCount(True) <= index) Then
-                        _dgview.FirstDisplayedScrollingRowIndex = index - _dgview.DisplayedRowCount(True) + 5
+                    If (firstDisplayed + displayCount <= index) Then
+                        _dgview.FirstDisplayedScrollingRowIndex = index - displayCount ' + 2
                     End If
                 End If
-            Else            ' we always pick the last entry
+            Else            ' MDI mode: we always pick the last entry
                 _gcodeTable(_gcodeTable.Count - 1).status = stat
+                '_dgview.Rows(_gcodeTable.Count - 1).Cells(0).Value = stat
                 ' we are in MDI mode so use bottom
-                index = _dgview.RowCount
-                If index < _dgview.FirstDisplayedScrollingRowIndex Then
+                index = _dgview.RowCount - 1
+                If index < firstDisplayed Then
                     ' Make top of queue visible again
                     _dgview.FirstDisplayedScrollingRowIndex = 0
                 Else
-                    If (_dgview.FirstDisplayedScrollingRowIndex + _dgview.DisplayedRowCount(True) <= index) Then
-                        _dgview.FirstDisplayedScrollingRowIndex = index - _dgview.DisplayedRowCount(True) + 1
+                    If (firstDisplayed + displayCount <= index) And index <> 0 Then
+                        _dgview.FirstDisplayedScrollingRowIndex = index - displayCount + 2
                     End If
                 End If
             End If
 
+            ' make display look responsive when doing first 16 lines
+            If firstDisplayed <= displayCount Then
+                'Console.WriteLine("UpdateGCodeStatus: FirstIndex, DisplayRowCount, index {0} {1} {2}", firstDisplayed, displayCount, index)
+                _dgview.Refresh()
+            End If
 
-            _dgview.Refresh()
         End Sub
-
+        ''' <summary>
+        ''' Mark gcode line as sent.
+        ''' </summary>
+        ''' <param name="index">The index.</param>
         Public Sub UpdateGcodeSent(ByVal index As Integer)
             '  Set background to indicate the gcode line was sent
             If _filemode Then       ' Are we running a file
-                _dgview.Rows(index).DefaultCellStyle.BackColor = Color.LightBlue
+                '_dgview.Rows(index).DefaultCellStyle.BackColor = Color.LightBlue ' gives a noticeable performance hit
+                _gcodeTable(index).status = "Sent"
             Else
-                If _gcodeTable.Count = 1 Then
-                    ' index = 0
-                End If
+                'If _gcodeTable.Count = 1 Then
+                '    index = -1
+                'End If
+                _gcodeTable(_gcodeTable.Count + index).status = "Sent"
+                _dgview.Refresh()
                 '_dgview.Rows(_gcodeTable.Count + index).DefaultCellStyle.BackColor = Color.LightBlue
-                _dgview.Rows(_gcodeTable.Count + index).DefaultCellStyle.BackColor = Color.LightBlue
             End If
-
-            '_dgview.Update()
 
         End Sub
         ''' <summary>
         ''' Refreshes the view. Use after adding or clearing datasource, e.g. file read or MDI input
         ''' </summary>
-        Public Sub RefreshView()
-            _source.ResetBindings(False)
+        Public Sub RefreshView(ByVal lineCount As Int64)
+            _dgview.RowCount = lineCount
+            _dgview.Refresh()
 
         End Sub
         ''' <summary>
         ''' Rewind the Gcode view (for M30)
         ''' </summary>
         Public Sub Rewind()
-            ' clear status and colouring, leave commands
-            For Each row As DataGridViewRow In _dgview.Rows
-                row.DefaultCellStyle.BackColor = Color.Empty
-                row.Cells("status").Value = ""
+            ' clear status, leave commands
+            For Each item As gcodeItem In _gcodeTable
+                item.status = Nothing
             Next
             _dgview.FirstDisplayedScrollingRowIndex = 0 ' show top of file for user to verify etc
+            _dgview.Refresh()
         End Sub
 
-        ReadOnly Property count As Integer
-            Get
-                Return GrblGui.dgvGcode.Rows.Count
-            End Get
-        End Property
+        ''' <summary>
+        ''' Displays the top row.
+        ''' </summary>
+        Public Sub DisplayTop()
+            _dgview.FirstDisplayedScrollingRowIndex = 0
+        End Sub
+
         Property fileMode As Boolean
             ' Set true if we are running a gcode file
             Get
@@ -246,4 +277,33 @@
         End Property
 
     End Class
+    ''' <summary>
+    ''' Handles the CellValueNeeded event of the dgvGcode control. Used
+    ''' by Virtual Mode=true
+    ''' </summary>
+    ''' <param name="sender">The source of the event.</param>
+    ''' <param name="e">The <see cref="DataGridViewCellValueEventArgs"/> instance containing the event data.</param>
+    Private Sub dgvGcode_CellValueNeeded(ByVal sender As Object, ByVal e As DataGridViewCellValueEventArgs) Handles dgvGcode.CellValueNeeded
+        ' Get a set of cell values from our gcode table to paint in the grid view
+        Dim item As GrblGcodeView.gcodeItem
+        ' If this is the row for new records, no values are needed.
+        'If e.RowIndex = dgvGcode.RowCount - 1 Then
+        '    Return
+        'End If
+
+        item = gcodeview.GetGcodeItem(e.RowIndex)
+        If IsNothing(item) Then
+            Return
+        End If
+
+        Select Case dgvGcode.Columns(e.ColumnIndex).Name
+            Case "stat"
+                e.Value = item.status
+            Case "lineNum"
+                e.Value = item.lineNum
+            Case "data"
+                e.Value = item.gcode
+        End Select
+
+    End Sub
 End Class
