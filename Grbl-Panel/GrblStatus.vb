@@ -150,7 +150,7 @@ Partial Class GrblGui
             ' (Look for Buf:nn,RX:nnn)
             If (data.Contains("Buf:")) Then
                 ' Lets display the values
-                data = data.Remove(data.Length - 2, 2)   ' Remove the "> " at end
+                data = data.Remove(data.Length - 3, 3)   ' Remove the "> " at end
                 Dim positions = Split(data, ":")
                 Try
                     Dim buffer = Split(positions(3), ",")
