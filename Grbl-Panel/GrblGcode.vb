@@ -21,6 +21,9 @@ Partial Class GrblGui
         Private _inputfh As StreamReader
         Private _inputcount As Integer
 
+        ' For timings
+        Dim _stopwatch As Stopwatch = New Stopwatch
+
 
         Public Sub New(ByRef gui As GrblGui)
             _gui = gui
@@ -40,7 +43,6 @@ Partial Class GrblGui
 
         Public Function loadGCodeFile(ByVal file As String) As Boolean
             Dim data As String
-            Dim _stopwatch As Stopwatch = New Stopwatch
             ' Start from clean slate
             resetGcode(True)
             ' Load the file, count lines
@@ -76,7 +78,8 @@ Partial Class GrblGui
         End Sub
 
         Public Sub sendGcodeFile()
-
+            _stopwatch.Reset()
+            _stopwatch.Start()
             ' Workflow:
             ' Disable other panels to prevent operator error
             _gui.setSubPanels("GCodeStream")
@@ -144,6 +147,8 @@ Partial Class GrblGui
 
         End Sub
         Public Sub sendGCodeFileRewind()
+            _stopwatch.Stop()
+            _gui.tbGCodeMessage.Text = "Elapsed: " + _stopwatch.Elapsed.ToString
 
             ' reset state variables
             If runMode Then
@@ -219,20 +224,20 @@ Partial Class GrblGui
             End Set
         End Property
 
-        Property linesDone As Int64
+        Property linesDone As Integer
             Get
                 Return _linesDone
             End Get
-            Set(value As Int64)
+            Set(value As Integer)
                 _linesDone = value
             End Set
         End Property
 
-        Property lineCount As Int64
+        Property lineCount As Integer
             Get
                 Return _lineCount
             End Get
-            Set(value As Int64)
+            Set(value As Integer)
                 _lineCount = value
             End Set
         End Property

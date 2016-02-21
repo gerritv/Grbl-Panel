@@ -1,4 +1,13 @@
 This file documents changes made:
+V1.0.9.3	- 2016 Feb 21
+			- Fix Issue #52, loading new file after a run & resize problems
+			- Performance tuning
+				- replace Int64's with Integer to avoid conversions
+			 	- made Gcode grid view double buffered
+				- added Elepased time dispaly, triggered by M30
+				- prevent resizing of gui
+				- removed text box refresh on Position displays
+				- changed serial receive to issue Event on receive, makes .net do the queueing
 V1.0.9.2	- 2016 Feb 18
 			- Fix Issue #50, IndexOutOfRangeException in GrblPosition when $10 parameter doesn't have 2 lower bits set, e.g. not 3, 15 or 31
 V1.0.9.1	- 2016 feb 18

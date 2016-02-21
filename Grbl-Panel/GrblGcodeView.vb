@@ -1,4 +1,6 @@
-﻿Partial Class GrblGui
+﻿Imports System.Reflection
+
+Partial Class GrblGui
     Public Class GrblGcodeView
         ' A class to manage the Gcode list view
         ' This contains the GCode queue going to Grbl
@@ -13,7 +15,7 @@
             Private _gcode As String
             ' Information about the gcode line
             Private _file As Boolean = False   ' Is line from file or MDI?
-            Private _lineNum As Int64
+            Private _lineNum As Integer
             Private _status As String
             Private _sent As Boolean = False    ' Was the line sent?
             Private _acked As Boolean = False    ' Was the line Ack'd?
@@ -28,11 +30,11 @@
                     _status = value
                 End Set
             End Property
-            Public Property lineNum As Int64
+            Public Property lineNum As Integer
                 Get
                     Return _lineNum
                 End Get
-                Set(value As Int64)
+                Set(value As Integer)
                     _lineNum = value
                 End Set
             End Property
@@ -79,6 +81,8 @@
             _dgview = view
 
             With _dgview
+                ' http://stackoverflow.com/questions/4255148/how-to-improve-painting-performance-of-datagridview
+                DoubleBuffered(_dgview, True)       ' Improve performance of refresh!
                 .DefaultCellStyle.Font = New Font("microsoft san serif", 10)
                 .RowTemplate.Height = 17
                 .RowCount = 17      ' For Virtual mode
@@ -94,11 +98,23 @@
             End With
         End Sub
         ''' <summary>
+        ''' Set DataGridView to double buffered. Noticeably implroves refresh performance
+        ''' </summary>
+        ''' <param name="dgv">The DataGridView.</param>
+        ''' <param name="setting">if set to <c>true</c> [setting].</param>
+        Private Sub DoubleBuffered(ByRef dgv As DataGridView, setting As Boolean)
+            Dim dgvtype As Type = dgv.GetType
+            Dim pi As PropertyInfo = dgvtype.GetProperty("DoubleBuffered", BindingFlags.Instance + BindingFlags.NonPublic)
+            pi.SetValue(dgv, setting)
+        End Sub
+
+        ''' <summary>
         ''' Clears the gcode list/queue.
         ''' </summary>
         Public Sub Clear()
             _gcodeTable.Clear()
             _filemode = False  ' need to move this to Gcode obj
+            _dgview.RowCount = 0
             _dgview.Refresh()
         End Sub
         ''' <summary>
@@ -140,7 +156,7 @@
         ''' <param name="lineCount">The line count.</param>
         ''' <param name="linesDone">The lines done.</param>
         ''' <returns></returns>
-        Public Function readGcode(ByVal lineCount As Int64, ByVal linesDone As Int64) As String
+        Public Function readGcode(ByVal lineCount As Integer, ByVal linesDone As Integer) As String
             ' Read a line, if EOF then return EOF
             If lineCount > 0 Then
                 'Return _dgview.Rows(linesDone).Cells(2).Value
@@ -155,7 +171,7 @@
         ''' </summary>
         ''' <param name="index">The index.</param>
         ''' <returns></returns>
-        Public Function GetGcodeItem(ByVal index As Int64) As gcodeItem
+        Public Function GetGcodeItem(ByVal index As Integer) As gcodeItem
             If _gcodeTable.Count > 0 Then
                 Return _gcodeTable(index)
             Else Return Nothing
@@ -166,7 +182,7 @@
         ''' Peek at line previously sent
         ''' </summary>
         ''' <returns>Previous Gcode line</returns>
-        Public Function readGcodePrevious(ByVal lineCount As Int64, ByVal linesDone As Int64) As String
+        Public Function readGcodePrevious(ByVal lineCount As Integer, ByVal linesDone As Integer) As String
             ' Read a line, if EOF then return EOF
             If lineCount >= 0 Then
                 Return _gcodeTable(linesDone - 1).gcode
@@ -195,7 +211,7 @@
                     _dgview.FirstDisplayedScrollingRowIndex = 0
                 Else
                     If (firstDisplayed + displayCount <= index) Then
-                        _dgview.FirstDisplayedScrollingRowIndex = index - displayCount ' + 2
+                        _dgview.FirstDisplayedScrollingRowIndex = index - displayCount ' + 5
                     End If
                 End If
             Else            ' MDI mode: we always pick the last entry
@@ -220,6 +236,7 @@
             End If
 
         End Sub
+
         ''' <summary>
         ''' Mark gcode line as sent.
         ''' </summary>
@@ -242,7 +259,7 @@
         ''' <summary>
         ''' Refreshes the view. Use after adding or clearing datasource, e.g. file read or MDI input
         ''' </summary>
-        Public Sub RefreshView(ByVal lineCount As Int64)
+        Public Sub RefreshView(ByVal lineCount As Integer)
             _dgview.RowCount = lineCount
             _dgview.Refresh()
 

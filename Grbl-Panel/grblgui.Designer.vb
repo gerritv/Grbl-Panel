@@ -105,6 +105,9 @@ Partial Class GrblGui
         Me.lbResponses = New System.Windows.Forms.ListBox()
         Me.gbGcode = New System.Windows.Forms.GroupBox()
         Me.dgvGcode = New System.Windows.Forms.DataGridView()
+        Me.stat = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.lineNum = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.data = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.btnFileReload = New System.Windows.Forms.Button()
         Me.tbGCodeMessage = New System.Windows.Forms.TextBox()
         Me.Label27 = New System.Windows.Forms.Label()
@@ -286,9 +289,6 @@ Partial Class GrblGui
         Me.sfdOffsets = New System.Windows.Forms.SaveFileDialog()
         Me.ofdOffsets = New System.Windows.Forms.OpenFileDialog()
         Me.GrblSettingsBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.stat = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.lineNum = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.data = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.MenuStrip1.SuspendLayout()
         Me.TabControl1.SuspendLayout()
         Me.tabPgInterface.SuspendLayout()
@@ -1219,6 +1219,7 @@ Partial Class GrblGui
         Me.dgvGcode.Location = New System.Drawing.Point(6, 87)
         Me.dgvGcode.MultiSelect = False
         Me.dgvGcode.Name = "dgvGcode"
+        Me.dgvGcode.ReadOnly = True
         Me.dgvGcode.RowHeadersVisible = False
         Me.dgvGcode.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
         Me.dgvGcode.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
@@ -1226,6 +1227,34 @@ Partial Class GrblGui
         Me.dgvGcode.StandardTab = True
         Me.dgvGcode.TabIndex = 22
         Me.dgvGcode.VirtualMode = True
+        '
+        'stat
+        '
+        Me.stat.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None
+        Me.stat.Frozen = True
+        Me.stat.HeaderText = "Sts"
+        Me.stat.Name = "stat"
+        Me.stat.ReadOnly = True
+        Me.stat.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.stat.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable
+        '
+        'lineNum
+        '
+        Me.lineNum.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None
+        Me.lineNum.HeaderText = "Line"
+        Me.lineNum.Name = "lineNum"
+        Me.lineNum.ReadOnly = True
+        Me.lineNum.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.lineNum.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable
+        '
+        'data
+        '
+        Me.data.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None
+        Me.data.HeaderText = "GCode"
+        Me.data.Name = "data"
+        Me.data.ReadOnly = True
+        Me.data.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.data.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable
         '
         'btnFileReload
         '
@@ -3142,24 +3171,6 @@ Partial Class GrblGui
         Me.ofdOffsets.FileName = "OpenFileDialog1"
         Me.ofdOffsets.Filter = "WorkOffset Files|*.xml"
         '
-        'stat
-        '
-        Me.stat.HeaderText = "Sts"
-        Me.stat.Name = "stat"
-        Me.stat.ReadOnly = True
-        '
-        'lineNum
-        '
-        Me.lineNum.HeaderText = "Line"
-        Me.lineNum.Name = "lineNum"
-        Me.lineNum.ReadOnly = True
-        '
-        'data
-        '
-        Me.data.HeaderText = "GCode"
-        Me.data.Name = "data"
-        Me.data.ReadOnly = True
-        '
         'GrblGui
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -3168,11 +3179,14 @@ Partial Class GrblGui
         Me.ClientSize = New System.Drawing.Size(1143, 729)
         Me.Controls.Add(Me.TabControl1)
         Me.Controls.Add(Me.MenuStrip1)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.KeyPreview = True
         Me.MainMenuStrip = Me.MenuStrip1
+        Me.MaximizeBox = False
+        Me.MinimizeBox = False
         Me.Name = "GrblGui"
-        Me.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Show
+        Me.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide
         Me.Text = "Grbl Panel"
         Me.MenuStrip1.ResumeLayout(False)
         Me.MenuStrip1.PerformLayout()

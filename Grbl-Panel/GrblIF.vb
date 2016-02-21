@@ -41,6 +41,7 @@ Public Class GrblIF
 
         _recvDelegates = New List(Of grblDataReceived)
 
+        AddHandler serialDataEvent, AddressOf raiseAppSerialDataEvent
     End Sub
 
     ''' <summary>
@@ -276,7 +277,8 @@ Public Class GrblIF
             Dim _received(_actualLength) As Byte
             Buffer.BlockCopy(readBuffer, 0, _received, 0, _actualLength)
             'Console.WriteLine("_client_ComReadData: Finished async read, bytes {0}", _actualLength)
-            raiseAppSerialDataEvent(System.Text.ASCIIEncoding.ASCII.GetString(_received))
+            'raiseAppSerialDataEvent(System.Text.ASCIIEncoding.ASCII.GetString(_received))
+            RaiseEvent serialDataEvent(System.Text.ASCIIEncoding.ASCII.GetString(_received))
             _client_ComReadData() ' reprime the read
         Catch e As System.InvalidOperationException
         Catch e As System.IO.IOException
@@ -286,6 +288,9 @@ Public Class GrblIF
         End Try
 
     End Sub
+
+    Public Event serialDataEvent(data As String)
+
     ''' <summary>
     ''' Handles the application serial data event.
     ''' </summary>
