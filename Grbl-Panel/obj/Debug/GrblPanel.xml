@@ -1,0 +1,464 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+GrblPanel
+</name>
+</assembly>
+<members>
+<member name="T:GrblPanel.AboutBox">
+ <summary>
+ generic, self-contained About Box dialog
+ </summary>
+ <remarks>
+ Jeff Atwood
+ http://www.codinghorror.com
+ 
+ With modifications and enhancements by Gerrit Visser for use with GrblPanel
+ </remarks>
+</member>
+<member name="P:GrblPanel.AboutBox.AppEntryAssembly">
+ <summary>
+ Returns the entry assembly for the current application domain
+ </summary>
+ <remarks>
+ This is usually read-only, but in some weird cases (Smart Client apps) 
+ you won't have an entry assembly, so you may want to set this manually.
+ </remarks>
+</member>
+<member name="P:GrblPanel.AboutBox.AppTitle">
+ <summary>
+ single line of text to show in the application title section of the about box dialog
+ </summary>
+ <remarks>
+ defaults to "%title%" 
+ %title% = Assembly: AssemblyTitle
+ </remarks>
+</member>
+<member name="P:GrblPanel.AboutBox.AppDescription">
+ <summary>
+ single line of text to show in the description section of the about box dialog
+ </summary>
+ <remarks>
+ defaults to "%description%"
+ %description% = Assembly: AssemblyDescription
+ </remarks>
+</member>
+<member name="P:GrblPanel.AboutBox.AppVersion">
+ <summary>
+ single line of text to show in the version section of the about dialog
+ </summary>
+ <remarks>
+ defaults to "Version %version%"
+ %version% = Assembly: AssemblyVersion
+ </remarks>
+</member>
+<member name="P:GrblPanel.AboutBox.AppCopyright">
+ <summary>
+ single line of text to show in the copyright section of the about dialog
+ </summary>
+ <remarks>
+ defaults to "Copyright © %year%, %company%"
+ %company% = Assembly: AssemblyCompany
+ %year% = current 4-digit year
+ </remarks>
+</member>
+<member name="P:GrblPanel.AboutBox.AppImage">
+ <summary>
+ intended for the default 32x32 application icon to appear in the upper left of the about dialog
+ </summary>
+ <remarks>
+ if you open this form using .ShowDialog(Owner), the icon can be derived from the owning form
+ </remarks>
+</member>
+<member name="P:GrblPanel.AboutBox.AppMoreInfo">
+ <summary>
+ multiple lines of miscellaneous text to show in rich text box
+ </summary>
+ <remarks>
+ defaults to "%product% is %copyright%, %trademark%"
+ %product% = Assembly: AssemblyProduct
+ %copyright% = Assembly: AssemblyCopyright
+ %trademark% = Assembly: AssemblyTrademark
+ </remarks>
+</member>
+<member name="P:GrblPanel.AboutBox.AppDetailsButton">
+ <summary>
+ determines if the "Details" (advanced assembly details) button is shown
+ </summary>
+</member>
+<member name="M:GrblPanel.AboutBox.AboutBox_Load(System.Object,System.EventArgs)">
+ <summary>
+ things to do when form is loaded
+ </summary>
+</member>
+<member name="M:GrblPanel.AboutBox.AboutBox_Paint(System.Object,System.Windows.Forms.PaintEventArgs)">
+ <summary>
+ things to do when form is FIRST painted
+ </summary>
+</member>
+<member name="M:GrblPanel.AboutBox.AssemblyLastWriteTime(System.Reflection.Assembly)">
+ <summary>
+ exception-safe retrieval of LastWriteTime for this assembly.
+ </summary>
+ <returns>File.GetLastWriteTime, or DateTime.MaxValue if exception was encountered.</returns>
+</member>
+<member name="M:GrblPanel.AboutBox.AssemblyBuildDate(System.Reflection.Assembly,System.Boolean)">
+ <summary>
+ Returns DateTime this Assembly was last built. Will attempt to calculate from build number, if possible. 
+ If not, the actual LastWriteTime on the assembly file will be returned.
+ </summary>
+ <param name="a">Assembly to get build date for</param>
+ <param name="ForceFileDate">Don't attempt to use the build number to calculate the date</param>
+ <returns>DateTime this assembly was last built</returns>
+</member>
+<member name="M:GrblPanel.AboutBox.AssemblyAttribs(System.Reflection.Assembly)">
+ <summary>
+ returns string name / string value pair of all attribs
+ for specified assembly
+ </summary>
+ <remarks>
+ note that Assembly* values are pulled from AssemblyInfo file in project folder
+
+ Trademark       = AssemblyTrademark string
+ Debuggable      = True
+ GUID            = 7FDF68D5-8C6F-44C9-B391-117B5AFB5467
+ CLSCompliant    = True
+ Product         = AssemblyProduct string
+ Copyright       = AssemblyCopyright string
+ Company         = AssemblyCompany string
+ Description     = AssemblyDescription string
+ Title           = AssemblyTitle string
+ </remarks>
+</member>
+<member name="M:GrblPanel.AboutBox.RegistryHklmValue(System.String,System.String)">
+ <summary>
+ reads an HKLM Windows Registry key value
+ </summary>
+</member>
+<member name="M:GrblPanel.AboutBox.ShowSysInfo">
+ <summary>
+ launch the MSInfo "system information" application (works on XP, 2003, and Vista)
+ </summary>
+</member>
+<member name="M:GrblPanel.AboutBox.Populate(System.Windows.Forms.ListView,System.String,System.String)">
+ <summary>
+ populate a listview with the specified key and value strings
+ </summary>
+</member>
+<member name="M:GrblPanel.AboutBox.PopulateAppInfo">
+ <summary>
+ populates the Application Information listview
+ </summary>
+</member>
+<member name="M:GrblPanel.AboutBox.PopulateAssemblies">
+ <summary>
+ populate Assembly Information listview with ALL assemblies
+ </summary>
+</member>
+<member name="M:GrblPanel.AboutBox.PopulateAssemblySummary(System.Reflection.Assembly)">
+ <summary>
+ populate Assembly Information listview with summary view for a specific assembly
+ </summary>
+</member>
+<member name="M:GrblPanel.AboutBox.EntryAssemblyAttrib(System.String)">
+ <summary>
+ retrieves a cached value from the entry assembly attribute lookup collection
+ </summary>
+</member>
+<member name="M:GrblPanel.AboutBox.PopulateLabels">
+ <summary>
+ Populate all the form labels with tokenized text
+ </summary>
+</member>
+<member name="M:GrblPanel.AboutBox.ReplaceTokens(System.String)">
+ <summary>
+ perform assemblyinfo to string replacements on labels
+ </summary>
+</member>
+<member name="M:GrblPanel.AboutBox.PopulateAssemblyDetails(System.Reflection.Assembly,System.Windows.Forms.ListView)">
+ <summary>
+ populate details for a single assembly
+ </summary>
+</member>
+<member name="M:GrblPanel.AboutBox.MatchAssemblyByName(System.String)">
+ <summary>
+ matches assembly by Assembly.GetName.Name; returns nothing if no match
+ </summary>
+</member>
+<member name="M:GrblPanel.AboutBox.DetailsButton_Click(System.Object,System.EventArgs)">
+ <summary>
+ expand about dialog to show additional advanced details
+ </summary>
+</member>
+<member name="M:GrblPanel.AboutBox.SysInfoButton_Click(System.Object,System.EventArgs)">
+ <summary>
+ for detailed system info, launch the external Microsoft system info app
+ </summary>
+</member>
+<member name="M:GrblPanel.AboutBox.AssemblyInfoListView_DoubleClick(System.Object,System.EventArgs)">
+ <summary>
+ if an assembly is double-clicked, go to the detail page for that assembly
+ </summary>
+</member>
+<member name="M:GrblPanel.AboutBox.AssemblyNamesComboBox_SelectedIndexChanged(System.Object,System.EventArgs)">
+ <summary>
+ if a new assembly is selected from the combo box, show details for that assembly
+ </summary>
+</member>
+<member name="M:GrblPanel.AboutBox.AssemblyInfoListView_ColumnClick(System.Object,System.Windows.Forms.ColumnClickEventArgs)">
+ <summary>
+ sort the assembly list by column
+ </summary>
+</member>
+<member name="M:GrblPanel.AboutBox.MoreRichTextBox_LinkClicked(System.Object,System.Windows.Forms.LinkClickedEventArgs)">
+ <summary>
+ launch any http:// or mailto: links clicked in the body of the rich text box
+ </summary>
+</member>
+<member name="M:GrblPanel.AboutBox.TabPanelDetails_SelectedIndexChanged(System.Object,System.EventArgs)">
+ <summary>
+ things to do when the selected tab is changed
+ </summary>
+</member>
+<member name="M:GrblPanel.GrblGui.GrblGcodeView.DoubleBuffered(System.Windows.Forms.DataGridView@,System.Boolean)">
+ <summary>
+ Set DataGridView to double buffered. Noticeably implroves refresh performance
+ </summary>
+ <param name="dgv">The DataGridView.</param>
+ <param name="setting">if set to <c>true</c> [setting].</param>
+</member>
+<member name="M:GrblPanel.GrblGui.GrblGcodeView.Clear">
+ <summary>
+ Clears the gcode list/queue.
+ </summary>
+</member>
+<member name="M:GrblPanel.GrblGui.GrblGcodeView.Insert(System.String,System.String,System.String)">
+ <summary>
+ Inserts a gcode line into the list/queuea.
+ </summary>
+ <param name="data">The data.</param>
+ <param name="source">The source. "File" or "MDI"</param>
+ <param name="lineNumber">The line number. Line in file or 0 for MDI</param>
+</member>
+<member name="M:GrblPanel.GrblGui.GrblGcodeView.readGcode(System.Int32,System.Int32)">
+ <summary>
+ Gets a gcode line.
+ </summary>
+ <param name="lineCount">The line count.</param>
+ <param name="linesDone">The lines done.</param>
+ <returns></returns>
+</member>
+<member name="M:GrblPanel.GrblGui.GrblGcodeView.GetGcodeItem(System.Int32)">
+ <summary>
+ Gets a gcode item.
+ </summary>
+ <param name="index">The index.</param>
+ <returns></returns>
+</member>
+<member name="M:GrblPanel.GrblGui.GrblGcodeView.readGcodePrevious(System.Int32,System.Int32)">
+ <summary>
+ Peek at line previously sent
+ </summary>
+ <returns>Previous Gcode line</returns>
+</member>
+<member name="M:GrblPanel.GrblGui.GrblGcodeView.UpdateGCodeStatus(System.String,System.Int32)">
+ <summary>
+ Updates the gcode line display status.
+ </summary>
+ <param name="stat">The status, e.g. "ok", "error", "sent".</param>
+ <param name="index">The index.</param>
+</member>
+<member name="M:GrblPanel.GrblGui.GrblGcodeView.UpdateGcodeSent(System.Int32)">
+ <summary>
+ Mark gcode line as sent.
+ </summary>
+ <param name="index">The index.</param>
+</member>
+<member name="M:GrblPanel.GrblGui.GrblGcodeView.RefreshView(System.Int32)">
+ <summary>
+ Refreshes the view. Use after adding or clearing datasource, e.g. file read or MDI input
+ </summary>
+</member>
+<member name="M:GrblPanel.GrblGui.GrblGcodeView.Rewind">
+ <summary>
+ Rewind the Gcode view (for M30)
+ </summary>
+</member>
+<member name="M:GrblPanel.GrblGui.GrblGcodeView.DisplayTop">
+ <summary>
+ Displays the top row.
+ </summary>
+</member>
+<member name="M:GrblPanel.GrblGui.dgvGcode_CellValueNeeded(System.Object,System.Windows.Forms.DataGridViewCellValueEventArgs)">
+ <summary>
+ Handles the CellValueNeeded event of the dgvGcode control. Used
+ by Virtual Mode=true
+ </summary>
+ <param name="sender">The source of the event.</param>
+ <param name="e">The <see cref="T:System.Windows.Forms.DataGridViewCellValueEventArgs"/> instance containing the event data.</param>
+</member>
+<member name="F:GrblPanel.GrblGui._macroNames">
+ <summary>
+ The fixed names of Macros in Settings
+ </summary>
+</member>
+<member name="M:GrblPanel.GrblGui.btnSetOffset_Click(System.Object,System.EventArgs)">
+ <summary>
+ Set an offset to current machine coordinates
+ </summary>
+ <param name="sender">The source of the event.</param>
+ <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event data.</param>
+</member>
+<member name="M:GrblPanel.GrblGui.MsgFilter.PreFilterMessage(System.Windows.Forms.Message@)">
+ <summary>
+ Handle key press overrides and keyboard mapping
+ </summary>
+ <param name="msg"></param>
+ <returns>True if key msg was handled</returns>
+</member>
+<member name="M:GrblPanel.GrblGui.btnFeedOverride_Click(System.Object,System.EventArgs)">
+ <summary>
+ Handles the Click event of the btnFeedOverride controls.
+ </summary>
+ <param name="sender">The source of the event.</param>
+ <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event data.</param>
+</member>
+<member name="M:GrblPanel.GrblGui.cbUnits_CheckedChanged(System.Windows.Forms.CheckBox,System.EventArgs)">
+ <summary>
+ Changes Distance and Feed Rate to new units
+ </summary>
+ <param name="sender">The sender.</param>
+ <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event data.</param>
+</member>
+<member name="M:GrblPanel.GrblGui.createJogCommand(System.String)">
+ <summary>
+ Creates a jog command string.
+ </summary>
+ <param name="axis">The axis.</param>
+ <returns></returns>
+</member>
+<member name="M:GrblPanel.GrblGui.whichDistance">
+ <summary>
+ Return value of current Distance Increment
+ </summary>
+ <returns>distance</returns>
+</member>
+<member name="M:GrblPanel.GrblGui.whichFeedRate">
+ <summary>
+ Return value of current feed rate.
+ </summary>
+ <returns>feed rate</returns>
+</member>
+<member name="M:GrblPanel.GrblGui.whichUnits">
+ <summary>
+ Returns Units gcode
+ </summary>
+ <returns>G20 or G21</returns>
+</member>
+<member name="M:GrblPanel.GrblGui.rbDistancex_CheckedChanged(System.Object,System.EventArgs)">
+ <summary>
+ Handles the CheckedChanged event of the rbDistancex control.
+ </summary>
+ <param name="sender">The source of the event.</param>
+ <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event data.</param>
+</member>
+<member name="M:GrblPanel.GrblGui.changeDistanceIncrement(System.Boolean)">
+ <summary>
+ Changes the distance increment, up or down.
+ </summary>
+ <param name="up">if set to <c>true</c> [direction].</param>
+</member>
+<member name="M:GrblPanel.GrblGui.changeFeedRate(System.Boolean)">
+ <summary>
+ Changes the feed rate, up or down.
+ </summary>
+ <param name="up">if set to <c>true</c> [up].</param>
+</member>
+<member name="T:GrblPanel.My.Resources.Resources">
+<summary>
+  A strongly-typed resource class, for looking up localized strings, etc.
+</summary>
+</member>
+<member name="P:GrblPanel.My.Resources.Resources.ResourceManager">
+<summary>
+  Returns the cached ResourceManager instance used by this class.
+</summary>
+</member>
+<member name="P:GrblPanel.My.Resources.Resources.Culture">
+<summary>
+  Overrides the current thread's CurrentUICulture property for all
+  resource lookups using this strongly typed resource class.
+</summary>
+</member>
+<member name="M:GrblPanel.GrblIF.Connect(GrblPanel.GrblIF.ConnectionType)">
+ <summary>
+ Starts the connection to grbl, via IP or Serial (COM). Expects to have the needed properties set beforehand.
+ </summary>
+ <param name="typeIn">Specifies if we're connecting via IP or Serial. None as safety/exception case</param>
+ <returns>Returns True if the connection succeeded, false otherwise.</returns>
+</member>
+<member name="M:GrblPanel.GrblIF.Disconnect">
+ <summary>
+ Closes the connection.
+ </summary>
+</member>
+<member name="P:GrblPanel.GrblIF.comports">
+ <summary>
+ Lists the available COM ports on the system.
+ </summary>
+ <returns>String Array of COM ports</returns>
+</member>
+<member name="P:GrblPanel.GrblIF.comport">
+ <summary>
+ COM port to use if connected via COM
+ </summary>
+ <value>The COM port to use</value>
+ <returns>The selected COM port</returns>
+</member>
+<member name="P:GrblPanel.GrblIF.baudrate">
+ <summary>
+ Baudrate to use if connected via COM
+ </summary>
+ <value>The baudrate, as an integer. 9600 (0.8c) and 115200 (0.9g) are common values.</value>
+ <returns>The configured baudrate</returns>
+</member>
+<member name="P:GrblPanel.GrblIF.ipaddress">
+ <summary>
+ IP Address to use if connected via IP
+ </summary>
+ <value>The IP Address to connect to</value>
+ <returns>The IP Address currently configured</returns>
+</member>
+<member name="P:GrblPanel.GrblIF.portnum">
+ <summary>
+ Port Number to use if connected via IP
+ </summary>
+ <value>Port number to use, as an integer between 1 and 65,535. WiFly defaults to 2000</value>
+ <returns></returns>
+ <remarks></remarks>
+</member>
+<member name="P:GrblPanel.GrblIF.Connected">
+ <summary>
+ Are we connected to grbl?
+ </summary>
+</member>
+<member name="M:GrblPanel.GrblIF.raiseAppSerialDataEvent(System.String)">
+ <summary>
+ Handles the application serial data event.
+ </summary>
+ <remarks>
+ Processes the received data into lines
+ For each line, calls the registered delegates
+ </remarks>
+ <param name="data">The (possibly partial) data.</param>
+</member>
+<member name="M:GrblPanel.GrblIF.sendData(System.String)">
+ <summary>
+ Sends a byte of data to grbl
+ </summary>
+ <param name="data">The data to send to grbl</param>
+ <returns>True if send was successful, false otherwise</returns>
+</member>
+</members>
+</doc>

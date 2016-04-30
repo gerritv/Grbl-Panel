@@ -1,0 +1,9 @@
+C:\Users\Bernard\Source\Repos\Grbl-Panel\RepeatButton\bin\Debug\RepeatButton.dll
+C:\Users\Bernard\Source\Repos\Grbl-Panel\RepeatButton\bin\Debug\RepeatButton.pdb
+C:\Users\Bernard\Source\Repos\Grbl-Panel\RepeatButton\bin\Debug\RepeatButton.xml
+C:\Users\Bernard\Source\Repos\Grbl-Panel\RepeatButton\obj\Debug\RepeatButton.Resources.resources
+C:\Users\Bernard\Source\Repos\Grbl-Panel\RepeatButton\obj\Debug\Custom.vbproj.GenerateResource.Cache
+C:\Users\Bernard\Source\Repos\Grbl-Panel\RepeatButton\obj\Debug\RepeatButton.dll
+C:\Users\Bernard\Source\Repos\Grbl-Panel\RepeatButton\obj\Debug\RepeatButton.xml
+C:\Users\Bernard\Source\Repos\Grbl-Panel\RepeatButton\obj\Debug\RepeatButton.pdb
+C:\Users\Bernard\Source\Repos\Grbl-Panel\RepeatButton\obj\Debug\Custom.vbprojResolveAssemblyReference.cache

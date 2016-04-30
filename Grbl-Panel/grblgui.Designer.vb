@@ -3187,7 +3187,7 @@ Partial Class GrblGui
         Me.MinimizeBox = False
         Me.Name = "GrblGui"
         Me.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide
-        Me.Text = "Grbl Panel"
+        Me.Text = "Panneau de Contrôle GRBL - Le Bear CNC -"
         Me.MenuStrip1.ResumeLayout(False)
         Me.MenuStrip1.PerformLayout()
         Me.TabControl1.ResumeLayout(False)
