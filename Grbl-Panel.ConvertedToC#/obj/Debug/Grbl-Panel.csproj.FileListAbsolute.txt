@@ -1,0 +1,6 @@
+C:\Users\Bernard\Source\Repos\Grbl-Panel\Grbl-Panel.ConvertedToC#\obj\Debug\Grbl-Panel.csprojResolveAssemblyReference.cache
+C:\Users\Bernard\Source\Repos\Grbl-Panel\Grbl-Panel.ConvertedToC#\obj\Debug\GrblPanel.AboutBox.resources
+C:\Users\Bernard\Source\Repos\Grbl-Panel\Grbl-Panel.ConvertedToC#\obj\Debug\GrblPanel.GrblGui.resources
+C:\Users\Bernard\Source\Repos\Grbl-Panel\Grbl-Panel.ConvertedToC#\obj\Debug\GrblPanel.My_Project.Resources.resources
+C:\Users\Bernard\Source\Repos\Grbl-Panel\Grbl-Panel.ConvertedToC#\obj\Debug\Grbl-Panel.csproj.GenerateResource.Cache
+C:\Users\Bernard\Source\Repos\Grbl-Panel\Grbl-Panel.ConvertedToC#\bin\Debug\GrblPanel.exe.config

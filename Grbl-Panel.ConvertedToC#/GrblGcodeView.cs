@@ -81,7 +81,7 @@ namespace GrblPanel
 
 				var _with1 = _dgview;
 				// http://stackoverflow.com/questions/4255148/how-to-improve-painting-performance-of-datagridview
-				DoubleBuffered(ref ref _dgview, true);
+				DoubleBuffered(ref _dgview, true);
 				// Improve performance of refresh!
 				_with1.DefaultCellStyle.Font = new Font("microsoft san serif", 10);
 				_with1.RowTemplate.Height = 17;

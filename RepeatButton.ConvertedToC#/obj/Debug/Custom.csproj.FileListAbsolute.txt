@@ -1,0 +1,3 @@
+C:\Users\Bernard\Source\Repos\Grbl-Panel\RepeatButton.ConvertedToC#\obj\Debug\Custom.csprojResolveAssemblyReference.cache
+C:\Users\Bernard\Source\Repos\Grbl-Panel\RepeatButton.ConvertedToC#\obj\Debug\RepeatButton.My_Project.Resources.resources
+C:\Users\Bernard\Source\Repos\Grbl-Panel\RepeatButton.ConvertedToC#\obj\Debug\Custom.csproj.GenerateResource.Cache

@@ -1,13 +1,11 @@
 using Microsoft.VisualBasic;
 using System;
 using System.Collections;
-using System.Collections.Generic;
-using System.Data;
+using System.Collections.Specialized;
 using System.Drawing;
 using System.Diagnostics;
+using System.Resources;
 using System.Windows.Forms;
-using System.Linq;
-using System.Xml.Linq;
 using System.Reflection;
 using System.IO;
 using System.Text.RegularExpressions;
@@ -15,24 +13,24 @@ using Microsoft.Win32;
 namespace GrblPanel
 {
 
-	/// <summary>
-	/// generic, self-contained About Box dialog
-	/// </summary>
-	/// <remarks>
-	/// Jeff Atwood
-	/// http://www.codinghorror.com
-	/// 
-	/// With modifications and enhancements by Gerrit Visser for use with GrblPanel
-	/// </remarks>
-	public partial class AboutBox : System.Windows.Forms.Form
+    /// <summary>
+    /// generic, self-contained About Box dialog
+    /// </summary>
+    /// <remarks>
+    /// Jeff Atwood
+    /// http://www.codinghorror.com
+    /// 
+    /// With modifications and enhancements by Gerrit Visser for use with GrblPanel
+    /// </remarks>
+    public partial class AboutBox : System.Windows.Forms.Form
 	{
 
 		private bool _IsPainted = false;
 		private string _EntryAssemblyName;
 		private string _CallingAssemblyName;
 		private string _ExecutingAssemblyName;
-		private System.Reflection.Assembly _EntryAssembly;
-		private System.Collections.Specialized.NameValueCollection _EntryAssemblyAttribCollection;
+		private Assembly _EntryAssembly;
+		private NameValueCollection _EntryAssemblyAttribCollection;
 		private int _MinWindowHeight;
 
 		private string githubLink = "http://github.com/Gerritv/Grbl-Panel/wiki";
@@ -45,7 +43,7 @@ namespace GrblPanel
 		/// This is usually read-only, but in some weird cases (Smart Client apps) 
 		/// you won't have an entry assembly, so you may want to set this manually.
 		/// </remarks>
-		public System.Reflection.Assembly AppEntryAssembly {
+		public Assembly AppEntryAssembly {
 			get { return _EntryAssembly; }
 			set { _EntryAssembly = value; }
 		}
@@ -186,7 +184,7 @@ namespace GrblPanel
 
 			//  _MinWindowHeight = AppCopyrightLabel.Top + AppCopyrightLabel.Height + OKButton.Height + 30
 			// Always add a ref to Github repository
-			AppMoreInfo = "GrblPanel is designed for use with Grbl 0.9G or later." + Constants.vbLf + Constants.vbLf + "For more details on this app, please visit: ";
+			AppMoreInfo = "Le Bear CNC Grbl Panel is designed for use with Grbl 0.9J or later." + Constants.vbLf + Constants.vbLf + "For more details on this app, please visit: ";
 			AppMoreInfo = MoreRichTextBox.Text + githubLink;
 
 			this.TabPanelDetails.Visible = false;
@@ -236,12 +234,12 @@ namespace GrblPanel
 		{
 
 			System.Version AssemblyVersion = a.GetName().Version;
-			DateTime dt = default(DateTime);
+			DateTime dt = new DateTime(2000, 1, 1);
 
 			if (ForceFileDate) {
 				dt = AssemblyLastWriteTime(a);
 			} else {
-				dt = ((DateTime)"01/01/2000").AddDays(AssemblyVersion.Build).AddSeconds(AssemblyVersion.Revision * 2);
+                dt.AddDays(AssemblyVersion.Build).AddSeconds(AssemblyVersion.Revision * 2);
 				if (TimeZone.IsDaylightSavingTime(dt, TimeZone.CurrentTimeZone.GetDaylightChanges(dt.Year))) {
 					dt = dt.AddHours(1);
 				}
@@ -270,12 +268,12 @@ namespace GrblPanel
 		/// Description     = AssemblyDescription string
 		/// Title           = AssemblyTitle string
 		/// </remarks>
-		private Specialized.NameValueCollection AssemblyAttribs(System.Reflection.Assembly a)
+		private NameValueCollection AssemblyAttribs(System.Reflection.Assembly a)
 		{
 			string TypeName = null;
 			string Name = null;
 			string Value = null;
-			System.Collections.Specialized.NameValueCollection nvc = new System.Collections.Specialized.NameValueCollection();
+			NameValueCollection nvc = new NameValueCollection();
 			Regex r = new Regex("(\\.Assembly|\\.)(?<Name>[^.]*)Attribute$", RegexOptions.IgnoreCase);
 
 			foreach (object attrib in a.GetCustomAttributes(false)) {
@@ -287,7 +285,7 @@ namespace GrblPanel
 						Value = ((CLSCompliantAttribute)attrib).IsCompliant.ToString();
 						break;
 					case "System.Diagnostics.DebuggableAttribute":
-						Value = ((Diagnostics.DebuggableAttribute)attrib).IsJITTrackingEnabled.ToString();
+						Value = ((System.Diagnostics.DebuggableAttribute)attrib).IsJITTrackingEnabled.ToString();
 						break;
 					case "System.Reflection.AssemblyCompanyAttribute":
 						Value = ((AssemblyCompanyAttribute)attrib).Company.ToString();
@@ -323,26 +321,26 @@ namespace GrblPanel
 						Value = ((AssemblyTitleAttribute)attrib).Title.ToString();
 						break;
 					case "System.Resources.NeutralResourcesLanguageAttribute":
-						Value = ((Resources.NeutralResourcesLanguageAttribute)attrib).CultureName.ToString();
+						Value = ((System.Resources.NeutralResourcesLanguageAttribute)attrib).CultureName.ToString();
 						break;
 					case "System.Resources.SatelliteContractVersionAttribute":
-						Value = ((Resources.SatelliteContractVersionAttribute)attrib).Version.ToString();
+						Value = ((System.Resources.SatelliteContractVersionAttribute)attrib).Version.ToString();
 						break;
 					case "System.Runtime.InteropServices.ComCompatibleVersionAttribute":
 						System.Runtime.InteropServices.ComCompatibleVersionAttribute x = null;
-						x = (Runtime.InteropServices.ComCompatibleVersionAttribute)attrib;
+						x = (System.Runtime.InteropServices.ComCompatibleVersionAttribute)attrib;
 						Value = x.MajorVersion + "." + x.MinorVersion + "." + x.RevisionNumber + "." + x.BuildNumber;
 						break;
 					case "System.Runtime.InteropServices.ComVisibleAttribute":
-						Value = ((Runtime.InteropServices.ComVisibleAttribute)attrib).Value.ToString();
+						Value = ((System.Runtime.InteropServices.ComVisibleAttribute)attrib).Value.ToString();
 						break;
 					case "System.Runtime.InteropServices.GuidAttribute":
-						Value = ((Runtime.InteropServices.GuidAttribute)attrib).Value.ToString();
+						Value = ((System.Runtime.InteropServices.GuidAttribute)attrib).Value.ToString();
 						break;
 					case "System.Runtime.InteropServices.TypeLibVersionAttribute":
-						System.Runtime.InteropServices.TypeLibVersionAttribute x = null;
-						x = (Runtime.InteropServices.TypeLibVersionAttribute)attrib;
-						Value = x.MajorVersion + "." + x.MinorVersion;
+						System.Runtime.InteropServices.TypeLibVersionAttribute xx = null;
+						xx = (System.Runtime.InteropServices.TypeLibVersionAttribute)attrib;
+						Value = xx.MajorVersion + "." + xx.MinorVersion;
 						break;
 					case "System.Security.AllowPartiallyTrustedCallersAttribute":
 						Value = "(Present)";

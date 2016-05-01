@@ -1,19 +1,12 @@
 using Microsoft.VisualBasic;
 using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Data;
-using System.Drawing;
 using System.Diagnostics;
 using System.Windows.Forms;
-using System.Linq;
-using System.Xml.Linq;
 using System.IO;
-using GrblPanel.GrblIF;
 namespace GrblPanel
 {
 
-	partial class GrblGui
+    partial class GrblGui
 	{
 
 
@@ -118,7 +111,7 @@ namespace GrblPanel
 				wtgForAck = false;
 				runMode = true;
 				sendAnotherLine = true;
-				GrblGui.gcodeview.fileMode = true;
+				gcodeview.fileMode = true;
 				_gui.processLineEvent("");
 				// Prime the pump
 			}
@@ -128,14 +121,14 @@ namespace GrblPanel
 				// Send a line immediately
 				// This can only happen when not sending a file, buttons are interlocked
 				_runMode = false;
-				GrblGui.gcodeview.fileMode = false;
+				gcodeview.fileMode = false;
 
 				if (!(data.StartsWith("$") | data.StartsWith("?"))) {
-					var _with1 = GrblGui.gcodeview;
+					var _with1 = gcodeview;
 					// add to display
 					// _gui.gcodeview.Insert(data, 0)
-					_with1.Insert(data, "MDI", 0);
-					GrblGui.gcode.lineCount += 1;
+					_with1.Insert(data, "MDI", 0.ToString());
+					gcode.lineCount += 1;
 					// we are always be the last item in manual mode
 					_with1.UpdateGcodeSent(-1);
 					// Expect a response from Grbl
@@ -377,7 +370,7 @@ namespace GrblPanel
 			// This event handler deals with the gcode file related buttons
 			// Implements a simple state machine to keep user from clicking the wrong buttons
 			// Uses button.tag instead of .text so the text doesn't mess up the images on the buttons
-			Button args = sender;
+			Button args = (Button)sender;
 			switch ((string)args.Tag) {
 				case "File":
 					string str = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);

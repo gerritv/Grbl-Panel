@@ -139,7 +139,7 @@
       <DependentUpon>GrblGui.cs</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GrblIF.vb" />
+    <Compile Include="GrblIF.cs" />
     <Compile Include="GrblJogging.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -251,12 +251,6 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\RepeatButton\Custom.vbproj">
-      <Project>{CF82893A-4C6B-4D08-B8AD-A17EF45DE6F2}</Project>
-      <Name>Custom</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Content Include="CHANGES.txt">

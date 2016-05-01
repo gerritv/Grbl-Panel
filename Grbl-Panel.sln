@@ -1,20 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
-# SharpDevelop 4.4
+# Visual Studio 14
 VisualStudioVersion = 14.0.25123.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{B899C98E-A15D-4E65-BBAE-BEAD08CC07D2}"
-	ProjectSection(SolutionItems) = postProject
-	EndProjectSection
 EndProject
-Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "Grbl-Panel", "Grbl-Panel\Grbl-Panel.vbproj", "{5C3844BF-7FD8-41F5-A6D7-B5C3B2084450}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Custom", "RepeatButton.ConvertedToC#\Custom.csproj", "{21C68B09-7144-4DB8-B462-EE6B7217AD4E}"
 EndProject
-Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "Custom", "RepeatButton\Custom.vbproj", "{CF82893A-4C6B-4D08-B8AD-A17EF45DE6F2}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Custom.Converted", "RepeatButton.ConvertedToC#\Custom.Converted.csproj", "{21C68B09-7144-4DB8-B462-EE6B7217AD4E}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Grbl-Panel.Converted", "Grbl-Panel.ConvertedToC#\Grbl-Panel.Converted.csproj", "{F2B3B7A6-728D-42FD-B266-A2C8036EE219}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Grbl-Panel", "Grbl-Panel.ConvertedToC#\Grbl-Panel.csproj", "{F2B3B7A6-728D-42FD-B266-A2C8036EE219}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -22,22 +15,14 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{5C3844BF-7FD8-41F5-A6D7-B5C3B2084450}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{5C3844BF-7FD8-41F5-A6D7-B5C3B2084450}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{5C3844BF-7FD8-41F5-A6D7-B5C3B2084450}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{5C3844BF-7FD8-41F5-A6D7-B5C3B2084450}.Release|Any CPU.Build.0 = Release|Any CPU
-		{CF82893A-4C6B-4D08-B8AD-A17EF45DE6F2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{CF82893A-4C6B-4D08-B8AD-A17EF45DE6F2}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{CF82893A-4C6B-4D08-B8AD-A17EF45DE6F2}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{CF82893A-4C6B-4D08-B8AD-A17EF45DE6F2}.Release|Any CPU.Build.0 = Release|Any CPU
-		{21C68B09-7144-4DB8-B462-EE6B7217AD4E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{21C68B09-7144-4DB8-B462-EE6B7217AD4E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{21C68B09-7144-4DB8-B462-EE6B7217AD4E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{21C68B09-7144-4DB8-B462-EE6B7217AD4E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{21C68B09-7144-4DB8-B462-EE6B7217AD4E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F2B3B7A6-728D-42FD-B266-A2C8036EE219}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{21C68B09-7144-4DB8-B462-EE6B7217AD4E}.Release|Any CPU.Build.0 = Release|Any CPU
 		{F2B3B7A6-728D-42FD-B266-A2C8036EE219}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F2B3B7A6-728D-42FD-B266-A2C8036EE219}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F2B3B7A6-728D-42FD-B266-A2C8036EE219}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F2B3B7A6-728D-42FD-B266-A2C8036EE219}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F2B3B7A6-728D-42FD-B266-A2C8036EE219}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

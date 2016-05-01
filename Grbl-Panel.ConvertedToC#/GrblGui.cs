@@ -10,7 +10,6 @@ using System.Linq;
 using System.Xml.Linq;
 using System.Globalization;
 using System.Threading;
-using System.Threading.Thread;
 namespace GrblPanel
 {
 
@@ -257,41 +256,29 @@ namespace GrblPanel
 			right_X = gbPosition.Width + 3;
 
 			// we are going left handed
-			if (side) {
-				foreach (Control ctl_loopVariable in {
-					gbGrbl,
-					gbJogging,
-					gbGcode
-				}) {
-					ctl = ctl_loopVariable;
+			if (side) {                
+                foreach (Control ctl_loopVariable in new Control[] { gbGrbl, gbJogging, gbGcode})
+                {
+                    ctl = ctl_loopVariable;              	
 					ctl.Location = new Point(3, ctl.Location.Y);
 				}
 				gbMDI.Location = new Point(3 + gbGrbl.Width + 3, gbMDI.Location.Y);
 
-				foreach (Control ctl_loopVariable in {
-					gbPosition,
-					gbStatus,
-					gbControl
-				}) {
+                foreach (Control ctl_loopVariable in new Control[] { gbPosition, gbStatus, gbControl })
+                {
 					ctl = ctl_loopVariable;
 					ctl.Location = new Point(3 + left_X, ctl.Location.Y);
 				}
 			} else {
-				foreach (Control ctl_loopVariable in {
-					gbGrbl,
-					gbJogging,
-					gbGcode
-				}) {
+                foreach (Control ctl_loopVariable in new Control[] {gbGrbl,	gbJogging,gbGcode})
+                {
 					ctl = ctl_loopVariable;
 					ctl.Location = new Point(3 + right_X, ctl.Location.Y);
 				}
 				gbMDI.Location = new Point(3 + right_X + gbGrbl.Width + 3, gbMDI.Location.Y);
 
-				foreach (Control ctl_loopVariable in {
-					gbPosition,
-					gbStatus,
-					gbControl
-				}) {
+                foreach (Control ctl_loopVariable in new Control[] {gbPosition,	gbStatus,gbControl})
+                {
 					ctl = ctl_loopVariable;
 					ctl.Location = new Point(3, ctl.Location.Y);
 				}
@@ -311,8 +298,8 @@ namespace GrblPanel
 			// always remember as new default
 			// allow re-connect to new port
 			grblPort.comport = cbPorts.SelectedItem;
-			// Set as new default
-			GrblPanel.My.Settings.Port = cbPorts.SelectedItem;
+            // Set as new default
+            My.MySettings.Port = cbPorts.SelectedItem;
 			btnConnect.Enabled = true;
 
 		}
@@ -321,9 +308,9 @@ namespace GrblPanel
 		{
 			// set desired baud rate
 			grblPort.baudrate = cbBaud.SelectedItem.ToString();
-			GrblPanel.My.Settings.Baud = grblPort.baudrate;
+			GrblPanel.My.MySettings.Baud = grblPort.baudrate;
 			// always remember as new default
-			GrblPanel.My.Settings.Save();
+			GrblPanel.My.MySettings.Save();
 			btnConnect.Enabled = true;
 
 		}

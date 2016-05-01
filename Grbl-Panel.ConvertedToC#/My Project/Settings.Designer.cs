@@ -38,7 +38,7 @@ namespace GrblPanel.My
 		private static void AutoSaveSettings(global::System.Object sender, global::System.EventArgs e)
 		{
 			if (MyProject.Application.SaveMySettingsOnExit) {
-				GrblPanel.My.Settings.Save();
+				defaultInstance.Save();
 			}
 		}
 		#endregion

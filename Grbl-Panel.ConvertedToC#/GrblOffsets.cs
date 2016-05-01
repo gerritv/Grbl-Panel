@@ -54,7 +54,7 @@ namespace GrblPanel
 			public void SaveOffsets()
 			{
 				// Save the Work and TLO offsets to a file of users' choice
-				if (!(_gui.sfdOffsets.ShowDialog() == System.Windows.Forms.DialogResult.OK)) {
+				if (!(_gui.sfdOffsets.ShowDialog() == DialogResult.OK)) {
 					return;
 				}
 
