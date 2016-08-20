@@ -236,28 +236,20 @@ Partial Class GrblGui
     End Sub
 
     Public Sub showGrblOffsets(ByVal data As String)
-        ' We come here from the recv_data thread so have to do this trick to cross threads
-        ' (http://msdn.microsoft.com/en-ca/library/ms171728(v=vs.85).aspx)
+
         If data.Length < 3 Then
             Return
         End If
-        If Me.btnReset.InvokeRequired Then
-            ' we need to cross thread this callback
-            Dim ncb As New grblDataReceived(AddressOf Me.showGrblOffsets)
-            Me.BeginInvoke(ncb, New Object() {data})
-            Return
-        Else
-            ' Extract anything with a [<n> into array
-            If offsets.OffsetsWtgForGrbl Then
-                If data(0) = "[" And (data(1) = "G" Or data(1) = "T") Then
-                    offsets.AddOffset(data)
-                    offsets.CollectingOffsets = True
-                ElseIf offsets.CollectingOffsets And data(0) <> "[" Then
-                    ' we are done collecting parameters, time to display them
-                    offsets.OffsetsWtgForGrbl = False
-                    offsets.CollectingOffsets = False
-                    ShowOffsets()
-                End If
+        ' Extract anything with a [<n> into array
+        If offsets.OffsetsWtgForGrbl Then
+            If data(0) = "[" And (data(1) = "G" Or data(1) = "T") Then
+                offsets.AddOffset(data)
+                offsets.CollectingOffsets = True
+            ElseIf offsets.CollectingOffsets And data(0) <> "[" Then
+                ' we are done collecting parameters, time to display them
+                offsets.OffsetsWtgForGrbl = False
+                offsets.CollectingOffsets = False
+                ShowOffsets()
             End If
         End If
     End Sub

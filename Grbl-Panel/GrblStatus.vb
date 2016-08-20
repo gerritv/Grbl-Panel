@@ -60,7 +60,9 @@ Partial Class GrblGui
 
     Public Sub changeStatusRate(ByVal newrate As Integer)
         ' Change the status polling rate
-        _statusTimer.Change(0, newrate)
+        If Not IsNothing(_statusTimer) Then
+            _statusTimer.Change(0, newrate)
+        End If
     End Sub
 
     Private _statusTimer As Timer
@@ -110,89 +112,80 @@ Partial Class GrblGui
     End Sub
 
     Public Sub showGrblStatus(ByVal data As String)
-        ' We come here from the recv_data thread so have to do this trick to cross threads
-        ' (http://msdn.microsoft.com/en-ca/library/ms171728(v=vs.85).aspx)
 
-        If Me.btnReset.InvokeRequired Then
-            ' we need to cross thread this callback
-            Dim ncb As New grblDataReceived(AddressOf Me.showGrblStatus)
-            Me.BeginInvoke(ncb, New Object() {data})
-            Return
-        Else
-            ' TODO This needs tidying up, pre-process message to remove leading, trailing < [ , etc. so 
-            ' we have a clean code flow below, create a messageType variable?
-            'Console.WriteLine("showGrblStatus: " + data)
-            If data(0) = vbLf Or data(0) = vbCr Then
-                Return                  ' nothing to do
-            End If
-            If Me.cbVerbose.Checked Then
-                ' Show data in the Status screen (from our own thread)
-                Me.lbResponses.Items.Add(data)
-                If Me.lbResponses.Items.Count > 1 Then      ' handle case where user doesn't have 
-                    Me.lbResponses.TopIndex = Me.lbResponses.Items.Count - 1
-                End If
-            Else
-                ' filter out <> , ok, $G, $$ response messages
-                If data.Length > 0 And Not (data.First() = "<") And Not (data.First = "o") And Not (data.First = "$") And _
-                                   Not (data.First = "G") And Not (data.First = "[" And data.Contains("F")) Then
-                    ' Show data in the Status screen (from our own thread)
-                    Me.lbResponses.Items.Add(data)
-                    Me.lbResponses.TopIndex = Me.lbResponses.Items.Count - 1
-                End If
-            End If
-            If Me.lbResponses.Items.Count > 100 Then
-                ' keep the list reasonably short
-                lbResponses.Items.RemoveAt(0)
+        ' TODO This needs tidying up, pre-process message to remove leading, trailing < [ , etc. so 
+        ' we have a clean code flow below, create a messageType variable?
+        'Console.WriteLine("showGrblStatus: " + data)
+        If data(0) = vbLf Or data(0) = vbCr Then
+            Return                  ' nothing to do
+        End If
+        If Me.cbVerbose.Checked Then
+            ' Show data in the Status screen (from our own thread)
+            Me.lbResponses.Items.Add(data)
+            If Me.lbResponses.Items.Count > 1 Then      ' handle case where user doesn't have 
                 Me.lbResponses.TopIndex = Me.lbResponses.Items.Count - 1
             End If
+        Else
+            ' filter out <> , ok, $G, $$ response messages
+            If data.Length > 0 And Not (data.First() = "<") And Not (data.First = "o") And Not (data.First = "$") And
+                               Not (data.First = "G") And Not (data.First = "[" And data.Contains("F")) Then
+                ' Show data in the Status screen (from our own thread)
+                Me.lbResponses.Items.Add(data)
+                Me.lbResponses.TopIndex = Me.lbResponses.Items.Count - 1
+            End If
+        End If
+        If Me.lbResponses.Items.Count > 100 Then
+            ' keep the list reasonably short
+            lbResponses.Items.RemoveAt(0)
+            Me.lbResponses.TopIndex = Me.lbResponses.Items.Count - 1
+        End If
 
-            ' Split out the Q and Buffer sizes
-            ' (Look for Buf:nn,RX:nnn)
-            If (data.Contains("Buf:")) Then
-                ' Lets display the values
-                data = data.Remove(data.Length - 3, 3)   ' Remove the "> " at end
-                Dim positions = Split(data, ":")
-                Try
-                    Dim buffer = Split(positions(3), ",")
-                    Dim rx = Split(positions(4), ",")
-                    prgbRxBuf.Value = rx(0)
-                    prgBarQ.Value = buffer(0)
-                Catch
-                    ' do nothing, should have Status Report mask = 15
-                End Try
-            End If
+        ' Split out the Q and Buffer sizes
+        ' (Look for Buf:nn,RX:nnn)
+        If (data.Contains("Buf:")) Then
+            ' Lets display the values
+            data = data.Remove(data.Length - 3, 3)   ' Remove the "> " at end
+            Dim positions = Split(data, ":")
+            Try
+                Dim buffer = Split(positions(3), ",")
+                Dim rx = Split(positions(4), ",")
+                prgbRxBuf.Value = rx(0)
+                prgBarQ.Value = buffer(0)
+            Catch
+                ' do nothing, should have Status Report mask = 15
+            End Try
+        End If
 
-            ' Show status on the buttons
-            ' Extract status
-            Dim status = Split(data, ",")
-            ' Set indicators
-            If Not IsNothing(status) Then 'And status(0).StartsWith("<") Then
-                statusSetIndicators(status(0))
-            End If
+        ' Show status on the buttons
+        ' Extract status
+        Dim status = Split(data, ",")
+        ' Set indicators
+        If Not IsNothing(status) Then 'And status(0).StartsWith("<") Then
+            statusSetIndicators(status(0))
+        End If
 
-            ' Set button states
-            If status(0) = "<Idle" Or status(0) = "<Run" Then
-                ' Clear the button lights
-                Me.btnUnlock.BackColor = Color.Transparent
-                Me.btnHold.BackColor = Color.Transparent
-                Me.btnReset.BackColor = Color.Transparent
-                Me.btnStartResume.BackColor = Color.Transparent
-                Me.btnStartResume.Text = "Start"
-            End If
-            If data.StartsWith("<Queue") Or data.StartsWith("<Hold") Then   ' This might become Hold later when fixed in Grbl
-                Me.btnStartResume.BackColor = Color.Crimson
-                Me.btnStartResume.Text = "Resume"
-            End If
-            If status(0) = "<Alarm" Then
-                Me.btnUnlock.BackColor = Color.Crimson
-            End If
-            If status(0) = "<Alarm" Or status(0).StartsWith("ALARM") Then
-                statusSetIndicators(status(0).Substring(0, 6))       ' Messy Status messages make for messy code :(
-            End If
-            ' Major problem so cancel the file
-            ' Let GrblGcode class handle the error
-            'gcode.sendGCodeFileStop()
-            End If
+        ' Set button states
+        If status(0) = "<Idle" Or status(0) = "<Run" Then
+            ' Clear the button lights
+            Me.btnUnlock.BackColor = Color.Transparent
+            Me.btnHold.BackColor = Color.Transparent
+            Me.btnReset.BackColor = Color.Transparent
+            Me.btnStartResume.BackColor = Color.Transparent
+            Me.btnStartResume.Text = "Start"
+        End If
+        If data.StartsWith("<Queue") Or data.StartsWith("<Hold") Then   ' This might become Hold later when fixed in Grbl
+            Me.btnStartResume.BackColor = Color.Crimson
+            Me.btnStartResume.Text = "Resume"
+        End If
+        If status(0) = "<Alarm" Then
+            Me.btnUnlock.BackColor = Color.Crimson
+        End If
+        If status(0) = "<Alarm" Or status(0).StartsWith("ALARM") Then
+            statusSetIndicators(status(0).Substring(0, 6))       ' Messy Status messages make for messy code :(
+        End If
+        ' Major problem so cancel the file
+        ' Let GrblGcode class handle the error
+        'gcode.sendGCodeFileStop()
 
         ' Display the Parser state if that is the message type
         If data(0) = "[" And data.Contains("F") Then        ' we have a Parser status message
@@ -202,6 +195,12 @@ Partial Class GrblGui
         If data(0) = "$" And IsNumeric(data(1)) Then
             ' we have a Grbl Settings response
             settings.FillSettings(data)
+        End If
+
+        If data.StartsWith("Grbl") Then
+            ' Something reset the Grbl device, likely a physical Reset
+            ' Stop what we are doing and clear out for restart
+            gcode.ResetGcode(False)
         End If
 
     End Sub

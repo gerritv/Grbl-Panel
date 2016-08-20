@@ -14,6 +14,10 @@ Public Class GrblGui
     Public offsets As GrblOffsets           ' for handling of offsets
     Public state As GrblState              ' to track gcode state
     Public settings As GrblSettings         ' To handle Settings related ops
+    Public ovrrides As GrblOverrides       ' to display overrides
+    Public pins As GrblPins                 ' to display pin states
+
+    Private _exitClicked As Boolean = False   ' to separate Close (x) from File/Exit
 
     Public Sub myhandler(ByVal sender As Object, args As UnhandledExceptionEventArgs)
         ' Show exception in usable manner
@@ -31,6 +35,13 @@ Public Class GrblGui
 
         ' Set user preferences/defaults
         Application.EnableVisualStyles()
+
+        ' Check to see if this is a new install, if so then copy Settings from previous version
+        If My.Settings.UpgradeSettings Then
+            My.Settings.Upgrade()
+            My.Settings.UpgradeSettings = False
+            My.Settings.Save()
+        End If
 
         ' Trick the Settings tab page into loading its controls so that
         ' the config settings are avail to rest of program. Seems kludgy but  there is no other solution
@@ -51,6 +62,8 @@ Public Class GrblGui
         gcodeview = New GrblGcodeView(dgvGcode)
         offsets = New GrblOffsets(Me)
         state = New GrblState(Me)
+        ovrrides = New GrblOverrides(Me)
+        pins = New GrblPins(Me)
 
         rescanPorts()
         If My.Settings.Port <> "" Then
@@ -75,21 +88,21 @@ Public Class GrblGui
         Application.AddMessageFilter(New MsgFilter(Me))
     End Sub
 
-    Private Sub grblgui_unload() Handles MyBase.FormClosing
-        ' TODO Is this still necessary??
-        With My.Settings
-            .JoggingUnitsMetric = cbUnits.Checked
-            .JoggingFIImperial = tbSettingsFIImperial.Text
-            .JoggingFRImperial = tbSettingsFRImperial.Text
-            .JoggingFIMEtric = tbSettingsFIMetric.Text
-            .JoggingFRMetric = tbSettingsFRMetric.Text
-        End With
-
-        tidyClose()
+    Private Sub grblgui_unload(ByVal sender As Object, ByVal e As System.ComponentModel.CancelEventArgs) Handles MyBase.FormClosing
+        If _exitClicked Then  ' from File/Exit
+            tidyClose()
+            Return
+        Else
+            ' Ignore attempt to exit
+            If MsgBox("Are you certain that you want to close?", MsgBoxStyle.OkCancel) = MsgBoxResult.Cancel Then
+                e.Cancel = True
+            End If
+        End If
     End Sub
 
     Private Sub ExitToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ExitToolStripMenuItem.Click
-        ' On the rare occasion that someone uses File/Exit
+        ' The only valid way to exit
+        _exitClicked = True
         tidyClose()
     End Sub
 
@@ -183,6 +196,47 @@ Public Class GrblGui
                         Case Keys.A
                             _gui.btnWork0.PerformClick()
                             handled = True
+
+                        ' Motion
+                        Case Keys.Space
+                            If _gui.btnFileSend.Enabled = False And _gui.btnFilePause.Enabled = True Then
+                                ' we are running so pause
+                                _gui.btnFilePause.PerformClick()
+                            Else
+                                ' we are paused so resume
+                                _gui.btnFileSend.PerformClick()
+                            End If
+                            handled = True
+
+                            ' Overrides
+                        Case Keys.F And My.Computer.Keyboard.ShiftKeyDown
+                            _gui.btnFeedPlus.PerformClick()
+                            handled = True
+                        Case Keys.F
+                            _gui.btnFeedMinus.PerformClick()
+                            handled = True
+                        Case Keys.F And My.Computer.Keyboard.AltKeyDown
+                            _gui.btnFeedOverrideReset.PerformClick()
+                            handled = True
+                        Case Keys.S And My.Computer.Keyboard.ShiftKeyDown
+                            _gui.btnSpindlePlus.PerformClick()
+                            handled = True
+                        Case Keys.S
+                            _gui.btnSpindleMinus.PerformClick()
+                            handled = True
+                        Case Keys.S And My.Computer.Keyboard.AltKeyDown
+                            _gui.btnSpindleOverrideReset.PerformClick()
+                            handled = True
+                        Case Keys.R And My.Computer.Keyboard.ShiftKeyDown
+                            _gui.btnRapidPlus.PerformClick()
+                            handled = True
+                        Case Keys.R
+                            _gui.btnRapidMinus.PerformClick()
+                            handled = True
+                        Case Keys.R And My.Computer.Keyboard.AltKeyDown
+                            _gui.btnRapidOverrideReset.PerformClick()
+                            handled = True
+
                     End Select
                 End If
                 If handled = True Then
@@ -504,36 +558,6 @@ Public Class GrblGui
         For iCounter = 0 To aData.Count - 1
             gcode.sendGCodeLine(aData(iCounter))
         Next
-    End Sub
-    ''' <summary>
-    ''' Handles the Click event of the btnFeedOverride controls.
-    ''' </summary>
-    ''' <param name="sender">The source of the event.</param>
-    ''' <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
-    Private Sub btnFeedOverride_Click(sender As Object, e As EventArgs) Handles btnFeedCoarsePlus.Click, btnFeedCoarseMinus.Click,
-                                                btnFeedFinePlus.Click, btnFeedFineMinus.Click
-
-        Dim btn As Button = sender
-
-        Select Case DirectCast(btn.Tag, String)
-            Case "Coarse"
-                If btn.Text = "+" Then
-                    grblPort.sendData(Chr(94))
-                Else
-                    grblPort.sendData(Chr(42))
-                End If
-            Case "Fine"
-                If btn.Text = "+" Then
-                    grblPort.sendData(Chr(147))  ' 0x93
-                Else
-                    grblPort.sendData(Chr(148))  ' 0x94
-                End If
-        End Select
-    End Sub
-
-    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-
-        grblPort.sendData("#")
     End Sub
 
 End Class

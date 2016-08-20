@@ -22,11 +22,12 @@ Partial Class GrblGui
         Private _inputcount As Integer
 
         ' For timings
-        Dim _stopwatch As Stopwatch = New Stopwatch
+        Dim _elapsed As Elapsed
 
 
         Public Sub New(ByRef gui As GrblGui)
             _gui = gui
+            _elapsed = New Elapsed(_gui.lblElapsedTime)
         End Sub
 
         Public Sub enableGCode(ByVal action As Boolean)
@@ -59,6 +60,8 @@ Partial Class GrblGui
             Loop
             lineCount = _inputcount
 
+            _gui.lblTotalLines.Text = _inputcount.ToString      ' Issue #60
+
             gcodeview.RefreshView(lineCount) ' refresh data to the DataGridView
 
             If Not IsNothing(_inputfh) Then
@@ -78,8 +81,9 @@ Partial Class GrblGui
         End Sub
 
         Public Sub sendGcodeFile()
-            _stopwatch.Reset()
-            _stopwatch.Start()
+
+            _elapsed.BeginTimer()
+
             ' Workflow:
             ' Disable other panels to prevent operator error
             _gui.setSubPanels("GCodeStream")
@@ -118,12 +122,18 @@ Partial Class GrblGui
         End Sub
 
         Public Sub sendGCodeFilePause()
+
+            _elapsed.StopTimer()
+
             ' Pause the file send
             _sendAnotherLine = False
             _runMode = False
         End Sub
 
         Public Sub sendGCodeFileResume()
+
+            _elapsed.ResumeTimer()
+
             ' Resume sending of file
             _sendAnotherLine = True
             _runMode = True
@@ -132,6 +142,8 @@ Partial Class GrblGui
 
         End Sub
         Public Sub sendGCodeFileStop()
+
+            _elapsed.StopTimer()
 
             ' reset state variables
             If runMode Then
@@ -147,8 +159,8 @@ Partial Class GrblGui
 
         End Sub
         Public Sub sendGCodeFileRewind()
-            _stopwatch.Stop()
-            _gui.tbGCodeMessage.Text = "Elapsed: " + _stopwatch.Elapsed.ToString
+
+            _elapsed.StopTimer()
 
             ' reset state variables
             If runMode Then
@@ -168,6 +180,8 @@ Partial Class GrblGui
                     .btnFilePause.Enabled = False
                     .btnFileStop.Enabled = False
                     .btnFileReload.Enabled = True
+
+                    .lblCurrentLine.Text = "0"          ' Issue #60
                 End With
             End If
             gcodeview.Rewind()
@@ -178,12 +192,16 @@ Partial Class GrblGui
             resetGcode(True)
         End Sub
 
-        Private Sub resetGcode(ByVal fullstop As Boolean)
+        Public Sub ResetGcode(ByVal fullstop As Boolean)
             ' Clear out all variables etc to initial state
             lineCount = 0
             linesDone = 0
             _gui.lblTotalLines.Text = ""
+            _gui.lblCurrentLine.Text = "0"
             _gui.tbGCodeMessage.Text = ""
+
+            _elapsed.ResetTimer()
+
             ' reset state variables
             wtgForAck = False
             runMode = False
@@ -263,13 +281,9 @@ Partial Class GrblGui
 
         ' we need this to run in the UI thread so:
         'Console.WriteLine("processLineEvent: " + data)
-        If Me.dgvGcode.InvokeRequired Then
-            ' we need to cross thread this callback
-            Dim ncb As New grblDataReceived(AddressOf Me.processLineEvent)
-            Me.BeginInvoke(ncb, New Object() {data})
-        Else
-            ' are we waiting for Ack?
-            If gcode.wtgForAck Then
+
+        ' are we waiting for Ack?
+        If gcode.wtgForAck Then
                 ' is recvData ok or error?
 
                 If data.StartsWith("ok") Or data.StartsWith("error") Then
@@ -303,6 +317,7 @@ Partial Class GrblGui
                             ' show as sent
                             gcodeview.UpdateGcodeSent(gcode.linesDone)                  ' Mark line as sent
                             gcode.linesDone += 1
+                            lblCurrentLine.Text = gcode.linesDone.ToString              ' Issue #60
                             state.ProcessGCode(line)
                             ' Set Message if it starts with (
                             If line.StartsWith("(") Then
@@ -336,11 +351,10 @@ Partial Class GrblGui
                 ' GrblStatus has set the Alarm indicator etc
                 gcode.sendGCodeFileStop()
             End If
-            If status(0).StartsWith("error") Then
-                ' We pause file send to allow operator to determine proceed or not
-                If cbSettingsPauseOnError.Checked Then
-                    btnFilePause.PerformClick()
-                End If
+        If status(0).StartsWith("error") Then
+            ' We pause file send to allow operator to determine proceed or not
+            If cbSettingsPauseOnError.Checked Then
+                btnFilePause.PerformClick()
             End If
         End If
     End Sub

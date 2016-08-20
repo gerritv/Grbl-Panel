@@ -10,6 +10,46 @@ Partial Class GrblGui
         Private _paramTable As DataTable    ' to hold the parameters
         Private _nextParam As Integer       ' to track which param line is next
 
+        Private _settings As Dictionary(Of String, String) = New Dictionary(Of String, String) From {
+            {"0", "step pulse, usec"},
+            {"1", "step idle delay, msec"},
+            {"2", "step port invert mask:"},
+            {"3", "dir port invert mask:"},
+            {"4", "step enable invert, bool"},
+            {"5", "limit pins invert, bool"},
+            {"6", "probe pin invert, bool"},
+            {"10", "status report mask"},
+            {"11", "junction deviation, mm"},
+            {"12", "arc tolerance, mm"},
+            {"13", "report inches, bool"},
+            {"20", "soft limits, bool"},
+            {"21", "hard limits, bool"},
+            {"22", "homing cycle, bool"},
+            {"23", "homing dir invert mask"},
+            {"24", "homing feed, mm/min"},
+            {"25", "homing seek, mm/min"},
+            {"26", "homing debounce, msec"},
+            {"27", "homing pull-off, mm"},
+            {"30", "rpm max"},
+            {"31", "rpm min"},
+            {"100", "x, step/mm"},
+            {"101", "y, step/mm"},
+            {"102", "z, step/mm"},
+            {"103", "a, step/mm"},
+            {"110", "x max rate, mm/min"},
+            {"111", "y max rate, mm/min"},
+            {"112", "z max rate, mm/min"},
+            {"113", "a max rate, mm/min"},
+            {"120", "x accel, mm/sec^2"},
+            {"121", "y accel, mm/sec^2"},
+            {"122", "z accel, mm/sec^2"},
+            {"123", "a accel, mm/sec^2"},
+            {"130", "x max travel, mm"},
+            {"131", "y max travel, mm"},
+            {"132", "z max travel, mm"},
+            {"133", "a max travel, mm"}
+            }
+
 #Region "Properties"
         ReadOnly Property IsHomingEnabled As Integer
             Get
@@ -21,6 +61,23 @@ Partial Class GrblGui
                 Return 0
             End Get
         End Property
+        ''' <summary>
+        ''' Gets a value indicating whether Grbl is override capable.
+        ''' </summary>
+        ''' <value>
+        ''' <c>true</c> if Grbl is override capable; otherwise, <c>false</c>.
+        ''' </value>
+        ReadOnly Property IsOverrideCapable As Boolean
+            Get
+                Dim row As DataRow
+                row = _paramTable.Rows.Find("$31")
+                If Not IsNothing(row) Then
+                    Return True
+                End If
+                Return False
+            End Get
+        End Property
+
 #End Region
 
         Public Sub New(ByRef gui As GrblGui)
@@ -53,6 +110,7 @@ Partial Class GrblGui
             'Console.WriteLine("GrblSettings: $ Data is : " + data)
             ' Return
             Dim params() As String
+            Dim index As Integer
             If _nextParam = 0 Then
                 ' We are dealing with a fresh
                 _paramTable = New DataTable
@@ -65,7 +123,13 @@ Partial Class GrblGui
             End If
             params = data.Split({"="c, "("c, ")"c})
             params(1) = params(1).Replace(" ", "")         ' strip trailing blanks
-            _paramTable.Rows.Add(params(0), params(1), params(2))
+            If (params.Count = 3) Then
+                _paramTable.Rows.Add(params(0), params(1), params(2))
+            Else
+                ' We have Grbl in GUI mode, so add Description manually
+                index = params(0).Remove(0, 1)
+                _paramTable.Rows.Add(params(0), params(1), _settings(index))
+            End If
             _nextParam += 1
 
             If params(0) = _gui.tbSettingsGrblLastParam.Text Then ' We got the last one

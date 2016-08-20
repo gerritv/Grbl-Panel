@@ -45,38 +45,28 @@ Partial Class GrblGui
 
 
     Public Sub showGrblPositions(ByVal data As String)
-        ' We come here from the recv_data thread so have to do this trick to cross threads
-        ' (http://msdn.microsoft.com/en-ca/library/ms171728(v=vs.85).aspx)
 
-        'Console.WriteLine("showGrblPosition: " + data)
-        If Me.tbWorkX.InvokeRequired Then
-            ' we need to cross thread this callback
-            Dim ncb As New grblDataReceived(AddressOf Me.showGrblPositions)
-            Me.BeginInvoke(ncb, New Object() {data})
-            Return
-        Else
-            ' Show data in the Positions group (from our own thread)
-            If (data.Contains("MPos:")) Then
-                ' Lets display the values
-                data = data.Remove(data.Length - 3, 3)   ' Remove the "> " at end
-                Dim positions = Split(data, ":")
-                Dim machPos = Split(positions(1), ",")
-                Dim workPos = Split(positions(2), ",")
+        ' Show data in the Positions group (from our own thread)
+        If (data.Contains("MPos:")) Then
+            ' Lets display the values
+            data = data.Remove(data.Length - 3, 3)   ' Remove the "> " at end
+            Dim positions = Split(data, ":")
+            Dim machPos = Split(positions(1), ",")
+            Dim workPos = Split(positions(2), ",")
 
-                tbMachX.Text = machPos(0).ToString
-                tbMachY.Text = machPos(1).ToString
-                tbMachZ.Text = machPos(2).ToString
+            tbMachX.Text = machPos(0).ToString
+            tbMachY.Text = machPos(1).ToString
+            tbMachZ.Text = machPos(2).ToString
 
-                tbWorkX.Text = workPos(0).ToString
-                tbWorkY.Text = workPos(1).ToString
-                tbWorkZ.Text = workPos(2).ToString
+            tbWorkX.Text = workPos(0).ToString
+            tbWorkY.Text = workPos(1).ToString
+            tbWorkZ.Text = workPos(2).ToString
 
-                'Set same values into the repeater view on Offsets page
-                tbOffSetsMachX.Text = machPos(0).ToString
-                tbOffSetsMachY.Text = machPos(1).ToString
-                tbOffSetsMachZ.Text = machPos(2).ToString
+            'Set same values into the repeater view on Offsets page
+            tbOffSetsMachX.Text = machPos(0).ToString
+            tbOffSetsMachY.Text = machPos(1).ToString
+            tbOffSetsMachZ.Text = machPos(2).ToString
 
-            End If
         End If
     End Sub
 

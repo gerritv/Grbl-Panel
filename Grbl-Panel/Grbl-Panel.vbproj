@@ -161,6 +161,12 @@
     <Compile Include="GrblJogging.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="GrblOverrides.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GrblPins.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="GrblPosition.vb">
       <SubType>Form</SubType>
     </Compile>
@@ -168,6 +174,9 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="GrblState.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GrblUtils.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
@@ -267,7 +276,6 @@
     <Content Include="LICENSE.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <None Include="Reload-32.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -1,10 +1,27 @@
 This file documents changes made:
+V1.0.9.5	- 2016 Aug 21
+			- Adapt to Grbl 'GUI' mode (numbers instead of error text)
+			- Disable Close from X icon Issue #60
+			- Enable Maximize button Issue #60
+			- Implement Spindle, Feed Rate and Rapid overrides Issue #58
+			- Display Pin states Issue #58
+			- Copy Macros and other config on Upgrade of program Issue #48
+			- Add Monitor Enable/disable, Issue #60
+			- Implement File Pause/Resume with spacebar, Issue #60
+			- Add Elapsed time display, Issue #60
+			- Add 'line of  total' display, Issue #60
+			- Detect if physical reset pin was triggered, if so clear GrblPanel
+			- Double size of File icons (ref: OpenBuilds forum)
+			- Allow maximizing to fill screen Issue #60
+			- removed unnecessary code
+V1.0.9.4	- 2016 Feb 21
+			- Make line # column resizeable with reasonable min width Issue #53
 V1.0.9.3	- 2016 Feb 21
 			- Fix Issue #52, loading new file after a run & resize problems
 			- Performance tuning
 				- replace Int64's with Integer to avoid conversions
 			 	- made Gcode grid view double buffered
-				- added Elepased time dispaly, triggered by M30
+				- added Elepased time display, triggered by M30
 				- prevent resizing of gui
 				- removed text box refresh on Position displays
 				- changed serial receive to issue Event on receive, makes .net do the queueing

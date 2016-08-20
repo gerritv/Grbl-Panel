@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class GrblGui
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,7 +20,7 @@ Partial Class GrblGui
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(GrblGui))
@@ -34,16 +34,34 @@ Partial Class GrblGui
         Me.AboutToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.tabPgInterface = New System.Windows.Forms.TabPage()
-        Me.GroupBox2 = New System.Windows.Forms.GroupBox()
-        Me.Button1 = New System.Windows.Forms.Button()
-        Me.Label46 = New System.Windows.Forms.Label()
+        Me.gbOverrides = New System.Windows.Forms.GroupBox()
+        Me.cbSpindleCoarse = New System.Windows.Forms.CheckBox()
+        Me.btnSpindleOverrideReset = New System.Windows.Forms.Button()
+        Me.btnRapidOverrideReset = New System.Windows.Forms.Button()
+        Me.btnFeedOverrideReset = New System.Windows.Forms.Button()
+        Me.cbFeedCoarse = New System.Windows.Forms.CheckBox()
         Me.Label44 = New System.Windows.Forms.Label()
-        Me.btnFeedFineMinus = New System.Windows.Forms.Button()
-        Me.btnFeedFinePlus = New System.Windows.Forms.Button()
+        Me.btnSpindleMinus = New System.Windows.Forms.Button()
+        Me.btnSpindlePlus = New System.Windows.Forms.Button()
         Me.Label22 = New System.Windows.Forms.Label()
-        Me.btnFeedCoarseMinus = New System.Windows.Forms.Button()
-        Me.btnFeedCoarsePlus = New System.Windows.Forms.Button()
+        Me.btnRapidMinus = New System.Windows.Forms.Button()
+        Me.btnRapidPlus = New System.Windows.Forms.Button()
+        Me.tbSpindleOvr = New System.Windows.Forms.TextBox()
+        Me.tbRapidOvr = New System.Windows.Forms.TextBox()
+        Me.tbFeedOvr = New System.Windows.Forms.TextBox()
+        Me.Label46 = New System.Windows.Forms.Label()
+        Me.btnFeedMinus = New System.Windows.Forms.Button()
+        Me.btnFeedPlus = New System.Windows.Forms.Button()
         Me.gbState = New System.Windows.Forms.GroupBox()
+        Me.gbPinStatus = New System.Windows.Forms.GroupBox()
+        Me.cbFeedHold = New System.Windows.Forms.CheckBox()
+        Me.cbStartResume = New System.Windows.Forms.CheckBox()
+        Me.cbResetAbort = New System.Windows.Forms.CheckBox()
+        Me.cbLimitX = New System.Windows.Forms.CheckBox()
+        Me.cbDoorOpen = New System.Windows.Forms.CheckBox()
+        Me.cbProbePin = New System.Windows.Forms.CheckBox()
+        Me.cbLimitZ = New System.Windows.Forms.CheckBox()
+        Me.cbLimitY = New System.Windows.Forms.CheckBox()
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.tbStateFeedRate = New System.Windows.Forms.TextBox()
         Me.Label14 = New System.Windows.Forms.Label()
@@ -104,6 +122,11 @@ Partial Class GrblGui
         Me.cbVerbose = New System.Windows.Forms.CheckBox()
         Me.lbResponses = New System.Windows.Forms.ListBox()
         Me.gbGcode = New System.Windows.Forms.GroupBox()
+        Me.cbMonitorEnable = New System.Windows.Forms.CheckBox()
+        Me.lblElapsedTime = New System.Windows.Forms.Label()
+        Me.Label23 = New System.Windows.Forms.Label()
+        Me.Label51 = New System.Windows.Forms.Label()
+        Me.lblCurrentLine = New System.Windows.Forms.Label()
         Me.dgvGcode = New System.Windows.Forms.DataGridView()
         Me.stat = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.lineNum = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -112,7 +135,6 @@ Partial Class GrblGui
         Me.tbGCodeMessage = New System.Windows.Forms.TextBox()
         Me.Label27 = New System.Windows.Forms.Label()
         Me.lblTotalLines = New System.Windows.Forms.Label()
-        Me.Label23 = New System.Windows.Forms.Label()
         Me.btnFilePause = New System.Windows.Forms.Button()
         Me.tbGcodeFile = New System.Windows.Forms.TextBox()
         Me.btnFileSelect = New System.Windows.Forms.Button()
@@ -292,8 +314,9 @@ Partial Class GrblGui
         Me.MenuStrip1.SuspendLayout()
         Me.TabControl1.SuspendLayout()
         Me.tabPgInterface.SuspendLayout()
-        Me.GroupBox2.SuspendLayout()
+        Me.gbOverrides.SuspendLayout()
         Me.gbState.SuspendLayout()
+        Me.gbPinStatus.SuspendLayout()
         Me.Panel2.SuspendLayout()
         Me.Panel1.SuspendLayout()
         Me.gbControl.SuspendLayout()
@@ -402,7 +425,7 @@ Partial Class GrblGui
         '
         'tabPgInterface
         '
-        Me.tabPgInterface.Controls.Add(Me.GroupBox2)
+        Me.tabPgInterface.Controls.Add(Me.gbOverrides)
         Me.tabPgInterface.Controls.Add(Me.gbState)
         Me.tabPgInterface.Controls.Add(Me.gbControl)
         Me.tabPgInterface.Controls.Add(Me.gbMDI)
@@ -419,102 +442,212 @@ Partial Class GrblGui
         Me.tabPgInterface.Text = "Interface"
         Me.tabPgInterface.UseVisualStyleBackColor = True
         '
-        'GroupBox2
+        'gbOverrides
         '
-        Me.GroupBox2.Controls.Add(Me.Button1)
-        Me.GroupBox2.Controls.Add(Me.Label46)
-        Me.GroupBox2.Controls.Add(Me.Label44)
-        Me.GroupBox2.Controls.Add(Me.btnFeedFineMinus)
-        Me.GroupBox2.Controls.Add(Me.btnFeedFinePlus)
-        Me.GroupBox2.Controls.Add(Me.Label22)
-        Me.GroupBox2.Controls.Add(Me.btnFeedCoarseMinus)
-        Me.GroupBox2.Controls.Add(Me.btnFeedCoarsePlus)
-        Me.GroupBox2.Location = New System.Drawing.Point(939, 412)
-        Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(190, 197)
-        Me.GroupBox2.TabIndex = 37
-        Me.GroupBox2.TabStop = False
-        Me.GroupBox2.Text = "Overrides"
-        Me.GroupBox2.Visible = False
+        Me.gbOverrides.Controls.Add(Me.cbSpindleCoarse)
+        Me.gbOverrides.Controls.Add(Me.btnSpindleOverrideReset)
+        Me.gbOverrides.Controls.Add(Me.btnRapidOverrideReset)
+        Me.gbOverrides.Controls.Add(Me.btnFeedOverrideReset)
+        Me.gbOverrides.Controls.Add(Me.cbFeedCoarse)
+        Me.gbOverrides.Controls.Add(Me.Label44)
+        Me.gbOverrides.Controls.Add(Me.btnSpindleMinus)
+        Me.gbOverrides.Controls.Add(Me.btnSpindlePlus)
+        Me.gbOverrides.Controls.Add(Me.Label22)
+        Me.gbOverrides.Controls.Add(Me.btnRapidMinus)
+        Me.gbOverrides.Controls.Add(Me.btnRapidPlus)
+        Me.gbOverrides.Controls.Add(Me.tbSpindleOvr)
+        Me.gbOverrides.Controls.Add(Me.tbRapidOvr)
+        Me.gbOverrides.Controls.Add(Me.tbFeedOvr)
+        Me.gbOverrides.Controls.Add(Me.Label46)
+        Me.gbOverrides.Controls.Add(Me.btnFeedMinus)
+        Me.gbOverrides.Controls.Add(Me.btnFeedPlus)
+        Me.gbOverrides.Location = New System.Drawing.Point(939, 412)
+        Me.gbOverrides.Name = "gbOverrides"
+        Me.gbOverrides.Size = New System.Drawing.Size(190, 255)
+        Me.gbOverrides.TabIndex = 37
+        Me.gbOverrides.TabStop = False
+        Me.gbOverrides.Text = "Overrides"
+        Me.gbOverrides.Visible = False
         '
-        'Button1
+        'cbSpindleCoarse
         '
-        Me.Button1.Location = New System.Drawing.Point(6, 108)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(75, 23)
-        Me.Button1.TabIndex = 7
-        Me.Button1.Text = "Get OVR Status"
-        Me.Button1.UseVisualStyleBackColor = True
+        Me.cbSpindleCoarse.Appearance = System.Windows.Forms.Appearance.Button
+        Me.cbSpindleCoarse.AutoSize = True
+        Me.cbSpindleCoarse.Checked = True
+        Me.cbSpindleCoarse.CheckState = System.Windows.Forms.CheckState.Checked
+        Me.cbSpindleCoarse.Location = New System.Drawing.Point(131, 180)
+        Me.cbSpindleCoarse.Name = "cbSpindleCoarse"
+        Me.cbSpindleCoarse.Size = New System.Drawing.Size(50, 23)
+        Me.cbSpindleCoarse.TabIndex = 26
+        Me.cbSpindleCoarse.Text = "Coarse"
+        Me.cbSpindleCoarse.UseVisualStyleBackColor = True
+        '
+        'btnSpindleOverrideReset
+        '
+        Me.btnSpindleOverrideReset.Location = New System.Drawing.Point(131, 204)
+        Me.btnSpindleOverrideReset.Name = "btnSpindleOverrideReset"
+        Me.btnSpindleOverrideReset.Size = New System.Drawing.Size(49, 23)
+        Me.btnSpindleOverrideReset.TabIndex = 25
+        Me.btnSpindleOverrideReset.Tag = "Spindle"
+        Me.btnSpindleOverrideReset.Text = "Reset"
+        Me.btnSpindleOverrideReset.UseVisualStyleBackColor = True
+        '
+        'btnRapidOverrideReset
+        '
+        Me.btnRapidOverrideReset.Location = New System.Drawing.Point(129, 126)
+        Me.btnRapidOverrideReset.Name = "btnRapidOverrideReset"
+        Me.btnRapidOverrideReset.Size = New System.Drawing.Size(49, 23)
+        Me.btnRapidOverrideReset.TabIndex = 24
+        Me.btnRapidOverrideReset.Tag = "Rapid"
+        Me.btnRapidOverrideReset.Text = "Reset"
+        Me.btnRapidOverrideReset.UseVisualStyleBackColor = True
+        '
+        'btnFeedOverrideReset
+        '
+        Me.btnFeedOverrideReset.Location = New System.Drawing.Point(129, 47)
+        Me.btnFeedOverrideReset.Name = "btnFeedOverrideReset"
+        Me.btnFeedOverrideReset.Size = New System.Drawing.Size(49, 23)
+        Me.btnFeedOverrideReset.TabIndex = 23
+        Me.btnFeedOverrideReset.Tag = "Feed"
+        Me.btnFeedOverrideReset.Text = "Reset"
+        Me.btnFeedOverrideReset.UseVisualStyleBackColor = True
+        '
+        'cbFeedCoarse
+        '
+        Me.cbFeedCoarse.Appearance = System.Windows.Forms.Appearance.Button
+        Me.cbFeedCoarse.AutoSize = True
+        Me.cbFeedCoarse.Checked = True
+        Me.cbFeedCoarse.CheckState = System.Windows.Forms.CheckState.Checked
+        Me.cbFeedCoarse.Location = New System.Drawing.Point(130, 24)
+        Me.cbFeedCoarse.Name = "cbFeedCoarse"
+        Me.cbFeedCoarse.Size = New System.Drawing.Size(50, 23)
+        Me.cbFeedCoarse.TabIndex = 22
+        Me.cbFeedCoarse.Text = "Coarse"
+        Me.cbFeedCoarse.UseVisualStyleBackColor = True
+        '
+        'Label44
+        '
+        Me.Label44.AutoSize = True
+        Me.Label44.Location = New System.Drawing.Point(7, 195)
+        Me.Label44.Name = "Label44"
+        Me.Label44.Size = New System.Drawing.Size(42, 13)
+        Me.Label44.TabIndex = 21
+        Me.Label44.Text = "Spindle"
+        '
+        'btnSpindleMinus
+        '
+        Me.btnSpindleMinus.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnSpindleMinus.Location = New System.Drawing.Point(88, 204)
+        Me.btnSpindleMinus.Name = "btnSpindleMinus"
+        Me.btnSpindleMinus.Size = New System.Drawing.Size(35, 35)
+        Me.btnSpindleMinus.TabIndex = 20
+        Me.btnSpindleMinus.Tag = "minus"
+        Me.btnSpindleMinus.Text = "-"
+        Me.btnSpindleMinus.UseVisualStyleBackColor = True
+        '
+        'btnSpindlePlus
+        '
+        Me.btnSpindlePlus.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnSpindlePlus.Location = New System.Drawing.Point(88, 170)
+        Me.btnSpindlePlus.Name = "btnSpindlePlus"
+        Me.btnSpindlePlus.Size = New System.Drawing.Size(35, 42)
+        Me.btnSpindlePlus.TabIndex = 19
+        Me.btnSpindlePlus.Tag = "plus"
+        Me.btnSpindlePlus.Text = "+"
+        Me.btnSpindlePlus.UseVisualStyleBackColor = True
+        '
+        'Label22
+        '
+        Me.Label22.AutoSize = True
+        Me.Label22.Location = New System.Drawing.Point(6, 117)
+        Me.Label22.Name = "Label22"
+        Me.Label22.Size = New System.Drawing.Size(35, 13)
+        Me.Label22.TabIndex = 15
+        Me.Label22.Text = "Rapid"
+        '
+        'btnRapidMinus
+        '
+        Me.btnRapidMinus.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnRapidMinus.Location = New System.Drawing.Point(88, 126)
+        Me.btnRapidMinus.Name = "btnRapidMinus"
+        Me.btnRapidMinus.Size = New System.Drawing.Size(35, 35)
+        Me.btnRapidMinus.TabIndex = 14
+        Me.btnRapidMinus.Tag = "minus"
+        Me.btnRapidMinus.Text = "-"
+        Me.btnRapidMinus.UseVisualStyleBackColor = True
+        '
+        'btnRapidPlus
+        '
+        Me.btnRapidPlus.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnRapidPlus.Location = New System.Drawing.Point(88, 92)
+        Me.btnRapidPlus.Name = "btnRapidPlus"
+        Me.btnRapidPlus.Size = New System.Drawing.Size(35, 42)
+        Me.btnRapidPlus.TabIndex = 13
+        Me.btnRapidPlus.Tag = "plus"
+        Me.btnRapidPlus.Text = "+"
+        Me.btnRapidPlus.UseVisualStyleBackColor = True
+        '
+        'tbSpindleOvr
+        '
+        Me.tbSpindleOvr.Enabled = False
+        Me.tbSpindleOvr.Location = New System.Drawing.Point(52, 192)
+        Me.tbSpindleOvr.Name = "tbSpindleOvr"
+        Me.tbSpindleOvr.Size = New System.Drawing.Size(30, 20)
+        Me.tbSpindleOvr.TabIndex = 10
+        Me.tbSpindleOvr.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'tbRapidOvr
+        '
+        Me.tbRapidOvr.Enabled = False
+        Me.tbRapidOvr.Location = New System.Drawing.Point(53, 117)
+        Me.tbRapidOvr.Name = "tbRapidOvr"
+        Me.tbRapidOvr.Size = New System.Drawing.Size(30, 20)
+        Me.tbRapidOvr.TabIndex = 9
+        Me.tbRapidOvr.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'tbFeedOvr
+        '
+        Me.tbFeedOvr.Enabled = False
+        Me.tbFeedOvr.Location = New System.Drawing.Point(53, 35)
+        Me.tbFeedOvr.Name = "tbFeedOvr"
+        Me.tbFeedOvr.Size = New System.Drawing.Size(30, 20)
+        Me.tbFeedOvr.TabIndex = 8
+        Me.tbFeedOvr.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'Label46
         '
         Me.Label46.AutoSize = True
-        Me.Label46.Location = New System.Drawing.Point(12, 43)
+        Me.Label46.Location = New System.Drawing.Point(7, 38)
         Me.Label46.Name = "Label46"
         Me.Label46.Size = New System.Drawing.Size(31, 13)
         Me.Label46.TabIndex = 6
         Me.Label46.Text = "Feed"
         '
-        'Label44
+        'btnFeedMinus
         '
-        Me.Label44.AutoSize = True
-        Me.Label44.Location = New System.Drawing.Point(110, 16)
-        Me.Label44.Name = "Label44"
-        Me.Label44.Size = New System.Drawing.Size(27, 13)
-        Me.Label44.TabIndex = 5
-        Me.Label44.Text = "Fine"
+        Me.btnFeedMinus.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnFeedMinus.Location = New System.Drawing.Point(89, 47)
+        Me.btnFeedMinus.Name = "btnFeedMinus"
+        Me.btnFeedMinus.Size = New System.Drawing.Size(35, 35)
+        Me.btnFeedMinus.TabIndex = 1
+        Me.btnFeedMinus.Tag = "minus"
+        Me.btnFeedMinus.Text = "-"
+        Me.btnFeedMinus.UseVisualStyleBackColor = True
         '
-        'btnFeedFineMinus
+        'btnFeedPlus
         '
-        Me.btnFeedFineMinus.Location = New System.Drawing.Point(113, 58)
-        Me.btnFeedFineMinus.Name = "btnFeedFineMinus"
-        Me.btnFeedFineMinus.Size = New System.Drawing.Size(35, 23)
-        Me.btnFeedFineMinus.TabIndex = 4
-        Me.btnFeedFineMinus.Tag = "Fine"
-        Me.btnFeedFineMinus.Text = "-"
-        Me.btnFeedFineMinus.UseVisualStyleBackColor = True
-        '
-        'btnFeedFinePlus
-        '
-        Me.btnFeedFinePlus.Location = New System.Drawing.Point(113, 21)
-        Me.btnFeedFinePlus.Name = "btnFeedFinePlus"
-        Me.btnFeedFinePlus.Size = New System.Drawing.Size(35, 23)
-        Me.btnFeedFinePlus.TabIndex = 3
-        Me.btnFeedFinePlus.Tag = "Fine"
-        Me.btnFeedFinePlus.Text = "+"
-        Me.btnFeedFinePlus.UseVisualStyleBackColor = True
-        '
-        'Label22
-        '
-        Me.Label22.AutoSize = True
-        Me.Label22.Location = New System.Drawing.Point(60, 16)
-        Me.Label22.Name = "Label22"
-        Me.Label22.Size = New System.Drawing.Size(40, 13)
-        Me.Label22.TabIndex = 2
-        Me.Label22.Text = "Coarse"
-        '
-        'btnFeedCoarseMinus
-        '
-        Me.btnFeedCoarseMinus.Location = New System.Drawing.Point(63, 58)
-        Me.btnFeedCoarseMinus.Name = "btnFeedCoarseMinus"
-        Me.btnFeedCoarseMinus.Size = New System.Drawing.Size(35, 23)
-        Me.btnFeedCoarseMinus.TabIndex = 1
-        Me.btnFeedCoarseMinus.Tag = "Coarse"
-        Me.btnFeedCoarseMinus.Text = "-"
-        Me.btnFeedCoarseMinus.UseVisualStyleBackColor = True
-        '
-        'btnFeedCoarsePlus
-        '
-        Me.btnFeedCoarsePlus.Location = New System.Drawing.Point(63, 31)
-        Me.btnFeedCoarsePlus.Name = "btnFeedCoarsePlus"
-        Me.btnFeedCoarsePlus.Size = New System.Drawing.Size(35, 23)
-        Me.btnFeedCoarsePlus.TabIndex = 0
-        Me.btnFeedCoarsePlus.Tag = "Coarse"
-        Me.btnFeedCoarsePlus.Text = "+"
-        Me.btnFeedCoarsePlus.UseVisualStyleBackColor = True
+        Me.btnFeedPlus.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnFeedPlus.Location = New System.Drawing.Point(89, 13)
+        Me.btnFeedPlus.Name = "btnFeedPlus"
+        Me.btnFeedPlus.Size = New System.Drawing.Size(35, 35)
+        Me.btnFeedPlus.TabIndex = 0
+        Me.btnFeedPlus.Tag = "plus"
+        Me.btnFeedPlus.Text = "+"
+        Me.btnFeedPlus.UseVisualStyleBackColor = True
         '
         'gbState
         '
+        Me.gbState.Controls.Add(Me.gbPinStatus)
         Me.gbState.Controls.Add(Me.Panel2)
         Me.gbState.Controls.Add(Me.Panel1)
         Me.gbState.Controls.Add(Me.btnStatusGetParser)
@@ -524,6 +657,136 @@ Partial Class GrblGui
         Me.gbState.TabIndex = 36
         Me.gbState.TabStop = False
         Me.gbState.Text = "State"
+        '
+        'gbPinStatus
+        '
+        Me.gbPinStatus.Controls.Add(Me.cbFeedHold)
+        Me.gbPinStatus.Controls.Add(Me.cbStartResume)
+        Me.gbPinStatus.Controls.Add(Me.cbResetAbort)
+        Me.gbPinStatus.Controls.Add(Me.cbLimitX)
+        Me.gbPinStatus.Controls.Add(Me.cbDoorOpen)
+        Me.gbPinStatus.Controls.Add(Me.cbProbePin)
+        Me.gbPinStatus.Controls.Add(Me.cbLimitZ)
+        Me.gbPinStatus.Controls.Add(Me.cbLimitY)
+        Me.gbPinStatus.Location = New System.Drawing.Point(12, 328)
+        Me.gbPinStatus.Name = "gbPinStatus"
+        Me.gbPinStatus.Size = New System.Drawing.Size(169, 52)
+        Me.gbPinStatus.TabIndex = 46
+        Me.gbPinStatus.TabStop = False
+        Me.gbPinStatus.Text = "Pins"
+        Me.gbPinStatus.Visible = False
+        '
+        'cbFeedHold
+        '
+        Me.cbFeedHold.AutoCheck = False
+        Me.cbFeedHold.AutoSize = True
+        Me.cbFeedHold.CheckAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.cbFeedHold.Location = New System.Drawing.Point(124, 16)
+        Me.cbFeedHold.Name = "cbFeedHold"
+        Me.cbFeedHold.Size = New System.Drawing.Size(25, 31)
+        Me.cbFeedHold.TabIndex = 44
+        Me.cbFeedHold.Text = "FH"
+        Me.ToolTip1.SetToolTip(Me.cbFeedHold, "Feed Hold")
+        Me.cbFeedHold.UseVisualStyleBackColor = True
+        Me.cbFeedHold.Visible = False
+        '
+        'cbStartResume
+        '
+        Me.cbStartResume.AutoCheck = False
+        Me.cbStartResume.AutoSize = True
+        Me.cbStartResume.CheckAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.cbStartResume.Location = New System.Drawing.Point(147, 16)
+        Me.cbStartResume.Name = "cbStartResume"
+        Me.cbStartResume.Size = New System.Drawing.Size(25, 31)
+        Me.cbStartResume.TabIndex = 45
+        Me.cbStartResume.Text = "CS"
+        Me.ToolTip1.SetToolTip(Me.cbStartResume, "Cycle Start")
+        Me.cbStartResume.UseVisualStyleBackColor = True
+        Me.cbStartResume.Visible = False
+        '
+        'cbResetAbort
+        '
+        Me.cbResetAbort.AutoCheck = False
+        Me.cbResetAbort.AutoSize = True
+        Me.cbResetAbort.CheckAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.cbResetAbort.Location = New System.Drawing.Point(106, 16)
+        Me.cbResetAbort.Name = "cbResetAbort"
+        Me.cbResetAbort.Size = New System.Drawing.Size(19, 31)
+        Me.cbResetAbort.TabIndex = 43
+        Me.cbResetAbort.Text = "R"
+        Me.ToolTip1.SetToolTip(Me.cbResetAbort, "Reset")
+        Me.cbResetAbort.UseVisualStyleBackColor = True
+        Me.cbResetAbort.Visible = False
+        '
+        'cbLimitX
+        '
+        Me.cbLimitX.AutoCheck = False
+        Me.cbLimitX.AutoSize = True
+        Me.cbLimitX.CheckAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.cbLimitX.Location = New System.Drawing.Point(6, 16)
+        Me.cbLimitX.Name = "cbLimitX"
+        Me.cbLimitX.Size = New System.Drawing.Size(18, 31)
+        Me.cbLimitX.TabIndex = 39
+        Me.cbLimitX.Text = "X"
+        Me.ToolTip1.SetToolTip(Me.cbLimitX, "X Limit")
+        Me.cbLimitX.UseVisualStyleBackColor = True
+        Me.cbLimitX.Visible = False
+        '
+        'cbDoorOpen
+        '
+        Me.cbDoorOpen.AutoCheck = False
+        Me.cbDoorOpen.AutoSize = True
+        Me.cbDoorOpen.CheckAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.cbDoorOpen.Location = New System.Drawing.Point(86, 16)
+        Me.cbDoorOpen.Name = "cbDoorOpen"
+        Me.cbDoorOpen.Size = New System.Drawing.Size(19, 31)
+        Me.cbDoorOpen.TabIndex = 42
+        Me.cbDoorOpen.Text = "D"
+        Me.ToolTip1.SetToolTip(Me.cbDoorOpen, "Door Open")
+        Me.cbDoorOpen.UseVisualStyleBackColor = True
+        Me.cbDoorOpen.Visible = False
+        '
+        'cbProbePin
+        '
+        Me.cbProbePin.AutoCheck = False
+        Me.cbProbePin.AutoSize = True
+        Me.cbProbePin.CheckAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.cbProbePin.Location = New System.Drawing.Point(68, 16)
+        Me.cbProbePin.Name = "cbProbePin"
+        Me.cbProbePin.Size = New System.Drawing.Size(18, 31)
+        Me.cbProbePin.TabIndex = 42
+        Me.cbProbePin.Text = "P"
+        Me.ToolTip1.SetToolTip(Me.cbProbePin, "Probe Pin")
+        Me.cbProbePin.UseVisualStyleBackColor = True
+        Me.cbProbePin.Visible = False
+        '
+        'cbLimitZ
+        '
+        Me.cbLimitZ.AutoCheck = False
+        Me.cbLimitZ.AutoSize = True
+        Me.cbLimitZ.CheckAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.cbLimitZ.Location = New System.Drawing.Point(39, 16)
+        Me.cbLimitZ.Name = "cbLimitZ"
+        Me.cbLimitZ.Size = New System.Drawing.Size(18, 31)
+        Me.cbLimitZ.TabIndex = 41
+        Me.cbLimitZ.Text = "Z"
+        Me.ToolTip1.SetToolTip(Me.cbLimitZ, "Z Limit")
+        Me.cbLimitZ.UseVisualStyleBackColor = True
+        Me.cbLimitZ.Visible = False
+        '
+        'cbLimitY
+        '
+        Me.cbLimitY.AutoCheck = False
+        Me.cbLimitY.AutoSize = True
+        Me.cbLimitY.CheckAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.cbLimitY.Location = New System.Drawing.Point(22, 16)
+        Me.cbLimitY.Name = "cbLimitY"
+        Me.cbLimitY.Size = New System.Drawing.Size(18, 31)
+        Me.cbLimitY.TabIndex = 40
+        Me.cbLimitY.Text = "Y"
+        Me.ToolTip1.SetToolTip(Me.cbLimitY, "Y Limit")
+        Me.cbLimitY.UseVisualStyleBackColor = True
+        Me.cbLimitY.Visible = False
         '
         'Panel2
         '
@@ -1186,12 +1449,16 @@ Partial Class GrblGui
         Me.gbGcode.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.gbGcode.Controls.Add(Me.cbMonitorEnable)
+        Me.gbGcode.Controls.Add(Me.lblElapsedTime)
+        Me.gbGcode.Controls.Add(Me.Label23)
+        Me.gbGcode.Controls.Add(Me.Label51)
+        Me.gbGcode.Controls.Add(Me.lblCurrentLine)
         Me.gbGcode.Controls.Add(Me.dgvGcode)
         Me.gbGcode.Controls.Add(Me.btnFileReload)
         Me.gbGcode.Controls.Add(Me.tbGCodeMessage)
         Me.gbGcode.Controls.Add(Me.Label27)
         Me.gbGcode.Controls.Add(Me.lblTotalLines)
-        Me.gbGcode.Controls.Add(Me.Label23)
         Me.gbGcode.Controls.Add(Me.btnFilePause)
         Me.gbGcode.Controls.Add(Me.tbGcodeFile)
         Me.gbGcode.Controls.Add(Me.btnFileSelect)
@@ -1205,25 +1472,75 @@ Partial Class GrblGui
         Me.gbGcode.TabStop = False
         Me.gbGcode.Text = "GCode"
         '
+        'cbMonitorEnable
+        '
+        Me.cbMonitorEnable.AutoSize = True
+        Me.cbMonitorEnable.Checked = True
+        Me.cbMonitorEnable.CheckState = System.Windows.Forms.CheckState.Checked
+        Me.cbMonitorEnable.Location = New System.Drawing.Point(10, 92)
+        Me.cbMonitorEnable.Name = "cbMonitorEnable"
+        Me.cbMonitorEnable.Size = New System.Drawing.Size(61, 17)
+        Me.cbMonitorEnable.TabIndex = 28
+        Me.cbMonitorEnable.Text = "Monitor"
+        Me.cbMonitorEnable.UseVisualStyleBackColor = True
+        '
+        'lblElapsedTime
+        '
+        Me.lblElapsedTime.AutoSize = True
+        Me.lblElapsedTime.Location = New System.Drawing.Point(441, 49)
+        Me.lblElapsedTime.Name = "lblElapsedTime"
+        Me.lblElapsedTime.Size = New System.Drawing.Size(13, 13)
+        Me.lblElapsedTime.TabIndex = 27
+        Me.lblElapsedTime.Text = "  "
+        Me.lblElapsedTime.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'Label23
+        '
+        Me.Label23.AutoSize = True
+        Me.Label23.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label23.Location = New System.Drawing.Point(441, 22)
+        Me.Label23.Name = "Label23"
+        Me.Label23.Size = New System.Drawing.Size(52, 13)
+        Me.Label23.TabIndex = 26
+        Me.Label23.Text = "Elapsed"
+        '
+        'Label51
+        '
+        Me.Label51.AutoSize = True
+        Me.Label51.Location = New System.Drawing.Point(122, 93)
+        Me.Label51.Name = "Label51"
+        Me.Label51.Size = New System.Drawing.Size(16, 13)
+        Me.Label51.TabIndex = 25
+        Me.Label51.Text = "of"
+        '
+        'lblCurrentLine
+        '
+        Me.lblCurrentLine.AutoSize = True
+        Me.lblCurrentLine.Location = New System.Drawing.Point(84, 93)
+        Me.lblCurrentLine.Name = "lblCurrentLine"
+        Me.lblCurrentLine.Size = New System.Drawing.Size(13, 13)
+        Me.lblCurrentLine.TabIndex = 24
+        Me.lblCurrentLine.Text = "0"
+        Me.lblCurrentLine.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        '
         'dgvGcode
         '
         Me.dgvGcode.AccessibleRole = System.Windows.Forms.AccessibleRole.None
         Me.dgvGcode.AllowUserToAddRows = False
         Me.dgvGcode.AllowUserToDeleteRows = False
-        Me.dgvGcode.AllowUserToResizeColumns = False
         Me.dgvGcode.AllowUserToResizeRows = False
         Me.dgvGcode.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.dgvGcode.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgvGcode.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.stat, Me.lineNum, Me.data})
-        Me.dgvGcode.Location = New System.Drawing.Point(6, 87)
+        Me.dgvGcode.Location = New System.Drawing.Point(6, 115)
         Me.dgvGcode.MultiSelect = False
         Me.dgvGcode.Name = "dgvGcode"
         Me.dgvGcode.ReadOnly = True
         Me.dgvGcode.RowHeadersVisible = False
         Me.dgvGcode.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
         Me.dgvGcode.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.dgvGcode.Size = New System.Drawing.Size(503, 283)
+        Me.dgvGcode.Size = New System.Drawing.Size(503, 255)
         Me.dgvGcode.StandardTab = True
         Me.dgvGcode.TabIndex = 22
         Me.dgvGcode.VirtualMode = True
@@ -1235,7 +1552,6 @@ Partial Class GrblGui
         Me.stat.HeaderText = "Sts"
         Me.stat.Name = "stat"
         Me.stat.ReadOnly = True
-        Me.stat.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
         Me.stat.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable
         '
         'lineNum
@@ -1244,7 +1560,6 @@ Partial Class GrblGui
         Me.lineNum.HeaderText = "Line"
         Me.lineNum.Name = "lineNum"
         Me.lineNum.ReadOnly = True
-        Me.lineNum.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
         Me.lineNum.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable
         '
         'data
@@ -1272,7 +1587,7 @@ Partial Class GrblGui
         '
         Me.tbGCodeMessage.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.tbGCodeMessage.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.tbGCodeMessage.Location = New System.Drawing.Point(285, 65)
+        Me.tbGCodeMessage.Location = New System.Drawing.Point(242, 65)
         Me.tbGCodeMessage.Name = "tbGCodeMessage"
         Me.tbGCodeMessage.Size = New System.Drawing.Size(223, 16)
         Me.tbGCodeMessage.TabIndex = 20
@@ -1281,7 +1596,7 @@ Partial Class GrblGui
         '
         Me.Label27.AutoSize = True
         Me.Label27.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label27.Location = New System.Drawing.Point(282, 49)
+        Me.Label27.Location = New System.Drawing.Point(239, 49)
         Me.Label27.Name = "Label27"
         Me.Label27.Size = New System.Drawing.Size(57, 13)
         Me.Label27.TabIndex = 19
@@ -1290,21 +1605,12 @@ Partial Class GrblGui
         'lblTotalLines
         '
         Me.lblTotalLines.AutoSize = True
-        Me.lblTotalLines.Location = New System.Drawing.Point(246, 68)
+        Me.lblTotalLines.Location = New System.Drawing.Point(144, 93)
         Me.lblTotalLines.Name = "lblTotalLines"
-        Me.lblTotalLines.Size = New System.Drawing.Size(10, 13)
+        Me.lblTotalLines.Size = New System.Drawing.Size(13, 13)
         Me.lblTotalLines.TabIndex = 17
-        Me.lblTotalLines.Text = " "
-        '
-        'Label23
-        '
-        Me.Label23.AutoSize = True
-        Me.Label23.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label23.Location = New System.Drawing.Point(236, 49)
-        Me.Label23.Name = "Label23"
-        Me.Label23.Size = New System.Drawing.Size(37, 13)
-        Me.Label23.TabIndex = 15
-        Me.Label23.Text = "Lines"
+        Me.lblTotalLines.Text = "0"
+        Me.lblTotalLines.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'btnFilePause
         '
@@ -3183,7 +3489,6 @@ Partial Class GrblGui
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.KeyPreview = True
         Me.MainMenuStrip = Me.MenuStrip1
-        Me.MaximizeBox = False
         Me.MinimizeBox = False
         Me.Name = "GrblGui"
         Me.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide
@@ -3192,10 +3497,12 @@ Partial Class GrblGui
         Me.MenuStrip1.PerformLayout()
         Me.TabControl1.ResumeLayout(False)
         Me.tabPgInterface.ResumeLayout(False)
-        Me.GroupBox2.ResumeLayout(False)
-        Me.GroupBox2.PerformLayout()
+        Me.gbOverrides.ResumeLayout(False)
+        Me.gbOverrides.PerformLayout()
         Me.gbState.ResumeLayout(False)
         Me.gbState.PerformLayout()
+        Me.gbPinStatus.ResumeLayout(False)
+        Me.gbPinStatus.PerformLayout()
         Me.Panel2.ResumeLayout(False)
         Me.Panel2.PerformLayout()
         Me.Panel1.ResumeLayout(False)
@@ -3321,7 +3628,6 @@ Partial Class GrblGui
     Public WithEvents btnUnlock As System.Windows.Forms.Button
     Friend WithEvents gbGcode As System.Windows.Forms.GroupBox
     Friend WithEvents lblTotalLines As System.Windows.Forms.Label
-    Friend WithEvents Label23 As System.Windows.Forms.Label
     Friend WithEvents cbStatusPollEnable As System.Windows.Forms.CheckBox
     Friend WithEvents prgBarQ As System.Windows.Forms.ProgressBar
     Friend WithEvents Label25 As System.Windows.Forms.Label
@@ -3502,15 +3808,10 @@ Partial Class GrblGui
     Friend WithEvents Column2 As DataGridViewTextBoxColumn
     Private WithEvents lblStatusLabel As Label
     Private WithEvents btnDeleteMacro As Button
-    Friend WithEvents GroupBox2 As GroupBox
+    Friend WithEvents gbOverrides As GroupBox
     Friend WithEvents Label46 As Label
-    Friend WithEvents Label44 As Label
-    Friend WithEvents btnFeedFineMinus As Button
-    Friend WithEvents btnFeedFinePlus As Button
-    Friend WithEvents Label22 As Label
-    Friend WithEvents btnFeedCoarseMinus As Button
-    Friend WithEvents btnFeedCoarsePlus As Button
-    Friend WithEvents Button1 As Button
+    Friend WithEvents btnFeedMinus As Button
+    Friend WithEvents btnFeedPlus As Button
     Friend WithEvents btnSetOffsetG59 As Button
     Friend WithEvents btnSetOffsetG58 As Button
     Friend WithEvents btnSetOffsetG57 As Button
@@ -3518,7 +3819,35 @@ Partial Class GrblGui
     Friend WithEvents btnSetOffsetG55 As Button
     Friend WithEvents btnSetOffsetG54 As Button
     Friend WithEvents dgvGcode As DataGridView
+    Friend WithEvents tbSpindleOvr As TextBox
+    Friend WithEvents tbRapidOvr As TextBox
+    Friend WithEvents tbFeedOvr As TextBox
+    Friend WithEvents Label44 As Label
+    Friend WithEvents btnSpindleMinus As Button
+    Friend WithEvents btnSpindlePlus As Button
+    Friend WithEvents Label22 As Label
+    Friend WithEvents btnRapidMinus As Button
+    Friend WithEvents btnRapidPlus As Button
+    Friend WithEvents btnFeedOverrideReset As Button
+    Friend WithEvents cbFeedCoarse As CheckBox
+    Friend WithEvents btnSpindleOverrideReset As Button
+    Friend WithEvents btnRapidOverrideReset As Button
+    Friend WithEvents cbSpindleCoarse As CheckBox
+    Friend WithEvents cbStartResume As CheckBox
+    Friend WithEvents cbFeedHold As CheckBox
+    Friend WithEvents cbResetAbort As CheckBox
+    Friend WithEvents cbDoorOpen As CheckBox
+    Friend WithEvents cbProbePin As CheckBox
+    Friend WithEvents cbLimitZ As CheckBox
+    Friend WithEvents cbLimitY As CheckBox
+    Friend WithEvents cbLimitX As CheckBox
+    Friend WithEvents gbPinStatus As GroupBox
+    Friend WithEvents lblElapsedTime As Label
+    Friend WithEvents Label23 As Label
+    Friend WithEvents Label51 As Label
+    Friend WithEvents lblCurrentLine As Label
     Friend WithEvents stat As DataGridViewTextBoxColumn
     Friend WithEvents lineNum As DataGridViewTextBoxColumn
     Friend WithEvents data As DataGridViewTextBoxColumn
+    Friend WithEvents cbMonitorEnable As CheckBox
 End Class

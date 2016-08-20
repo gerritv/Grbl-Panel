@@ -11,6 +11,40 @@ Partial Class GrblGui
         Private _filemode As Boolean = False ' True if in File Send mode
         Private _source As BindingSource = New BindingSource()
 
+        Private _errors As Dictionary(Of String, String) = New Dictionary(Of String, String) From {
+        {"0", "ok"},
+        {"1", "Expected command letter "},
+        {"2", "Bad number format "},
+        {"3", "Invalid statement "},
+        {"4", "Value < 0 "},
+        {"5", "Setting disabled "},
+        {"6", "Value < 3 usec "},
+        {"7", "EEPROM read fail, using Defaults "},
+        {"8", "Not idle "},
+        {"9", "Alarm lock "},
+        {"10", "Homing is not enabled "},
+        {"11", "Line overflow "},
+        {"12", "Step rate > 30kHz "},
+        {"13", "Check door "},
+        {"20", "Unsupported command "},
+        {"21", "Modal group violation "},
+        {"22", "Undefined feed rate "},
+        {"23", "Command value is not integer "},
+        {"24", "Axis command conflict "},
+        {"25", "Word repeated "},
+        {"26", "No axis words "},
+        {"27", "Invalid line number "},
+        {"28", "Value word missing "},
+        {"29", "Unsupported coordinate system "},
+        {"30", "G53 invalid motion mode "},
+        {"31", "Axis words exist "},
+        {"32", "No axis words in plane "},
+        {"33", "Invalid target "},
+        {"34", "Arc radius error "},
+        {"35", "No offsets in plane "},
+        {"36", "Unused words "},
+        {"37", "G43 dynamic axis error "}
+        }
         Public Class gcodeItem   '(Type)
             Private _gcode As String
             ' Information about the gcode line
@@ -159,7 +193,6 @@ Partial Class GrblGui
         Public Function readGcode(ByVal lineCount As Integer, ByVal linesDone As Integer) As String
             ' Read a line, if EOF then return EOF
             If lineCount > 0 Then
-                'Return _dgview.Rows(linesDone).Cells(2).Value
                 Return _gcodeTable(linesDone).gcode
             Else
                 Return "EOF"
@@ -198,11 +231,17 @@ Partial Class GrblGui
         Public Sub UpdateGCodeStatus(ByVal stat As String, ByVal index As Integer)
             ' Set the Status column of the line item
             ' Keep current active line visible in the view
+            Dim errorCode As Integer
 
             ' locals to boost performance, these methods have an apparent performance impact
             Dim firstDisplayed As Integer = _dgview.FirstDisplayedScrollingRowIndex
             Dim displayCount As Integer = _dgview.DisplayedRowCount(False)
-
+            ' expansion of error:<number> for GUI Mode
+            If (stat.StartsWith("error:")) Then
+                ' We are in GUI mode so expand the message
+                errorCode = Convert.ToInt16(stat.Substring(6, stat.Length - 6 - 2))
+                stat = stat + ": " + _errors(errorCode)
+            End If
             If _filemode Then
                 _gcodeTable(index).status = stat
                 '_dgview.Rows(index).Cells(0).Value = stat
@@ -307,20 +346,25 @@ Partial Class GrblGui
         'If e.RowIndex = dgvGcode.RowCount - 1 Then
         '    Return
         'End If
+        If cbMonitorEnable.Checked Then     ' Issue #60 Don't update gcode view
+            If IsNothing(gcodeview) Then
+                ' Happens during start up and a column is auto-resizeable based on content
+                Return
+            Else
+                item = gcodeview.GetGcodeItem(e.RowIndex)
+                If IsNothing(item) Then
+                    Return
+                End If
+            End If
 
-        item = gcodeview.GetGcodeItem(e.RowIndex)
-        If IsNothing(item) Then
-            Return
+            Select Case dgvGcode.Columns(e.ColumnIndex).Name
+                Case "stat"
+                    e.Value = item.status
+                Case "lineNum"
+                    e.Value = item.lineNum
+                Case "data"
+                    e.Value = item.gcode
+            End Select
         End If
-
-        Select Case dgvGcode.Columns(e.ColumnIndex).Name
-            Case "stat"
-                e.Value = item.status
-            Case "lineNum"
-                e.Value = item.lineNum
-            Case "data"
-                e.Value = item.gcode
-        End Select
-
     End Sub
 End Class
