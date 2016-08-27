@@ -49,7 +49,6 @@ Partial Class GrblGui
             {"132", "z max travel, mm"},
             {"133", "a max travel, mm"}
             }
-
 #Region "Properties"
         ReadOnly Property IsHomingEnabled As Integer
             Get
@@ -84,7 +83,7 @@ Partial Class GrblGui
             ' Get ref to parent object
             _gui = gui
             ' For Connected events
-            AddHandler (_gui.Connected), AddressOf GrblConnected
+            AddHandler(_gui.Connected), AddressOf GrblConnected
 
         End Sub
         Public Sub EnableState(ByVal yes As Boolean)
@@ -118,20 +117,23 @@ Partial Class GrblGui
                     .Columns.Add("ID")
                     .Columns.Add("Value")
                     .Columns.Add("Description")
-                    .PrimaryKey = New DataColumn() {.Columns("ID")}
+                    .PrimaryKey = New DataColumn() { .Columns("ID")}
                 End With
             End If
             params = data.Split({"="c, "("c, ")"c})
             params(1) = params(1).Replace(" ", "")         ' strip trailing blanks
-            If (params.Count = 3) Then
+            If (params.Count = 4) Then
                 _paramTable.Rows.Add(params(0), params(1), params(2))
             Else
                 ' We have Grbl in GUI mode, so add Description manually
-                index = params(0).Remove(0, 1)
-                _paramTable.Rows.Add(params(0), params(1), _settings(index))
+                index = params(0).Remove(0, 1)      ' remove the leading $
+                If _settings.ContainsKey(index) Then
+                    _paramTable.Rows.Add(params(0), params(1), _settings(index))
+                Else
+                    _paramTable.Rows.Add(params(0), params(1), "")
+                End If
             End If
             _nextParam += 1
-
             If params(0) = _gui.tbSettingsGrblLastParam.Text Then ' We got the last one
                 _nextParam = 0            ' in case user does a MDI $$
                 With _gui.dgGrblSettings
@@ -148,12 +150,15 @@ Partial Class GrblGui
                 ' Tell everyone we have the params
                 RaiseEvent GrblSettingsRetrieved()
             End If
-
         End Sub
 
         ' Event template for Settings Retrieved indication
         Public Event GrblSettingsRetrieved()
-
+        Private newPropertyValue As String
+        Public Sub RefreshSettings()
+            _nextParam = 0
+            gcode.sendGCodeLine("$$")
+        End Sub
     End Class
 
     ' We need a way to propogate changes on the Settings tab, do that here
@@ -194,9 +199,8 @@ Partial Class GrblGui
 
     Private Sub btnSettingsGrbl_Click(sender As Object, e As EventArgs) Handles btnSettingsGrbl.Click
         ' Retrieve settings from Grbl
-        gcode.sendGCodeLine("$$")
+        settings.RefreshSettings()
     End Sub
-
 
     Private Sub dgGrblSettings_CellMouseDoubleClick(sender As Object, e As DataGridViewCellMouseEventArgs) Handles dgGrblSettings.CellMouseDoubleClick
         ' User wants to edit a Grbl setting

@@ -20,8 +20,8 @@ Public Class GrblIF
 
     Private _commports As String()           ' the comm ports available
     Private WithEvents _port As SerialPort '
-    Private _commport As String             ' desired comm port
-    Private _baudrate As Integer            ' active baudrate
+    Private _commport As String = "COM1"      ' desired comm port
+    Private _baudrate As Integer = 115200       ' active baudrate
     Private _connected As Boolean = False
     Private _client As New TcpClient()
     Private _remoteHost As IPAddress           ' desired remote host

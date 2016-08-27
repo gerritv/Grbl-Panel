@@ -199,16 +199,14 @@ Public Class GrblGui
 
                         ' Motion
                         Case Keys.Space
-                            If _gui.btnFileSend.Enabled = False And _gui.btnFilePause.Enabled = True Then
-                                ' we are running so pause
-                                _gui.btnFilePause.PerformClick()
+                            If _gui.btnStartResume.Text = "Start" Then
+                                _gui.btnHold.PerformClick()
                             Else
-                                ' we are paused so resume
-                                _gui.btnFileSend.PerformClick()
+                                _gui.btnStartResume.PerformClick()
                             End If
                             handled = True
 
-                            ' Overrides
+                        ' Overrides
                         Case Keys.F And My.Computer.Keyboard.ShiftKeyDown
                             _gui.btnFeedPlus.PerformClick()
                             handled = True
@@ -247,9 +245,42 @@ Public Class GrblGui
             ' We didn't handle event so pass it along
             Return False
         End Function
-
     End Class
 
+    ''' <summary>
+    ''' Override key handling for Enter
+    ''' </summary>
+    ''' <param name="msg"></param>
+    ''' <param name="keyData"></param>
+    ''' <returns></returns>
+    ''' We do this to capture Enter key for some controls, so that users can use Enter instead of Double Click
+    Protected Overrides Function ProcessCmdKey(ByRef msg As Message, keyData As Keys) As Boolean
+        ' Return True if we handled the key press
+        If keyData = Keys.Enter Then
+            Dim ctrl As Control = Me.ActiveControl
+
+            If ctrl.Parent.Name = "tpOffsets" Then
+                ' we are editing the offsets
+                SendOffsets(DirectCast(ctrl.Tag, String), ctrl.Text)
+                Return True
+            End If
+
+            If dgGrblSettings.IsCurrentCellDirty Then
+                ' we are editing in the Grbl Settings grid
+                If Not IsNothing(dgGrblSettings.CurrentRow) Then
+                    ' we have something to change (aka ignore errant double clicks)
+                    Dim param As String = dgGrblSettings.CurrentRow.Cells(0).Value.ToString & "=" & dgGrblSettings.CurrentCell.EditedFormattedValue.ToString
+                    gcode.sendGCodeLine(param)
+                    Sleep(200)              ' Have to wait for EEProm write
+                    gcode.sendGCodeLine("$$")   ' Refresh
+                    Return True
+                End If
+            End If
+        End If
+
+        ' we didn't do anything with the key so pass it on
+        Return MyBase.ProcessCmdKey(msg, keyData)
+    End Function
 
     Private Sub SwitchSides(ByVal side As Boolean)
         ' We switch GUI sides

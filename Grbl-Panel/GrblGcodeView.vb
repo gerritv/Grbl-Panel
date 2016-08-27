@@ -238,11 +238,13 @@ Partial Class GrblGui
             Dim displayCount As Integer = _dgview.DisplayedRowCount(False)
             ' expansion of error:<number> for GUI Mode
             If (stat.StartsWith("error:")) Then
-                ' We are in GUI mode so expand the message
-                errorCode = Convert.ToInt16(stat.Substring(6, stat.Length - 6 - 2))
-                stat = stat + ": " + _errors(errorCode)
+                If IsNumeric(stat("error:".Length + 1)) Then ' If Grbl in GUI mode, then char follwing the : is number
+                    ' We are in GUI mode so expand the message
+                    errorCode = Convert.ToInt16(stat.Substring(6, stat.Length - 6 - 2))
+                    stat = stat + ": " + _errors(errorCode)
+                End If
             End If
-            If _filemode Then
+                If _filemode Then
                 _gcodeTable(index).status = stat
                 '_dgview.Rows(index).Cells(0).Value = stat
                 If index < firstDisplayed Then

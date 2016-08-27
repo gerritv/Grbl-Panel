@@ -174,6 +174,18 @@ Partial Class GrblGui
         Dim tb As TextBox = sender
         Dim index As String = ""
         Dim tag As String = DirectCast(tb.Tag, String)
+        SendOffsets(tag, tb.Text)
+
+    End Sub
+
+    ''' <summary>
+    ''' Send Offset info to Grbl
+    ''' </summary>
+    ''' <param name="tag"></param>
+    ''' <param name="value"></param>
+    Public Sub SendOffsets(tag As String, value As String)
+        ' also called from GrblGui ProcessKeyCommand for Enter key processing
+        Dim index As String = ""
         Dim axis As String = tag(3)
         If tag.Contains("G5") Then
             Select Case tag.Substring(0, 3)  ' Get the offset value
@@ -190,7 +202,7 @@ Partial Class GrblGui
                 Case "G59"
                     index = "P6"
             End Select
-            gcode.sendGCodeLine("G10 L2 " + index + " " + axis + tb.Text)
+            gcode.sendGCodeLine("G10 L2 " + index + " " + axis + value)
         End If
 
     End Sub
