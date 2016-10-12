@@ -1,4 +1,7 @@
 This file documents changes made:
+V1.0.9.7	- 2016 Oct 12
+			- Adapt to new Gbrl 1.1a reports, etc.
+			- Added button to clear Pin states, makes them latch on even a single report
 V1.0.9.6	- 2016 Aug 27
 			- Change spacebar to control Hold/Resume Issue #62
 			- Enable use of Enter for Grbl Settings and Offsets

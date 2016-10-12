@@ -60,6 +60,9 @@ Partial Class GrblGui
                 _gui.gbPinStatus.Visible = value
                 If value = True Then
                     With _gui
+                        .cbLimitX.Visible = True
+                        .cbLimitY.Visible = True
+                        .cbLimitZ.Visible = True
                         .cbProbePin.Visible = True
                         .cbResetAbort.Visible = True
                         .cbFeedHold.Visible = True
@@ -76,38 +79,63 @@ Partial Class GrblGui
     Public Sub showGrblPins(ByVal data As String)
         Dim pos As Integer
 
-        If data(0) = vbLf Or data(0) = vbCr Then
-            Return                  ' nothing to do
-        End If
+        If data = vbCrLf Then Return
 
-        ' Show X, Y, Z limit pin state
-        If Not pins.LimitsSeen Then
-            If data.Contains("Lim:") Or data.Contains("Pin:") Then
+        ' We are on Grbl 0.9
+        If GrblVersion = 0 And data.Contains("Lim:") Then
+            ' We need to show Limit pins
+            If Not pins.LimitsSeen Then
                 pins.LimitsSeen = True
             End If
-        End If
-
-        If Not pins.PinsSeen Then
-            If data.Contains("Pin:") Then
-                pins.PinsSeen = True
-            End If
-        End If
-
-        If data.Contains("Lim:") Or data.Contains("Pin:") Then
-            ' We need to show Limit pins
-            pos = InStr(data, "Lim:") + InStr(data, "Pin:")
+            pos = InStr(data, "Lim:")
             cbLimitZ.Checked = (data(pos + 3) = "1")
             cbLimitY.Checked = (data(pos + 4) = "1")
             cbLimitX.Checked = (data(pos + 5) = "1")
         End If
 
-        ' pos 6 and 8 are delimiters "|"
-        If data.Contains("Pin:") Then
-            ' Show other pins
-            cbProbePin.Checked = (data(pos + 7) = "0")
-            cbStartResume.Checked = (data(pos + 9) = "1")
-            cbFeedHold.Checked = (data(pos + 10) = "1")
-            cbResetAbort.Checked = (data(pos + 11) = "1")
+        ' Are we on Grbl 1.0 or later?
+        If GrblVersion = 1 And data(0) = "<" Then
+            If data.Contains("Pn:") Then
+                ' Show other pins
+                Dim pinlist As String
+                If Not pins.PinsSeen Then
+                    pins.PinsSeen = True
+                End If
+                data = data.Remove(data.Length - 3, 3)
+                Dim statusMessage = Split(data, "|")
+                For Each item As String In statusMessage
+                    Dim portion() As String = Split(item, ":")
+                    Select Case portion(0)
+                        Case "Pn"
+                            pinlist = portion(1)
+                            cbProbePin.Checked = InStr(pinlist, "P")
+                            cbDoorOpen.Checked = InStr(pinlist, "D")
+                            cbFeedHold.Checked = InStr(pinlist, "H")
+                            cbResetAbort.Checked = InStr(pinlist, "R")
+                            cbStartResume.Checked = InStr(pinlist, "S")
+
+                            cbLimitX.Checked = InStr(pinlist, "X")
+                            cbLimitY.Checked = InStr(pinlist, "Y")
+                            cbLimitZ.Checked = InStr(pinlist, "Z")
+                    End Select
+                Next
+                ' We don't clear, use the provided button. 
+                ' This makes the pin occurance latch
+            End If
         End If
+    End Sub
+
+
+    Private Sub btnStatusClearPins_Click(sender As Object, e As EventArgs) Handles btnStatusClearPins.Click
+        ' Clear pins if set
+        cbProbePin.Checked = False
+        cbDoorOpen.Checked = False
+        cbFeedHold.Checked = False
+        cbResetAbort.Checked = False
+        cbStartResume.Checked = False
+
+        cbLimitX.Checked = False
+        cbLimitY.Checked = False
+        cbLimitZ.Checked = False
     End Sub
 End Class

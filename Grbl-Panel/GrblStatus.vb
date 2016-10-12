@@ -106,13 +106,7 @@ Partial Class GrblGui
         grblPort.sendData("~")
     End Sub
 
-    Private Sub btnStatusGetParser_Click(sender As Object, e As EventArgs) Handles btnStatusGetParser.Click
-        ' Send request for Parser State, response handler picks it up and displays
-        grblPort.sendData("$G")
-    End Sub
-
     Public Sub showGrblStatus(ByVal data As String)
-
         ' TODO This needs tidying up, pre-process message to remove leading, trailing < [ , etc. so 
         ' we have a clean code flow below, create a messageType variable?
         'Console.WriteLine("showGrblStatus: " + data)
@@ -140,72 +134,156 @@ Partial Class GrblGui
             Me.lbResponses.TopIndex = Me.lbResponses.Items.Count - 1
         End If
 
-        ' Split out the Q and Buffer sizes
-        ' (Look for Buf:nn,RX:nnn)
-        If (data.Contains("Buf:")) Then
-            ' Lets display the values
-            data = data.Remove(data.Length - 3, 3)   ' Remove the "> " at end
-            Dim positions = Split(data, ":")
-            Try
-                Dim buffer = Split(positions(3), ",")
-                Dim rx = Split(positions(4), ",")
-                prgbRxBuf.Value = rx(0)
-                prgBarQ.Value = buffer(0)
-            Catch
-                ' do nothing, should have Status Report mask = 15
-            End Try
+        If data.StartsWith("Grbl") Then
+            ' set Grbl version, 0.x or 1.x
+            GrblVersion = data.Substring(5, 1)
+            If GrblVersion = 1 Then
+                pins.PinsSeen = True      ' Show all pins
+            Else
+                pins.LimitsSeen = True      ' Show limit pins only
+            End If
+
+            ' Something reset the Grbl device, likely a physical Reset
+            ' Stop what we are doing and clear out for restart
+            state.GrblConnected("Connected")   ' Reset State object
+                gcode.ResetGcode(False)
+
+            End If
+
+            ' We switch processing based on Grbl version, 1.x is quite different
+
+            If GrblVersion = 0 Then
+            ' Split out the Q and Buffer sizes
+            ' (Look for Buf:nn,RX:nnn)
+            If (data.Contains("Buf:")) Then     ' Pre Grbl 1.0
+                ' Lets display the values
+                data = data.Remove(data.Length - 3, 3)   ' Remove the "> " at end
+                Dim positions = Split(data, ":")
+                Try
+                    Dim buffer = Split(positions(3), ",")
+                    Dim rx = Split(positions(4), ",")
+                    prgbRxBuf.Value = rx(0)
+                    prgBarQ.Value = buffer(0)
+                Catch
+                    ' do nothing, should have Status Report mask = 15
+                End Try
+            End If
+
+            ' Show status on the buttons
+            ' Extract status
+            Dim status = Split(data, ",")
+            ' Set indicators
+            If Not IsNothing(status) Then 'And status(0).StartsWith("<") Then
+                statusSetIndicators(status(0))
+            End If
+
+            ' Set button states
+            If status(0) = "<Idle" Or status(0) = "<Run" Then
+                ' Clear the button lights
+                Me.btnUnlock.BackColor = Color.Transparent
+                Me.btnHold.BackColor = Color.Transparent
+                Me.btnReset.BackColor = Color.Transparent
+                Me.btnStartResume.BackColor = Color.Transparent
+                Me.btnStartResume.Text = "Start"
+            End If
+            If data.StartsWith("<Queue") Or data.StartsWith("<Hold") Then   ' This might become Hold later when fixed in Grbl
+                Me.btnStartResume.BackColor = Color.Crimson
+                Me.btnStartResume.Text = "Resume"
+            End If
+            If status(0) = "<Alarm" Then
+                Me.btnUnlock.BackColor = Color.Crimson
+            End If
+            If status(0) = "<Alarm" Or status(0).StartsWith("ALARM") Then
+                statusSetIndicators(status(0).Substring(0, 6))       ' Messy Status messages make for messy code :(
+            End If
+
+            ' Display the Parser state if that is the message type
+            If data(0) = "[" And data.Contains("F") Then        ' we have a Parser status message
+                state.ProcessGCode(data)
+            End If
+        End If ' Grbl 0.x proccessing Then
+
+        If GrblVersion = 1 Then
+            If data.StartsWith("[MSG:") Then
+
+            End If
+            If data.StartsWith("[GC:") Then
+                ' Parser State message
+                state.ProcessGCode(data)
+            End If
+
+            If data.StartsWith("<") Then
+                data = data.Remove(data.Length - 3, 3)
+                Dim statusMessage = Split(data, "|")
+                For Each item As String In statusMessage
+                    Dim portion() As String = Split(item, ":")
+                    ' Pn, Ov, T are andled in their respective objects
+                    Select Case portion(0)
+                        Case "<Idle"
+                            ' Clear the button lights
+                            Me.btnUnlock.BackColor = Color.Transparent
+                            Me.btnHold.BackColor = Color.Transparent
+                            Me.btnReset.BackColor = Color.Transparent
+                            Me.btnCheckMode.BackColor = Color.Transparent
+                            Me.btnStartResume.BackColor = Color.Transparent
+                            Me.btnStartResume.Text = "Start"
+                            tbCurrentStatus.BackColor = Color.LightGreen
+                            tbCurrentStatus.Text = "IDLE"
+                        Case "<Run"
+                            Me.btnUnlock.BackColor = Color.Transparent
+                            Me.btnHold.BackColor = Color.Transparent
+                            Me.btnReset.BackColor = Color.Transparent
+                            Me.btnStartResume.BackColor = Color.Transparent
+                            Me.btnStartResume.Text = "Start"
+                            tbCurrentStatus.BackColor = Color.LightGreen
+                            tbCurrentStatus.Text = "RUN"
+                        Case "<Hold"
+                            Me.btnStartResume.BackColor = Color.Crimson
+                            Me.btnStartResume.Text = "Resume"
+
+                            tbCurrentStatus.BackColor = Color.LightGreen
+                            tbCurrentStatus.Text = "HOLD"
+                        Case "<Jog"
+                            tbCurrentStatus.BackColor = Color.LightGreen
+                            tbCurrentStatus.Text = "JOG"
+                        Case "<Door"
+                            tbCurrentStatus.BackColor = Color.LightGreen
+                            tbCurrentStatus.Text = "DOOR"
+                        Case "<Check"
+                            Me.btnCheckMode.BackColor = Color.Crimson
+
+                            tbCurrentStatus.BackColor = Color.LightGreen
+                            tbCurrentStatus.Text = "CHECK"
+                        Case "<Home"
+                            tbCurrentStatus.BackColor = Color.LightGreen
+                            tbCurrentStatus.Text = "HOME"
+                        Case "Bf"
+                            Dim values = Split(portion(1), ",")
+                            Try
+                                prgBarQ.Value = 15 - values(0)
+                                prgbRxBuf.Value = 128 - values(1)
+                            Catch
+                            End Try
+                        Case "F"
+                            ' TODO Figure out where to display Grbl's actual feedrate, if at all
+                    End Select
+                Next
+
+            End If
         End If
 
-        ' Show status on the buttons
-        ' Extract status
-        Dim status = Split(data, ",")
-        ' Set indicators
-        If Not IsNothing(status) Then 'And status(0).StartsWith("<") Then
-            statusSetIndicators(status(0))
-        End If
-
-        ' Set button states
-        If status(0) = "<Idle" Or status(0) = "<Run" Then
-            ' Clear the button lights
-            Me.btnUnlock.BackColor = Color.Transparent
-            Me.btnHold.BackColor = Color.Transparent
-            Me.btnReset.BackColor = Color.Transparent
-            Me.btnStartResume.BackColor = Color.Transparent
-            Me.btnStartResume.Text = "Start"
-        End If
-        If data.StartsWith("<Queue") Or data.StartsWith("<Hold") Then   ' This might become Hold later when fixed in Grbl
-            Me.btnStartResume.BackColor = Color.Crimson
-            Me.btnStartResume.Text = "Resume"
-        End If
-        If status(0) = "<Alarm" Then
-            Me.btnUnlock.BackColor = Color.Crimson
-        End If
-        If status(0) = "<Alarm" Or status(0).StartsWith("ALARM") Then
-            statusSetIndicators(status(0).Substring(0, 6))       ' Messy Status messages make for messy code :(
-        End If
-        ' Major problem so cancel the file
-        ' Let GrblGcode class handle the error
-        'gcode.sendGCodeFileStop()
-
-        ' Display the Parser state if that is the message type
-        If data(0) = "[" And data.Contains("F") Then        ' we have a Parser status message
-            state.ProcessGCode(data)
-        End If
-
+        ' TODO Move to Settings handler
         If data(0) = "$" And IsNumeric(data(1)) Then
             ' we have a Grbl Settings response
             settings.FillSettings(data)
         End If
 
-        If data.StartsWith("Grbl") Then
-            ' Something reset the Grbl device, likely a physical Reset
-            ' Stop what we are doing and clear out for restart
-            gcode.ResetGcode(False)
-        End If
+
 
     End Sub
 
     Private Sub statusSetIndicators(ByVal status As String)
+        ' Version 0.x only
         ' Set status indicators depending on Grbl's status
         Select Case status
             Case "<Alarm", "ALARM:", "ALARM"

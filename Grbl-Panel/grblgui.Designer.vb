@@ -35,6 +35,9 @@ Partial Class GrblGui
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.tabPgInterface = New System.Windows.Forms.TabPage()
         Me.gbOverrides = New System.Windows.Forms.GroupBox()
+        Me.btnMistOverride = New System.Windows.Forms.Button()
+        Me.btnFloodOverride = New System.Windows.Forms.Button()
+        Me.btnSpindleOverride = New System.Windows.Forms.Button()
         Me.cbSpindleCoarse = New System.Windows.Forms.CheckBox()
         Me.btnSpindleOverrideReset = New System.Windows.Forms.Button()
         Me.btnRapidOverrideReset = New System.Windows.Forms.Button()
@@ -84,7 +87,7 @@ Partial Class GrblGui
         Me.Label45 = New System.Windows.Forms.Label()
         Me.Label17 = New System.Windows.Forms.Label()
         Me.cbxStateSpindle = New System.Windows.Forms.ComboBox()
-        Me.btnStatusGetParser = New System.Windows.Forms.Button()
+        Me.btnStatusClearPins = New System.Windows.Forms.Button()
         Me.gbControl = New System.Windows.Forms.GroupBox()
         Me.btnCheckMode = New System.Windows.Forms.Button()
         Me.btnReset = New System.Windows.Forms.Button()
@@ -444,6 +447,9 @@ Partial Class GrblGui
         '
         'gbOverrides
         '
+        Me.gbOverrides.Controls.Add(Me.btnMistOverride)
+        Me.gbOverrides.Controls.Add(Me.btnFloodOverride)
+        Me.gbOverrides.Controls.Add(Me.btnSpindleOverride)
         Me.gbOverrides.Controls.Add(Me.cbSpindleCoarse)
         Me.gbOverrides.Controls.Add(Me.btnSpindleOverrideReset)
         Me.gbOverrides.Controls.Add(Me.btnRapidOverrideReset)
@@ -463,11 +469,42 @@ Partial Class GrblGui
         Me.gbOverrides.Controls.Add(Me.btnFeedPlus)
         Me.gbOverrides.Location = New System.Drawing.Point(939, 412)
         Me.gbOverrides.Name = "gbOverrides"
-        Me.gbOverrides.Size = New System.Drawing.Size(190, 255)
+        Me.gbOverrides.Size = New System.Drawing.Size(190, 262)
         Me.gbOverrides.TabIndex = 37
         Me.gbOverrides.TabStop = False
         Me.gbOverrides.Text = "Overrides"
         Me.gbOverrides.Visible = False
+        '
+        'btnMistOverride
+        '
+        Me.btnMistOverride.Location = New System.Drawing.Point(123, 20)
+        Me.btnMistOverride.Name = "btnMistOverride"
+        Me.btnMistOverride.Size = New System.Drawing.Size(51, 23)
+        Me.btnMistOverride.TabIndex = 29
+        Me.btnMistOverride.TabStop = False
+        Me.btnMistOverride.Tag = "MistOverride"
+        Me.btnMistOverride.Text = "Mist"
+        Me.btnMistOverride.UseVisualStyleBackColor = True
+        '
+        'btnFloodOverride
+        '
+        Me.btnFloodOverride.Location = New System.Drawing.Point(70, 20)
+        Me.btnFloodOverride.Name = "btnFloodOverride"
+        Me.btnFloodOverride.Size = New System.Drawing.Size(51, 23)
+        Me.btnFloodOverride.TabIndex = 28
+        Me.btnFloodOverride.Tag = "FloodOverride"
+        Me.btnFloodOverride.Text = "Flood"
+        Me.btnFloodOverride.UseVisualStyleBackColor = True
+        '
+        'btnSpindleOverride
+        '
+        Me.btnSpindleOverride.Location = New System.Drawing.Point(17, 20)
+        Me.btnSpindleOverride.Name = "btnSpindleOverride"
+        Me.btnSpindleOverride.Size = New System.Drawing.Size(51, 23)
+        Me.btnSpindleOverride.TabIndex = 27
+        Me.btnSpindleOverride.Tag = "SpindleOverride"
+        Me.btnSpindleOverride.Text = "Spindle"
+        Me.btnSpindleOverride.UseVisualStyleBackColor = True
         '
         'cbSpindleCoarse
         '
@@ -475,7 +512,7 @@ Partial Class GrblGui
         Me.cbSpindleCoarse.AutoSize = True
         Me.cbSpindleCoarse.Checked = True
         Me.cbSpindleCoarse.CheckState = System.Windows.Forms.CheckState.Checked
-        Me.cbSpindleCoarse.Location = New System.Drawing.Point(131, 180)
+        Me.cbSpindleCoarse.Location = New System.Drawing.Point(130, 198)
         Me.cbSpindleCoarse.Name = "cbSpindleCoarse"
         Me.cbSpindleCoarse.Size = New System.Drawing.Size(50, 23)
         Me.cbSpindleCoarse.TabIndex = 26
@@ -484,7 +521,7 @@ Partial Class GrblGui
         '
         'btnSpindleOverrideReset
         '
-        Me.btnSpindleOverrideReset.Location = New System.Drawing.Point(131, 204)
+        Me.btnSpindleOverrideReset.Location = New System.Drawing.Point(130, 222)
         Me.btnSpindleOverrideReset.Name = "btnSpindleOverrideReset"
         Me.btnSpindleOverrideReset.Size = New System.Drawing.Size(49, 23)
         Me.btnSpindleOverrideReset.TabIndex = 25
@@ -494,7 +531,7 @@ Partial Class GrblGui
         '
         'btnRapidOverrideReset
         '
-        Me.btnRapidOverrideReset.Location = New System.Drawing.Point(129, 126)
+        Me.btnRapidOverrideReset.Location = New System.Drawing.Point(128, 153)
         Me.btnRapidOverrideReset.Name = "btnRapidOverrideReset"
         Me.btnRapidOverrideReset.Size = New System.Drawing.Size(49, 23)
         Me.btnRapidOverrideReset.TabIndex = 24
@@ -504,7 +541,7 @@ Partial Class GrblGui
         '
         'btnFeedOverrideReset
         '
-        Me.btnFeedOverrideReset.Location = New System.Drawing.Point(129, 47)
+        Me.btnFeedOverrideReset.Location = New System.Drawing.Point(127, 82)
         Me.btnFeedOverrideReset.Name = "btnFeedOverrideReset"
         Me.btnFeedOverrideReset.Size = New System.Drawing.Size(49, 23)
         Me.btnFeedOverrideReset.TabIndex = 23
@@ -518,7 +555,7 @@ Partial Class GrblGui
         Me.cbFeedCoarse.AutoSize = True
         Me.cbFeedCoarse.Checked = True
         Me.cbFeedCoarse.CheckState = System.Windows.Forms.CheckState.Checked
-        Me.cbFeedCoarse.Location = New System.Drawing.Point(130, 24)
+        Me.cbFeedCoarse.Location = New System.Drawing.Point(128, 59)
         Me.cbFeedCoarse.Name = "cbFeedCoarse"
         Me.cbFeedCoarse.Size = New System.Drawing.Size(50, 23)
         Me.cbFeedCoarse.TabIndex = 22
@@ -528,7 +565,7 @@ Partial Class GrblGui
         'Label44
         '
         Me.Label44.AutoSize = True
-        Me.Label44.Location = New System.Drawing.Point(7, 195)
+        Me.Label44.Location = New System.Drawing.Point(6, 213)
         Me.Label44.Name = "Label44"
         Me.Label44.Size = New System.Drawing.Size(42, 13)
         Me.Label44.TabIndex = 21
@@ -537,7 +574,7 @@ Partial Class GrblGui
         'btnSpindleMinus
         '
         Me.btnSpindleMinus.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnSpindleMinus.Location = New System.Drawing.Point(88, 204)
+        Me.btnSpindleMinus.Location = New System.Drawing.Point(87, 222)
         Me.btnSpindleMinus.Name = "btnSpindleMinus"
         Me.btnSpindleMinus.Size = New System.Drawing.Size(35, 35)
         Me.btnSpindleMinus.TabIndex = 20
@@ -548,7 +585,7 @@ Partial Class GrblGui
         'btnSpindlePlus
         '
         Me.btnSpindlePlus.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnSpindlePlus.Location = New System.Drawing.Point(88, 170)
+        Me.btnSpindlePlus.Location = New System.Drawing.Point(87, 188)
         Me.btnSpindlePlus.Name = "btnSpindlePlus"
         Me.btnSpindlePlus.Size = New System.Drawing.Size(35, 42)
         Me.btnSpindlePlus.TabIndex = 19
@@ -559,7 +596,7 @@ Partial Class GrblGui
         'Label22
         '
         Me.Label22.AutoSize = True
-        Me.Label22.Location = New System.Drawing.Point(6, 117)
+        Me.Label22.Location = New System.Drawing.Point(5, 144)
         Me.Label22.Name = "Label22"
         Me.Label22.Size = New System.Drawing.Size(35, 13)
         Me.Label22.TabIndex = 15
@@ -568,7 +605,7 @@ Partial Class GrblGui
         'btnRapidMinus
         '
         Me.btnRapidMinus.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnRapidMinus.Location = New System.Drawing.Point(88, 126)
+        Me.btnRapidMinus.Location = New System.Drawing.Point(87, 153)
         Me.btnRapidMinus.Name = "btnRapidMinus"
         Me.btnRapidMinus.Size = New System.Drawing.Size(35, 35)
         Me.btnRapidMinus.TabIndex = 14
@@ -579,7 +616,7 @@ Partial Class GrblGui
         'btnRapidPlus
         '
         Me.btnRapidPlus.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnRapidPlus.Location = New System.Drawing.Point(88, 92)
+        Me.btnRapidPlus.Location = New System.Drawing.Point(87, 119)
         Me.btnRapidPlus.Name = "btnRapidPlus"
         Me.btnRapidPlus.Size = New System.Drawing.Size(35, 42)
         Me.btnRapidPlus.TabIndex = 13
@@ -590,7 +627,7 @@ Partial Class GrblGui
         'tbSpindleOvr
         '
         Me.tbSpindleOvr.Enabled = False
-        Me.tbSpindleOvr.Location = New System.Drawing.Point(52, 192)
+        Me.tbSpindleOvr.Location = New System.Drawing.Point(51, 210)
         Me.tbSpindleOvr.Name = "tbSpindleOvr"
         Me.tbSpindleOvr.Size = New System.Drawing.Size(30, 20)
         Me.tbSpindleOvr.TabIndex = 10
@@ -599,7 +636,7 @@ Partial Class GrblGui
         'tbRapidOvr
         '
         Me.tbRapidOvr.Enabled = False
-        Me.tbRapidOvr.Location = New System.Drawing.Point(53, 117)
+        Me.tbRapidOvr.Location = New System.Drawing.Point(52, 144)
         Me.tbRapidOvr.Name = "tbRapidOvr"
         Me.tbRapidOvr.Size = New System.Drawing.Size(30, 20)
         Me.tbRapidOvr.TabIndex = 9
@@ -608,7 +645,7 @@ Partial Class GrblGui
         'tbFeedOvr
         '
         Me.tbFeedOvr.Enabled = False
-        Me.tbFeedOvr.Location = New System.Drawing.Point(53, 35)
+        Me.tbFeedOvr.Location = New System.Drawing.Point(51, 70)
         Me.tbFeedOvr.Name = "tbFeedOvr"
         Me.tbFeedOvr.Size = New System.Drawing.Size(30, 20)
         Me.tbFeedOvr.TabIndex = 8
@@ -617,7 +654,7 @@ Partial Class GrblGui
         'Label46
         '
         Me.Label46.AutoSize = True
-        Me.Label46.Location = New System.Drawing.Point(7, 38)
+        Me.Label46.Location = New System.Drawing.Point(5, 73)
         Me.Label46.Name = "Label46"
         Me.Label46.Size = New System.Drawing.Size(31, 13)
         Me.Label46.TabIndex = 6
@@ -626,7 +663,7 @@ Partial Class GrblGui
         'btnFeedMinus
         '
         Me.btnFeedMinus.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnFeedMinus.Location = New System.Drawing.Point(89, 47)
+        Me.btnFeedMinus.Location = New System.Drawing.Point(87, 82)
         Me.btnFeedMinus.Name = "btnFeedMinus"
         Me.btnFeedMinus.Size = New System.Drawing.Size(35, 35)
         Me.btnFeedMinus.TabIndex = 1
@@ -637,7 +674,7 @@ Partial Class GrblGui
         'btnFeedPlus
         '
         Me.btnFeedPlus.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnFeedPlus.Location = New System.Drawing.Point(89, 13)
+        Me.btnFeedPlus.Location = New System.Drawing.Point(87, 48)
         Me.btnFeedPlus.Name = "btnFeedPlus"
         Me.btnFeedPlus.Size = New System.Drawing.Size(35, 35)
         Me.btnFeedPlus.TabIndex = 0
@@ -650,7 +687,6 @@ Partial Class GrblGui
         Me.gbState.Controls.Add(Me.gbPinStatus)
         Me.gbState.Controls.Add(Me.Panel2)
         Me.gbState.Controls.Add(Me.Panel1)
-        Me.gbState.Controls.Add(Me.btnStatusGetParser)
         Me.gbState.Location = New System.Drawing.Point(938, 3)
         Me.gbState.Name = "gbState"
         Me.gbState.Size = New System.Drawing.Size(191, 403)
@@ -663,6 +699,7 @@ Partial Class GrblGui
         Me.gbPinStatus.Controls.Add(Me.cbFeedHold)
         Me.gbPinStatus.Controls.Add(Me.cbStartResume)
         Me.gbPinStatus.Controls.Add(Me.cbResetAbort)
+        Me.gbPinStatus.Controls.Add(Me.btnStatusClearPins)
         Me.gbPinStatus.Controls.Add(Me.cbLimitX)
         Me.gbPinStatus.Controls.Add(Me.cbDoorOpen)
         Me.gbPinStatus.Controls.Add(Me.cbProbePin)
@@ -670,7 +707,7 @@ Partial Class GrblGui
         Me.gbPinStatus.Controls.Add(Me.cbLimitY)
         Me.gbPinStatus.Location = New System.Drawing.Point(12, 328)
         Me.gbPinStatus.Name = "gbPinStatus"
-        Me.gbPinStatus.Size = New System.Drawing.Size(169, 52)
+        Me.gbPinStatus.Size = New System.Drawing.Size(169, 69)
         Me.gbPinStatus.TabIndex = 46
         Me.gbPinStatus.TabStop = False
         Me.gbPinStatus.Text = "Pins"
@@ -1005,15 +1042,15 @@ Partial Class GrblGui
         Me.cbxStateSpindle.Size = New System.Drawing.Size(74, 21)
         Me.cbxStateSpindle.TabIndex = 24
         '
-        'btnStatusGetParser
+        'btnStatusClearPins
         '
-        Me.btnStatusGetParser.AutoSize = True
-        Me.btnStatusGetParser.Location = New System.Drawing.Point(0, 380)
-        Me.btnStatusGetParser.Name = "btnStatusGetParser"
-        Me.btnStatusGetParser.Size = New System.Drawing.Size(72, 23)
-        Me.btnStatusGetParser.TabIndex = 36
-        Me.btnStatusGetParser.Text = "Refresh"
-        Me.btnStatusGetParser.UseVisualStyleBackColor = True
+        Me.btnStatusClearPins.AutoSize = True
+        Me.btnStatusClearPins.Location = New System.Drawing.Point(7, 46)
+        Me.btnStatusClearPins.Name = "btnStatusClearPins"
+        Me.btnStatusClearPins.Size = New System.Drawing.Size(64, 23)
+        Me.btnStatusClearPins.TabIndex = 36
+        Me.btnStatusClearPins.Text = "Clear Pins"
+        Me.btnStatusClearPins.UseVisualStyleBackColor = True
         '
         'gbControl
         '
@@ -3500,7 +3537,6 @@ Partial Class GrblGui
         Me.gbOverrides.ResumeLayout(False)
         Me.gbOverrides.PerformLayout()
         Me.gbState.ResumeLayout(False)
-        Me.gbState.PerformLayout()
         Me.gbPinStatus.ResumeLayout(False)
         Me.gbPinStatus.PerformLayout()
         Me.Panel2.ResumeLayout(False)
@@ -3737,7 +3773,7 @@ Partial Class GrblGui
     Friend WithEvents btnYPlus As RepeatButton.RepeatButton
     Friend WithEvents Label71 As System.Windows.Forms.Label
     Friend WithEvents cbSettingsConnectOnLoad As System.Windows.Forms.CheckBox
-    Friend WithEvents btnStatusGetParser As System.Windows.Forms.Button
+    Friend WithEvents btnStatusClearPins As System.Windows.Forms.Button
     Friend WithEvents gbSettingsOffsets As System.Windows.Forms.GroupBox
     Friend WithEvents Label7 As System.Windows.Forms.Label
     Friend WithEvents tbWorkX As System.Windows.Forms.TextBox
@@ -3850,4 +3886,7 @@ Partial Class GrblGui
     Friend WithEvents lineNum As DataGridViewTextBoxColumn
     Friend WithEvents data As DataGridViewTextBoxColumn
     Friend WithEvents cbMonitorEnable As CheckBox
+    Friend WithEvents btnMistOverride As Button
+    Friend WithEvents btnFloodOverride As Button
+    Friend WithEvents btnSpindleOverride As Button
 End Class
