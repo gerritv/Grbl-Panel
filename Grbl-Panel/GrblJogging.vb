@@ -71,9 +71,7 @@ Partial Class GrblGui
             Case "Z-"
                 gcode.sendGCodeLine(createJogCommand("Z-"))
         End Select
-        If GrblVersion = 0 Then
-            gcode.sendGCodeLine("G90")
-        End If
+        gcode.sendGCodeLine("G90")
     End Sub
 
     Private Sub cbSettingsMetric_CheckedChanged(sender As Object, e As EventArgs) Handles cbSettingsMetric.CheckedChanged
@@ -136,12 +134,7 @@ Partial Class GrblGui
     Public Function createJogCommand(ByVal axis As String) As String
         ' Builds a jog command from various inputs
         ' Jog in incremental mode, leave parser in absolute mode!
-        If GrblVersion = 0 Then
-            Return "G91 " + whichUnits() + " G01 " + axis + whichDistance() + " F" + whichFeedRate()
-        End If
-        If GrblVersion = 1 Then
-            Return "$J=G91" + whichUnits() + axis + whichDistance() + " F" + whichFeedRate()
-        End If
+        Return "G91 " + whichUnits() + " G01 " + axis + whichDistance() + " F" + whichFeedRate()
     End Function
     ''' <summary>
     ''' Return value of current Distance Increment

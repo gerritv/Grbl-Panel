@@ -104,7 +104,7 @@ Partial Class GrblGui
             _runMode = False
             gcodeview.fileMode = False
 
-            If (data.StartsWith("$J") Or Not (data.StartsWith("$") Or data.StartsWith("?"))) Then
+            If Not (data.StartsWith("$") Or data.StartsWith("?")) Then
                 ' add to display
                 ' _gui.gcodeview.Insert(data, 0)
                 With gcodeview

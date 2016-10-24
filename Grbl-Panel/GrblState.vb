@@ -24,7 +24,7 @@
             End If
         End Sub
 
-        Public Sub GrblConnected(ByVal msg As String)     ' Handles GrblGui.Connected Event
+        Private Sub GrblConnected(ByVal msg As String)     ' Handles GrblGui.Connected Event
             If msg = "Connected" Then
 
                 ' We are connected to Grbl so populate the State

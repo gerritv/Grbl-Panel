@@ -6,10 +6,9 @@ Partial Class grblgui
     ''' Class to handle overrides related functionality
     ''' </summary>
     Public Enum overrideChars
-        CMD_SAFETY_DOOR = 132       '0x84
-        CMD_JOG_CANCEL = 133        ' 0x85
-        CMD_DEBUG_REPORT = 133      '0x86 ' Only When DEBUG enabled, sends debug report In '{}' braces. 
-        CMD_FEED_OVR_RESET = 144    '0x90         ' Restores feed override value To 100%.
+        CMD_SAFETY_DOOR = 132 '0x84
+        CMD_DEBUG_REPORT = 133 '0x85 ' Only When DEBUG enabled, sends debug report In '{}' braces. 
+        CMD_FEED_OVR_RESET = 144 '0x90         ' Restores feed override value To 100%.
         CMD_FEED_OVR_COARSE_PLUS = 145 '0x91
         CMD_FEED_OVR_COARSE_MINUS = 146 ' 0x92
         CMD_FEED_OVR_FINE_PLUS = 147 ' 0x93
@@ -18,14 +17,12 @@ Partial Class grblgui
         CMD_RAPID_OVR_MEDIUM = 150 '0x96
         CMD_RAPID_OVR_LOW = 151 ' 0x97
         ' CMD_RAPID_OVR_EXTRA_LOW 0x98 ' *Not SUPPORTED*
-        CMD_SPINDLE_OVR_RESET = 153     ' 0x99      ' Restores spindle override value To 100%.
+        CMD_SPINDLE_OVR_RESET = 153 ' 0x99      ' Restores spindle override value To 100%.
         CMD_SPINDLE_OVR_COARSE_PLUS = 154 ' 0x9A
         CMD_SPINDLE_OVR_COARSE_MINUS = 155 ' 0x9B
         CMD_SPINDLE_OVR_FINE_PLUS = 156 ' 0x9C
         CMD_SPINDLE_OVR_FINE_MINUS = 157 '0x9D
-        CMD_SPINDLE_OVR_STOP = 158  '0x9E aka Toogle Spindle Stop
-        CMD_TOGGLE_FLOOD = 160      ' 0xA0
-        CMD_TOGGLE_MIST = 161       ' 0xA1
+        CMD_SPINDLE_OVR_STOP = 158 '0x9E
     End Enum
     Public Class GrblOverrides
         Private _gui As GrblGui
@@ -61,43 +58,20 @@ Partial Class grblgui
 
     Public Sub showOverrides(ByVal data As String)
 
-        ' Process Override values, Grbl 1.x only
-        If data.Contains("Ov:") Or data.Contains("T:") Then
-            data = data.Remove(data.Length - 3, 3)
-            Dim statusMessage = Split(data, "|")
-            For Each item As String In statusMessage
-                Dim portion() As String = Split(item, ":")
-                Select Case portion(0)
-                    Case "Ov"
-                        Dim ovr = Split(portion(1), ",")
-                        tbFeedOvr.Text = ovr(0) + "%"
-                        tbRapidOvr.Text = ovr(1) + "%"
-                        tbSpindleOvr.Text = ovr(2) + "%"
-                        If Not data.Contains("T") Then
-                            btnSpindleOverride.BackColor = Color.Transparent
-                        End If
-                    Case "T"
-                        If portion(1).Contains("S") Then
-                            btnSpindleOverride.BackColor = Color.Crimson
-                        End If
-                        If portion(1).Contains("F") Then
-                            If btnFloodOverride.BackColor = Color.Crimson Then
-                                btnFloodOverride.BackColor = Color.Transparent
-                            Else
-                                btnFloodOverride.BackColor = Color.Crimson
-                            End If
-                        End If
-                        If portion(1).Contains("M") Then
-                            If btnMistOverride.BackColor = Color.Crimson Then
-                                btnMistOverride.BackColor = Color.Transparent
-                            Else
-                                btnMistOverride.BackColor = Color.Crimson
-                            End If
-                        End If
-                End Select
-            Next
-        End If
+        Dim _ovrIndex As Integer
+        Dim _ovr As String()
 
+        _ovrIndex = data.LastIndexOf("OVR:")
+        If _ovrIndex = -1 Then
+            Return
+        Else
+            data = data.Remove(data.Length - 3, 3) ' Remove > and vbCrLf
+            ' We have Grbl V1.0 or later so display overrides
+            _ovr = data.Substring(_ovrIndex + 4).Split(",")
+            tbFeedOvr.Text = _ovr(0) + "%"
+            tbRapidOvr.Text = _ovr(1) + "%"
+            tbSpindleOvr.Text = _ovr(2) + "%"
+        End If
     End Sub
     ''' <summary>
     ''' Handles the Click event of the btnFeedOverride controls.
@@ -163,27 +137,9 @@ Partial Class grblgui
                 grblPort.sendData(Chr(overrideChars.CMD_SPINDLE_OVR_RESET))
         End Select
     End Sub
-    ''' <summary>
-    ''' Handle toggle of some overrides, constrained by present state
-    ''' </summary>
-    ''' <param name="sender"></param>
-    ''' <param name="e"></param>
-    Private Sub btnToggleOverride_Click(sender As Object, e As EventArgs) Handles btnSpindleOverride.Click, btnMistOverride.Click, btnFloodOverride.Click
-        ' Spindle toggle only in Hold
-        ' Coolant and Mist in Idle,Run or Hold
-        Dim btn As Button = sender
-        Select Case DirectCast(btn.Tag, String)
-            Case "SpindleOverride"
-                grblPort.sendData(Chr(overrideChars.CMD_SPINDLE_OVR_STOP))
 
-                If btnSpindleOverride.BackColor = Color.Crimson Then
-                    btnSpindleOverride.BackColor = Color.Transparent
-                End If
-            Case "FloodOverride"
-                grblPort.sendData(Chr(overrideChars.CMD_TOGGLE_FLOOD))
-            Case "MistOverride"
-                grblPort.sendData(Chr(overrideChars.CMD_TOGGLE_MIST))
-        End Select
-        ' btn colour changes based on T:SFM response handled in showOverrides()
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles btnRapidMinus.Click
+
+        grblPort.sendData(Chr(overrideChars.CMD_DEBUG_REPORT))
     End Sub
 End Class

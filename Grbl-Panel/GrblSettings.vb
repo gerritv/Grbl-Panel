@@ -154,7 +154,7 @@ Partial Class GrblGui
 
         ' Event template for Settings Retrieved indication
         Public Event GrblSettingsRetrieved()
-
+        Private newPropertyValue As String
         Public Sub RefreshSettings()
             _nextParam = 0
             gcode.sendGCodeLine("$$")

@@ -41,112 +41,32 @@ Partial Class GrblGui
             End If
 
         End Sub
-
-        Private _wcoX As Decimal
-        Public Property wcoX() As Decimal
-            Get
-                Return _wcoX
-            End Get
-            Set(ByVal value As Decimal)
-                _wcoX = value
-            End Set
-        End Property
-        Private _wcoY As Decimal
-        Public Property wcoY() As Decimal
-            Get
-                Return _wcoY
-            End Get
-            Set(ByVal value As Decimal)
-                _wcoY = value
-            End Set
-        End Property
-
-        Private _wcoZ As Decimal
-        Public Property wcoZ() As Decimal
-            Get
-                Return _wcoZ
-            End Get
-            Set(ByVal value As Decimal)
-                _wcoZ = value
-            End Set
-        End Property
     End Class
 
 
     Public Sub showGrblPositions(ByVal data As String)
 
         ' Show data in the Positions group (from our own thread)
-        If data = vbCrLf Then Return
+        If (data.Contains("MPos:")) Then
+            ' Lets display the values
+            data = data.Remove(data.Length - 3, 3)   ' Remove the "> " at end
+            Dim positions = Split(data, ":")
+            Dim machPos = Split(positions(1), ",")
+            Dim workPos = Split(positions(2), ",")
 
-        If GrblVersion = 0 Then
-            ' Grbl versions 0.x
-            If (data.Contains("MPos:")) Then
-                ' Lets display the values
-                data = data.Remove(data.Length - 3, 3)   ' Remove the "> " at end
-                Dim positions = Split(data, ":")
-                Dim machPos = Split(positions(1), ",")
-                Dim workPos = Split(positions(2), ",")
+            tbMachX.Text = machPos(0).ToString
+            tbMachY.Text = machPos(1).ToString
+            tbMachZ.Text = machPos(2).ToString
 
-                tbMachX.Text = machPos(0).ToString
-                tbMachY.Text = machPos(1).ToString
-                tbMachZ.Text = machPos(2).ToString
+            tbWorkX.Text = workPos(0).ToString
+            tbWorkY.Text = workPos(1).ToString
+            tbWorkZ.Text = workPos(2).ToString
 
-                tbWorkX.Text = workPos(0).ToString
-                tbWorkY.Text = workPos(1).ToString
-                tbWorkZ.Text = workPos(2).ToString
+            'Set same values into the repeater view on Offsets page
+            tbOffSetsMachX.Text = machPos(0).ToString
+            tbOffSetsMachY.Text = machPos(1).ToString
+            tbOffSetsMachZ.Text = machPos(2).ToString
 
-                'Set same values into the repeater view on Offsets page
-                tbOffSetsMachX.Text = machPos(0).ToString
-                tbOffSetsMachY.Text = machPos(1).ToString
-                tbOffSetsMachZ.Text = machPos(2).ToString
-            End If
-        End If
-
-        If GrblVersion = 1 Then
-            ' Grbl/Gnea versions 1.x
-            If data.StartsWith("<") Then
-                data = data.Remove(data.Length - 3, 3)
-                Dim statusMessage = Split(data, "|")
-                For Each item As String In statusMessage
-                    Dim portion() As String = Split(item, ":")
-                    ' Pn, Ov, T are handled in their respective objects
-                    Select Case portion(0)
-                        Case "WCO"
-                            ' WCO appears now and then or if it changes
-                            Dim wco = Split(portion(1), ",")
-                            position.wcoX = wco(0)
-                            position.wcoY = wco(1)
-                            position.wcoZ = wco(2)
-                        Case "MPos"
-                            ' We get Mpos but no WPos depending on $10
-                            Dim machPos = Split(portion(1), ",")
-                            tbMachX.Text = machPos(0).ToString
-                            tbMachY.Text = machPos(1).ToString
-                            tbMachZ.Text = machPos(2).ToString
-
-                            tbWorkX.Text = (machPos(0) - position.wcoX).ToString("0.000")
-                            tbWorkY.Text = (machPos(1) - position.wcoY).ToString("0.000")
-                            tbWorkZ.Text = (machPos(2) - position.wcoZ).ToString("0.000")
-
-                            'Set same values into the repeater view on Offsets page
-                            tbOffSetsMachX.Text = tbMachX.Text
-                            tbOffSetsMachY.Text = tbMachY.Text
-                            tbOffSetsMachZ.Text = tbMachZ.Text
-                        Case "WPos"
-                            ' We get WPos but no MPos depending on $10
-                            Dim workPos = Split(portion(1), ",")
-                            tbWorkX.Text = workPos(0).ToString
-                            tbWorkY.Text = workPos(1).ToString
-                            tbWorkZ.Text = workPos(2).ToString
-
-                            tbMachX.Text = (workPos(0) + position.wcoX).ToString("0.000")
-                            tbMachY.Text = (workPos(1) + position.wcoY).ToString("0.000")
-                            tbMachZ.Text = (workPos(2) + position.wcoZ).ToString("0.000")
-
-                    End Select
-                Next
-
-            End If
         End If
     End Sub
 
