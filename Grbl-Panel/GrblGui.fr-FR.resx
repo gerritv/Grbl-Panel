@@ -1,0 +1,354 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="SaveToolStripMenuItem.Text" xml:space="preserve">
+    <value>Sauver</value>
+  </data>
+  <data name="ExitToolStripMenuItem.Text" xml:space="preserve">
+    <value>Quitter</value>
+  </data>
+  <data name="ToolStripMenuItem1.Text" xml:space="preserve">
+    <value>Fichier</value>
+  </data>
+  <data name="OptionsToolStripMenuItem.Text" xml:space="preserve">
+    <value>Options</value>
+  </data>
+  <data name="ToolsToolStripMenuItem.Text" xml:space="preserve">
+    <value>Outils</value>
+  </data>
+  <data name="AboutToolStripMenuItem.Text" xml:space="preserve">
+    <value>A propos</value>
+  </data>
+  <data name="HelpToolStripMenuItem.Text" xml:space="preserve">
+    <value>Aide</value>
+  </data>
+  <data name="MenuStrip1.Text" xml:space="preserve">
+    <value>MenuStrip1</value>
+  </data>
+  <data name="btnMistOverride.Text" xml:space="preserve">
+    <value>Vaporisation</value>
+  </data>
+  <data name="btnFloodOverride.Text" xml:space="preserve">
+    <value>Flot</value>
+  </data>
+  <data name="btnSpindleOverride.Text" xml:space="preserve">
+    <value>Broche</value>
+  </data>
+  <data name="cbSpindleCoarse.Text" xml:space="preserve">
+    <value>Gros Grain</value>
+  </data>
+  <data name="btnSpindleOverrideReset.Text" xml:space="preserve">
+    <value>Réinitialiser</value>
+  </data>
+  <data name="btnRapidOverrideReset.Text" xml:space="preserve">
+    <value>Réinitialiser</value>
+  </data>
+  <data name="btnFeedOverrideReset.Text" xml:space="preserve">
+    <value>Réinitialiser</value>
+  </data>
+  <data name="cbFeedCoarse.Text" xml:space="preserve">
+    <value>Gros Grain</value>
+  </data>
+  <data name="Label44.Text" xml:space="preserve">
+    <value>Broche</value>
+  </data>
+  <data name="btnSpindleMinus.Text" xml:space="preserve">
+    <value>-</value>
+  </data>
+  <data name="btnSpindlePlus.Text" xml:space="preserve">
+    <value>+</value>
+  </data>
+  <data name="Label22.Text" xml:space="preserve">
+    <value>Rapide</value>
+  </data>
+  <data name="btnRapidMinus.Text" xml:space="preserve">
+    <value>-</value>
+  </data>
+  <data name="btnRapidPlus.Text" xml:space="preserve">
+    <value>+</value>
+  </data>
+  <data name="Label46.Text" xml:space="preserve">
+    <value>Avance</value>
+  </data>
+  <data name="btnFeedMinus.Text" xml:space="preserve">
+    <value>-</value>
+  </data>
+  <data name="btnFeedPlus.Text" xml:space="preserve">
+    <value>+</value>
+  </data>
+  <data name="gbOverrides.Text" xml:space="preserve">
+    <value>Contourner</value>
+  </data>
+  <data name="cbFeedHold.Text" xml:space="preserve">
+    <value>CF</value>
+  </data>
+  <data name="cbFeedHold.ToolTip" xml:space="preserve">
+    <value>Maintient Avance</value>
+  </data>
+  <data name="cbStartResume.Text" xml:space="preserve">
+    <value>DC</value>
+  </data>
+  <data name="cbStartResume.ToolTip" xml:space="preserve">
+    <value>Démarre Cycle</value>
+  </data>
+  <data name="cbResetAbort.Text" xml:space="preserve">
+    <value>R</value>
+  </data>
+  <data name="cbResetAbort.ToolTip" xml:space="preserve">
+    <value>Réinitialiser</value>
+  </data>
+  <data name="btnStatusClearPins.Text" xml:space="preserve">
+    <value>Effacer les broches</value>
+  </data>
+  <data name="cbLimitX.Text" xml:space="preserve">
+    <value>X</value>
+  </data>
+  <data name="cbLimitX.ToolTip" xml:space="preserve">
+    <value>Limite X</value>
+  </data>
+  <data name="cbDoorOpen.Text" xml:space="preserve">
+    <value>P</value>
+  </data>
+  <data name="cbDoorOpen.ToolTip" xml:space="preserve">
+    <value>Porte Ouverte</value>
+  </data>
+  <data name="cbProbePin.Text" xml:space="preserve">
+    <value>S</value>
+  </data>
+  <data name="cbProbePin.ToolTip" xml:space="preserve">
+    <value>Broche pour Sonde</value>
+  </data>
+  <data name="cbLimitZ.Text" xml:space="preserve">
+    <value>Z</value>
+  </data>
+  <data name="cbLimitZ.ToolTip" xml:space="preserve">
+    <value>Limite Z</value>
+  </data>
+  <data name="cbLimitY.Text" xml:space="preserve">
+    <value>Y</value>
+  </data>
+  <data name="cbLimitY.ToolTip" xml:space="preserve">
+    <value>Limite Y</value>
+  </data>
+  <data name="gbPinStatus.Text" xml:space="preserve">
+    <value>Broche</value>
+  </data>
+  <data name="Label14.Text" xml:space="preserve">
+    <value>Vit. Avance</value>
+  </data>
+  <data name="Label53.Text" xml:space="preserve">
+    <value>Outil</value>
+  </data>
+  <data name="Label50.Text" xml:space="preserve">
+    <value>Broche t/mn</value>
+  </data>
+  <data name="cbxStateFeedMode.Items1" xml:space="preserve">
+    <value>Unité/Min           G94</value>
+  </data>
+  <data name="cbxStateFeedMode.Items2" xml:space="preserve">
+    <value>Inversion Temps G93</value>
+  </data>
+  <data name="cbxStateDistance.Items1" xml:space="preserve">
+    <value>Absolue                                       G90</value>
+  </data>
+  <data name="cbxStateDistance.Items2" xml:space="preserve">
+    <value>Incrémentale                               G91</value>
+  </data>
+  <data name="Label16.Text" xml:space="preserve">
+    <value>Unités</value>
+  </data>
+  <data name="cbxStateUnits.Items1" xml:space="preserve">
+    <value>Métrique                G21</value>
+  </data>
+  <data name="cbxStateUnits.Items2" xml:space="preserve">
+    <value>Impérial                 G20</value>
+  </data>
+  <data name="Label123.Text" xml:space="preserve">
+    <value>Mode Distance</value>
+  </data>
+  <data name="Lalbel49.Text" xml:space="preserve">
+    <value>Plan Actif</value>
+  </data>
+  <data name="cbxStatePlane.Items1" xml:space="preserve">
+    <value>XY                     G17</value>
+  </data>
+  <data name="cbxStatePlane.Items2" xml:space="preserve">
+    <value>YZ                     G18</value>
+  </data>
+  <data name="cbxStatePlane.Items3" xml:space="preserve">
+    <value>XZ                     G19</value>
+  </data>
+  <data name="Label47.Text" xml:space="preserve">
+    <value>Refroidissant</value>
+  </data>
+  <data name="Label15.Text" xml:space="preserve">
+    <value>Décalage Travail</value>
+  </data>
+  <data name="cbxStateCoolant.Items1" xml:space="preserve">
+    <value>Allumé                   M8</value>
+  </data>
+  <data name="cbxStateCoolant.Items2" xml:space="preserve">
+    <value>Eteint                      M9</value>
+  </data>
+  <data name="Label45.Text" xml:space="preserve">
+    <value>Broche</value>
+  </data>
+  <data name="Label17.Text" xml:space="preserve">
+    <value>Mode Vit. Avance</value>
+  </data>
+  <data name="cbxStateSpindle.Items1" xml:space="preserve">
+    <value>SH                            M3</value>
+  </data>
+  <data name="cbxStateSpindle.Items2" xml:space="preserve">
+    <value>SAH                          M4</value>
+  </data>
+  <data name="cbxStateSpindle.Items3" xml:space="preserve">
+    <value>Eteint                        M5     </value>
+  </data>
+  <data name="gbState.Text" xml:space="preserve">
+    <value>Etat</value>
+  </data>
+  <data name="btnCheckMode.Text" xml:space="preserve">
+    <value>Vérifie</value>
+  </data>
+  <data name="btnReset.Text" xml:space="preserve">
+    <value>Réinitialise</value>
+  </data>
+  <data name="btnHold.Text" xml:space="preserve">
+    <value>Maintiens</value>
+  </data>
+  <data name="btnStartResume.Text" xml:space="preserve">
+    <value>Démarre</value>
+  </data>
+  <data name="btnUnlock.Text" xml:space="preserve">
+    <value>Débloque</value>
+  </data>
+  <data name="gbControl.Text" xml:space="preserve">
+    <value>Contrôle</value>
+  </data>
+  <data name="Label9.Text" xml:space="preserve">
+    <value>Commande Manuelle</value>
+  </data>
+  <data name="btnSend.Text" xml:space="preserve">
+    <value>Envois</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Panneau GRBL</value>
+  </data>
+</root>

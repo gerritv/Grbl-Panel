@@ -1,0 +1,9 @@
+F:\Repos-GitHub-Local\Grbl-Panel\RepeatButton\bin\Debug\RepeatButton.dll
+F:\Repos-GitHub-Local\Grbl-Panel\RepeatButton\bin\Debug\RepeatButton.pdb
+F:\Repos-GitHub-Local\Grbl-Panel\RepeatButton\bin\Debug\RepeatButton.xml
+F:\Repos-GitHub-Local\Grbl-Panel\RepeatButton\obj\Debug\Custom.vbprojResolveAssemblyReference.cache
+F:\Repos-GitHub-Local\Grbl-Panel\RepeatButton\obj\Debug\RepeatButton.Resources.resources
+F:\Repos-GitHub-Local\Grbl-Panel\RepeatButton\obj\Debug\Custom.vbproj.GenerateResource.Cache
+F:\Repos-GitHub-Local\Grbl-Panel\RepeatButton\obj\Debug\RepeatButton.dll
+F:\Repos-GitHub-Local\Grbl-Panel\RepeatButton\obj\Debug\RepeatButton.xml
+F:\Repos-GitHub-Local\Grbl-Panel\RepeatButton\obj\Debug\RepeatButton.pdb

@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -118,33 +118,33 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="Button_Connection_Text_Connect" xml:space="preserve">
-    <value>Connect</value>
+    <value>Connectes</value>
   </data>
   <data name="GrblGui_grblgui_unload_Are_You_Certain_That_You_Want_To_Close" xml:space="preserve">
-    <value>Are You Certain That You Want To Close</value>
+    <value>Êtes-vous sûr de vouloir fermer?</value>
   </data>
   <data name="MsgFilter_PreFilterMessage_Start" xml:space="preserve">
-    <value>Start</value>
+    <value>Démarre</value>
   </data>
   <data name="GrblGui_btnConnDisconnect_Click_Disconnect" xml:space="preserve">
-    <value>Disconnect</value>
+    <value>Déconnectes</value>
   </data>
   <data name="GrblGui_btnConnDisconnect_Click_Please_Select_A_Com_Port" xml:space="preserve">
-    <value>Please Select A Com Port</value>
+    <value>Sélectionnez un Port COM, SVP</value>
   </data>
   <data name="GrblGui_btnConnDisconnect_Click_Or_Connect_The_Cable" xml:space="preserve">
-    <value>Or Connect The Cable</value>
+    <value>Ou connectez le câble.</value>
   </data>
   <data name="GrblGui_btnConnDisconnect_Click_Connect_Error" xml:space="preserve">
-    <value>Connect Error</value>
+    <value>Erreur de connexion</value>
   </data>
   <data name="GrblGui_btnConnDisconnect_Click_Please_Enter_An_IP_Address" xml:space="preserve">
-    <value>Please Enter An IP Address</value>
+    <value>Entrez une adresse IP, SVP</value>
   </data>
   <data name="GrblGui_btnConnDisconnect_Click_And_A_Port_Number_In_The_Format" xml:space="preserve">
-    <value>And A Port Number In The Format</value>
+    <value>et un numéro de port, dans le format</value>
   </data>
   <data name="GrblGui_btnConnDisconnect_Click_Connect" xml:space="preserve">
-    <value>Connect</value>
+    <value>Connectes</value>
   </data>
 </root>
