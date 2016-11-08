@@ -311,102 +311,117 @@ Partial Class GrblGui
         Me.sfdOffsets = New System.Windows.Forms.SaveFileDialog()
         Me.ofdOffsets = New System.Windows.Forms.OpenFileDialog()
         Me.GrblSettingsBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.MenuStrip1.SuspendLayout
-        Me.TabControl1.SuspendLayout
-        Me.tabPgInterface.SuspendLayout
-        Me.gbOverrides.SuspendLayout
-        Me.gbState.SuspendLayout
-        Me.gbPinStatus.SuspendLayout
-        Me.Panel2.SuspendLayout
-        Me.Panel1.SuspendLayout
-        Me.gbControl.SuspendLayout
-        Me.gbMDI.SuspendLayout
-        Me.gbJogging.SuspendLayout
-        Me.gbFeedRate.SuspendLayout
-        Me.gbDistance.SuspendLayout
-        Me.gbStatus.SuspendLayout
-        Me.gbGcode.SuspendLayout
-        CType(Me.dgvGcode,System.ComponentModel.ISupportInitialize).BeginInit
-        Me.gbGrbl.SuspendLayout
-        Me.tcConnection.SuspendLayout
-        Me.tbGrblCOM.SuspendLayout
-        Me.tbGrblIP.SuspendLayout
-        Me.gbPosition.SuspendLayout
-        Me.tabCtlPosition.SuspendLayout
-        Me.tpWork.SuspendLayout
-        Me.Panel5.SuspendLayout
-        Me.Panel4.SuspendLayout
-        Me.Panel3.SuspendLayout
-        Me.GroupBox1.SuspendLayout
-        Me.tpOffsets.SuspendLayout
-        Me.tabPgSettings.SuspendLayout
-        Me.gbGrblSettings.SuspendLayout
-        CType(Me.dgGrblSettings,System.ComponentModel.ISupportInitialize).BeginInit
-        Me.gbSettingsOffsets.SuspendLayout
-        Me.gbSettingsMisc.SuspendLayout
-        Me.gbSettingsPosition.SuspendLayout
-        Me.gbSettingsJogging.SuspendLayout
-        Me.TabPage1.SuspendLayout
-        Me.gbEditor.SuspendLayout
-        CType(Me.dgMacros,System.ComponentModel.ISupportInitialize).BeginInit
-        CType(Me.GrblSettingsBindingSource,System.ComponentModel.ISupportInitialize).BeginInit
-        Me.SuspendLayout
+        Me.MenuStrip1.SuspendLayout()
+        Me.TabControl1.SuspendLayout()
+        Me.tabPgInterface.SuspendLayout()
+        Me.gbOverrides.SuspendLayout()
+        Me.gbState.SuspendLayout()
+        Me.gbPinStatus.SuspendLayout()
+        Me.Panel2.SuspendLayout()
+        Me.Panel1.SuspendLayout()
+        Me.gbControl.SuspendLayout()
+        Me.gbMDI.SuspendLayout()
+        Me.gbJogging.SuspendLayout()
+        Me.gbFeedRate.SuspendLayout()
+        Me.gbDistance.SuspendLayout()
+        Me.gbStatus.SuspendLayout()
+        Me.gbGcode.SuspendLayout()
+        CType(Me.dgvGcode, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.gbGrbl.SuspendLayout()
+        Me.tcConnection.SuspendLayout()
+        Me.tbGrblCOM.SuspendLayout()
+        Me.tbGrblIP.SuspendLayout()
+        Me.gbPosition.SuspendLayout()
+        Me.tabCtlPosition.SuspendLayout()
+        Me.tpWork.SuspendLayout()
+        Me.Panel5.SuspendLayout()
+        Me.Panel4.SuspendLayout()
+        Me.Panel3.SuspendLayout()
+        Me.GroupBox1.SuspendLayout()
+        Me.tpOffsets.SuspendLayout()
+        Me.tabPgSettings.SuspendLayout()
+        Me.gbGrblSettings.SuspendLayout()
+        CType(Me.dgGrblSettings, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.gbSettingsOffsets.SuspendLayout()
+        Me.gbSettingsMisc.SuspendLayout()
+        Me.gbSettingsPosition.SuspendLayout()
+        Me.gbSettingsJogging.SuspendLayout()
+        Me.TabPage1.SuspendLayout()
+        Me.gbEditor.SuspendLayout()
+        CType(Me.dgMacros, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.GrblSettingsBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.SuspendLayout()
         '
         'MenuStrip1
         '
         Me.MenuStrip1.GripStyle = System.Windows.Forms.ToolStripGripStyle.Visible
         Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripMenuItem1, Me.ToolsToolStripMenuItem, Me.HelpToolStripMenuItem})
-        resources.ApplyResources(Me.MenuStrip1, "MenuStrip1")
+        Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
         Me.MenuStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional
+        Me.MenuStrip1.Size = New System.Drawing.Size(1143, 24)
+        Me.MenuStrip1.TabIndex = 0
+        Me.MenuStrip1.Text = "MenuStrip1"
         '
         'ToolStripMenuItem1
         '
         Me.ToolStripMenuItem1.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SaveToolStripMenuItem, Me.ExitToolStripMenuItem})
         Me.ToolStripMenuItem1.Name = "ToolStripMenuItem1"
-        resources.ApplyResources(Me.ToolStripMenuItem1, "ToolStripMenuItem1")
+        Me.ToolStripMenuItem1.Size = New System.Drawing.Size(37, 20)
+        Me.ToolStripMenuItem1.Text = "File"
         '
         'SaveToolStripMenuItem
         '
         Me.SaveToolStripMenuItem.Name = "SaveToolStripMenuItem"
-        resources.ApplyResources(Me.SaveToolStripMenuItem, "SaveToolStripMenuItem")
+        Me.SaveToolStripMenuItem.Size = New System.Drawing.Size(98, 22)
+        Me.SaveToolStripMenuItem.Text = "Save"
+        Me.SaveToolStripMenuItem.Visible = False
         '
         'ExitToolStripMenuItem
         '
         Me.ExitToolStripMenuItem.Name = "ExitToolStripMenuItem"
-        resources.ApplyResources(Me.ExitToolStripMenuItem, "ExitToolStripMenuItem")
+        Me.ExitToolStripMenuItem.Size = New System.Drawing.Size(98, 22)
+        Me.ExitToolStripMenuItem.Text = "Exit"
         '
         'ToolsToolStripMenuItem
         '
         Me.ToolsToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.OptionsToolStripMenuItem})
         Me.ToolsToolStripMenuItem.Name = "ToolsToolStripMenuItem"
-        resources.ApplyResources(Me.ToolsToolStripMenuItem, "ToolsToolStripMenuItem")
+        Me.ToolsToolStripMenuItem.Size = New System.Drawing.Size(47, 20)
+        Me.ToolsToolStripMenuItem.Text = "Tools"
         '
         'OptionsToolStripMenuItem
         '
         Me.OptionsToolStripMenuItem.Name = "OptionsToolStripMenuItem"
-        resources.ApplyResources(Me.OptionsToolStripMenuItem, "OptionsToolStripMenuItem")
+        Me.OptionsToolStripMenuItem.Size = New System.Drawing.Size(116, 22)
+        Me.OptionsToolStripMenuItem.Text = "Options"
         '
         'HelpToolStripMenuItem
         '
         Me.HelpToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AboutToolStripMenuItem})
         Me.HelpToolStripMenuItem.Name = "HelpToolStripMenuItem"
-        resources.ApplyResources(Me.HelpToolStripMenuItem, "HelpToolStripMenuItem")
+        Me.HelpToolStripMenuItem.Size = New System.Drawing.Size(44, 20)
+        Me.HelpToolStripMenuItem.Text = "Help"
         '
         'AboutToolStripMenuItem
         '
         Me.AboutToolStripMenuItem.Name = "AboutToolStripMenuItem"
-        resources.ApplyResources(Me.AboutToolStripMenuItem, "AboutToolStripMenuItem")
+        Me.AboutToolStripMenuItem.Size = New System.Drawing.Size(107, 22)
+        Me.AboutToolStripMenuItem.Text = "About"
         '
         'TabControl1
         '
-        resources.ApplyResources(Me.TabControl1, "TabControl1")
+        Me.TabControl1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.TabControl1.Controls.Add(Me.tabPgInterface)
         Me.TabControl1.Controls.Add(Me.tabPgSettings)
         Me.TabControl1.Controls.Add(Me.TabPage1)
+        Me.TabControl1.Location = New System.Drawing.Point(0, 24)
         Me.TabControl1.Name = "TabControl1"
         Me.TabControl1.SelectedIndex = 0
+        Me.TabControl1.Size = New System.Drawing.Size(1142, 703)
         Me.TabControl1.SizeMode = System.Windows.Forms.TabSizeMode.FillToRight
+        Me.TabControl1.TabIndex = 1
         '
         'tabPgInterface
         '
@@ -419,9 +434,13 @@ Partial Class GrblGui
         Me.tabPgInterface.Controls.Add(Me.gbGcode)
         Me.tabPgInterface.Controls.Add(Me.gbGrbl)
         Me.tabPgInterface.Controls.Add(Me.gbPosition)
-        resources.ApplyResources(Me.tabPgInterface, "tabPgInterface")
+        Me.tabPgInterface.Location = New System.Drawing.Point(4, 22)
         Me.tabPgInterface.Name = "tabPgInterface"
-        Me.tabPgInterface.UseVisualStyleBackColor = true
+        Me.tabPgInterface.Padding = New System.Windows.Forms.Padding(3)
+        Me.tabPgInterface.Size = New System.Drawing.Size(1134, 677)
+        Me.tabPgInterface.TabIndex = 0
+        Me.tabPgInterface.Text = "Interface"
+        Me.tabPgInterface.UseVisualStyleBackColor = True
         '
         'gbOverrides
         '
@@ -442,118 +461,189 @@ Partial Class GrblGui
         Me.gbOverrides.Controls.Add(Me.Label46)
         Me.gbOverrides.Controls.Add(Me.btnFeedMinus)
         Me.gbOverrides.Controls.Add(Me.btnFeedPlus)
-        resources.ApplyResources(Me.gbOverrides, "gbOverrides")
+        Me.gbOverrides.Location = New System.Drawing.Point(939, 412)
         Me.gbOverrides.Name = "gbOverrides"
-        Me.gbOverrides.TabStop = false
+        Me.gbOverrides.Size = New System.Drawing.Size(190, 255)
+        Me.gbOverrides.TabIndex = 37
+        Me.gbOverrides.TabStop = False
+        Me.gbOverrides.Text = "Overrides"
+        Me.gbOverrides.Visible = False
         '
         'cbSpindleCoarse
         '
-        resources.ApplyResources(Me.cbSpindleCoarse, "cbSpindleCoarse")
-        Me.cbSpindleCoarse.Checked = true
+        Me.cbSpindleCoarse.Appearance = System.Windows.Forms.Appearance.Button
+        Me.cbSpindleCoarse.AutoSize = True
+        Me.cbSpindleCoarse.Checked = True
         Me.cbSpindleCoarse.CheckState = System.Windows.Forms.CheckState.Checked
+        Me.cbSpindleCoarse.Location = New System.Drawing.Point(131, 180)
         Me.cbSpindleCoarse.Name = "cbSpindleCoarse"
-        Me.cbSpindleCoarse.UseVisualStyleBackColor = true
+        Me.cbSpindleCoarse.Size = New System.Drawing.Size(50, 23)
+        Me.cbSpindleCoarse.TabIndex = 26
+        Me.cbSpindleCoarse.Text = "Coarse"
+        Me.cbSpindleCoarse.UseVisualStyleBackColor = True
         '
         'btnSpindleOverrideReset
         '
-        resources.ApplyResources(Me.btnSpindleOverrideReset, "btnSpindleOverrideReset")
+        Me.btnSpindleOverrideReset.Location = New System.Drawing.Point(131, 204)
         Me.btnSpindleOverrideReset.Name = "btnSpindleOverrideReset"
+        Me.btnSpindleOverrideReset.Size = New System.Drawing.Size(49, 23)
+        Me.btnSpindleOverrideReset.TabIndex = 25
         Me.btnSpindleOverrideReset.Tag = "Spindle"
-        Me.btnSpindleOverrideReset.UseVisualStyleBackColor = true
+        Me.btnSpindleOverrideReset.Text = "Reset"
+        Me.btnSpindleOverrideReset.UseVisualStyleBackColor = True
         '
         'btnRapidOverrideReset
         '
-        resources.ApplyResources(Me.btnRapidOverrideReset, "btnRapidOverrideReset")
+        Me.btnRapidOverrideReset.Location = New System.Drawing.Point(129, 126)
         Me.btnRapidOverrideReset.Name = "btnRapidOverrideReset"
+        Me.btnRapidOverrideReset.Size = New System.Drawing.Size(49, 23)
+        Me.btnRapidOverrideReset.TabIndex = 24
         Me.btnRapidOverrideReset.Tag = "Rapid"
-        Me.btnRapidOverrideReset.UseVisualStyleBackColor = true
+        Me.btnRapidOverrideReset.Text = "Reset"
+        Me.btnRapidOverrideReset.UseVisualStyleBackColor = True
         '
         'btnFeedOverrideReset
         '
-        resources.ApplyResources(Me.btnFeedOverrideReset, "btnFeedOverrideReset")
+        Me.btnFeedOverrideReset.Location = New System.Drawing.Point(129, 47)
         Me.btnFeedOverrideReset.Name = "btnFeedOverrideReset"
+        Me.btnFeedOverrideReset.Size = New System.Drawing.Size(49, 23)
+        Me.btnFeedOverrideReset.TabIndex = 23
         Me.btnFeedOverrideReset.Tag = "Feed"
-        Me.btnFeedOverrideReset.UseVisualStyleBackColor = true
+        Me.btnFeedOverrideReset.Text = "Reset"
+        Me.btnFeedOverrideReset.UseVisualStyleBackColor = True
         '
         'cbFeedCoarse
         '
-        resources.ApplyResources(Me.cbFeedCoarse, "cbFeedCoarse")
-        Me.cbFeedCoarse.Checked = true
+        Me.cbFeedCoarse.Appearance = System.Windows.Forms.Appearance.Button
+        Me.cbFeedCoarse.AutoSize = True
+        Me.cbFeedCoarse.Checked = True
         Me.cbFeedCoarse.CheckState = System.Windows.Forms.CheckState.Checked
+        Me.cbFeedCoarse.Location = New System.Drawing.Point(130, 24)
         Me.cbFeedCoarse.Name = "cbFeedCoarse"
-        Me.cbFeedCoarse.UseVisualStyleBackColor = true
+        Me.cbFeedCoarse.Size = New System.Drawing.Size(50, 23)
+        Me.cbFeedCoarse.TabIndex = 22
+        Me.cbFeedCoarse.Text = "Coarse"
+        Me.cbFeedCoarse.UseVisualStyleBackColor = True
         '
         'Label44
         '
-        resources.ApplyResources(Me.Label44, "Label44")
+        Me.Label44.AutoSize = True
+        Me.Label44.Location = New System.Drawing.Point(7, 195)
         Me.Label44.Name = "Label44"
+        Me.Label44.Size = New System.Drawing.Size(42, 13)
+        Me.Label44.TabIndex = 21
+        Me.Label44.Text = "Spindle"
         '
         'btnSpindleMinus
         '
-        resources.ApplyResources(Me.btnSpindleMinus, "btnSpindleMinus")
+        Me.btnSpindleMinus.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnSpindleMinus.Location = New System.Drawing.Point(88, 204)
         Me.btnSpindleMinus.Name = "btnSpindleMinus"
+        Me.btnSpindleMinus.Size = New System.Drawing.Size(35, 35)
+        Me.btnSpindleMinus.TabIndex = 20
         Me.btnSpindleMinus.Tag = "minus"
-        Me.btnSpindleMinus.UseVisualStyleBackColor = true
+        Me.btnSpindleMinus.Text = "-"
+        Me.btnSpindleMinus.UseVisualStyleBackColor = True
         '
         'btnSpindlePlus
         '
-        resources.ApplyResources(Me.btnSpindlePlus, "btnSpindlePlus")
+        Me.btnSpindlePlus.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnSpindlePlus.Location = New System.Drawing.Point(88, 170)
         Me.btnSpindlePlus.Name = "btnSpindlePlus"
+        Me.btnSpindlePlus.Size = New System.Drawing.Size(35, 42)
+        Me.btnSpindlePlus.TabIndex = 19
         Me.btnSpindlePlus.Tag = "plus"
-        Me.btnSpindlePlus.UseVisualStyleBackColor = true
+        Me.btnSpindlePlus.Text = "+"
+        Me.btnSpindlePlus.UseVisualStyleBackColor = True
         '
         'Label22
         '
-        resources.ApplyResources(Me.Label22, "Label22")
+        Me.Label22.AutoSize = True
+        Me.Label22.Location = New System.Drawing.Point(6, 117)
         Me.Label22.Name = "Label22"
+        Me.Label22.Size = New System.Drawing.Size(35, 13)
+        Me.Label22.TabIndex = 15
+        Me.Label22.Text = "Rapid"
         '
         'btnRapidMinus
         '
-        resources.ApplyResources(Me.btnRapidMinus, "btnRapidMinus")
+        Me.btnRapidMinus.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnRapidMinus.Location = New System.Drawing.Point(88, 126)
         Me.btnRapidMinus.Name = "btnRapidMinus"
+        Me.btnRapidMinus.Size = New System.Drawing.Size(35, 35)
+        Me.btnRapidMinus.TabIndex = 14
         Me.btnRapidMinus.Tag = "minus"
-        Me.btnRapidMinus.UseVisualStyleBackColor = true
+        Me.btnRapidMinus.Text = "-"
+        Me.btnRapidMinus.UseVisualStyleBackColor = True
         '
         'btnRapidPlus
         '
-        resources.ApplyResources(Me.btnRapidPlus, "btnRapidPlus")
+        Me.btnRapidPlus.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnRapidPlus.Location = New System.Drawing.Point(88, 92)
         Me.btnRapidPlus.Name = "btnRapidPlus"
+        Me.btnRapidPlus.Size = New System.Drawing.Size(35, 42)
+        Me.btnRapidPlus.TabIndex = 13
         Me.btnRapidPlus.Tag = "plus"
-        Me.btnRapidPlus.UseVisualStyleBackColor = true
+        Me.btnRapidPlus.Text = "+"
+        Me.btnRapidPlus.UseVisualStyleBackColor = True
         '
         'tbSpindleOvr
         '
-        resources.ApplyResources(Me.tbSpindleOvr, "tbSpindleOvr")
+        Me.tbSpindleOvr.Enabled = False
+        Me.tbSpindleOvr.Location = New System.Drawing.Point(52, 192)
         Me.tbSpindleOvr.Name = "tbSpindleOvr"
+        Me.tbSpindleOvr.Size = New System.Drawing.Size(30, 20)
+        Me.tbSpindleOvr.TabIndex = 10
+        Me.tbSpindleOvr.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'tbRapidOvr
         '
-        resources.ApplyResources(Me.tbRapidOvr, "tbRapidOvr")
+        Me.tbRapidOvr.Enabled = False
+        Me.tbRapidOvr.Location = New System.Drawing.Point(53, 117)
         Me.tbRapidOvr.Name = "tbRapidOvr"
+        Me.tbRapidOvr.Size = New System.Drawing.Size(30, 20)
+        Me.tbRapidOvr.TabIndex = 9
+        Me.tbRapidOvr.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'tbFeedOvr
         '
-        resources.ApplyResources(Me.tbFeedOvr, "tbFeedOvr")
+        Me.tbFeedOvr.Enabled = False
+        Me.tbFeedOvr.Location = New System.Drawing.Point(53, 35)
         Me.tbFeedOvr.Name = "tbFeedOvr"
+        Me.tbFeedOvr.Size = New System.Drawing.Size(30, 20)
+        Me.tbFeedOvr.TabIndex = 8
+        Me.tbFeedOvr.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'Label46
         '
-        resources.ApplyResources(Me.Label46, "Label46")
+        Me.Label46.AutoSize = True
+        Me.Label46.Location = New System.Drawing.Point(7, 38)
         Me.Label46.Name = "Label46"
+        Me.Label46.Size = New System.Drawing.Size(31, 13)
+        Me.Label46.TabIndex = 6
+        Me.Label46.Text = "Feed"
         '
         'btnFeedMinus
         '
-        resources.ApplyResources(Me.btnFeedMinus, "btnFeedMinus")
+        Me.btnFeedMinus.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnFeedMinus.Location = New System.Drawing.Point(89, 47)
         Me.btnFeedMinus.Name = "btnFeedMinus"
+        Me.btnFeedMinus.Size = New System.Drawing.Size(35, 35)
+        Me.btnFeedMinus.TabIndex = 1
         Me.btnFeedMinus.Tag = "minus"
-        Me.btnFeedMinus.UseVisualStyleBackColor = true
+        Me.btnFeedMinus.Text = "-"
+        Me.btnFeedMinus.UseVisualStyleBackColor = True
         '
         'btnFeedPlus
         '
-        resources.ApplyResources(Me.btnFeedPlus, "btnFeedPlus")
+        Me.btnFeedPlus.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnFeedPlus.Location = New System.Drawing.Point(89, 13)
         Me.btnFeedPlus.Name = "btnFeedPlus"
+        Me.btnFeedPlus.Size = New System.Drawing.Size(35, 35)
+        Me.btnFeedPlus.TabIndex = 0
         Me.btnFeedPlus.Tag = "plus"
-        Me.btnFeedPlus.UseVisualStyleBackColor = true
+        Me.btnFeedPlus.Text = "+"
+        Me.btnFeedPlus.UseVisualStyleBackColor = True
         '
         'gbState
         '
@@ -561,9 +651,12 @@ Partial Class GrblGui
         Me.gbState.Controls.Add(Me.Panel2)
         Me.gbState.Controls.Add(Me.Panel1)
         Me.gbState.Controls.Add(Me.btnStatusGetParser)
-        resources.ApplyResources(Me.gbState, "gbState")
+        Me.gbState.Location = New System.Drawing.Point(938, 3)
         Me.gbState.Name = "gbState"
-        Me.gbState.TabStop = false
+        Me.gbState.Size = New System.Drawing.Size(191, 403)
+        Me.gbState.TabIndex = 36
+        Me.gbState.TabStop = False
+        Me.gbState.Text = "State"
         '
         'gbPinStatus
         '
@@ -575,73 +668,125 @@ Partial Class GrblGui
         Me.gbPinStatus.Controls.Add(Me.cbProbePin)
         Me.gbPinStatus.Controls.Add(Me.cbLimitZ)
         Me.gbPinStatus.Controls.Add(Me.cbLimitY)
-        resources.ApplyResources(Me.gbPinStatus, "gbPinStatus")
+        Me.gbPinStatus.Location = New System.Drawing.Point(12, 328)
         Me.gbPinStatus.Name = "gbPinStatus"
-        Me.gbPinStatus.TabStop = false
+        Me.gbPinStatus.Size = New System.Drawing.Size(169, 52)
+        Me.gbPinStatus.TabIndex = 46
+        Me.gbPinStatus.TabStop = False
+        Me.gbPinStatus.Text = "Pins"
+        Me.gbPinStatus.Visible = False
         '
         'cbFeedHold
         '
-        Me.cbFeedHold.AutoCheck = false
-        resources.ApplyResources(Me.cbFeedHold, "cbFeedHold")
+        Me.cbFeedHold.AutoCheck = False
+        Me.cbFeedHold.AutoSize = True
+        Me.cbFeedHold.CheckAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.cbFeedHold.Location = New System.Drawing.Point(124, 16)
         Me.cbFeedHold.Name = "cbFeedHold"
-        Me.ToolTip1.SetToolTip(Me.cbFeedHold, resources.GetString("cbFeedHold.ToolTip"))
-        Me.cbFeedHold.UseVisualStyleBackColor = true
+        Me.cbFeedHold.Size = New System.Drawing.Size(25, 31)
+        Me.cbFeedHold.TabIndex = 44
+        Me.cbFeedHold.Text = "FH"
+        Me.ToolTip1.SetToolTip(Me.cbFeedHold, "Feed Hold")
+        Me.cbFeedHold.UseVisualStyleBackColor = True
+        Me.cbFeedHold.Visible = False
         '
         'cbStartResume
         '
-        Me.cbStartResume.AutoCheck = false
-        resources.ApplyResources(Me.cbStartResume, "cbStartResume")
+        Me.cbStartResume.AutoCheck = False
+        Me.cbStartResume.AutoSize = True
+        Me.cbStartResume.CheckAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.cbStartResume.Location = New System.Drawing.Point(147, 16)
         Me.cbStartResume.Name = "cbStartResume"
-        Me.ToolTip1.SetToolTip(Me.cbStartResume, resources.GetString("cbStartResume.ToolTip"))
-        Me.cbStartResume.UseVisualStyleBackColor = true
+        Me.cbStartResume.Size = New System.Drawing.Size(25, 31)
+        Me.cbStartResume.TabIndex = 45
+        Me.cbStartResume.Text = "CS"
+        Me.ToolTip1.SetToolTip(Me.cbStartResume, "Cycle Start")
+        Me.cbStartResume.UseVisualStyleBackColor = True
+        Me.cbStartResume.Visible = False
         '
         'cbResetAbort
         '
-        Me.cbResetAbort.AutoCheck = false
-        resources.ApplyResources(Me.cbResetAbort, "cbResetAbort")
+        Me.cbResetAbort.AutoCheck = False
+        Me.cbResetAbort.AutoSize = True
+        Me.cbResetAbort.CheckAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.cbResetAbort.Location = New System.Drawing.Point(106, 16)
         Me.cbResetAbort.Name = "cbResetAbort"
-        Me.ToolTip1.SetToolTip(Me.cbResetAbort, resources.GetString("cbResetAbort.ToolTip"))
-        Me.cbResetAbort.UseVisualStyleBackColor = true
+        Me.cbResetAbort.Size = New System.Drawing.Size(19, 31)
+        Me.cbResetAbort.TabIndex = 43
+        Me.cbResetAbort.Text = "R"
+        Me.ToolTip1.SetToolTip(Me.cbResetAbort, "Reset")
+        Me.cbResetAbort.UseVisualStyleBackColor = True
+        Me.cbResetAbort.Visible = False
         '
         'cbLimitX
         '
-        Me.cbLimitX.AutoCheck = false
-        resources.ApplyResources(Me.cbLimitX, "cbLimitX")
+        Me.cbLimitX.AutoCheck = False
+        Me.cbLimitX.AutoSize = True
+        Me.cbLimitX.CheckAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.cbLimitX.Location = New System.Drawing.Point(6, 16)
         Me.cbLimitX.Name = "cbLimitX"
-        Me.ToolTip1.SetToolTip(Me.cbLimitX, resources.GetString("cbLimitX.ToolTip"))
-        Me.cbLimitX.UseVisualStyleBackColor = true
+        Me.cbLimitX.Size = New System.Drawing.Size(18, 31)
+        Me.cbLimitX.TabIndex = 39
+        Me.cbLimitX.Text = "X"
+        Me.ToolTip1.SetToolTip(Me.cbLimitX, "X Limit")
+        Me.cbLimitX.UseVisualStyleBackColor = True
+        Me.cbLimitX.Visible = False
         '
         'cbDoorOpen
         '
-        Me.cbDoorOpen.AutoCheck = false
-        resources.ApplyResources(Me.cbDoorOpen, "cbDoorOpen")
+        Me.cbDoorOpen.AutoCheck = False
+        Me.cbDoorOpen.AutoSize = True
+        Me.cbDoorOpen.CheckAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.cbDoorOpen.Location = New System.Drawing.Point(86, 16)
         Me.cbDoorOpen.Name = "cbDoorOpen"
-        Me.ToolTip1.SetToolTip(Me.cbDoorOpen, resources.GetString("cbDoorOpen.ToolTip"))
-        Me.cbDoorOpen.UseVisualStyleBackColor = true
+        Me.cbDoorOpen.Size = New System.Drawing.Size(19, 31)
+        Me.cbDoorOpen.TabIndex = 42
+        Me.cbDoorOpen.Text = "D"
+        Me.ToolTip1.SetToolTip(Me.cbDoorOpen, "Door Open")
+        Me.cbDoorOpen.UseVisualStyleBackColor = True
+        Me.cbDoorOpen.Visible = False
         '
         'cbProbePin
         '
-        Me.cbProbePin.AutoCheck = false
-        resources.ApplyResources(Me.cbProbePin, "cbProbePin")
+        Me.cbProbePin.AutoCheck = False
+        Me.cbProbePin.AutoSize = True
+        Me.cbProbePin.CheckAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.cbProbePin.Location = New System.Drawing.Point(68, 16)
         Me.cbProbePin.Name = "cbProbePin"
-        Me.ToolTip1.SetToolTip(Me.cbProbePin, resources.GetString("cbProbePin.ToolTip"))
-        Me.cbProbePin.UseVisualStyleBackColor = true
+        Me.cbProbePin.Size = New System.Drawing.Size(18, 31)
+        Me.cbProbePin.TabIndex = 42
+        Me.cbProbePin.Text = "P"
+        Me.ToolTip1.SetToolTip(Me.cbProbePin, "Probe Pin")
+        Me.cbProbePin.UseVisualStyleBackColor = True
+        Me.cbProbePin.Visible = False
         '
         'cbLimitZ
         '
-        Me.cbLimitZ.AutoCheck = false
-        resources.ApplyResources(Me.cbLimitZ, "cbLimitZ")
+        Me.cbLimitZ.AutoCheck = False
+        Me.cbLimitZ.AutoSize = True
+        Me.cbLimitZ.CheckAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.cbLimitZ.Location = New System.Drawing.Point(39, 16)
         Me.cbLimitZ.Name = "cbLimitZ"
-        Me.ToolTip1.SetToolTip(Me.cbLimitZ, resources.GetString("cbLimitZ.ToolTip"))
-        Me.cbLimitZ.UseVisualStyleBackColor = true
+        Me.cbLimitZ.Size = New System.Drawing.Size(18, 31)
+        Me.cbLimitZ.TabIndex = 41
+        Me.cbLimitZ.Text = "Z"
+        Me.ToolTip1.SetToolTip(Me.cbLimitZ, "Z Limit")
+        Me.cbLimitZ.UseVisualStyleBackColor = True
+        Me.cbLimitZ.Visible = False
         '
         'cbLimitY
         '
-        Me.cbLimitY.AutoCheck = false
-        resources.ApplyResources(Me.cbLimitY, "cbLimitY")
+        Me.cbLimitY.AutoCheck = False
+        Me.cbLimitY.AutoSize = True
+        Me.cbLimitY.CheckAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.cbLimitY.Location = New System.Drawing.Point(22, 16)
         Me.cbLimitY.Name = "cbLimitY"
-        Me.ToolTip1.SetToolTip(Me.cbLimitY, resources.GetString("cbLimitY.ToolTip"))
-        Me.cbLimitY.UseVisualStyleBackColor = true
+        Me.cbLimitY.Size = New System.Drawing.Size(18, 31)
+        Me.cbLimitY.TabIndex = 40
+        Me.cbLimitY.Text = "Y"
+        Me.ToolTip1.SetToolTip(Me.cbLimitY, "Y Limit")
+        Me.cbLimitY.UseVisualStyleBackColor = True
+        Me.cbLimitY.Visible = False
         '
         'Panel2
         '
@@ -652,38 +797,58 @@ Partial Class GrblGui
         Me.Panel2.Controls.Add(Me.Label53)
         Me.Panel2.Controls.Add(Me.Label50)
         Me.Panel2.Controls.Add(Me.tbStateSpindleRPM)
-        resources.ApplyResources(Me.Panel2, "Panel2")
+        Me.Panel2.Location = New System.Drawing.Point(12, 225)
         Me.Panel2.Name = "Panel2"
+        Me.Panel2.Size = New System.Drawing.Size(169, 100)
+        Me.Panel2.TabIndex = 38
         '
         'tbStateFeedRate
         '
-        resources.ApplyResources(Me.tbStateFeedRate, "tbStateFeedRate")
+        Me.tbStateFeedRate.Location = New System.Drawing.Point(3, 17)
         Me.tbStateFeedRate.Name = "tbStateFeedRate"
+        Me.tbStateFeedRate.Size = New System.Drawing.Size(74, 20)
+        Me.tbStateFeedRate.TabIndex = 22
         '
         'Label14
         '
-        resources.ApplyResources(Me.Label14, "Label14")
+        Me.Label14.AutoSize = True
+        Me.Label14.Location = New System.Drawing.Point(84, 17)
         Me.Label14.Name = "Label14"
+        Me.Label14.Size = New System.Drawing.Size(54, 13)
+        Me.Label14.TabIndex = 17
+        Me.Label14.Text = "FeedRate"
         '
         'tbStateTool
         '
-        resources.ApplyResources(Me.tbStateTool, "tbStateTool")
+        Me.tbStateTool.Location = New System.Drawing.Point(3, 61)
         Me.tbStateTool.Name = "tbStateTool"
+        Me.tbStateTool.Size = New System.Drawing.Size(74, 20)
+        Me.tbStateTool.TabIndex = 28
         '
         'Label53
         '
-        resources.ApplyResources(Me.Label53, "Label53")
+        Me.Label53.AutoSize = True
+        Me.Label53.Location = New System.Drawing.Point(83, 63)
         Me.Label53.Name = "Label53"
+        Me.Label53.Size = New System.Drawing.Size(28, 13)
+        Me.Label53.TabIndex = 14
+        Me.Label53.Text = "Tool"
         '
         'Label50
         '
-        resources.ApplyResources(Me.Label50, "Label50")
+        Me.Label50.AutoSize = True
+        Me.Label50.Location = New System.Drawing.Point(83, 40)
         Me.Label50.Name = "Label50"
+        Me.Label50.Size = New System.Drawing.Size(69, 13)
+        Me.Label50.TabIndex = 12
+        Me.Label50.Text = "Spindle RPM"
         '
         'tbStateSpindleRPM
         '
-        resources.ApplyResources(Me.tbStateSpindleRPM, "tbStateSpindleRPM")
+        Me.tbStateSpindleRPM.Location = New System.Drawing.Point(3, 39)
         Me.tbStateSpindleRPM.Name = "tbStateSpindleRPM"
+        Me.tbStateSpindleRPM.Size = New System.Drawing.Size(74, 20)
+        Me.tbStateSpindleRPM.TabIndex = 27
         '
         'Panel1
         '
@@ -702,105 +867,153 @@ Partial Class GrblGui
         Me.Panel1.Controls.Add(Me.Label45)
         Me.Panel1.Controls.Add(Me.Label17)
         Me.Panel1.Controls.Add(Me.cbxStateSpindle)
-        resources.ApplyResources(Me.Panel1, "Panel1")
+        Me.Panel1.Location = New System.Drawing.Point(12, 19)
         Me.Panel1.Name = "Panel1"
+        Me.Panel1.Size = New System.Drawing.Size(169, 196)
+        Me.Panel1.TabIndex = 37
         '
         'cbxStateFeedMode
         '
         Me.cbxStateFeedMode.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.cbxStateFeedMode.FormattingEnabled = true
-        Me.cbxStateFeedMode.Items.AddRange(New Object() {resources.GetString("cbxStateFeedMode.Items"), resources.GetString("cbxStateFeedMode.Items1"), resources.GetString("cbxStateFeedMode.Items2")})
-        resources.ApplyResources(Me.cbxStateFeedMode, "cbxStateFeedMode")
+        Me.cbxStateFeedMode.FormattingEnabled = True
+        Me.cbxStateFeedMode.Items.AddRange(New Object() {"", "Unit/Min                  G94", "Inverse Time            G93"})
+        Me.cbxStateFeedMode.Location = New System.Drawing.Point(3, 39)
         Me.cbxStateFeedMode.Name = "cbxStateFeedMode"
+        Me.cbxStateFeedMode.Size = New System.Drawing.Size(74, 21)
+        Me.cbxStateFeedMode.TabIndex = 29
         '
         'cbxStateDistance
         '
         Me.cbxStateDistance.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.cbxStateDistance.FormattingEnabled = true
-        Me.cbxStateDistance.Items.AddRange(New Object() {resources.GetString("cbxStateDistance.Items"), resources.GetString("cbxStateDistance.Items1"), resources.GetString("cbxStateDistance.Items2")})
-        resources.ApplyResources(Me.cbxStateDistance, "cbxStateDistance")
+        Me.cbxStateDistance.FormattingEnabled = True
+        Me.cbxStateDistance.Items.AddRange(New Object() {"", "Absolute                                                    G90", "Incremental                                               G91"})
+        Me.cbxStateDistance.Location = New System.Drawing.Point(3, 16)
         Me.cbxStateDistance.Name = "cbxStateDistance"
+        Me.cbxStateDistance.Size = New System.Drawing.Size(74, 21)
+        Me.cbxStateDistance.TabIndex = 20
         '
         'Label16
         '
-        resources.ApplyResources(Me.Label16, "Label16")
+        Me.Label16.AutoSize = True
+        Me.Label16.Location = New System.Drawing.Point(83, 65)
         Me.Label16.Name = "Label16"
+        Me.Label16.Size = New System.Drawing.Size(31, 13)
+        Me.Label16.TabIndex = 19
+        Me.Label16.Text = "Units"
         '
         'cbxStateUnits
         '
         Me.cbxStateUnits.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.cbxStateUnits.FormattingEnabled = true
-        Me.cbxStateUnits.Items.AddRange(New Object() {resources.GetString("cbxStateUnits.Items"), resources.GetString("cbxStateUnits.Items1"), resources.GetString("cbxStateUnits.Items2")})
-        resources.ApplyResources(Me.cbxStateUnits, "cbxStateUnits")
+        Me.cbxStateUnits.FormattingEnabled = True
+        Me.cbxStateUnits.Items.AddRange(New Object() {"", "Metric                                    G21", "Inch                                        G20"})
+        Me.cbxStateUnits.Location = New System.Drawing.Point(3, 62)
         Me.cbxStateUnits.Name = "cbxStateUnits"
+        Me.cbxStateUnits.Size = New System.Drawing.Size(74, 21)
+        Me.cbxStateUnits.TabIndex = 21
         '
         'Label123
         '
-        resources.ApplyResources(Me.Label123, "Label123")
+        Me.Label123.AutoSize = True
+        Me.Label123.Location = New System.Drawing.Point(83, 19)
         Me.Label123.Name = "Label123"
+        Me.Label123.Size = New System.Drawing.Size(79, 13)
+        Me.Label123.TabIndex = 0
+        Me.Label123.Text = "Distance Mode"
         '
         'Lalbel49
         '
-        resources.ApplyResources(Me.Lalbel49, "Lalbel49")
+        Me.Lalbel49.AutoSize = True
+        Me.Lalbel49.Location = New System.Drawing.Point(83, 157)
         Me.Lalbel49.Name = "Lalbel49"
+        Me.Lalbel49.Size = New System.Drawing.Size(67, 13)
+        Me.Lalbel49.TabIndex = 10
+        Me.Lalbel49.Text = "Active Plane"
         '
         'cbxStatePlane
         '
         Me.cbxStatePlane.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.cbxStatePlane.FormattingEnabled = true
-        Me.cbxStatePlane.Items.AddRange(New Object() {resources.GetString("cbxStatePlane.Items"), resources.GetString("cbxStatePlane.Items1"), resources.GetString("cbxStatePlane.Items2"), resources.GetString("cbxStatePlane.Items3")})
-        resources.ApplyResources(Me.cbxStatePlane, "cbxStatePlane")
+        Me.cbxStatePlane.FormattingEnabled = True
+        Me.cbxStatePlane.Items.AddRange(New Object() {"", "XY                                G17", "YZ                                G18", "XZ                                G19"})
+        Me.cbxStatePlane.Location = New System.Drawing.Point(3, 154)
         Me.cbxStatePlane.Name = "cbxStatePlane"
+        Me.cbxStatePlane.Size = New System.Drawing.Size(74, 21)
+        Me.cbxStatePlane.TabIndex = 26
         '
         'Label47
         '
-        resources.ApplyResources(Me.Label47, "Label47")
+        Me.Label47.AutoSize = True
+        Me.Label47.Location = New System.Drawing.Point(83, 134)
         Me.Label47.Name = "Label47"
+        Me.Label47.Size = New System.Drawing.Size(43, 13)
+        Me.Label47.TabIndex = 8
+        Me.Label47.Text = "Coolant"
         '
         'Label15
         '
-        resources.ApplyResources(Me.Label15, "Label15")
+        Me.Label15.AutoSize = True
+        Me.Label15.Location = New System.Drawing.Point(83, 88)
         Me.Label15.Name = "Label15"
+        Me.Label15.Size = New System.Drawing.Size(64, 13)
+        Me.Label15.TabIndex = 2
+        Me.Label15.Text = "Work Offset"
         '
         'cbxStateOffset
         '
         Me.cbxStateOffset.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.cbxStateOffset.FormattingEnabled = true
-        Me.cbxStateOffset.Items.AddRange(New Object() {resources.GetString("cbxStateOffset.Items"), resources.GetString("cbxStateOffset.Items1"), resources.GetString("cbxStateOffset.Items2"), resources.GetString("cbxStateOffset.Items3"), resources.GetString("cbxStateOffset.Items4"), resources.GetString("cbxStateOffset.Items5"), resources.GetString("cbxStateOffset.Items6")})
-        resources.ApplyResources(Me.cbxStateOffset, "cbxStateOffset")
+        Me.cbxStateOffset.FormattingEnabled = True
+        Me.cbxStateOffset.Items.AddRange(New Object() {"", "G54                                   G54", "G55                                   G55", "G56                                   G56", "G57                                   G57", "G58                                   G58", "G59                                   G59"})
+        Me.cbxStateOffset.Location = New System.Drawing.Point(3, 85)
         Me.cbxStateOffset.Name = "cbxStateOffset"
+        Me.cbxStateOffset.Size = New System.Drawing.Size(74, 21)
+        Me.cbxStateOffset.TabIndex = 23
         '
         'cbxStateCoolant
         '
         Me.cbxStateCoolant.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.cbxStateCoolant.FormattingEnabled = true
-        Me.cbxStateCoolant.Items.AddRange(New Object() {resources.GetString("cbxStateCoolant.Items"), resources.GetString("cbxStateCoolant.Items1"), resources.GetString("cbxStateCoolant.Items2")})
-        resources.ApplyResources(Me.cbxStateCoolant, "cbxStateCoolant")
+        Me.cbxStateCoolant.FormattingEnabled = True
+        Me.cbxStateCoolant.Items.AddRange(New Object() {"", "On                                       M8", "Off                                       M9"})
+        Me.cbxStateCoolant.Location = New System.Drawing.Point(3, 131)
         Me.cbxStateCoolant.Name = "cbxStateCoolant"
+        Me.cbxStateCoolant.Size = New System.Drawing.Size(74, 21)
+        Me.cbxStateCoolant.TabIndex = 25
         '
         'Label45
         '
-        resources.ApplyResources(Me.Label45, "Label45")
+        Me.Label45.AutoSize = True
+        Me.Label45.Location = New System.Drawing.Point(84, 111)
         Me.Label45.Name = "Label45"
+        Me.Label45.Size = New System.Drawing.Size(42, 13)
+        Me.Label45.TabIndex = 6
+        Me.Label45.Text = "Spindle"
         '
         'Label17
         '
-        resources.ApplyResources(Me.Label17, "Label17")
+        Me.Label17.AutoSize = True
+        Me.Label17.Location = New System.Drawing.Point(83, 42)
         Me.Label17.Name = "Label17"
+        Me.Label17.Size = New System.Drawing.Size(84, 13)
+        Me.Label17.TabIndex = 4
+        Me.Label17.Text = "FeedRate Mode"
         '
         'cbxStateSpindle
         '
         Me.cbxStateSpindle.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.cbxStateSpindle.FormattingEnabled = true
-        Me.cbxStateSpindle.Items.AddRange(New Object() {resources.GetString("cbxStateSpindle.Items"), resources.GetString("cbxStateSpindle.Items1"), resources.GetString("cbxStateSpindle.Items2"), resources.GetString("cbxStateSpindle.Items3")})
-        resources.ApplyResources(Me.cbxStateSpindle, "cbxStateSpindle")
+        Me.cbxStateSpindle.FormattingEnabled = True
+        Me.cbxStateSpindle.Items.AddRange(New Object() {"", "CW                                       M3", "CCW                                    M4", "Off                                       M5"})
+        Me.cbxStateSpindle.Location = New System.Drawing.Point(3, 108)
         Me.cbxStateSpindle.Name = "cbxStateSpindle"
+        Me.cbxStateSpindle.Size = New System.Drawing.Size(74, 21)
+        Me.cbxStateSpindle.TabIndex = 24
         '
         'btnStatusGetParser
         '
-        resources.ApplyResources(Me.btnStatusGetParser, "btnStatusGetParser")
+        Me.btnStatusGetParser.AutoSize = True
+        Me.btnStatusGetParser.Location = New System.Drawing.Point(0, 380)
         Me.btnStatusGetParser.Name = "btnStatusGetParser"
-        Me.btnStatusGetParser.UseVisualStyleBackColor = true
+        Me.btnStatusGetParser.Size = New System.Drawing.Size(72, 23)
+        Me.btnStatusGetParser.TabIndex = 36
+        Me.btnStatusGetParser.Text = "Refresh"
+        Me.btnStatusGetParser.UseVisualStyleBackColor = True
         '
         'gbControl
         '
@@ -809,77 +1022,122 @@ Partial Class GrblGui
         Me.gbControl.Controls.Add(Me.btnHold)
         Me.gbControl.Controls.Add(Me.btnStartResume)
         Me.gbControl.Controls.Add(Me.btnUnlock)
-        resources.ApplyResources(Me.gbControl, "gbControl")
+        Me.gbControl.Location = New System.Drawing.Point(532, 409)
         Me.gbControl.Name = "gbControl"
-        Me.gbControl.TabStop = false
+        Me.gbControl.Size = New System.Drawing.Size(400, 59)
+        Me.gbControl.TabIndex = 35
+        Me.gbControl.TabStop = False
+        Me.gbControl.Text = "Control"
         '
         'btnCheckMode
         '
-        resources.ApplyResources(Me.btnCheckMode, "btnCheckMode")
+        Me.btnCheckMode.AutoSize = True
+        Me.btnCheckMode.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnCheckMode.Location = New System.Drawing.Point(322, 19)
         Me.btnCheckMode.Name = "btnCheckMode"
-        Me.btnCheckMode.UseCompatibleTextRendering = true
-        Me.btnCheckMode.UseVisualStyleBackColor = true
+        Me.btnCheckMode.Size = New System.Drawing.Size(72, 31)
+        Me.btnCheckMode.TabIndex = 17
+        Me.btnCheckMode.Text = "Check"
+        Me.btnCheckMode.UseCompatibleTextRendering = True
+        Me.btnCheckMode.UseVisualStyleBackColor = True
         '
         'btnReset
         '
-        resources.ApplyResources(Me.btnReset, "btnReset")
+        Me.btnReset.AutoSize = True
         Me.btnReset.BackColor = System.Drawing.Color.Transparent
+        Me.btnReset.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnReset.Location = New System.Drawing.Point(85, 19)
         Me.btnReset.Name = "btnReset"
-        Me.btnReset.UseCompatibleTextRendering = true
-        Me.btnReset.UseVisualStyleBackColor = false
+        Me.btnReset.Size = New System.Drawing.Size(72, 31)
+        Me.btnReset.TabIndex = 1
+        Me.btnReset.Text = "Reset"
+        Me.btnReset.UseCompatibleTextRendering = True
+        Me.btnReset.UseVisualStyleBackColor = False
         '
         'btnHold
         '
-        resources.ApplyResources(Me.btnHold, "btnHold")
+        Me.btnHold.AutoSize = True
         Me.btnHold.BackColor = System.Drawing.Color.Transparent
+        Me.btnHold.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnHold.Location = New System.Drawing.Point(164, 19)
         Me.btnHold.Name = "btnHold"
-        Me.btnHold.UseCompatibleTextRendering = true
-        Me.btnHold.UseVisualStyleBackColor = false
+        Me.btnHold.Size = New System.Drawing.Size(72, 31)
+        Me.btnHold.TabIndex = 3
+        Me.btnHold.Text = "Hold"
+        Me.btnHold.UseCompatibleTextRendering = True
+        Me.btnHold.UseVisualStyleBackColor = False
         '
         'btnStartResume
         '
-        resources.ApplyResources(Me.btnStartResume, "btnStartResume")
+        Me.btnStartResume.AutoSize = True
+        Me.btnStartResume.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnStartResume.Location = New System.Drawing.Point(243, 19)
         Me.btnStartResume.Name = "btnStartResume"
-        Me.btnStartResume.UseCompatibleTextRendering = true
-        Me.btnStartResume.UseVisualStyleBackColor = true
+        Me.btnStartResume.Size = New System.Drawing.Size(72, 31)
+        Me.btnStartResume.TabIndex = 2
+        Me.btnStartResume.Text = "Start"
+        Me.btnStartResume.UseCompatibleTextRendering = True
+        Me.btnStartResume.UseVisualStyleBackColor = True
         '
         'btnUnlock
         '
-        resources.ApplyResources(Me.btnUnlock, "btnUnlock")
+        Me.btnUnlock.AutoSize = True
         Me.btnUnlock.BackColor = System.Drawing.Color.Transparent
+        Me.btnUnlock.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnUnlock.Location = New System.Drawing.Point(6, 19)
         Me.btnUnlock.Name = "btnUnlock"
-        Me.btnUnlock.UseCompatibleTextRendering = true
-        Me.btnUnlock.UseVisualStyleBackColor = false
+        Me.btnUnlock.Size = New System.Drawing.Size(72, 31)
+        Me.btnUnlock.TabIndex = 16
+        Me.btnUnlock.Text = "Unlock"
+        Me.btnUnlock.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btnUnlock.UseCompatibleTextRendering = True
+        Me.btnUnlock.UseVisualStyleBackColor = False
         '
         'gbMDI
         '
         Me.gbMDI.Controls.Add(Me.Label9)
         Me.gbMDI.Controls.Add(Me.btnSend)
         Me.gbMDI.Controls.Add(Me.tbSendData)
-        resources.ApplyResources(Me.gbMDI, "gbMDI")
+        Me.gbMDI.Enabled = False
+        Me.gbMDI.Location = New System.Drawing.Point(187, 3)
         Me.gbMDI.Name = "gbMDI"
-        Me.gbMDI.TabStop = false
+        Me.gbMDI.Size = New System.Drawing.Size(336, 89)
+        Me.gbMDI.TabIndex = 15
+        Me.gbMDI.TabStop = False
+        Me.gbMDI.Text = "MDI"
         '
         'Label9
         '
-        resources.ApplyResources(Me.Label9, "Label9")
+        Me.Label9.AutoSize = True
+        Me.Label9.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label9.Location = New System.Drawing.Point(6, 19)
         Me.Label9.Name = "Label9"
+        Me.Label9.Size = New System.Drawing.Size(106, 13)
+        Me.Label9.TabIndex = 12
+        Me.Label9.Text = "Manual Command"
         '
         'btnSend
         '
-        resources.ApplyResources(Me.btnSend, "btnSend")
+        Me.btnSend.FlatStyle = System.Windows.Forms.FlatStyle.System
+        Me.btnSend.Location = New System.Drawing.Point(281, 32)
         Me.btnSend.Name = "btnSend"
-        Me.btnSend.UseVisualStyleBackColor = true
+        Me.btnSend.Size = New System.Drawing.Size(44, 25)
+        Me.btnSend.TabIndex = 5
+        Me.btnSend.Text = "Send"
+        Me.btnSend.UseVisualStyleBackColor = True
         '
         'tbSendData
         '
         Me.tbSendData.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        resources.ApplyResources(Me.tbSendData, "tbSendData")
+        Me.tbSendData.Location = New System.Drawing.Point(6, 35)
         Me.tbSendData.Name = "tbSendData"
+        Me.tbSendData.Size = New System.Drawing.Size(269, 20)
+        Me.tbSendData.TabIndex = 4
         '
         'gbJogging
         '
-        resources.ApplyResources(Me.gbJogging, "gbJogging")
+        Me.gbJogging.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.gbJogging.Controls.Add(Me.btnZMinus)
         Me.gbJogging.Controls.Add(Me.btnZPlus)
         Me.gbJogging.Controls.Add(Me.btnXPlus)
@@ -889,56 +1147,86 @@ Partial Class GrblGui
         Me.gbJogging.Controls.Add(Me.gbFeedRate)
         Me.gbJogging.Controls.Add(Me.gbDistance)
         Me.gbJogging.Controls.Add(Me.cbUnits)
+        Me.gbJogging.Enabled = False
+        Me.gbJogging.Location = New System.Drawing.Point(3, 95)
         Me.gbJogging.Name = "gbJogging"
-        Me.gbJogging.TabStop = false
+        Me.gbJogging.Size = New System.Drawing.Size(520, 212)
+        Me.gbJogging.TabIndex = 0
+        Me.gbJogging.TabStop = False
+        Me.gbJogging.Text = "Jogging"
         '
         'btnZMinus
         '
-        resources.ApplyResources(Me.btnZMinus, "btnZMinus")
+        Me.btnZMinus.Font = New System.Drawing.Font("Microsoft Sans Serif", 27.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnZMinus.Interval = 100
+        Me.btnZMinus.Location = New System.Drawing.Point(399, 145)
         Me.btnZMinus.Name = "btnZMinus"
+        Me.btnZMinus.Size = New System.Drawing.Size(80, 58)
+        Me.btnZMinus.TabIndex = 23
         Me.btnZMinus.Tag = "Z-"
-        Me.btnZMinus.UseVisualStyleBackColor = true
+        Me.btnZMinus.Text = "Z-"
+        Me.btnZMinus.UseVisualStyleBackColor = True
         '
         'btnZPlus
         '
-        resources.ApplyResources(Me.btnZPlus, "btnZPlus")
+        Me.btnZPlus.Font = New System.Drawing.Font("Microsoft Sans Serif", 27.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnZPlus.Interval = 100
+        Me.btnZPlus.Location = New System.Drawing.Point(399, 18)
         Me.btnZPlus.Name = "btnZPlus"
+        Me.btnZPlus.Size = New System.Drawing.Size(80, 58)
+        Me.btnZPlus.TabIndex = 22
         Me.btnZPlus.Tag = "Z+"
-        Me.btnZPlus.UseVisualStyleBackColor = true
+        Me.btnZPlus.Text = "Z+"
+        Me.btnZPlus.UseVisualStyleBackColor = True
         '
         'btnXPlus
         '
-        resources.ApplyResources(Me.btnXPlus, "btnXPlus")
+        Me.btnXPlus.Font = New System.Drawing.Font("Microsoft Sans Serif", 27.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnXPlus.Interval = 100
+        Me.btnXPlus.Location = New System.Drawing.Point(299, 81)
         Me.btnXPlus.Name = "btnXPlus"
+        Me.btnXPlus.Size = New System.Drawing.Size(80, 58)
+        Me.btnXPlus.TabIndex = 21
         Me.btnXPlus.Tag = "X+"
-        Me.btnXPlus.UseVisualStyleBackColor = true
+        Me.btnXPlus.Text = "X+"
+        Me.btnXPlus.UseVisualStyleBackColor = True
         '
         'btnYMinus
         '
-        resources.ApplyResources(Me.btnYMinus, "btnYMinus")
+        Me.btnYMinus.Font = New System.Drawing.Font("Microsoft Sans Serif", 27.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnYMinus.Interval = 100
+        Me.btnYMinus.Location = New System.Drawing.Point(233, 144)
         Me.btnYMinus.Name = "btnYMinus"
+        Me.btnYMinus.Size = New System.Drawing.Size(80, 58)
+        Me.btnYMinus.TabIndex = 20
         Me.btnYMinus.Tag = "Y-"
-        Me.btnYMinus.UseVisualStyleBackColor = true
+        Me.btnYMinus.Text = "Y-"
+        Me.btnYMinus.TextAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.btnYMinus.UseVisualStyleBackColor = True
         '
         'btnXMinus
         '
-        resources.ApplyResources(Me.btnXMinus, "btnXMinus")
+        Me.btnXMinus.Font = New System.Drawing.Font("Microsoft Sans Serif", 27.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnXMinus.Interval = 100
+        Me.btnXMinus.Location = New System.Drawing.Point(185, 81)
         Me.btnXMinus.Name = "btnXMinus"
+        Me.btnXMinus.Size = New System.Drawing.Size(80, 58)
+        Me.btnXMinus.TabIndex = 19
         Me.btnXMinus.Tag = "X-"
-        Me.btnXMinus.UseVisualStyleBackColor = true
+        Me.btnXMinus.Text = "X-"
+        Me.btnXMinus.UseVisualStyleBackColor = True
         '
         'btnYPlus
         '
-        resources.ApplyResources(Me.btnYPlus, "btnYPlus")
+        Me.btnYPlus.Font = New System.Drawing.Font("Microsoft Sans Serif", 27.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnYPlus.Interval = 100
+        Me.btnYPlus.Location = New System.Drawing.Point(233, 18)
         Me.btnYPlus.Name = "btnYPlus"
+        Me.btnYPlus.Size = New System.Drawing.Size(80, 58)
+        Me.btnYPlus.TabIndex = 18
         Me.btnYPlus.Tag = "Y+"
-        Me.btnYPlus.UseVisualStyleBackColor = true
+        Me.btnYPlus.Text = "Y+"
+        Me.btnYPlus.UseVisualStyleBackColor = True
         '
         'gbFeedRate
         '
@@ -946,42 +1234,58 @@ Partial Class GrblGui
         Me.gbFeedRate.Controls.Add(Me.rbFeedRate2)
         Me.gbFeedRate.Controls.Add(Me.rbFeedRate3)
         Me.gbFeedRate.Controls.Add(Me.rbFeedRate4)
-        resources.ApplyResources(Me.gbFeedRate, "gbFeedRate")
+        Me.gbFeedRate.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.gbFeedRate.Location = New System.Drawing.Point(21, 117)
         Me.gbFeedRate.Name = "gbFeedRate"
-        Me.gbFeedRate.TabStop = false
+        Me.gbFeedRate.Size = New System.Drawing.Size(82, 92)
+        Me.gbFeedRate.TabIndex = 16
+        Me.gbFeedRate.TabStop = False
+        Me.gbFeedRate.Text = "Feed Rate"
         '
         'rbFeedRate1
         '
-        resources.ApplyResources(Me.rbFeedRate1, "rbFeedRate1")
+        Me.rbFeedRate1.AutoSize = True
         Me.rbFeedRate1.Cursor = System.Windows.Forms.Cursors.Default
+        Me.rbFeedRate1.Location = New System.Drawing.Point(6, 19)
         Me.rbFeedRate1.Name = "rbFeedRate1"
-        Me.rbFeedRate1.TabStop = true
+        Me.rbFeedRate1.Size = New System.Drawing.Size(14, 13)
+        Me.rbFeedRate1.TabIndex = 11
+        Me.rbFeedRate1.TabStop = True
         Me.rbFeedRate1.Tag = "F1"
-        Me.rbFeedRate1.UseVisualStyleBackColor = true
+        Me.rbFeedRate1.UseVisualStyleBackColor = True
         '
         'rbFeedRate2
         '
-        resources.ApplyResources(Me.rbFeedRate2, "rbFeedRate2")
+        Me.rbFeedRate2.AutoSize = True
+        Me.rbFeedRate2.Location = New System.Drawing.Point(6, 35)
         Me.rbFeedRate2.Name = "rbFeedRate2"
-        Me.rbFeedRate2.TabStop = true
+        Me.rbFeedRate2.Size = New System.Drawing.Size(14, 13)
+        Me.rbFeedRate2.TabIndex = 10
+        Me.rbFeedRate2.TabStop = True
         Me.rbFeedRate2.Tag = "F2"
-        Me.rbFeedRate2.UseVisualStyleBackColor = true
+        Me.rbFeedRate2.UseVisualStyleBackColor = True
         '
         'rbFeedRate3
         '
-        resources.ApplyResources(Me.rbFeedRate3, "rbFeedRate3")
+        Me.rbFeedRate3.AutoSize = True
+        Me.rbFeedRate3.Location = New System.Drawing.Point(6, 53)
         Me.rbFeedRate3.Name = "rbFeedRate3"
-        Me.rbFeedRate3.TabStop = true
+        Me.rbFeedRate3.Size = New System.Drawing.Size(14, 13)
+        Me.rbFeedRate3.TabIndex = 12
+        Me.rbFeedRate3.TabStop = True
         Me.rbFeedRate3.Tag = "F3"
-        Me.rbFeedRate3.UseVisualStyleBackColor = true
+        Me.rbFeedRate3.UseVisualStyleBackColor = True
         '
         'rbFeedRate4
         '
-        resources.ApplyResources(Me.rbFeedRate4, "rbFeedRate4")
+        Me.rbFeedRate4.AutoSize = True
+        Me.rbFeedRate4.Location = New System.Drawing.Point(6, 72)
         Me.rbFeedRate4.Name = "rbFeedRate4"
-        Me.rbFeedRate4.TabStop = true
+        Me.rbFeedRate4.Size = New System.Drawing.Size(14, 13)
+        Me.rbFeedRate4.TabIndex = 13
+        Me.rbFeedRate4.TabStop = True
         Me.rbFeedRate4.Tag = "F4"
-        Me.rbFeedRate4.UseVisualStyleBackColor = true
+        Me.rbFeedRate4.UseVisualStyleBackColor = True
         '
         'gbDistance
         '
@@ -989,51 +1293,72 @@ Partial Class GrblGui
         Me.gbDistance.Controls.Add(Me.rbDistance2)
         Me.gbDistance.Controls.Add(Me.rbDistance3)
         Me.gbDistance.Controls.Add(Me.rbDistance4)
-        resources.ApplyResources(Me.gbDistance, "gbDistance")
+        Me.gbDistance.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.gbDistance.Location = New System.Drawing.Point(21, 19)
         Me.gbDistance.Name = "gbDistance"
-        Me.gbDistance.TabStop = false
+        Me.gbDistance.Size = New System.Drawing.Size(82, 92)
+        Me.gbDistance.TabIndex = 17
+        Me.gbDistance.TabStop = False
+        Me.gbDistance.Text = "Distance"
         '
         'rbDistance1
         '
-        resources.ApplyResources(Me.rbDistance1, "rbDistance1")
+        Me.rbDistance1.AutoSize = True
+        Me.rbDistance1.Location = New System.Drawing.Point(6, 16)
         Me.rbDistance1.Name = "rbDistance1"
-        Me.rbDistance1.TabStop = true
+        Me.rbDistance1.Size = New System.Drawing.Size(14, 13)
+        Me.rbDistance1.TabIndex = 6
+        Me.rbDistance1.TabStop = True
         Me.rbDistance1.Tag = "I1"
-        Me.rbDistance1.UseVisualStyleBackColor = true
+        Me.rbDistance1.UseVisualStyleBackColor = True
         '
         'rbDistance2
         '
-        resources.ApplyResources(Me.rbDistance2, "rbDistance2")
+        Me.rbDistance2.AutoSize = True
+        Me.rbDistance2.Location = New System.Drawing.Point(6, 35)
         Me.rbDistance2.Name = "rbDistance2"
-        Me.rbDistance2.TabStop = true
+        Me.rbDistance2.Size = New System.Drawing.Size(14, 13)
+        Me.rbDistance2.TabIndex = 7
+        Me.rbDistance2.TabStop = True
         Me.rbDistance2.Tag = "I2"
-        Me.rbDistance2.UseVisualStyleBackColor = true
+        Me.rbDistance2.UseVisualStyleBackColor = True
         '
         'rbDistance3
         '
-        resources.ApplyResources(Me.rbDistance3, "rbDistance3")
+        Me.rbDistance3.AutoSize = True
+        Me.rbDistance3.Location = New System.Drawing.Point(6, 54)
         Me.rbDistance3.Name = "rbDistance3"
-        Me.rbDistance3.TabStop = true
+        Me.rbDistance3.Size = New System.Drawing.Size(14, 13)
+        Me.rbDistance3.TabIndex = 8
+        Me.rbDistance3.TabStop = True
         Me.rbDistance3.Tag = "I3"
-        Me.rbDistance3.UseVisualStyleBackColor = true
+        Me.rbDistance3.UseVisualStyleBackColor = True
         '
         'rbDistance4
         '
-        resources.ApplyResources(Me.rbDistance4, "rbDistance4")
+        Me.rbDistance4.AutoSize = True
+        Me.rbDistance4.Location = New System.Drawing.Point(6, 73)
         Me.rbDistance4.Name = "rbDistance4"
-        Me.rbDistance4.TabStop = true
+        Me.rbDistance4.Size = New System.Drawing.Size(14, 13)
+        Me.rbDistance4.TabIndex = 9
+        Me.rbDistance4.TabStop = True
         Me.rbDistance4.Tag = "I4"
-        Me.rbDistance4.UseVisualStyleBackColor = true
+        Me.rbDistance4.UseVisualStyleBackColor = True
         '
         'cbUnits
         '
-        resources.ApplyResources(Me.cbUnits, "cbUnits")
+        Me.cbUnits.AutoSize = True
+        Me.cbUnits.Location = New System.Drawing.Point(123, 192)
         Me.cbUnits.Name = "cbUnits"
-        Me.cbUnits.UseVisualStyleBackColor = true
+        Me.cbUnits.Size = New System.Drawing.Size(73, 17)
+        Me.cbUnits.TabIndex = 16
+        Me.cbUnits.Text = "Metric      "
+        Me.cbUnits.UseVisualStyleBackColor = True
         '
         'gbStatus
         '
-        resources.ApplyResources(Me.gbStatus, "gbStatus")
+        Me.gbStatus.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.gbStatus.Controls.Add(Me.Label25)
         Me.gbStatus.Controls.Add(Me.tbCurrentStatus)
         Me.gbStatus.Controls.Add(Me.Label24)
@@ -1041,56 +1366,89 @@ Partial Class GrblGui
         Me.gbStatus.Controls.Add(Me.prgBarQ)
         Me.gbStatus.Controls.Add(Me.cbVerbose)
         Me.gbStatus.Controls.Add(Me.lbResponses)
+        Me.gbStatus.Enabled = False
+        Me.gbStatus.Location = New System.Drawing.Point(532, 470)
         Me.gbStatus.Name = "gbStatus"
-        Me.gbStatus.TabStop = false
+        Me.gbStatus.Size = New System.Drawing.Size(400, 204)
+        Me.gbStatus.TabIndex = 1
+        Me.gbStatus.TabStop = False
+        Me.gbStatus.Text = "Status"
         '
         'Label25
         '
-        resources.ApplyResources(Me.Label25, "Label25")
+        Me.Label25.AutoSize = True
+        Me.Label25.Location = New System.Drawing.Point(217, 21)
+        Me.Label25.Margin = New System.Windows.Forms.Padding(0)
         Me.Label25.Name = "Label25"
+        Me.Label25.Size = New System.Drawing.Size(18, 13)
+        Me.Label25.TabIndex = 23
+        Me.Label25.Text = "Q:"
         '
         'tbCurrentStatus
         '
-        resources.ApplyResources(Me.tbCurrentStatus, "tbCurrentStatus")
+        Me.tbCurrentStatus.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.tbCurrentStatus.Location = New System.Drawing.Point(6, 15)
         Me.tbCurrentStatus.Name = "tbCurrentStatus"
-        Me.ToolTip1.SetToolTip(Me.tbCurrentStatus, resources.GetString("tbCurrentStatus.ToolTip"))
+        Me.tbCurrentStatus.Size = New System.Drawing.Size(72, 26)
+        Me.tbCurrentStatus.TabIndex = 34
+        Me.tbCurrentStatus.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        Me.ToolTip1.SetToolTip(Me.tbCurrentStatus, "Shows status of Grbl")
         '
         'Label24
         '
-        resources.ApplyResources(Me.Label24, "Label24")
+        Me.Label24.AutoSize = True
+        Me.Label24.Location = New System.Drawing.Point(304, 21)
         Me.Label24.Name = "Label24"
+        Me.Label24.Size = New System.Drawing.Size(25, 13)
+        Me.Label24.TabIndex = 22
+        Me.Label24.Text = "RX:"
         '
         'prgbRxBuf
         '
-        resources.ApplyResources(Me.prgbRxBuf, "prgbRxBuf")
+        Me.prgbRxBuf.Location = New System.Drawing.Point(334, 20)
         Me.prgbRxBuf.Maximum = 127
         Me.prgbRxBuf.Name = "prgbRxBuf"
+        Me.prgbRxBuf.Size = New System.Drawing.Size(60, 15)
         Me.prgbRxBuf.Style = System.Windows.Forms.ProgressBarStyle.Continuous
+        Me.prgbRxBuf.TabIndex = 21
         '
         'prgBarQ
         '
-        resources.ApplyResources(Me.prgBarQ, "prgBarQ")
+        Me.prgBarQ.Location = New System.Drawing.Point(238, 20)
         Me.prgBarQ.Maximum = 25
         Me.prgBarQ.Name = "prgBarQ"
+        Me.prgBarQ.Size = New System.Drawing.Size(60, 15)
         Me.prgBarQ.Style = System.Windows.Forms.ProgressBarStyle.Continuous
+        Me.prgBarQ.TabIndex = 20
         '
         'cbVerbose
         '
-        resources.ApplyResources(Me.cbVerbose, "cbVerbose")
+        Me.cbVerbose.AutoSize = True
         Me.cbVerbose.Checked = Global.GrblPanel.My.MySettings.Default.StatusVerbose
-        Me.cbVerbose.DataBindings.Add(New System.Windows.Forms.Binding("Checked", Global.GrblPanel.My.MySettings.Default, "statusVerbose", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
+        Me.cbVerbose.DataBindings.Add(New System.Windows.Forms.Binding("Checked", Global.GrblPanel.My.MySettings.Default, "statusVerbose", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
+        Me.cbVerbose.Location = New System.Drawing.Point(87, 20)
         Me.cbVerbose.Name = "cbVerbose"
-        Me.cbVerbose.UseVisualStyleBackColor = true
+        Me.cbVerbose.Size = New System.Drawing.Size(83, 17)
+        Me.cbVerbose.TabIndex = 15
+        Me.cbVerbose.Text = "Verbose      "
+        Me.cbVerbose.UseVisualStyleBackColor = True
         '
         'lbResponses
         '
-        resources.ApplyResources(Me.lbResponses, "lbResponses")
-        Me.lbResponses.FormattingEnabled = true
+        Me.lbResponses.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.lbResponses.FormattingEnabled = True
+        Me.lbResponses.HorizontalScrollbar = True
+        Me.lbResponses.Location = New System.Drawing.Point(6, 50)
         Me.lbResponses.Name = "lbResponses"
+        Me.lbResponses.Size = New System.Drawing.Size(388, 147)
+        Me.lbResponses.TabIndex = 0
         '
         'gbGcode
         '
-        resources.ApplyResources(Me.gbGcode, "gbGcode")
+        Me.gbGcode.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.gbGcode.Controls.Add(Me.cbMonitorEnable)
         Me.gbGcode.Controls.Add(Me.lblElapsedTime)
         Me.gbGcode.Controls.Add(Me.Label23)
@@ -1106,155 +1464,231 @@ Partial Class GrblGui
         Me.gbGcode.Controls.Add(Me.btnFileSelect)
         Me.gbGcode.Controls.Add(Me.btnFileSend)
         Me.gbGcode.Controls.Add(Me.btnFileStop)
+        Me.gbGcode.Enabled = False
+        Me.gbGcode.Location = New System.Drawing.Point(3, 310)
         Me.gbGcode.Name = "gbGcode"
-        Me.gbGcode.TabStop = false
+        Me.gbGcode.Size = New System.Drawing.Size(520, 376)
+        Me.gbGcode.TabIndex = 14
+        Me.gbGcode.TabStop = False
+        Me.gbGcode.Text = "GCode"
         '
         'cbMonitorEnable
         '
-        resources.ApplyResources(Me.cbMonitorEnable, "cbMonitorEnable")
-        Me.cbMonitorEnable.Checked = true
+        Me.cbMonitorEnable.AutoSize = True
+        Me.cbMonitorEnable.Checked = True
         Me.cbMonitorEnable.CheckState = System.Windows.Forms.CheckState.Checked
+        Me.cbMonitorEnable.Location = New System.Drawing.Point(10, 92)
         Me.cbMonitorEnable.Name = "cbMonitorEnable"
-        Me.cbMonitorEnable.UseVisualStyleBackColor = true
+        Me.cbMonitorEnable.Size = New System.Drawing.Size(61, 17)
+        Me.cbMonitorEnable.TabIndex = 28
+        Me.cbMonitorEnable.Text = "Monitor"
+        Me.cbMonitorEnable.UseVisualStyleBackColor = True
         '
         'lblElapsedTime
         '
-        resources.ApplyResources(Me.lblElapsedTime, "lblElapsedTime")
+        Me.lblElapsedTime.AutoSize = True
+        Me.lblElapsedTime.Location = New System.Drawing.Point(441, 49)
         Me.lblElapsedTime.Name = "lblElapsedTime"
+        Me.lblElapsedTime.Size = New System.Drawing.Size(13, 13)
+        Me.lblElapsedTime.TabIndex = 27
+        Me.lblElapsedTime.Text = "  "
+        Me.lblElapsedTime.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'Label23
         '
-        resources.ApplyResources(Me.Label23, "Label23")
+        Me.Label23.AutoSize = True
+        Me.Label23.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label23.Location = New System.Drawing.Point(441, 22)
         Me.Label23.Name = "Label23"
+        Me.Label23.Size = New System.Drawing.Size(52, 13)
+        Me.Label23.TabIndex = 26
+        Me.Label23.Text = "Elapsed"
         '
         'Label51
         '
-        resources.ApplyResources(Me.Label51, "Label51")
+        Me.Label51.AutoSize = True
+        Me.Label51.Location = New System.Drawing.Point(122, 93)
         Me.Label51.Name = "Label51"
+        Me.Label51.Size = New System.Drawing.Size(16, 13)
+        Me.Label51.TabIndex = 25
+        Me.Label51.Text = "of"
         '
         'lblCurrentLine
         '
-        resources.ApplyResources(Me.lblCurrentLine, "lblCurrentLine")
+        Me.lblCurrentLine.AutoSize = True
+        Me.lblCurrentLine.Location = New System.Drawing.Point(84, 93)
         Me.lblCurrentLine.Name = "lblCurrentLine"
+        Me.lblCurrentLine.Size = New System.Drawing.Size(13, 13)
+        Me.lblCurrentLine.TabIndex = 24
+        Me.lblCurrentLine.Text = "0"
+        Me.lblCurrentLine.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
         'dgvGcode
         '
         Me.dgvGcode.AccessibleRole = System.Windows.Forms.AccessibleRole.None
-        Me.dgvGcode.AllowUserToAddRows = false
-        Me.dgvGcode.AllowUserToDeleteRows = false
-        Me.dgvGcode.AllowUserToResizeRows = false
-        resources.ApplyResources(Me.dgvGcode, "dgvGcode")
+        Me.dgvGcode.AllowUserToAddRows = False
+        Me.dgvGcode.AllowUserToDeleteRows = False
+        Me.dgvGcode.AllowUserToResizeRows = False
+        Me.dgvGcode.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.dgvGcode.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgvGcode.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.stat, Me.lineNum, Me.data})
-        Me.dgvGcode.MultiSelect = false
+        Me.dgvGcode.Location = New System.Drawing.Point(6, 115)
+        Me.dgvGcode.MultiSelect = False
         Me.dgvGcode.Name = "dgvGcode"
-        Me.dgvGcode.ReadOnly = true
-        Me.dgvGcode.RowHeadersVisible = false
+        Me.dgvGcode.ReadOnly = True
+        Me.dgvGcode.RowHeadersVisible = False
+        Me.dgvGcode.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
         Me.dgvGcode.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.dgvGcode.StandardTab = true
-        Me.dgvGcode.VirtualMode = true
+        Me.dgvGcode.Size = New System.Drawing.Size(503, 255)
+        Me.dgvGcode.StandardTab = True
+        Me.dgvGcode.TabIndex = 22
+        Me.dgvGcode.VirtualMode = True
         '
         'stat
         '
         Me.stat.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None
-        Me.stat.Frozen = true
-        resources.ApplyResources(Me.stat, "stat")
+        Me.stat.Frozen = True
+        Me.stat.HeaderText = "Sts"
         Me.stat.Name = "stat"
-        Me.stat.ReadOnly = true
+        Me.stat.ReadOnly = True
         Me.stat.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable
         '
         'lineNum
         '
         Me.lineNum.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None
-        resources.ApplyResources(Me.lineNum, "lineNum")
+        Me.lineNum.HeaderText = "Line"
         Me.lineNum.Name = "lineNum"
-        Me.lineNum.ReadOnly = true
+        Me.lineNum.ReadOnly = True
         Me.lineNum.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable
         '
         'data
         '
         Me.data.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None
-        resources.ApplyResources(Me.data, "data")
+        Me.data.HeaderText = "GCode"
         Me.data.Name = "data"
-        Me.data.ReadOnly = true
+        Me.data.ReadOnly = True
         Me.data.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
         Me.data.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable
         '
         'btnFileReload
         '
-        resources.ApplyResources(Me.btnFileReload, "btnFileReload")
+        Me.btnFileReload.Enabled = False
+        Me.btnFileReload.Image = CType(resources.GetObject("btnFileReload.Image"), System.Drawing.Image)
+        Me.btnFileReload.Location = New System.Drawing.Point(190, 41)
         Me.btnFileReload.Name = "btnFileReload"
+        Me.btnFileReload.Size = New System.Drawing.Size(40, 40)
+        Me.btnFileReload.TabIndex = 21
         Me.btnFileReload.Tag = "Reload"
-        Me.ToolTip1.SetToolTip(Me.btnFileReload, resources.GetString("btnFileReload.ToolTip"))
-        Me.btnFileReload.UseVisualStyleBackColor = true
+        Me.ToolTip1.SetToolTip(Me.btnFileReload, "Reload File")
+        Me.btnFileReload.UseVisualStyleBackColor = True
         '
         'tbGCodeMessage
         '
         Me.tbGCodeMessage.BorderStyle = System.Windows.Forms.BorderStyle.None
-        resources.ApplyResources(Me.tbGCodeMessage, "tbGCodeMessage")
+        Me.tbGCodeMessage.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.tbGCodeMessage.Location = New System.Drawing.Point(242, 65)
         Me.tbGCodeMessage.Name = "tbGCodeMessage"
+        Me.tbGCodeMessage.Size = New System.Drawing.Size(223, 16)
+        Me.tbGCodeMessage.TabIndex = 20
         '
         'Label27
         '
-        resources.ApplyResources(Me.Label27, "Label27")
+        Me.Label27.AutoSize = True
+        Me.Label27.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label27.Location = New System.Drawing.Point(239, 49)
         Me.Label27.Name = "Label27"
+        Me.Label27.Size = New System.Drawing.Size(57, 13)
+        Me.Label27.TabIndex = 19
+        Me.Label27.Text = "Message"
         '
         'lblTotalLines
         '
-        resources.ApplyResources(Me.lblTotalLines, "lblTotalLines")
+        Me.lblTotalLines.AutoSize = True
+        Me.lblTotalLines.Location = New System.Drawing.Point(144, 93)
         Me.lblTotalLines.Name = "lblTotalLines"
+        Me.lblTotalLines.Size = New System.Drawing.Size(13, 13)
+        Me.lblTotalLines.TabIndex = 17
+        Me.lblTotalLines.Text = "0"
+        Me.lblTotalLines.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'btnFilePause
         '
-        resources.ApplyResources(Me.btnFilePause, "btnFilePause")
+        Me.btnFilePause.Enabled = False
+        Me.btnFilePause.Image = CType(resources.GetObject("btnFilePause.Image"), System.Drawing.Image)
+        Me.btnFilePause.Location = New System.Drawing.Point(98, 41)
         Me.btnFilePause.Name = "btnFilePause"
+        Me.btnFilePause.Padding = New System.Windows.Forms.Padding(3)
+        Me.btnFilePause.Size = New System.Drawing.Size(40, 40)
+        Me.btnFilePause.TabIndex = 6
         Me.btnFilePause.Tag = "Pause"
-        Me.ToolTip1.SetToolTip(Me.btnFilePause, resources.GetString("btnFilePause.ToolTip"))
-        Me.btnFilePause.UseVisualStyleBackColor = true
+        Me.ToolTip1.SetToolTip(Me.btnFilePause, "Pause sending")
+        Me.btnFilePause.UseVisualStyleBackColor = True
         '
         'tbGcodeFile
         '
-        resources.ApplyResources(Me.tbGcodeFile, "tbGcodeFile")
+        Me.tbGcodeFile.Enabled = False
+        Me.tbGcodeFile.Location = New System.Drawing.Point(6, 19)
         Me.tbGcodeFile.Name = "tbGcodeFile"
+        Me.tbGcodeFile.Size = New System.Drawing.Size(424, 20)
+        Me.tbGcodeFile.TabIndex = 10
         '
         'btnFileSelect
         '
-        resources.ApplyResources(Me.btnFileSelect, "btnFileSelect")
+        Me.btnFileSelect.Image = CType(resources.GetObject("btnFileSelect.Image"), System.Drawing.Image)
+        Me.btnFileSelect.Location = New System.Drawing.Point(6, 41)
         Me.btnFileSelect.Name = "btnFileSelect"
+        Me.btnFileSelect.Size = New System.Drawing.Size(40, 40)
+        Me.btnFileSelect.TabIndex = 7
         Me.btnFileSelect.Tag = "File"
-        Me.ToolTip1.SetToolTip(Me.btnFileSelect, resources.GetString("btnFileSelect.ToolTip"))
-        Me.btnFileSelect.UseVisualStyleBackColor = true
+        Me.ToolTip1.SetToolTip(Me.btnFileSelect, "Load a file")
+        Me.btnFileSelect.UseVisualStyleBackColor = True
         '
         'btnFileSend
         '
-        resources.ApplyResources(Me.btnFileSend, "btnFileSend")
+        Me.btnFileSend.Enabled = False
+        Me.btnFileSend.Image = CType(resources.GetObject("btnFileSend.Image"), System.Drawing.Image)
+        Me.btnFileSend.Location = New System.Drawing.Point(52, 41)
         Me.btnFileSend.Name = "btnFileSend"
+        Me.btnFileSend.Size = New System.Drawing.Size(40, 40)
+        Me.btnFileSend.TabIndex = 8
         Me.btnFileSend.Tag = "Send"
-        Me.ToolTip1.SetToolTip(Me.btnFileSend, resources.GetString("btnFileSend.ToolTip"))
-        Me.btnFileSend.UseVisualStyleBackColor = true
+        Me.ToolTip1.SetToolTip(Me.btnFileSend, "Start/Resume sending")
+        Me.btnFileSend.UseVisualStyleBackColor = True
         '
         'btnFileStop
         '
-        resources.ApplyResources(Me.btnFileStop, "btnFileStop")
+        Me.btnFileStop.Enabled = False
+        Me.btnFileStop.Image = CType(resources.GetObject("btnFileStop.Image"), System.Drawing.Image)
+        Me.btnFileStop.Location = New System.Drawing.Point(144, 41)
         Me.btnFileStop.Name = "btnFileStop"
+        Me.btnFileStop.Size = New System.Drawing.Size(40, 40)
+        Me.btnFileStop.TabIndex = 9
         Me.btnFileStop.Tag = "Stop"
-        Me.ToolTip1.SetToolTip(Me.btnFileStop, resources.GetString("btnFileStop.ToolTip"))
-        Me.btnFileStop.UseVisualStyleBackColor = true
+        Me.ToolTip1.SetToolTip(Me.btnFileStop, "Stop sending")
+        Me.btnFileStop.UseVisualStyleBackColor = True
         '
         'gbGrbl
         '
-        resources.ApplyResources(Me.gbGrbl, "gbGrbl")
+        Me.gbGrbl.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.gbGrbl.Controls.Add(Me.tcConnection)
+        Me.gbGrbl.Location = New System.Drawing.Point(3, 3)
         Me.gbGrbl.Name = "gbGrbl"
-        Me.gbGrbl.TabStop = false
+        Me.gbGrbl.Size = New System.Drawing.Size(178, 89)
+        Me.gbGrbl.TabIndex = 3
+        Me.gbGrbl.TabStop = False
+        Me.gbGrbl.Text = "Grbl"
         '
         'tcConnection
         '
         Me.tcConnection.Controls.Add(Me.tbGrblCOM)
         Me.tcConnection.Controls.Add(Me.tbGrblIP)
-        resources.ApplyResources(Me.tcConnection, "tcConnection")
+        Me.tcConnection.Location = New System.Drawing.Point(6, 16)
         Me.tcConnection.Name = "tcConnection"
         Me.tcConnection.SelectedIndex = 0
+        Me.tcConnection.Size = New System.Drawing.Size(162, 71)
+        Me.tcConnection.TabIndex = 0
         '
         'tbGrblCOM
         '
@@ -1262,72 +1696,103 @@ Partial Class GrblGui
         Me.tbGrblCOM.Controls.Add(Me.cbPorts)
         Me.tbGrblCOM.Controls.Add(Me.btnConnect)
         Me.tbGrblCOM.Controls.Add(Me.cbBaud)
-        resources.ApplyResources(Me.tbGrblCOM, "tbGrblCOM")
+        Me.tbGrblCOM.Location = New System.Drawing.Point(4, 22)
         Me.tbGrblCOM.Name = "tbGrblCOM"
-        Me.tbGrblCOM.UseVisualStyleBackColor = true
+        Me.tbGrblCOM.Padding = New System.Windows.Forms.Padding(3)
+        Me.tbGrblCOM.Size = New System.Drawing.Size(154, 45)
+        Me.tbGrblCOM.TabIndex = 0
+        Me.tbGrblCOM.Text = "COM"
+        Me.tbGrblCOM.UseVisualStyleBackColor = True
         '
         'btnRescanPorts
         '
-        resources.ApplyResources(Me.btnRescanPorts, "btnRescanPorts")
+        Me.btnRescanPorts.FlatStyle = System.Windows.Forms.FlatStyle.System
+        Me.btnRescanPorts.Location = New System.Drawing.Point(88, 18)
         Me.btnRescanPorts.Name = "btnRescanPorts"
-        Me.btnRescanPorts.UseVisualStyleBackColor = true
+        Me.btnRescanPorts.Size = New System.Drawing.Size(68, 23)
+        Me.btnRescanPorts.TabIndex = 5
+        Me.btnRescanPorts.Text = "ReScan"
+        Me.btnRescanPorts.UseVisualStyleBackColor = True
         '
         'cbPorts
         '
-        Me.cbPorts.FormattingEnabled = true
-        resources.ApplyResources(Me.cbPorts, "cbPorts")
+        Me.cbPorts.FormattingEnabled = True
+        Me.cbPorts.Location = New System.Drawing.Point(10, 0)
         Me.cbPorts.Name = "cbPorts"
+        Me.cbPorts.Size = New System.Drawing.Size(72, 21)
+        Me.cbPorts.TabIndex = 3
         '
         'btnConnect
         '
-        resources.ApplyResources(Me.btnConnect, "btnConnect")
+        Me.btnConnect.FlatStyle = System.Windows.Forms.FlatStyle.System
+        Me.btnConnect.Location = New System.Drawing.Point(88, -2)
         Me.btnConnect.Name = "btnConnect"
+        Me.btnConnect.Size = New System.Drawing.Size(68, 23)
+        Me.btnConnect.TabIndex = 1
         Me.btnConnect.Tag = "COM"
-        Me.btnConnect.UseVisualStyleBackColor = true
+        Me.btnConnect.Text = "Connect"
+        Me.btnConnect.UseVisualStyleBackColor = True
         '
         'cbBaud
         '
-        Me.cbBaud.FormattingEnabled = true
-        Me.cbBaud.Items.AddRange(New Object() {resources.GetString("cbBaud.Items"), resources.GetString("cbBaud.Items1")})
-        resources.ApplyResources(Me.cbBaud, "cbBaud")
+        Me.cbBaud.FormattingEnabled = True
+        Me.cbBaud.Items.AddRange(New Object() {"9600", "115200"})
+        Me.cbBaud.Location = New System.Drawing.Point(10, 20)
         Me.cbBaud.Name = "cbBaud"
+        Me.cbBaud.Size = New System.Drawing.Size(72, 21)
+        Me.cbBaud.TabIndex = 4
         '
         'tbGrblIP
         '
         Me.tbGrblIP.Controls.Add(Me.btnIPConnect)
         Me.tbGrblIP.Controls.Add(Me.tbIPAddress)
-        resources.ApplyResources(Me.tbGrblIP, "tbGrblIP")
+        Me.tbGrblIP.Location = New System.Drawing.Point(4, 22)
         Me.tbGrblIP.Name = "tbGrblIP"
-        Me.tbGrblIP.UseVisualStyleBackColor = true
+        Me.tbGrblIP.Padding = New System.Windows.Forms.Padding(3)
+        Me.tbGrblIP.Size = New System.Drawing.Size(154, 45)
+        Me.tbGrblIP.TabIndex = 1
+        Me.tbGrblIP.Text = "IP"
+        Me.tbGrblIP.UseVisualStyleBackColor = True
         '
         'btnIPConnect
         '
-        resources.ApplyResources(Me.btnIPConnect, "btnIPConnect")
+        Me.btnIPConnect.Location = New System.Drawing.Point(12, 20)
         Me.btnIPConnect.Name = "btnIPConnect"
+        Me.btnIPConnect.Size = New System.Drawing.Size(131, 23)
+        Me.btnIPConnect.TabIndex = 1
         Me.btnIPConnect.Tag = "IP"
-        Me.btnIPConnect.UseVisualStyleBackColor = true
+        Me.btnIPConnect.Text = "Connect"
+        Me.btnIPConnect.UseVisualStyleBackColor = True
         '
         'tbIPAddress
         '
-        resources.ApplyResources(Me.tbIPAddress, "tbIPAddress")
+        Me.tbIPAddress.Location = New System.Drawing.Point(12, 0)
         Me.tbIPAddress.Name = "tbIPAddress"
-        Me.ToolTip1.SetToolTip(Me.tbIPAddress, resources.GetString("tbIPAddress.ToolTip"))
+        Me.tbIPAddress.Size = New System.Drawing.Size(131, 20)
+        Me.tbIPAddress.TabIndex = 0
+        Me.ToolTip1.SetToolTip(Me.tbIPAddress, "Enter IP Address and port as ""<IP>:<port>""")
         '
         'gbPosition
         '
         Me.gbPosition.Controls.Add(Me.tabCtlPosition)
-        resources.ApplyResources(Me.gbPosition, "gbPosition")
+        Me.gbPosition.Enabled = False
         Me.gbPosition.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.gbPosition.Location = New System.Drawing.Point(532, 3)
         Me.gbPosition.Name = "gbPosition"
-        Me.gbPosition.TabStop = false
+        Me.gbPosition.Size = New System.Drawing.Size(400, 403)
+        Me.gbPosition.TabIndex = 2
+        Me.gbPosition.TabStop = False
+        Me.gbPosition.Text = "Position"
         '
         'tabCtlPosition
         '
         Me.tabCtlPosition.Controls.Add(Me.tpWork)
         Me.tabCtlPosition.Controls.Add(Me.tpOffsets)
-        resources.ApplyResources(Me.tabCtlPosition, "tabCtlPosition")
+        Me.tabCtlPosition.Location = New System.Drawing.Point(6, 19)
         Me.tabCtlPosition.Name = "tabCtlPosition"
         Me.tabCtlPosition.SelectedIndex = 0
+        Me.tabCtlPosition.Size = New System.Drawing.Size(388, 378)
+        Me.tabCtlPosition.TabIndex = 0
         '
         'tpWork
         '
@@ -1345,9 +1810,13 @@ Partial Class GrblGui
         Me.tpWork.Controls.Add(Me.Label1)
         Me.tpWork.Controls.Add(Me.btnWorkZ0)
         Me.tpWork.Controls.Add(Me.btnWorkY0)
-        resources.ApplyResources(Me.tpWork, "tpWork")
+        Me.tpWork.Location = New System.Drawing.Point(4, 22)
         Me.tpWork.Name = "tpWork"
-        Me.tpWork.UseVisualStyleBackColor = true
+        Me.tpWork.Padding = New System.Windows.Forms.Padding(3)
+        Me.tpWork.Size = New System.Drawing.Size(380, 352)
+        Me.tpWork.TabIndex = 0
+        Me.tpWork.Text = "Work"
+        Me.tpWork.UseVisualStyleBackColor = True
         '
         'Panel5
         '
@@ -1355,22 +1824,37 @@ Partial Class GrblGui
         Me.Panel5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Panel5.Controls.Add(Me.tbWorkZ)
         Me.Panel5.Controls.Add(Me.tbMachZ)
-        resources.ApplyResources(Me.Panel5, "Panel5")
+        Me.Panel5.Enabled = False
+        Me.Panel5.Location = New System.Drawing.Point(48, 179)
         Me.Panel5.Name = "Panel5"
+        Me.Panel5.Size = New System.Drawing.Size(287, 88)
+        Me.Panel5.TabIndex = 19
         '
         'tbWorkZ
         '
         Me.tbWorkZ.BorderStyle = System.Windows.Forms.BorderStyle.None
-        resources.ApplyResources(Me.tbWorkZ, "tbWorkZ")
+        Me.tbWorkZ.Enabled = False
+        Me.tbWorkZ.Font = New System.Drawing.Font("Microsoft Sans Serif", 45.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.tbWorkZ.Location = New System.Drawing.Point(-1, 0)
         Me.tbWorkZ.Name = "tbWorkZ"
-        Me.ToolTip1.SetToolTip(Me.tbWorkZ, resources.GetString("tbWorkZ.ToolTip"))
+        Me.tbWorkZ.Size = New System.Drawing.Size(287, 68)
+        Me.tbWorkZ.TabIndex = 5
+        Me.tbWorkZ.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        Me.ToolTip1.SetToolTip(Me.tbWorkZ, "Work Z position")
+        Me.tbWorkZ.WordWrap = False
         '
         'tbMachZ
         '
         Me.tbMachZ.BorderStyle = System.Windows.Forms.BorderStyle.None
-        resources.ApplyResources(Me.tbMachZ, "tbMachZ")
+        Me.tbMachZ.Enabled = False
+        Me.tbMachZ.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.tbMachZ.Location = New System.Drawing.Point(188, 63)
         Me.tbMachZ.Name = "tbMachZ"
-        Me.ToolTip1.SetToolTip(Me.tbMachZ, resources.GetString("tbMachZ.ToolTip"))
+        Me.tbMachZ.Size = New System.Drawing.Size(98, 23)
+        Me.tbMachZ.TabIndex = 8
+        Me.tbMachZ.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        Me.ToolTip1.SetToolTip(Me.tbMachZ, "Machine Z position")
+        Me.tbMachZ.WordWrap = False
         '
         'Panel4
         '
@@ -1378,22 +1862,37 @@ Partial Class GrblGui
         Me.Panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Panel4.Controls.Add(Me.tbWorkY)
         Me.Panel4.Controls.Add(Me.tbMachY)
-        resources.ApplyResources(Me.Panel4, "Panel4")
+        Me.Panel4.Enabled = False
+        Me.Panel4.Location = New System.Drawing.Point(48, 91)
         Me.Panel4.Name = "Panel4"
+        Me.Panel4.Size = New System.Drawing.Size(287, 88)
+        Me.Panel4.TabIndex = 18
         '
         'tbWorkY
         '
         Me.tbWorkY.BorderStyle = System.Windows.Forms.BorderStyle.None
-        resources.ApplyResources(Me.tbWorkY, "tbWorkY")
+        Me.tbWorkY.Enabled = False
+        Me.tbWorkY.Font = New System.Drawing.Font("Microsoft Sans Serif", 45.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.tbWorkY.Location = New System.Drawing.Point(0, -3)
         Me.tbWorkY.Name = "tbWorkY"
-        Me.ToolTip1.SetToolTip(Me.tbWorkY, resources.GetString("tbWorkY.ToolTip"))
+        Me.tbWorkY.Size = New System.Drawing.Size(287, 68)
+        Me.tbWorkY.TabIndex = 4
+        Me.tbWorkY.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        Me.ToolTip1.SetToolTip(Me.tbWorkY, "Work Y position")
+        Me.tbWorkY.WordWrap = False
         '
         'tbMachY
         '
         Me.tbMachY.BorderStyle = System.Windows.Forms.BorderStyle.None
-        resources.ApplyResources(Me.tbMachY, "tbMachY")
+        Me.tbMachY.Enabled = False
+        Me.tbMachY.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.tbMachY.Location = New System.Drawing.Point(188, 64)
         Me.tbMachY.Name = "tbMachY"
-        Me.ToolTip1.SetToolTip(Me.tbMachY, resources.GetString("tbMachY.ToolTip"))
+        Me.tbMachY.Size = New System.Drawing.Size(98, 23)
+        Me.tbMachY.TabIndex = 7
+        Me.tbMachY.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        Me.ToolTip1.SetToolTip(Me.tbMachY, "Machine Y position")
+        Me.tbMachY.WordWrap = False
         '
         'Panel3
         '
@@ -1401,106 +1900,178 @@ Partial Class GrblGui
         Me.Panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Panel3.Controls.Add(Me.tbMachX)
         Me.Panel3.Controls.Add(Me.tbWorkX)
-        resources.ApplyResources(Me.Panel3, "Panel3")
+        Me.Panel3.Enabled = False
+        Me.Panel3.Location = New System.Drawing.Point(48, 3)
         Me.Panel3.Name = "Panel3"
+        Me.Panel3.Size = New System.Drawing.Size(287, 88)
+        Me.Panel3.TabIndex = 0
         '
         'tbMachX
         '
         Me.tbMachX.BorderStyle = System.Windows.Forms.BorderStyle.None
-        resources.ApplyResources(Me.tbMachX, "tbMachX")
+        Me.tbMachX.Enabled = False
+        Me.tbMachX.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.tbMachX.Location = New System.Drawing.Point(188, 64)
         Me.tbMachX.Name = "tbMachX"
-        Me.ToolTip1.SetToolTip(Me.tbMachX, resources.GetString("tbMachX.ToolTip"))
+        Me.tbMachX.Size = New System.Drawing.Size(98, 23)
+        Me.tbMachX.TabIndex = 6
+        Me.tbMachX.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        Me.ToolTip1.SetToolTip(Me.tbMachX, "Machine X position")
+        Me.tbMachX.WordWrap = False
         '
         'tbWorkX
         '
         Me.tbWorkX.BorderStyle = System.Windows.Forms.BorderStyle.None
-        resources.ApplyResources(Me.tbWorkX, "tbWorkX")
+        Me.tbWorkX.Enabled = False
+        Me.tbWorkX.Font = New System.Drawing.Font("Microsoft Sans Serif", 45.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.tbWorkX.Location = New System.Drawing.Point(-1, -1)
         Me.tbWorkX.Name = "tbWorkX"
-        Me.ToolTip1.SetToolTip(Me.tbWorkX, resources.GetString("tbWorkX.ToolTip"))
+        Me.tbWorkX.Size = New System.Drawing.Size(287, 68)
+        Me.tbWorkX.TabIndex = 12
+        Me.tbWorkX.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        Me.ToolTip1.SetToolTip(Me.tbWorkX, "Work X position")
+        Me.tbWorkX.WordWrap = False
         '
         'GroupBox1
         '
         Me.GroupBox1.Controls.Add(Me.lblPositionCurrentOffset)
-        resources.ApplyResources(Me.GroupBox1, "GroupBox1")
+        Me.GroupBox1.Location = New System.Drawing.Point(224, 282)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.TabStop = false
+        Me.GroupBox1.Size = New System.Drawing.Size(82, 58)
+        Me.GroupBox1.TabIndex = 17
+        Me.GroupBox1.TabStop = False
+        Me.GroupBox1.Text = "Active Offset"
         '
         'lblPositionCurrentOffset
         '
-        resources.ApplyResources(Me.lblPositionCurrentOffset, "lblPositionCurrentOffset")
+        Me.lblPositionCurrentOffset.AutoSize = True
+        Me.lblPositionCurrentOffset.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblPositionCurrentOffset.Location = New System.Drawing.Point(23, 21)
         Me.lblPositionCurrentOffset.Name = "lblPositionCurrentOffset"
+        Me.lblPositionCurrentOffset.Size = New System.Drawing.Size(0, 20)
+        Me.lblPositionCurrentOffset.TabIndex = 0
         '
         'btnWorkSoftHome
         '
-        resources.ApplyResources(Me.btnWorkSoftHome, "btnWorkSoftHome")
+        Me.btnWorkSoftHome.FlatStyle = System.Windows.Forms.FlatStyle.System
+        Me.btnWorkSoftHome.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnWorkSoftHome.Location = New System.Drawing.Point(75, 285)
         Me.btnWorkSoftHome.Name = "btnWorkSoftHome"
+        Me.btnWorkSoftHome.Size = New System.Drawing.Size(66, 58)
+        Me.btnWorkSoftHome.TabIndex = 16
         Me.btnWorkSoftHome.Tag = "Spcl Posn1"
-        Me.ToolTip1.SetToolTip(Me.btnWorkSoftHome, resources.GetString("btnWorkSoftHome.ToolTip"))
-        Me.btnWorkSoftHome.UseVisualStyleBackColor = true
+        Me.btnWorkSoftHome.Text = "Go To Spcl Posn1"
+        Me.ToolTip1.SetToolTip(Me.btnWorkSoftHome, "GoTo Position 1 using G28")
+        Me.btnWorkSoftHome.UseVisualStyleBackColor = True
         '
         'btnHome
         '
         Me.btnHome.BackColor = System.Drawing.Color.Transparent
-        resources.ApplyResources(Me.btnHome, "btnHome")
+        Me.btnHome.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnHome.Location = New System.Drawing.Point(5, 285)
         Me.btnHome.Name = "btnHome"
+        Me.btnHome.Size = New System.Drawing.Size(66, 58)
+        Me.btnHome.TabIndex = 6
         Me.btnHome.Tag = "HomeCycle"
-        Me.ToolTip1.SetToolTip(Me.btnHome, resources.GetString("btnHome.ToolTip"))
-        Me.btnHome.UseVisualStyleBackColor = false
+        Me.btnHome.Text = "Home Cycle"
+        Me.ToolTip1.SetToolTip(Me.btnHome, "Perform Homing Cycle")
+        Me.btnHome.UseVisualStyleBackColor = False
+        Me.btnHome.Visible = False
         '
         'btnWorkSpclPosition
         '
-        resources.ApplyResources(Me.btnWorkSpclPosition, "btnWorkSpclPosition")
+        Me.btnWorkSpclPosition.FlatStyle = System.Windows.Forms.FlatStyle.System
+        Me.btnWorkSpclPosition.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnWorkSpclPosition.Location = New System.Drawing.Point(145, 285)
         Me.btnWorkSpclPosition.Name = "btnWorkSpclPosition"
+        Me.btnWorkSpclPosition.Size = New System.Drawing.Size(75, 58)
+        Me.btnWorkSpclPosition.TabIndex = 16
         Me.btnWorkSpclPosition.Tag = "Spcl Posn2"
-        Me.ToolTip1.SetToolTip(Me.btnWorkSpclPosition, resources.GetString("btnWorkSpclPosition.ToolTip"))
-        Me.btnWorkSpclPosition.UseVisualStyleBackColor = true
+        Me.btnWorkSpclPosition.Text = "Go To Spcl Posn2"
+        Me.ToolTip1.SetToolTip(Me.btnWorkSpclPosition, "Go To Position 2 using G30")
+        Me.btnWorkSpclPosition.UseVisualStyleBackColor = True
         '
         'Label3
         '
-        resources.ApplyResources(Me.Label3, "Label3")
+        Me.Label3.AutoSize = True
+        Me.Label3.Font = New System.Drawing.Font("Arial Unicode MS", 24.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label3.Location = New System.Drawing.Point(7, 203)
         Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(40, 43)
+        Me.Label3.TabIndex = 11
+        Me.Label3.Text = "Z"
         '
         'btnWork0
         '
-        resources.ApplyResources(Me.btnWork0, "btnWork0")
+        Me.btnWork0.FlatStyle = System.Windows.Forms.FlatStyle.System
+        Me.btnWork0.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnWork0.Location = New System.Drawing.Point(310, 285)
         Me.btnWork0.Name = "btnWork0"
+        Me.btnWork0.Size = New System.Drawing.Size(66, 58)
+        Me.btnWork0.TabIndex = 5
         Me.btnWork0.Tag = "ZeroXYZ"
-        Me.ToolTip1.SetToolTip(Me.btnWork0, resources.GetString("btnWork0.ToolTip"))
-        Me.btnWork0.UseVisualStyleBackColor = true
+        Me.btnWork0.Text = "Zero XYZ"
+        Me.ToolTip1.SetToolTip(Me.btnWork0, "Set all axes to 0 on Active Offset")
+        Me.btnWork0.UseVisualStyleBackColor = True
         '
         'Label2
         '
-        resources.ApplyResources(Me.Label2, "Label2")
+        Me.Label2.AutoSize = True
+        Me.Label2.Font = New System.Drawing.Font("Arial Unicode MS", 24.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.Location = New System.Drawing.Point(7, 116)
         Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(41, 43)
+        Me.Label2.TabIndex = 10
+        Me.Label2.Text = "Y"
         '
         'btnWorkX0
         '
-        resources.ApplyResources(Me.btnWorkX0, "btnWorkX0")
+        Me.btnWorkX0.FlatStyle = System.Windows.Forms.FlatStyle.System
+        Me.btnWorkX0.Font = New System.Drawing.Font("Microsoft Sans Serif", 24.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnWorkX0.Location = New System.Drawing.Point(340, 33)
         Me.btnWorkX0.Name = "btnWorkX0"
+        Me.btnWorkX0.Size = New System.Drawing.Size(34, 34)
+        Me.btnWorkX0.TabIndex = 6
         Me.btnWorkX0.Tag = "X"
-        Me.ToolTip1.SetToolTip(Me.btnWorkX0, resources.GetString("btnWorkX0.ToolTip"))
-        Me.btnWorkX0.UseVisualStyleBackColor = true
+        Me.btnWorkX0.Text = "0"
+        Me.ToolTip1.SetToolTip(Me.btnWorkX0, "Set X axis to 0 on Active Offset")
+        Me.btnWorkX0.UseVisualStyleBackColor = True
         '
         'Label1
         '
-        resources.ApplyResources(Me.Label1, "Label1")
+        Me.Label1.AutoSize = True
+        Me.Label1.Font = New System.Drawing.Font("Arial Unicode MS", 24.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.Location = New System.Drawing.Point(7, 29)
         Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(41, 43)
+        Me.Label1.TabIndex = 9
+        Me.Label1.Text = "X"
         '
         'btnWorkZ0
         '
-        resources.ApplyResources(Me.btnWorkZ0, "btnWorkZ0")
+        Me.btnWorkZ0.FlatStyle = System.Windows.Forms.FlatStyle.System
+        Me.btnWorkZ0.Font = New System.Drawing.Font("Microsoft Sans Serif", 24.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnWorkZ0.Location = New System.Drawing.Point(340, 207)
         Me.btnWorkZ0.Name = "btnWorkZ0"
+        Me.btnWorkZ0.Size = New System.Drawing.Size(34, 34)
+        Me.btnWorkZ0.TabIndex = 8
         Me.btnWorkZ0.Tag = "Z"
-        Me.ToolTip1.SetToolTip(Me.btnWorkZ0, resources.GetString("btnWorkZ0.ToolTip"))
-        Me.btnWorkZ0.UseVisualStyleBackColor = true
+        Me.btnWorkZ0.Text = "0"
+        Me.ToolTip1.SetToolTip(Me.btnWorkZ0, "Set Z axis to 0 on Active Offset")
+        Me.btnWorkZ0.UseVisualStyleBackColor = True
         '
         'btnWorkY0
         '
-        resources.ApplyResources(Me.btnWorkY0, "btnWorkY0")
+        Me.btnWorkY0.FlatStyle = System.Windows.Forms.FlatStyle.System
+        Me.btnWorkY0.Font = New System.Drawing.Font("Microsoft Sans Serif", 24.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnWorkY0.Location = New System.Drawing.Point(340, 120)
         Me.btnWorkY0.Name = "btnWorkY0"
+        Me.btnWorkY0.Size = New System.Drawing.Size(34, 34)
+        Me.btnWorkY0.TabIndex = 7
         Me.btnWorkY0.Tag = "Y"
-        Me.ToolTip1.SetToolTip(Me.btnWorkY0, resources.GetString("btnWorkY0.ToolTip"))
-        Me.btnWorkY0.UseVisualStyleBackColor = true
+        Me.btnWorkY0.Text = "0"
+        Me.ToolTip1.SetToolTip(Me.btnWorkY0, "Set Y axis to 0 on Active Offset")
+        Me.btnWorkY0.UseVisualStyleBackColor = True
         '
         'tpOffsets
         '
@@ -1549,297 +2120,438 @@ Partial Class GrblGui
         Me.tpOffsets.Controls.Add(Me.btnOffsetsG59Zero)
         Me.tpOffsets.Controls.Add(Me.tbOffsetsG58X)
         Me.tpOffsets.Controls.Add(Me.Label21)
-        resources.ApplyResources(Me.tpOffsets, "tpOffsets")
+        Me.tpOffsets.Location = New System.Drawing.Point(4, 22)
         Me.tpOffsets.Name = "tpOffsets"
-        Me.tpOffsets.UseVisualStyleBackColor = true
+        Me.tpOffsets.Padding = New System.Windows.Forms.Padding(3)
+        Me.tpOffsets.Size = New System.Drawing.Size(380, 352)
+        Me.tpOffsets.TabIndex = 2
+        Me.tpOffsets.Text = "Offsets"
+        Me.tpOffsets.ToolTipText = "Click to set to Current Machine Location"
+        Me.tpOffsets.UseVisualStyleBackColor = True
         '
         'btnSetOffsetG59
         '
-        resources.ApplyResources(Me.btnSetOffsetG59, "btnSetOffsetG59")
+        Me.btnSetOffsetG59.Location = New System.Drawing.Point(18, 274)
         Me.btnSetOffsetG59.Name = "btnSetOffsetG59"
+        Me.btnSetOffsetG59.Size = New System.Drawing.Size(46, 23)
+        Me.btnSetOffsetG59.TabIndex = 122
         Me.btnSetOffsetG59.Tag = "G59"
-        Me.ToolTip1.SetToolTip(Me.btnSetOffsetG59, resources.GetString("btnSetOffsetG59.ToolTip"))
-        Me.btnSetOffsetG59.UseVisualStyleBackColor = true
+        Me.btnSetOffsetG59.Text = "G59"
+        Me.ToolTip1.SetToolTip(Me.btnSetOffsetG59, "Click to set to Current Machine Location")
+        Me.btnSetOffsetG59.UseVisualStyleBackColor = True
         '
         'btnSetOffsetG58
         '
-        resources.ApplyResources(Me.btnSetOffsetG58, "btnSetOffsetG58")
+        Me.btnSetOffsetG58.Location = New System.Drawing.Point(18, 248)
         Me.btnSetOffsetG58.Name = "btnSetOffsetG58"
+        Me.btnSetOffsetG58.Size = New System.Drawing.Size(46, 23)
+        Me.btnSetOffsetG58.TabIndex = 121
         Me.btnSetOffsetG58.Tag = "G58"
-        Me.ToolTip1.SetToolTip(Me.btnSetOffsetG58, resources.GetString("btnSetOffsetG58.ToolTip"))
-        Me.btnSetOffsetG58.UseVisualStyleBackColor = true
+        Me.btnSetOffsetG58.Text = "G58"
+        Me.ToolTip1.SetToolTip(Me.btnSetOffsetG58, "Click to set to Current Machine Location")
+        Me.btnSetOffsetG58.UseVisualStyleBackColor = True
         '
         'btnSetOffsetG57
         '
-        resources.ApplyResources(Me.btnSetOffsetG57, "btnSetOffsetG57")
+        Me.btnSetOffsetG57.Location = New System.Drawing.Point(18, 222)
         Me.btnSetOffsetG57.Name = "btnSetOffsetG57"
+        Me.btnSetOffsetG57.Size = New System.Drawing.Size(46, 23)
+        Me.btnSetOffsetG57.TabIndex = 120
         Me.btnSetOffsetG57.Tag = "G57"
-        Me.ToolTip1.SetToolTip(Me.btnSetOffsetG57, resources.GetString("btnSetOffsetG57.ToolTip"))
-        Me.btnSetOffsetG57.UseVisualStyleBackColor = true
+        Me.btnSetOffsetG57.Text = "G57"
+        Me.ToolTip1.SetToolTip(Me.btnSetOffsetG57, "Click to set to Current Machine Location")
+        Me.btnSetOffsetG57.UseVisualStyleBackColor = True
         '
         'btnSetOffsetG56
         '
-        resources.ApplyResources(Me.btnSetOffsetG56, "btnSetOffsetG56")
+        Me.btnSetOffsetG56.Location = New System.Drawing.Point(18, 195)
         Me.btnSetOffsetG56.Name = "btnSetOffsetG56"
+        Me.btnSetOffsetG56.Size = New System.Drawing.Size(46, 23)
+        Me.btnSetOffsetG56.TabIndex = 119
         Me.btnSetOffsetG56.Tag = "G56"
-        Me.ToolTip1.SetToolTip(Me.btnSetOffsetG56, resources.GetString("btnSetOffsetG56.ToolTip"))
-        Me.btnSetOffsetG56.UseVisualStyleBackColor = true
+        Me.btnSetOffsetG56.Text = "G56"
+        Me.ToolTip1.SetToolTip(Me.btnSetOffsetG56, "Click to set to Current Machine Location")
+        Me.btnSetOffsetG56.UseVisualStyleBackColor = True
         '
         'btnSetOffsetG55
         '
-        resources.ApplyResources(Me.btnSetOffsetG55, "btnSetOffsetG55")
+        Me.btnSetOffsetG55.Location = New System.Drawing.Point(18, 169)
         Me.btnSetOffsetG55.Name = "btnSetOffsetG55"
+        Me.btnSetOffsetG55.Size = New System.Drawing.Size(46, 23)
+        Me.btnSetOffsetG55.TabIndex = 118
         Me.btnSetOffsetG55.Tag = "G55"
-        Me.ToolTip1.SetToolTip(Me.btnSetOffsetG55, resources.GetString("btnSetOffsetG55.ToolTip"))
-        Me.btnSetOffsetG55.UseVisualStyleBackColor = true
+        Me.btnSetOffsetG55.Text = "G55"
+        Me.ToolTip1.SetToolTip(Me.btnSetOffsetG55, "Click to set to Current Machine Location")
+        Me.btnSetOffsetG55.UseVisualStyleBackColor = True
         '
         'btnSetOffsetG54
         '
-        resources.ApplyResources(Me.btnSetOffsetG54, "btnSetOffsetG54")
+        Me.btnSetOffsetG54.Location = New System.Drawing.Point(18, 143)
         Me.btnSetOffsetG54.Name = "btnSetOffsetG54"
+        Me.btnSetOffsetG54.Size = New System.Drawing.Size(46, 23)
+        Me.btnSetOffsetG54.TabIndex = 117
         Me.btnSetOffsetG54.Tag = "G54"
-        Me.ToolTip1.SetToolTip(Me.btnSetOffsetG54, resources.GetString("btnSetOffsetG54.ToolTip"))
-        Me.btnSetOffsetG54.UseVisualStyleBackColor = true
+        Me.btnSetOffsetG54.Text = "G54"
+        Me.ToolTip1.SetToolTip(Me.btnSetOffsetG54, "Click to set to Current Machine Location")
+        Me.btnSetOffsetG54.UseVisualStyleBackColor = True
         '
         'Label10
         '
-        resources.ApplyResources(Me.Label10, "Label10")
+        Me.Label10.AutoSize = True
+        Me.Label10.Location = New System.Drawing.Point(133, 25)
         Me.Label10.Name = "Label10"
+        Me.Label10.Size = New System.Drawing.Size(125, 13)
+        Me.Label10.TabIndex = 116
+        Me.Label10.Text = "Current Machine location"
         '
         'Label71
         '
-        resources.ApplyResources(Me.Label71, "Label71")
+        Me.Label71.AutoSize = True
+        Me.Label71.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label71.Location = New System.Drawing.Point(23, 108)
         Me.Label71.Name = "Label71"
+        Me.Label71.Size = New System.Drawing.Size(41, 13)
+        Me.Label71.TabIndex = 115
+        Me.Label71.Text = "G43.1"
         '
         'tbOffSetsMachZ
         '
-        resources.ApplyResources(Me.tbOffSetsMachZ, "tbOffSetsMachZ")
+        Me.tbOffSetsMachZ.Enabled = False
+        Me.tbOffSetsMachZ.Location = New System.Drawing.Point(245, 45)
         Me.tbOffSetsMachZ.Name = "tbOffSetsMachZ"
+        Me.tbOffSetsMachZ.Size = New System.Drawing.Size(79, 20)
+        Me.tbOffSetsMachZ.TabIndex = 114
         Me.tbOffSetsMachZ.Tag = "G28Z"
-        Me.ToolTip1.SetToolTip(Me.tbOffSetsMachZ, resources.GetString("tbOffSetsMachZ.ToolTip"))
+        Me.ToolTip1.SetToolTip(Me.tbOffSetsMachZ, "Current Machine Z")
         '
         'Label19
         '
-        resources.ApplyResources(Me.Label19, "Label19")
+        Me.Label19.AutoSize = True
+        Me.Label19.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label19.Location = New System.Drawing.Point(23, 90)
         Me.Label19.Name = "Label19"
+        Me.Label19.Size = New System.Drawing.Size(113, 13)
+        Me.Label19.TabIndex = 100
+        Me.Label19.Text = "Tool Length Offset"
         '
         'tbOffsetsG56Y
         '
-        resources.ApplyResources(Me.tbOffsetsG56Y, "tbOffsetsG56Y")
+        Me.tbOffsetsG56Y.Location = New System.Drawing.Point(160, 197)
         Me.tbOffsetsG56Y.Name = "tbOffsetsG56Y"
+        Me.tbOffsetsG56Y.Size = New System.Drawing.Size(79, 20)
+        Me.tbOffsetsG56Y.TabIndex = 76
         Me.tbOffsetsG56Y.Tag = "G56Y"
         '
         'tbOffSetsMachY
         '
-        resources.ApplyResources(Me.tbOffSetsMachY, "tbOffSetsMachY")
+        Me.tbOffSetsMachY.Enabled = False
+        Me.tbOffSetsMachY.Location = New System.Drawing.Point(160, 45)
         Me.tbOffSetsMachY.Name = "tbOffSetsMachY"
+        Me.tbOffSetsMachY.Size = New System.Drawing.Size(79, 20)
+        Me.tbOffSetsMachY.TabIndex = 113
         Me.tbOffSetsMachY.Tag = "G28Y"
-        Me.ToolTip1.SetToolTip(Me.tbOffSetsMachY, resources.GetString("tbOffSetsMachY.ToolTip"))
+        Me.ToolTip1.SetToolTip(Me.tbOffSetsMachY, "Current Machine Y")
         '
         'tbOffsetsG56X
         '
-        resources.ApplyResources(Me.tbOffsetsG56X, "tbOffsetsG56X")
+        Me.tbOffsetsG56X.Location = New System.Drawing.Point(75, 197)
         Me.tbOffsetsG56X.Name = "tbOffsetsG56X"
+        Me.tbOffsetsG56X.Size = New System.Drawing.Size(79, 20)
+        Me.tbOffsetsG56X.TabIndex = 75
         Me.tbOffsetsG56X.Tag = "G56X"
         '
         'tbOffsetsG56Z
         '
-        resources.ApplyResources(Me.tbOffsetsG56Z, "tbOffsetsG56Z")
+        Me.tbOffsetsG56Z.Location = New System.Drawing.Point(245, 197)
         Me.tbOffsetsG56Z.Name = "tbOffsetsG56Z"
+        Me.tbOffsetsG56Z.Size = New System.Drawing.Size(79, 20)
+        Me.tbOffsetsG56Z.TabIndex = 77
         Me.tbOffsetsG56Z.Tag = "G56Z"
         '
         'tbOffSetsMachX
         '
-        resources.ApplyResources(Me.tbOffSetsMachX, "tbOffSetsMachX")
+        Me.tbOffSetsMachX.Enabled = False
+        Me.tbOffSetsMachX.Location = New System.Drawing.Point(75, 45)
         Me.tbOffSetsMachX.Name = "tbOffSetsMachX"
+        Me.tbOffSetsMachX.Size = New System.Drawing.Size(79, 20)
+        Me.tbOffSetsMachX.TabIndex = 112
         Me.tbOffSetsMachX.Tag = "G28X"
-        Me.ToolTip1.SetToolTip(Me.tbOffSetsMachX, resources.GetString("tbOffSetsMachX.ToolTip"))
+        Me.ToolTip1.SetToolTip(Me.tbOffSetsMachX, "Current Machine X")
         '
         'btnOffsetsG57Zero
         '
-        resources.ApplyResources(Me.btnOffsetsG57Zero, "btnOffsetsG57Zero")
+        Me.btnOffsetsG57Zero.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnOffsetsG57Zero.Location = New System.Drawing.Point(330, 222)
         Me.btnOffsetsG57Zero.Name = "btnOffsetsG57Zero"
+        Me.btnOffsetsG57Zero.Size = New System.Drawing.Size(35, 23)
+        Me.btnOffsetsG57Zero.TabIndex = 74
         Me.btnOffsetsG57Zero.Tag = "G57Zero"
-        Me.btnOffsetsG57Zero.UseVisualStyleBackColor = true
+        Me.btnOffsetsG57Zero.Text = "0"
+        Me.btnOffsetsG57Zero.UseVisualStyleBackColor = True
         '
         'tbOffsetsG54X
         '
-        resources.ApplyResources(Me.tbOffsetsG54X, "tbOffsetsG54X")
+        Me.tbOffsetsG54X.Location = New System.Drawing.Point(75, 145)
         Me.tbOffsetsG54X.Name = "tbOffsetsG54X"
+        Me.tbOffsetsG54X.Size = New System.Drawing.Size(79, 20)
+        Me.tbOffsetsG54X.TabIndex = 56
         Me.tbOffsetsG54X.Tag = "G54X"
         '
         'btnOffsetsG56Zero
         '
-        resources.ApplyResources(Me.btnOffsetsG56Zero, "btnOffsetsG56Zero")
+        Me.btnOffsetsG56Zero.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnOffsetsG56Zero.Location = New System.Drawing.Point(330, 196)
         Me.btnOffsetsG56Zero.Name = "btnOffsetsG56Zero"
+        Me.btnOffsetsG56Zero.Size = New System.Drawing.Size(35, 23)
+        Me.btnOffsetsG56Zero.TabIndex = 79
         Me.btnOffsetsG56Zero.Tag = "G56Zero"
-        Me.btnOffsetsG56Zero.UseVisualStyleBackColor = true
+        Me.btnOffsetsG56Zero.Text = "0"
+        Me.btnOffsetsG56Zero.UseVisualStyleBackColor = True
         '
         'tbOffsetsG54Y
         '
-        resources.ApplyResources(Me.tbOffsetsG54Y, "tbOffsetsG54Y")
+        Me.tbOffsetsG54Y.Location = New System.Drawing.Point(160, 145)
         Me.tbOffsetsG54Y.Name = "tbOffsetsG54Y"
+        Me.tbOffsetsG54Y.Size = New System.Drawing.Size(79, 20)
+        Me.tbOffsetsG54Y.TabIndex = 57
         Me.tbOffsetsG54Y.Tag = "G54Y"
         '
         'tbOffsetsG57Z
         '
-        resources.ApplyResources(Me.tbOffsetsG57Z, "tbOffsetsG57Z")
+        Me.tbOffsetsG57Z.Location = New System.Drawing.Point(245, 223)
         Me.tbOffsetsG57Z.Name = "tbOffsetsG57Z"
+        Me.tbOffsetsG57Z.Size = New System.Drawing.Size(79, 20)
+        Me.tbOffsetsG57Z.TabIndex = 72
         Me.tbOffsetsG57Z.Tag = "G57Z"
         '
         'btnOffsetsSave
         '
-        resources.ApplyResources(Me.btnOffsetsSave, "btnOffsetsSave")
+        Me.btnOffsetsSave.Location = New System.Drawing.Point(160, 299)
         Me.btnOffsetsSave.Name = "btnOffsetsSave"
-        Me.ToolTip1.SetToolTip(Me.btnOffsetsSave, resources.GetString("btnOffsetsSave.ToolTip"))
-        Me.btnOffsetsSave.UseVisualStyleBackColor = true
+        Me.btnOffsetsSave.Size = New System.Drawing.Size(75, 23)
+        Me.btnOffsetsSave.TabIndex = 107
+        Me.btnOffsetsSave.Text = "Save"
+        Me.ToolTip1.SetToolTip(Me.btnOffsetsSave, "Save Work Offsets to File")
+        Me.btnOffsetsSave.UseVisualStyleBackColor = True
         '
         'tbOffsetsG55X
         '
-        resources.ApplyResources(Me.tbOffsetsG55X, "tbOffsetsG55X")
+        Me.tbOffsetsG55X.Location = New System.Drawing.Point(75, 171)
         Me.tbOffsetsG55X.Name = "tbOffsetsG55X"
+        Me.tbOffsetsG55X.Size = New System.Drawing.Size(79, 20)
+        Me.tbOffsetsG55X.TabIndex = 80
         Me.tbOffsetsG55X.Tag = "G55X"
         '
         'tbOffsetsG54Z
         '
-        resources.ApplyResources(Me.tbOffsetsG54Z, "tbOffsetsG54Z")
+        Me.tbOffsetsG54Z.Location = New System.Drawing.Point(245, 145)
         Me.tbOffsetsG54Z.Name = "tbOffsetsG54Z"
+        Me.tbOffsetsG54Z.Size = New System.Drawing.Size(79, 20)
+        Me.tbOffsetsG54Z.TabIndex = 58
         Me.tbOffsetsG54Z.Tag = "G54Z"
         '
         'tbOffsetsG57Y
         '
-        resources.ApplyResources(Me.tbOffsetsG57Y, "tbOffsetsG57Y")
+        Me.tbOffsetsG57Y.Location = New System.Drawing.Point(160, 223)
         Me.tbOffsetsG57Y.Name = "tbOffsetsG57Y"
+        Me.tbOffsetsG57Y.Size = New System.Drawing.Size(79, 20)
+        Me.tbOffsetsG57Y.TabIndex = 71
         Me.tbOffsetsG57Y.Tag = "G57Y"
         '
         'btnOffsetsRetrieve
         '
-        resources.ApplyResources(Me.btnOffsetsRetrieve, "btnOffsetsRetrieve")
+        Me.btnOffsetsRetrieve.Location = New System.Drawing.Point(245, 299)
         Me.btnOffsetsRetrieve.Name = "btnOffsetsRetrieve"
-        Me.ToolTip1.SetToolTip(Me.btnOffsetsRetrieve, resources.GetString("btnOffsetsRetrieve.ToolTip"))
-        Me.btnOffsetsRetrieve.UseVisualStyleBackColor = true
+        Me.btnOffsetsRetrieve.Size = New System.Drawing.Size(75, 23)
+        Me.btnOffsetsRetrieve.TabIndex = 106
+        Me.btnOffsetsRetrieve.Text = "Retrieve"
+        Me.ToolTip1.SetToolTip(Me.btnOffsetsRetrieve, "Get from Grbl")
+        Me.btnOffsetsRetrieve.UseVisualStyleBackColor = True
         '
         'tbOffsetsG55Y
         '
-        resources.ApplyResources(Me.tbOffsetsG55Y, "tbOffsetsG55Y")
+        Me.tbOffsetsG55Y.Location = New System.Drawing.Point(160, 171)
         Me.tbOffsetsG55Y.Name = "tbOffsetsG55Y"
+        Me.tbOffsetsG55Y.Size = New System.Drawing.Size(79, 20)
+        Me.tbOffsetsG55Y.TabIndex = 81
         Me.tbOffsetsG55Y.Tag = "G55Y"
         '
         'btnOffsetsG54Zero
         '
-        resources.ApplyResources(Me.btnOffsetsG54Zero, "btnOffsetsG54Zero")
+        Me.btnOffsetsG54Zero.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnOffsetsG54Zero.Location = New System.Drawing.Point(330, 144)
         Me.btnOffsetsG54Zero.Name = "btnOffsetsG54Zero"
+        Me.btnOffsetsG54Zero.Size = New System.Drawing.Size(35, 23)
+        Me.btnOffsetsG54Zero.TabIndex = 59
         Me.btnOffsetsG54Zero.Tag = "G54Zero"
-        Me.btnOffsetsG54Zero.UseVisualStyleBackColor = true
+        Me.btnOffsetsG54Zero.Text = "0"
+        Me.btnOffsetsG54Zero.UseVisualStyleBackColor = True
         '
         'tbOffsetsG57X
         '
-        resources.ApplyResources(Me.tbOffsetsG57X, "tbOffsetsG57X")
+        Me.tbOffsetsG57X.Location = New System.Drawing.Point(75, 223)
         Me.tbOffsetsG57X.Name = "tbOffsetsG57X"
+        Me.tbOffsetsG57X.Size = New System.Drawing.Size(79, 20)
+        Me.tbOffsetsG57X.TabIndex = 70
         Me.tbOffsetsG57X.Tag = "G57X"
         '
         'btnOffsetsLoad
         '
-        resources.ApplyResources(Me.btnOffsetsLoad, "btnOffsetsLoad")
+        Me.btnOffsetsLoad.Location = New System.Drawing.Point(75, 300)
         Me.btnOffsetsLoad.Name = "btnOffsetsLoad"
-        Me.ToolTip1.SetToolTip(Me.btnOffsetsLoad, resources.GetString("btnOffsetsLoad.ToolTip"))
-        Me.btnOffsetsLoad.UseVisualStyleBackColor = true
+        Me.btnOffsetsLoad.Size = New System.Drawing.Size(75, 23)
+        Me.btnOffsetsLoad.TabIndex = 105
+        Me.btnOffsetsLoad.Text = "Load"
+        Me.ToolTip1.SetToolTip(Me.btnOffsetsLoad, "Load Work Offsets from File")
+        Me.btnOffsetsLoad.UseVisualStyleBackColor = True
         '
         'tbOffsetsG55Z
         '
-        resources.ApplyResources(Me.tbOffsetsG55Z, "tbOffsetsG55Z")
+        Me.tbOffsetsG55Z.Location = New System.Drawing.Point(245, 171)
         Me.tbOffsetsG55Z.Name = "tbOffsetsG55Z"
+        Me.tbOffsetsG55Z.Size = New System.Drawing.Size(79, 20)
+        Me.tbOffsetsG55Z.TabIndex = 82
         Me.tbOffsetsG55Z.Tag = "G55Z"
         '
         'tbOffsetsG59X
         '
-        resources.ApplyResources(Me.tbOffsetsG59X, "tbOffsetsG59X")
+        Me.tbOffsetsG59X.Location = New System.Drawing.Point(75, 275)
         Me.tbOffsetsG59X.Name = "tbOffsetsG59X"
+        Me.tbOffsetsG59X.Size = New System.Drawing.Size(79, 20)
+        Me.tbOffsetsG59X.TabIndex = 60
         Me.tbOffsetsG59X.Tag = "G59X"
         '
         'btnOffsetsG58Zero
         '
-        resources.ApplyResources(Me.btnOffsetsG58Zero, "btnOffsetsG58Zero")
+        Me.btnOffsetsG58Zero.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnOffsetsG58Zero.Location = New System.Drawing.Point(330, 248)
         Me.btnOffsetsG58Zero.Name = "btnOffsetsG58Zero"
+        Me.btnOffsetsG58Zero.Size = New System.Drawing.Size(35, 23)
+        Me.btnOffsetsG58Zero.TabIndex = 69
         Me.btnOffsetsG58Zero.Tag = "G58Zero"
-        Me.btnOffsetsG58Zero.UseVisualStyleBackColor = true
+        Me.btnOffsetsG58Zero.Text = "0"
+        Me.btnOffsetsG58Zero.UseVisualStyleBackColor = True
         '
         'btnOffsetsG43Zero
         '
-        resources.ApplyResources(Me.btnOffsetsG43Zero, "btnOffsetsG43Zero")
+        Me.btnOffsetsG43Zero.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnOffsetsG43Zero.Location = New System.Drawing.Point(330, 104)
         Me.btnOffsetsG43Zero.Name = "btnOffsetsG43Zero"
+        Me.btnOffsetsG43Zero.Size = New System.Drawing.Size(35, 23)
+        Me.btnOffsetsG43Zero.TabIndex = 103
         Me.btnOffsetsG43Zero.Tag = "G43Zero"
-        Me.btnOffsetsG43Zero.UseVisualStyleBackColor = true
+        Me.btnOffsetsG43Zero.Text = "0"
+        Me.btnOffsetsG43Zero.UseVisualStyleBackColor = True
         '
         'tbOffsetsG59Y
         '
-        resources.ApplyResources(Me.tbOffsetsG59Y, "tbOffsetsG59Y")
+        Me.tbOffsetsG59Y.Location = New System.Drawing.Point(160, 275)
         Me.tbOffsetsG59Y.Name = "tbOffsetsG59Y"
+        Me.tbOffsetsG59Y.Size = New System.Drawing.Size(79, 20)
+        Me.tbOffsetsG59Y.TabIndex = 61
         Me.tbOffsetsG59Y.Tag = "G59Y"
         '
         'tbOffsetsG43Z
         '
-        resources.ApplyResources(Me.tbOffsetsG43Z, "tbOffsetsG43Z")
+        Me.tbOffsetsG43Z.Location = New System.Drawing.Point(245, 105)
         Me.tbOffsetsG43Z.Name = "tbOffsetsG43Z"
+        Me.tbOffsetsG43Z.Size = New System.Drawing.Size(79, 20)
+        Me.tbOffsetsG43Z.TabIndex = 102
         Me.tbOffsetsG43Z.Tag = "G43Z"
         '
         'btnOffsetsG55Zero
         '
-        resources.ApplyResources(Me.btnOffsetsG55Zero, "btnOffsetsG55Zero")
+        Me.btnOffsetsG55Zero.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnOffsetsG55Zero.Location = New System.Drawing.Point(330, 170)
         Me.btnOffsetsG55Zero.Name = "btnOffsetsG55Zero"
+        Me.btnOffsetsG55Zero.Size = New System.Drawing.Size(35, 23)
+        Me.btnOffsetsG55Zero.TabIndex = 84
         Me.btnOffsetsG55Zero.Tag = "G55Zero"
-        Me.btnOffsetsG55Zero.UseVisualStyleBackColor = true
+        Me.btnOffsetsG55Zero.Text = "0"
+        Me.btnOffsetsG55Zero.UseVisualStyleBackColor = True
         '
         'tbOffsetsG59Z
         '
-        resources.ApplyResources(Me.tbOffsetsG59Z, "tbOffsetsG59Z")
+        Me.tbOffsetsG59Z.Location = New System.Drawing.Point(245, 275)
         Me.tbOffsetsG59Z.Name = "tbOffsetsG59Z"
+        Me.tbOffsetsG59Z.Size = New System.Drawing.Size(79, 20)
+        Me.tbOffsetsG59Z.TabIndex = 62
         Me.tbOffsetsG59Z.Tag = "G59Z"
         '
         'tbOffsetsG58Z
         '
-        resources.ApplyResources(Me.tbOffsetsG58Z, "tbOffsetsG58Z")
+        Me.tbOffsetsG58Z.Location = New System.Drawing.Point(245, 249)
         Me.tbOffsetsG58Z.Name = "tbOffsetsG58Z"
+        Me.tbOffsetsG58Z.Size = New System.Drawing.Size(79, 20)
+        Me.tbOffsetsG58Z.TabIndex = 67
         Me.tbOffsetsG58Z.Tag = "G58Z"
         '
         'Label60
         '
-        resources.ApplyResources(Me.Label60, "Label60")
+        Me.Label60.AutoSize = True
+        Me.Label60.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label60.Location = New System.Drawing.Point(116, 68)
         Me.Label60.Name = "Label60"
+        Me.Label60.Size = New System.Drawing.Size(15, 13)
+        Me.Label60.TabIndex = 85
+        Me.Label60.Text = "X"
         '
         'tbOffsetsG58Y
         '
-        resources.ApplyResources(Me.tbOffsetsG58Y, "tbOffsetsG58Y")
+        Me.tbOffsetsG58Y.Location = New System.Drawing.Point(160, 249)
         Me.tbOffsetsG58Y.Name = "tbOffsetsG58Y"
+        Me.tbOffsetsG58Y.Size = New System.Drawing.Size(79, 20)
+        Me.tbOffsetsG58Y.TabIndex = 66
         Me.tbOffsetsG58Y.Tag = "G58Y"
         '
         'Label20
         '
-        resources.ApplyResources(Me.Label20, "Label20")
+        Me.Label20.AutoSize = True
+        Me.Label20.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label20.Location = New System.Drawing.Point(28, 129)
         Me.Label20.Name = "Label20"
+        Me.Label20.Size = New System.Drawing.Size(81, 13)
+        Me.Label20.TabIndex = 99
+        Me.Label20.Text = "Work Offsets"
         '
         'Label43
         '
-        resources.ApplyResources(Me.Label43, "Label43")
+        Me.Label43.AutoSize = True
+        Me.Label43.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label43.Location = New System.Drawing.Point(189, 68)
         Me.Label43.Name = "Label43"
+        Me.Label43.Size = New System.Drawing.Size(15, 13)
+        Me.Label43.TabIndex = 86
+        Me.Label43.Text = "Y"
         '
         'btnOffsetsG59Zero
         '
-        resources.ApplyResources(Me.btnOffsetsG59Zero, "btnOffsetsG59Zero")
+        Me.btnOffsetsG59Zero.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnOffsetsG59Zero.Location = New System.Drawing.Point(330, 274)
         Me.btnOffsetsG59Zero.Name = "btnOffsetsG59Zero"
+        Me.btnOffsetsG59Zero.Size = New System.Drawing.Size(35, 23)
+        Me.btnOffsetsG59Zero.TabIndex = 64
         Me.btnOffsetsG59Zero.Tag = "G59Zero"
-        Me.btnOffsetsG59Zero.UseVisualStyleBackColor = true
+        Me.btnOffsetsG59Zero.Text = "0"
+        Me.btnOffsetsG59Zero.UseVisualStyleBackColor = True
         '
         'tbOffsetsG58X
         '
-        resources.ApplyResources(Me.tbOffsetsG58X, "tbOffsetsG58X")
+        Me.tbOffsetsG58X.Location = New System.Drawing.Point(75, 249)
         Me.tbOffsetsG58X.Name = "tbOffsetsG58X"
+        Me.tbOffsetsG58X.Size = New System.Drawing.Size(79, 20)
+        Me.tbOffsetsG58X.TabIndex = 65
         Me.tbOffsetsG58X.Tag = "G58X"
         '
         'Label21
         '
-        resources.ApplyResources(Me.Label21, "Label21")
+        Me.Label21.AutoSize = True
+        Me.Label21.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label21.Location = New System.Drawing.Point(280, 68)
         Me.Label21.Name = "Label21"
+        Me.Label21.Size = New System.Drawing.Size(15, 13)
+        Me.Label21.TabIndex = 87
+        Me.Label21.Text = "Z"
         '
         'tabPgSettings
         '
@@ -1849,9 +2561,13 @@ Partial Class GrblGui
         Me.tabPgSettings.Controls.Add(Me.gbSettingsMisc)
         Me.tabPgSettings.Controls.Add(Me.gbSettingsPosition)
         Me.tabPgSettings.Controls.Add(Me.gbSettingsJogging)
-        resources.ApplyResources(Me.tabPgSettings, "tabPgSettings")
+        Me.tabPgSettings.Location = New System.Drawing.Point(4, 22)
         Me.tabPgSettings.Name = "tabPgSettings"
-        Me.tabPgSettings.UseVisualStyleBackColor = true
+        Me.tabPgSettings.Padding = New System.Windows.Forms.Padding(3)
+        Me.tabPgSettings.Size = New System.Drawing.Size(1134, 677)
+        Me.tabPgSettings.TabIndex = 1
+        Me.tabPgSettings.Text = "Settings"
+        Me.tabPgSettings.UseVisualStyleBackColor = True
         '
         'gbGrblSettings
         '
@@ -1859,41 +2575,56 @@ Partial Class GrblGui
         Me.gbGrblSettings.Controls.Add(Me.tbSettingsGrblLastParam)
         Me.gbGrblSettings.Controls.Add(Me.dgGrblSettings)
         Me.gbGrblSettings.Controls.Add(Me.btnSettingsGrbl)
-        resources.ApplyResources(Me.gbGrblSettings, "gbGrblSettings")
+        Me.gbGrblSettings.Location = New System.Drawing.Point(10, 19)
         Me.gbGrblSettings.Name = "gbGrblSettings"
-        Me.gbGrblSettings.TabStop = false
+        Me.gbGrblSettings.Size = New System.Drawing.Size(346, 590)
+        Me.gbGrblSettings.TabIndex = 111
+        Me.gbGrblSettings.TabStop = False
+        Me.gbGrblSettings.Text = "Grbl Settings"
         '
         'Label4
         '
-        resources.ApplyResources(Me.Label4, "Label4")
+        Me.Label4.AutoSize = True
+        Me.Label4.Location = New System.Drawing.Point(57, 555)
         Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(82, 13)
+        Me.Label4.TabIndex = 7
+        Me.Label4.Text = "Last Grbl Param"
         '
         'tbSettingsGrblLastParam
         '
-        Me.tbSettingsGrblLastParam.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.GrblPanel.My.MySettings.Default, "GrblLastParamID", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
-        resources.ApplyResources(Me.tbSettingsGrblLastParam, "tbSettingsGrblLastParam")
+        Me.tbSettingsGrblLastParam.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.GrblPanel.My.MySettings.Default, "GrblLastParamID", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
+        Me.tbSettingsGrblLastParam.Location = New System.Drawing.Point(6, 552)
         Me.tbSettingsGrblLastParam.Name = "tbSettingsGrblLastParam"
+        Me.tbSettingsGrblLastParam.Size = New System.Drawing.Size(45, 20)
+        Me.tbSettingsGrblLastParam.TabIndex = 6
         Me.tbSettingsGrblLastParam.Text = Global.GrblPanel.My.MySettings.Default.GrblLastParamID
-        Me.ToolTip1.SetToolTip(Me.tbSettingsGrblLastParam, resources.GetString("tbSettingsGrblLastParam.ToolTip"))
+        Me.ToolTip1.SetToolTip(Me.tbSettingsGrblLastParam, "Change this to reflect the highest Grbl Parameter number")
         '
         'dgGrblSettings
         '
-        Me.dgGrblSettings.AllowUserToAddRows = false
-        Me.dgGrblSettings.AllowUserToDeleteRows = false
-        Me.dgGrblSettings.AllowUserToResizeColumns = false
-        Me.dgGrblSettings.AllowUserToResizeRows = false
+        Me.dgGrblSettings.AllowUserToAddRows = False
+        Me.dgGrblSettings.AllowUserToDeleteRows = False
+        Me.dgGrblSettings.AllowUserToResizeColumns = False
+        Me.dgGrblSettings.AllowUserToResizeRows = False
         Me.dgGrblSettings.BackgroundColor = System.Drawing.SystemColors.Window
         Me.dgGrblSettings.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        resources.ApplyResources(Me.dgGrblSettings, "dgGrblSettings")
-        Me.dgGrblSettings.MultiSelect = false
+        Me.dgGrblSettings.Location = New System.Drawing.Point(3, 13)
+        Me.dgGrblSettings.MultiSelect = False
         Me.dgGrblSettings.Name = "dgGrblSettings"
+        Me.dgGrblSettings.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
         Me.dgGrblSettings.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect
+        Me.dgGrblSettings.Size = New System.Drawing.Size(337, 530)
+        Me.dgGrblSettings.TabIndex = 4
         '
         'btnSettingsGrbl
         '
-        resources.ApplyResources(Me.btnSettingsGrbl, "btnSettingsGrbl")
+        Me.btnSettingsGrbl.Location = New System.Drawing.Point(265, 549)
         Me.btnSettingsGrbl.Name = "btnSettingsGrbl"
-        Me.btnSettingsGrbl.UseVisualStyleBackColor = true
+        Me.btnSettingsGrbl.Size = New System.Drawing.Size(75, 41)
+        Me.btnSettingsGrbl.TabIndex = 5
+        Me.btnSettingsGrbl.Text = "Get Grbl Settings"
+        Me.btnSettingsGrbl.UseVisualStyleBackColor = True
         '
         'gbSettingsOffsets
         '
@@ -1910,93 +2641,149 @@ Partial Class GrblGui
         Me.gbSettingsOffsets.Controls.Add(Me.Label68)
         Me.gbSettingsOffsets.Controls.Add(Me.tbOffsetsG28Z)
         Me.gbSettingsOffsets.Controls.Add(Me.Label69)
-        resources.ApplyResources(Me.gbSettingsOffsets, "gbSettingsOffsets")
+        Me.gbSettingsOffsets.Location = New System.Drawing.Point(362, 498)
         Me.gbSettingsOffsets.Name = "gbSettingsOffsets"
-        Me.gbSettingsOffsets.TabStop = false
+        Me.gbSettingsOffsets.Size = New System.Drawing.Size(351, 111)
+        Me.gbSettingsOffsets.TabIndex = 110
+        Me.gbSettingsOffsets.TabStop = False
+        Me.gbSettingsOffsets.Text = "Offsets (2)"
         '
         'btnOffsetsG28Set
         '
-        resources.ApplyResources(Me.btnOffsetsG28Set, "btnOffsetsG28Set")
+        Me.btnOffsetsG28Set.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnOffsetsG28Set.Location = New System.Drawing.Point(311, 29)
         Me.btnOffsetsG28Set.Name = "btnOffsetsG28Set"
+        Me.btnOffsetsG28Set.Size = New System.Drawing.Size(35, 23)
+        Me.btnOffsetsG28Set.TabIndex = 112
         Me.btnOffsetsG28Set.Tag = "G28Set"
-        Me.ToolTip1.SetToolTip(Me.btnOffsetsG28Set, resources.GetString("btnOffsetsG28Set.ToolTip"))
-        Me.btnOffsetsG28Set.UseVisualStyleBackColor = true
+        Me.btnOffsetsG28Set.Text = "Set"
+        Me.ToolTip1.SetToolTip(Me.btnOffsetsG28Set, "Set Special Position 1 to current Machine position")
+        Me.btnOffsetsG28Set.UseVisualStyleBackColor = True
         '
         'btnSettingsRetrieveLocations
         '
-        resources.ApplyResources(Me.btnSettingsRetrieveLocations, "btnSettingsRetrieveLocations")
+        Me.btnSettingsRetrieveLocations.Location = New System.Drawing.Point(276, 88)
         Me.btnSettingsRetrieveLocations.Name = "btnSettingsRetrieveLocations"
-        Me.ToolTip1.SetToolTip(Me.btnSettingsRetrieveLocations, resources.GetString("btnSettingsRetrieveLocations.ToolTip"))
-        Me.btnSettingsRetrieveLocations.UseVisualStyleBackColor = true
+        Me.btnSettingsRetrieveLocations.Size = New System.Drawing.Size(75, 23)
+        Me.btnSettingsRetrieveLocations.TabIndex = 111
+        Me.btnSettingsRetrieveLocations.Text = "Retrieve"
+        Me.ToolTip1.SetToolTip(Me.btnSettingsRetrieveLocations, "Get current settings from Grbl")
+        Me.btnSettingsRetrieveLocations.UseVisualStyleBackColor = True
         '
         'Label7
         '
-        resources.ApplyResources(Me.Label7, "Label7")
+        Me.Label7.AutoSize = True
+        Me.Label7.Location = New System.Drawing.Point(5, 95)
         Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(185, 13)
+        Me.Label7.TabIndex = 110
+        Me.Label7.Text = "(Work Offsets are set from main page)"
         '
         'Label18
         '
-        resources.ApplyResources(Me.Label18, "Label18")
+        Me.Label18.AutoSize = True
+        Me.Label18.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label18.Location = New System.Drawing.Point(8, 16)
         Me.Label18.Name = "Label18"
+        Me.Label18.Size = New System.Drawing.Size(114, 13)
+        Me.Label18.TabIndex = 101
+        Me.Label18.Text = "Machine Locations"
         '
         'tbOffsetsG30Y
         '
-        resources.ApplyResources(Me.tbOffsetsG30Y, "tbOffsetsG30Y")
+        Me.tbOffsetsG30Y.Enabled = False
+        Me.tbOffsetsG30Y.Location = New System.Drawing.Point(141, 59)
         Me.tbOffsetsG30Y.Name = "tbOffsetsG30Y"
+        Me.tbOffsetsG30Y.Size = New System.Drawing.Size(79, 20)
+        Me.tbOffsetsG30Y.TabIndex = 95
         Me.tbOffsetsG30Y.Tag = "G30Y"
         '
         'tbOffsetsG30X
         '
-        resources.ApplyResources(Me.tbOffsetsG30X, "tbOffsetsG30X")
+        Me.tbOffsetsG30X.Enabled = False
+        Me.tbOffsetsG30X.Location = New System.Drawing.Point(56, 59)
         Me.tbOffsetsG30X.Name = "tbOffsetsG30X"
+        Me.tbOffsetsG30X.Size = New System.Drawing.Size(79, 20)
+        Me.tbOffsetsG30X.TabIndex = 94
         Me.tbOffsetsG30X.Tag = "G30X"
         '
         'tbOffsetsG30Z
         '
-        resources.ApplyResources(Me.tbOffsetsG30Z, "tbOffsetsG30Z")
+        Me.tbOffsetsG30Z.Enabled = False
+        Me.tbOffsetsG30Z.Location = New System.Drawing.Point(226, 59)
         Me.tbOffsetsG30Z.Name = "tbOffsetsG30Z"
+        Me.tbOffsetsG30Z.Size = New System.Drawing.Size(79, 20)
+        Me.tbOffsetsG30Z.TabIndex = 96
         Me.tbOffsetsG30Z.Tag = "G30Z"
         '
         'tbOffsetsG28X
         '
-        resources.ApplyResources(Me.tbOffsetsG28X, "tbOffsetsG28X")
+        Me.tbOffsetsG28X.Enabled = False
+        Me.tbOffsetsG28X.Location = New System.Drawing.Point(56, 31)
         Me.tbOffsetsG28X.Name = "tbOffsetsG28X"
+        Me.tbOffsetsG28X.Size = New System.Drawing.Size(79, 20)
+        Me.tbOffsetsG28X.TabIndex = 89
         Me.tbOffsetsG28X.Tag = "G28X"
         '
         'btnOffsetsG30Set
         '
-        resources.ApplyResources(Me.btnOffsetsG30Set, "btnOffsetsG30Set")
+        Me.btnOffsetsG30Set.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnOffsetsG30Set.Location = New System.Drawing.Point(311, 58)
         Me.btnOffsetsG30Set.Name = "btnOffsetsG30Set"
+        Me.btnOffsetsG30Set.Size = New System.Drawing.Size(35, 23)
+        Me.btnOffsetsG30Set.TabIndex = 97
         Me.btnOffsetsG30Set.Tag = "G30Set"
-        Me.ToolTip1.SetToolTip(Me.btnOffsetsG30Set, resources.GetString("btnOffsetsG30Set.ToolTip"))
-        Me.btnOffsetsG30Set.UseVisualStyleBackColor = true
+        Me.btnOffsetsG30Set.Text = "Set"
+        Me.ToolTip1.SetToolTip(Me.btnOffsetsG30Set, "Set Special Position 2 to current Machine position")
+        Me.btnOffsetsG30Set.UseVisualStyleBackColor = True
         '
         'tbOffsetsG28Y
         '
-        resources.ApplyResources(Me.tbOffsetsG28Y, "tbOffsetsG28Y")
+        Me.tbOffsetsG28Y.Enabled = False
+        Me.tbOffsetsG28Y.Location = New System.Drawing.Point(141, 31)
         Me.tbOffsetsG28Y.Name = "tbOffsetsG28Y"
+        Me.tbOffsetsG28Y.Size = New System.Drawing.Size(79, 20)
+        Me.tbOffsetsG28Y.TabIndex = 90
         Me.tbOffsetsG28Y.Tag = "G28Y"
         '
         'Label68
         '
-        resources.ApplyResources(Me.Label68, "Label68")
+        Me.Label68.AutoSize = True
+        Me.Label68.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label68.Location = New System.Drawing.Point(4, 35)
         Me.Label68.Name = "Label68"
+        Me.Label68.Size = New System.Drawing.Size(30, 13)
+        Me.Label68.TabIndex = 108
+        Me.Label68.Text = "G28"
         '
         'tbOffsetsG28Z
         '
-        resources.ApplyResources(Me.tbOffsetsG28Z, "tbOffsetsG28Z")
+        Me.tbOffsetsG28Z.Enabled = False
+        Me.tbOffsetsG28Z.Location = New System.Drawing.Point(226, 31)
         Me.tbOffsetsG28Z.Name = "tbOffsetsG28Z"
+        Me.tbOffsetsG28Z.Size = New System.Drawing.Size(79, 20)
+        Me.tbOffsetsG28Z.TabIndex = 91
         Me.tbOffsetsG28Z.Tag = "G28Z"
         '
         'Label69
         '
-        resources.ApplyResources(Me.Label69, "Label69")
+        Me.Label69.AutoSize = True
+        Me.Label69.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label69.Location = New System.Drawing.Point(4, 63)
         Me.Label69.Name = "Label69"
+        Me.Label69.Size = New System.Drawing.Size(30, 13)
+        Me.Label69.TabIndex = 109
+        Me.Label69.Text = "G30"
         '
         'Label42
         '
-        resources.ApplyResources(Me.Label42, "Label42")
+        Me.Label42.AutoSize = True
+        Me.Label42.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label42.Location = New System.Drawing.Point(359, 3)
         Me.Label42.Name = "Label42"
+        Me.Label42.Size = New System.Drawing.Size(283, 13)
+        Me.Label42.TabIndex = 3
+        Me.Label42.Text = "These settings always save on exit of Grbl-Panel"
         '
         'gbSettingsMisc
         '
@@ -2015,110 +2802,162 @@ Partial Class GrblGui
         Me.gbSettingsMisc.Controls.Add(Me.tbSettingsQSize)
         Me.gbSettingsMisc.Controls.Add(Me.Label26)
         Me.gbSettingsMisc.Controls.Add(Me.tbSettingsPollRate)
-        resources.ApplyResources(Me.gbSettingsMisc, "gbSettingsMisc")
+        Me.gbSettingsMisc.Location = New System.Drawing.Point(362, 234)
         Me.gbSettingsMisc.Name = "gbSettingsMisc"
-        Me.gbSettingsMisc.TabStop = false
+        Me.gbSettingsMisc.Size = New System.Drawing.Size(239, 258)
+        Me.gbSettingsMisc.TabIndex = 2
+        Me.gbSettingsMisc.TabStop = False
+        Me.gbSettingsMisc.Text = "Misc"
         '
         'tbSettingsDefaultExt
         '
-        Me.tbSettingsDefaultExt.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.GrblPanel.My.MySettings.Default, "DefaultFileExt", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
-        resources.ApplyResources(Me.tbSettingsDefaultExt, "tbSettingsDefaultExt")
+        Me.tbSettingsDefaultExt.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.GrblPanel.My.MySettings.Default, "DefaultFileExt", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
+        Me.tbSettingsDefaultExt.Location = New System.Drawing.Point(12, 120)
         Me.tbSettingsDefaultExt.Name = "tbSettingsDefaultExt"
+        Me.tbSettingsDefaultExt.Size = New System.Drawing.Size(43, 20)
+        Me.tbSettingsDefaultExt.TabIndex = 22
         Me.tbSettingsDefaultExt.Text = Global.GrblPanel.My.MySettings.Default.DefaultFileExt
         '
         'Label5
         '
-        resources.ApplyResources(Me.Label5, "Label5")
+        Me.Label5.AutoSize = True
+        Me.Label5.Location = New System.Drawing.Point(70, 96)
         Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(69, 13)
+        Me.Label5.TabIndex = 20
+        Me.Label5.Text = "Startup delay"
         '
         'Label6
         '
-        resources.ApplyResources(Me.Label6, "Label6")
+        Me.Label6.AutoSize = True
+        Me.Label6.Location = New System.Drawing.Point(70, 123)
         Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(77, 13)
+        Me.Label6.TabIndex = 21
+        Me.Label6.Text = "Default File ext"
         '
         'tbSettingsStartupDelay
         '
-        Me.tbSettingsStartupDelay.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.GrblPanel.My.MySettings.Default, "StartupDelay", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
-        resources.ApplyResources(Me.tbSettingsStartupDelay, "tbSettingsStartupDelay")
+        Me.tbSettingsStartupDelay.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.GrblPanel.My.MySettings.Default, "StartupDelay", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
+        Me.tbSettingsStartupDelay.Location = New System.Drawing.Point(12, 94)
         Me.tbSettingsStartupDelay.Name = "tbSettingsStartupDelay"
+        Me.tbSettingsStartupDelay.Size = New System.Drawing.Size(44, 20)
+        Me.tbSettingsStartupDelay.TabIndex = 19
         Me.tbSettingsStartupDelay.Text = Global.GrblPanel.My.MySettings.Default.StartupDelay
         '
         'cbSettingsLeftHanded
         '
-        resources.ApplyResources(Me.cbSettingsLeftHanded, "cbSettingsLeftHanded")
+        Me.cbSettingsLeftHanded.AutoSize = True
         Me.cbSettingsLeftHanded.Checked = Global.GrblPanel.My.MySettings.Default.LeftHandedGUI
-        Me.cbSettingsLeftHanded.DataBindings.Add(New System.Windows.Forms.Binding("Checked", Global.GrblPanel.My.MySettings.Default, "LeftHandedGUI", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
+        Me.cbSettingsLeftHanded.DataBindings.Add(New System.Windows.Forms.Binding("Checked", Global.GrblPanel.My.MySettings.Default, "LeftHandedGUI", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
+        Me.cbSettingsLeftHanded.Location = New System.Drawing.Point(124, 187)
         Me.cbSettingsLeftHanded.Name = "cbSettingsLeftHanded"
-        Me.cbSettingsLeftHanded.UseVisualStyleBackColor = true
+        Me.cbSettingsLeftHanded.Size = New System.Drawing.Size(107, 17)
+        Me.cbSettingsLeftHanded.TabIndex = 18
+        Me.cbSettingsLeftHanded.Text = "Left Handed GUI"
+        Me.cbSettingsLeftHanded.UseVisualStyleBackColor = True
         '
         'cbSettingsConnectOnLoad
         '
-        resources.ApplyResources(Me.cbSettingsConnectOnLoad, "cbSettingsConnectOnLoad")
+        Me.cbSettingsConnectOnLoad.AutoSize = True
         Me.cbSettingsConnectOnLoad.Checked = Global.GrblPanel.My.MySettings.Default.GrblConnectOnLoad
-        Me.cbSettingsConnectOnLoad.DataBindings.Add(New System.Windows.Forms.Binding("Checked", Global.GrblPanel.My.MySettings.Default, "GrblConnectOnLoad", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
+        Me.cbSettingsConnectOnLoad.DataBindings.Add(New System.Windows.Forms.Binding("Checked", Global.GrblPanel.My.MySettings.Default, "GrblConnectOnLoad", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
+        Me.cbSettingsConnectOnLoad.Location = New System.Drawing.Point(11, 169)
         Me.cbSettingsConnectOnLoad.Name = "cbSettingsConnectOnLoad"
-        Me.ToolTip1.SetToolTip(Me.cbSettingsConnectOnLoad, resources.GetString("cbSettingsConnectOnLoad.ToolTip"))
-        Me.cbSettingsConnectOnLoad.UseVisualStyleBackColor = true
+        Me.cbSettingsConnectOnLoad.Size = New System.Drawing.Size(108, 17)
+        Me.cbSettingsConnectOnLoad.TabIndex = 12
+        Me.cbSettingsConnectOnLoad.Text = "Connect on Load"
+        Me.ToolTip1.SetToolTip(Me.cbSettingsConnectOnLoad, "Connect automatically to last port")
+        Me.cbSettingsConnectOnLoad.UseVisualStyleBackColor = True
         '
         'cbSettingsPauseOnError
         '
-        resources.ApplyResources(Me.cbSettingsPauseOnError, "cbSettingsPauseOnError")
+        Me.cbSettingsPauseOnError.AutoSize = True
         Me.cbSettingsPauseOnError.Checked = Global.GrblPanel.My.MySettings.Default.GCodePauseOnError
         Me.cbSettingsPauseOnError.CheckState = System.Windows.Forms.CheckState.Checked
-        Me.cbSettingsPauseOnError.DataBindings.Add(New System.Windows.Forms.Binding("Checked", Global.GrblPanel.My.MySettings.Default, "GCodePauseOnError", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
+        Me.cbSettingsPauseOnError.DataBindings.Add(New System.Windows.Forms.Binding("Checked", Global.GrblPanel.My.MySettings.Default, "GCodePauseOnError", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
+        Me.cbSettingsPauseOnError.Location = New System.Drawing.Point(11, 152)
         Me.cbSettingsPauseOnError.Name = "cbSettingsPauseOnError"
-        Me.cbSettingsPauseOnError.UseVisualStyleBackColor = true
+        Me.cbSettingsPauseOnError.Size = New System.Drawing.Size(96, 17)
+        Me.cbSettingsPauseOnError.TabIndex = 7
+        Me.cbSettingsPauseOnError.Text = "Pause on Error"
+        Me.cbSettingsPauseOnError.UseVisualStyleBackColor = True
         '
         'cbStatusPollEnable
         '
-        resources.ApplyResources(Me.cbStatusPollEnable, "cbStatusPollEnable")
+        Me.cbStatusPollEnable.AutoSize = True
         Me.cbStatusPollEnable.Checked = Global.GrblPanel.My.MySettings.Default.StatusPollEnabled
         Me.cbStatusPollEnable.CheckState = System.Windows.Forms.CheckState.Checked
-        Me.cbStatusPollEnable.DataBindings.Add(New System.Windows.Forms.Binding("Checked", Global.GrblPanel.My.MySettings.Default, "StatusPollEnabled", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
+        Me.cbStatusPollEnable.DataBindings.Add(New System.Windows.Forms.Binding("Checked", Global.GrblPanel.My.MySettings.Default, "StatusPollEnabled", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
+        Me.cbStatusPollEnable.Location = New System.Drawing.Point(10, 187)
         Me.cbStatusPollEnable.Name = "cbStatusPollEnable"
-        Me.cbStatusPollEnable.UseVisualStyleBackColor = true
+        Me.cbStatusPollEnable.Size = New System.Drawing.Size(76, 17)
+        Me.cbStatusPollEnable.TabIndex = 17
+        Me.cbStatusPollEnable.Text = "Status Poll"
+        Me.cbStatusPollEnable.UseVisualStyleBackColor = True
         '
         'btnSettingsRefreshMisc
         '
-        resources.ApplyResources(Me.btnSettingsRefreshMisc, "btnSettingsRefreshMisc")
+        Me.btnSettingsRefreshMisc.Location = New System.Drawing.Point(0, 235)
         Me.btnSettingsRefreshMisc.Name = "btnSettingsRefreshMisc"
+        Me.btnSettingsRefreshMisc.Size = New System.Drawing.Size(75, 23)
+        Me.btnSettingsRefreshMisc.TabIndex = 6
         Me.btnSettingsRefreshMisc.Tag = "Misc"
-        Me.btnSettingsRefreshMisc.UseVisualStyleBackColor = true
+        Me.btnSettingsRefreshMisc.Text = "Refresh"
+        Me.btnSettingsRefreshMisc.UseVisualStyleBackColor = True
         '
         'Label37
         '
-        resources.ApplyResources(Me.Label37, "Label37")
+        Me.Label37.AutoSize = True
+        Me.Label37.Location = New System.Drawing.Point(70, 70)
         Me.Label37.Name = "Label37"
+        Me.Label37.Size = New System.Drawing.Size(77, 13)
+        Me.Label37.TabIndex = 5
+        Me.Label37.Text = "RBuf Max Size"
         '
         'Label36
         '
-        resources.ApplyResources(Me.Label36, "Label36")
+        Me.Label36.AutoSize = True
+        Me.Label36.Location = New System.Drawing.Point(70, 44)
         Me.Label36.Name = "Label36"
+        Me.Label36.Size = New System.Drawing.Size(61, 13)
+        Me.Label36.TabIndex = 4
+        Me.Label36.Text = "Q Max Size"
         '
         'tbSettingsRBuffSize
         '
-        Me.tbSettingsRBuffSize.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.GrblPanel.My.MySettings.Default, "RBuffMaxSize", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
-        resources.ApplyResources(Me.tbSettingsRBuffSize, "tbSettingsRBuffSize")
+        Me.tbSettingsRBuffSize.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.GrblPanel.My.MySettings.Default, "RBuffMaxSize", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
+        Me.tbSettingsRBuffSize.Location = New System.Drawing.Point(12, 68)
         Me.tbSettingsRBuffSize.Name = "tbSettingsRBuffSize"
+        Me.tbSettingsRBuffSize.Size = New System.Drawing.Size(43, 20)
+        Me.tbSettingsRBuffSize.TabIndex = 3
         Me.tbSettingsRBuffSize.Text = Global.GrblPanel.My.MySettings.Default.RBuffMaxSize
         '
         'tbSettingsQSize
         '
-        Me.tbSettingsQSize.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.GrblPanel.My.MySettings.Default, "QBuffMaxSize", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
-        resources.ApplyResources(Me.tbSettingsQSize, "tbSettingsQSize")
+        Me.tbSettingsQSize.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.GrblPanel.My.MySettings.Default, "QBuffMaxSize", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
+        Me.tbSettingsQSize.Location = New System.Drawing.Point(12, 42)
         Me.tbSettingsQSize.Name = "tbSettingsQSize"
+        Me.tbSettingsQSize.Size = New System.Drawing.Size(43, 20)
+        Me.tbSettingsQSize.TabIndex = 2
         Me.tbSettingsQSize.Text = Global.GrblPanel.My.MySettings.Default.QBuffMaxSize
         '
         'Label26
         '
-        resources.ApplyResources(Me.Label26, "Label26")
+        Me.Label26.AutoSize = True
+        Me.Label26.Location = New System.Drawing.Point(70, 22)
         Me.Label26.Name = "Label26"
+        Me.Label26.Size = New System.Drawing.Size(84, 13)
+        Me.Label26.TabIndex = 1
+        Me.Label26.Text = "Poll Interval (ms)"
         '
         'tbSettingsPollRate
         '
-        Me.tbSettingsPollRate.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.GrblPanel.My.MySettings.Default, "statusPollInterval", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
-        resources.ApplyResources(Me.tbSettingsPollRate, "tbSettingsPollRate")
+        Me.tbSettingsPollRate.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.GrblPanel.My.MySettings.Default, "statusPollInterval", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
+        Me.tbSettingsPollRate.Location = New System.Drawing.Point(12, 19)
         Me.tbSettingsPollRate.Name = "tbSettingsPollRate"
+        Me.tbSettingsPollRate.Size = New System.Drawing.Size(43, 20)
+        Me.tbSettingsPollRate.TabIndex = 0
         Me.tbSettingsPollRate.Text = Global.GrblPanel.My.MySettings.Default.StatusPollInterval
         '
         'gbSettingsPosition
@@ -2136,88 +2975,130 @@ Partial Class GrblGui
         Me.gbSettingsPosition.Controls.Add(Me.tbSettingsZeroXYZCmd)
         Me.gbSettingsPosition.Controls.Add(Me.Label11)
         Me.gbSettingsPosition.Controls.Add(Me.tbSettingsSpclPosition1)
-        resources.ApplyResources(Me.gbSettingsPosition, "gbSettingsPosition")
+        Me.gbSettingsPosition.Location = New System.Drawing.Point(362, 19)
         Me.gbSettingsPosition.Name = "gbSettingsPosition"
-        Me.gbSettingsPosition.TabStop = false
+        Me.gbSettingsPosition.Size = New System.Drawing.Size(239, 209)
+        Me.gbSettingsPosition.TabIndex = 1
+        Me.gbSettingsPosition.TabStop = False
+        Me.gbSettingsPosition.Text = "Position"
         '
         'Label8
         '
-        resources.ApplyResources(Me.Label8, "Label8")
+        Me.Label8.AutoSize = True
+        Me.Label8.Location = New System.Drawing.Point(135, 47)
         Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(94, 13)
+        Me.Label8.TabIndex = 12
+        Me.Label8.Text = "GoTo Spcl Posn 2"
         '
         'tbSettingsSpclPosition2
         '
-        Me.tbSettingsSpclPosition2.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.GrblPanel.My.MySettings.Default, "MachineSpclPosition2", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
-        resources.ApplyResources(Me.tbSettingsSpclPosition2, "tbSettingsSpclPosition2")
+        Me.tbSettingsSpclPosition2.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.GrblPanel.My.MySettings.Default, "MachineSpclPosition2", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
+        Me.tbSettingsSpclPosition2.Location = New System.Drawing.Point(12, 44)
         Me.tbSettingsSpclPosition2.Name = "tbSettingsSpclPosition2"
+        Me.tbSettingsSpclPosition2.Size = New System.Drawing.Size(117, 20)
+        Me.tbSettingsSpclPosition2.TabIndex = 11
         Me.tbSettingsSpclPosition2.Text = Global.GrblPanel.My.MySettings.Default.MachineSpclPosition2
         '
         'btnSettingsRefreshPosition
         '
-        resources.ApplyResources(Me.btnSettingsRefreshPosition, "btnSettingsRefreshPosition")
+        Me.btnSettingsRefreshPosition.Location = New System.Drawing.Point(-2, 182)
         Me.btnSettingsRefreshPosition.Name = "btnSettingsRefreshPosition"
+        Me.btnSettingsRefreshPosition.Size = New System.Drawing.Size(75, 23)
+        Me.btnSettingsRefreshPosition.TabIndex = 10
         Me.btnSettingsRefreshPosition.Tag = "Position"
-        Me.btnSettingsRefreshPosition.UseVisualStyleBackColor = true
+        Me.btnSettingsRefreshPosition.Text = "Refresh"
+        Me.btnSettingsRefreshPosition.UseVisualStyleBackColor = True
         '
         'Label29
         '
-        resources.ApplyResources(Me.Label29, "Label29")
+        Me.Label29.AutoSize = True
+        Me.Label29.Location = New System.Drawing.Point(135, 150)
         Me.Label29.Name = "Label29"
+        Me.Label29.Size = New System.Drawing.Size(75, 13)
+        Me.Label29.TabIndex = 9
+        Me.Label29.Text = "Work Z 0 cmd"
         '
         'tbWorkZ0Cmd
         '
-        Me.tbWorkZ0Cmd.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.GrblPanel.My.MySettings.Default, "WorkZ0Cmd", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
-        resources.ApplyResources(Me.tbWorkZ0Cmd, "tbWorkZ0Cmd")
+        Me.tbWorkZ0Cmd.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.GrblPanel.My.MySettings.Default, "WorkZ0Cmd", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
+        Me.tbWorkZ0Cmd.Location = New System.Drawing.Point(12, 147)
         Me.tbWorkZ0Cmd.Name = "tbWorkZ0Cmd"
+        Me.tbWorkZ0Cmd.Size = New System.Drawing.Size(117, 20)
+        Me.tbWorkZ0Cmd.TabIndex = 8
         Me.tbWorkZ0Cmd.Text = Global.GrblPanel.My.MySettings.Default.WorkZ0Cmd
         '
         'Label28
         '
-        resources.ApplyResources(Me.Label28, "Label28")
+        Me.Label28.AutoSize = True
+        Me.Label28.Location = New System.Drawing.Point(135, 124)
         Me.Label28.Name = "Label28"
+        Me.Label28.Size = New System.Drawing.Size(75, 13)
+        Me.Label28.TabIndex = 7
+        Me.Label28.Text = "Work Y 0 cmd"
         '
         'tbWorkY0Cmd
         '
-        Me.tbWorkY0Cmd.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.GrblPanel.My.MySettings.Default, "WorkY0Cmd", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
-        resources.ApplyResources(Me.tbWorkY0Cmd, "tbWorkY0Cmd")
+        Me.tbWorkY0Cmd.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.GrblPanel.My.MySettings.Default, "WorkY0Cmd", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
+        Me.tbWorkY0Cmd.Location = New System.Drawing.Point(12, 121)
         Me.tbWorkY0Cmd.Name = "tbWorkY0Cmd"
+        Me.tbWorkY0Cmd.Size = New System.Drawing.Size(117, 20)
+        Me.tbWorkY0Cmd.TabIndex = 6
         Me.tbWorkY0Cmd.Text = Global.GrblPanel.My.MySettings.Default.WorkY0Cmd
         '
         'Label13
         '
-        resources.ApplyResources(Me.Label13, "Label13")
+        Me.Label13.AutoSize = True
+        Me.Label13.Location = New System.Drawing.Point(135, 99)
         Me.Label13.Name = "Label13"
+        Me.Label13.Size = New System.Drawing.Size(75, 13)
+        Me.Label13.TabIndex = 5
+        Me.Label13.Text = "Work X 0 cmd"
         '
         'Label12
         '
-        resources.ApplyResources(Me.Label12, "Label12")
+        Me.Label12.AutoSize = True
+        Me.Label12.Location = New System.Drawing.Point(135, 73)
         Me.Label12.Name = "Label12"
+        Me.Label12.Size = New System.Drawing.Size(67, 13)
+        Me.Label12.TabIndex = 4
+        Me.Label12.Text = "Zero All Cmd"
         '
         'tbWorkX0Cmd
         '
-        Me.tbWorkX0Cmd.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.GrblPanel.My.MySettings.Default, "WorkX0Cmd", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
-        resources.ApplyResources(Me.tbWorkX0Cmd, "tbWorkX0Cmd")
+        Me.tbWorkX0Cmd.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.GrblPanel.My.MySettings.Default, "WorkX0Cmd", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
+        Me.tbWorkX0Cmd.Location = New System.Drawing.Point(12, 96)
         Me.tbWorkX0Cmd.Name = "tbWorkX0Cmd"
+        Me.tbWorkX0Cmd.Size = New System.Drawing.Size(117, 20)
+        Me.tbWorkX0Cmd.TabIndex = 3
         Me.tbWorkX0Cmd.Text = Global.GrblPanel.My.MySettings.Default.WorkX0Cmd
         '
         'tbSettingsZeroXYZCmd
         '
-        Me.tbSettingsZeroXYZCmd.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.GrblPanel.My.MySettings.Default, "Work0Cmd", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
-        resources.ApplyResources(Me.tbSettingsZeroXYZCmd, "tbSettingsZeroXYZCmd")
+        Me.tbSettingsZeroXYZCmd.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.GrblPanel.My.MySettings.Default, "Work0Cmd", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
+        Me.tbSettingsZeroXYZCmd.Location = New System.Drawing.Point(12, 70)
         Me.tbSettingsZeroXYZCmd.Name = "tbSettingsZeroXYZCmd"
+        Me.tbSettingsZeroXYZCmd.Size = New System.Drawing.Size(117, 20)
+        Me.tbSettingsZeroXYZCmd.TabIndex = 2
         Me.tbSettingsZeroXYZCmd.Text = Global.GrblPanel.My.MySettings.Default.Work0Cmd
         '
         'Label11
         '
-        resources.ApplyResources(Me.Label11, "Label11")
+        Me.Label11.AutoSize = True
+        Me.Label11.Location = New System.Drawing.Point(135, 21)
         Me.Label11.Name = "Label11"
-        Me.ToolTip1.SetToolTip(Me.Label11, resources.GetString("Label11.ToolTip"))
+        Me.Label11.Size = New System.Drawing.Size(94, 13)
+        Me.Label11.TabIndex = 1
+        Me.Label11.Text = "Go To Spcl Posn1"
+        Me.ToolTip1.SetToolTip(Me.Label11, "Also known as Soft Home")
         '
         'tbSettingsSpclPosition1
         '
-        Me.tbSettingsSpclPosition1.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.GrblPanel.My.MySettings.Default, "MachineSpclPosition1", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
-        resources.ApplyResources(Me.tbSettingsSpclPosition1, "tbSettingsSpclPosition1")
+        Me.tbSettingsSpclPosition1.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.GrblPanel.My.MySettings.Default, "MachineSpclPosition1", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
+        Me.tbSettingsSpclPosition1.Location = New System.Drawing.Point(12, 18)
         Me.tbSettingsSpclPosition1.Name = "tbSettingsSpclPosition1"
+        Me.tbSettingsSpclPosition1.Size = New System.Drawing.Size(117, 20)
+        Me.tbSettingsSpclPosition1.TabIndex = 0
         Me.tbSettingsSpclPosition1.Text = Global.GrblPanel.My.MySettings.Default.MachineSpclPosition1
         '
         'gbSettingsJogging
@@ -2242,131 +3123,202 @@ Partial Class GrblGui
         Me.gbSettingsJogging.Controls.Add(Me.Label30)
         Me.gbSettingsJogging.Controls.Add(Me.cbSettingsMetric)
         Me.gbSettingsJogging.Controls.Add(Me.tbSettingsFIImperial)
-        resources.ApplyResources(Me.gbSettingsJogging, "gbSettingsJogging")
+        Me.gbSettingsJogging.Location = New System.Drawing.Point(607, 19)
         Me.gbSettingsJogging.Name = "gbSettingsJogging"
-        Me.gbSettingsJogging.TabStop = false
+        Me.gbSettingsJogging.Size = New System.Drawing.Size(220, 324)
+        Me.gbSettingsJogging.TabIndex = 0
+        Me.gbSettingsJogging.TabStop = False
+        Me.gbSettingsJogging.Text = "Jogging"
         '
         'cbSettingsKeyboardJogging
         '
-        resources.ApplyResources(Me.cbSettingsKeyboardJogging, "cbSettingsKeyboardJogging")
+        Me.cbSettingsKeyboardJogging.AutoSize = True
         Me.cbSettingsKeyboardJogging.Checked = Global.GrblPanel.My.MySettings.Default.JoggingUseKeyboard
-        Me.cbSettingsKeyboardJogging.DataBindings.Add(New System.Windows.Forms.Binding("Checked", Global.GrblPanel.My.MySettings.Default, "JoggingUseKeyboard", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
+        Me.cbSettingsKeyboardJogging.DataBindings.Add(New System.Windows.Forms.Binding("Checked", Global.GrblPanel.My.MySettings.Default, "JoggingUseKeyboard", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
+        Me.cbSettingsKeyboardJogging.Location = New System.Drawing.Point(6, 267)
         Me.cbSettingsKeyboardJogging.Name = "cbSettingsKeyboardJogging"
-        Me.ToolTip1.SetToolTip(Me.cbSettingsKeyboardJogging, resources.GetString("cbSettingsKeyboardJogging.ToolTip"))
-        Me.cbSettingsKeyboardJogging.UseVisualStyleBackColor = true
+        Me.cbSettingsKeyboardJogging.Size = New System.Drawing.Size(140, 17)
+        Me.cbSettingsKeyboardJogging.TabIndex = 27
+        Me.cbSettingsKeyboardJogging.Text = "Enable keyboard arrows"
+        Me.ToolTip1.SetToolTip(Me.cbSettingsKeyboardJogging, "Allow arrows, pg up, pg dn to do jogging")
+        Me.cbSettingsKeyboardJogging.UseVisualStyleBackColor = True
         '
         'btnSettingsRefreshJogging
         '
-        resources.ApplyResources(Me.btnSettingsRefreshJogging, "btnSettingsRefreshJogging")
+        Me.btnSettingsRefreshJogging.Location = New System.Drawing.Point(0, 301)
         Me.btnSettingsRefreshJogging.Name = "btnSettingsRefreshJogging"
+        Me.btnSettingsRefreshJogging.Size = New System.Drawing.Size(75, 23)
+        Me.btnSettingsRefreshJogging.TabIndex = 11
         Me.btnSettingsRefreshJogging.Tag = "Jogging"
-        Me.btnSettingsRefreshJogging.UseVisualStyleBackColor = true
+        Me.btnSettingsRefreshJogging.Text = "Refresh"
+        Me.btnSettingsRefreshJogging.UseVisualStyleBackColor = True
         '
         'Label41
         '
-        resources.ApplyResources(Me.Label41, "Label41")
+        Me.Label41.AutoSize = True
+        Me.Label41.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label41.Location = New System.Drawing.Point(48, 167)
         Me.Label41.Name = "Label41"
+        Me.Label41.Size = New System.Drawing.Size(158, 13)
+        Me.Label41.TabIndex = 26
+        Me.Label41.Text = "Button Repeat Rate, r/sec"
         '
         'Label40
         '
-        resources.ApplyResources(Me.Label40, "Label40")
+        Me.Label40.AutoSize = True
+        Me.Label40.Location = New System.Drawing.Point(129, 244)
         Me.Label40.Name = "Label40"
+        Me.Label40.Size = New System.Drawing.Size(78, 13)
+        Me.Label40.TabIndex = 25
+        Me.Label40.Text = "Z Repeat Rate"
         '
         'Label39
         '
-        resources.ApplyResources(Me.Label39, "Label39")
+        Me.Label39.AutoSize = True
+        Me.Label39.Location = New System.Drawing.Point(129, 218)
         Me.Label39.Name = "Label39"
+        Me.Label39.Size = New System.Drawing.Size(78, 13)
+        Me.Label39.TabIndex = 24
+        Me.Label39.Text = "Y Repeat Rate"
         '
         'Label38
         '
-        resources.ApplyResources(Me.Label38, "Label38")
+        Me.Label38.AutoSize = True
+        Me.Label38.Location = New System.Drawing.Point(129, 192)
         Me.Label38.Name = "Label38"
+        Me.Label38.Size = New System.Drawing.Size(78, 13)
+        Me.Label38.TabIndex = 23
+        Me.Label38.Text = "X Repeat Rate"
         '
         'tbSettingsZRepeat
         '
-        Me.tbSettingsZRepeat.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.GrblPanel.My.MySettings.Default, "JoggingZRepeat", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
-        resources.ApplyResources(Me.tbSettingsZRepeat, "tbSettingsZRepeat")
+        Me.tbSettingsZRepeat.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.GrblPanel.My.MySettings.Default, "JoggingZRepeat", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
+        Me.tbSettingsZRepeat.Location = New System.Drawing.Point(6, 241)
         Me.tbSettingsZRepeat.Name = "tbSettingsZRepeat"
+        Me.tbSettingsZRepeat.Size = New System.Drawing.Size(45, 20)
+        Me.tbSettingsZRepeat.TabIndex = 22
         Me.tbSettingsZRepeat.Text = Global.GrblPanel.My.MySettings.Default.JoggingZRepeat
         '
         'tbSettingsYRepeat
         '
-        Me.tbSettingsYRepeat.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.GrblPanel.My.MySettings.Default, "JoggingYRepeat", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
-        resources.ApplyResources(Me.tbSettingsYRepeat, "tbSettingsYRepeat")
+        Me.tbSettingsYRepeat.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.GrblPanel.My.MySettings.Default, "JoggingYRepeat", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
+        Me.tbSettingsYRepeat.Location = New System.Drawing.Point(6, 215)
         Me.tbSettingsYRepeat.Name = "tbSettingsYRepeat"
+        Me.tbSettingsYRepeat.Size = New System.Drawing.Size(45, 20)
+        Me.tbSettingsYRepeat.TabIndex = 21
         Me.tbSettingsYRepeat.Text = Global.GrblPanel.My.MySettings.Default.JoggingYRepeat
         '
         'tbSettingsXRepeat
         '
-        Me.tbSettingsXRepeat.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.GrblPanel.My.MySettings.Default, "JoggingXRepeat", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
-        resources.ApplyResources(Me.tbSettingsXRepeat, "tbSettingsXRepeat")
+        Me.tbSettingsXRepeat.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.GrblPanel.My.MySettings.Default, "JoggingXRepeat", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
+        Me.tbSettingsXRepeat.Location = New System.Drawing.Point(6, 189)
         Me.tbSettingsXRepeat.Name = "tbSettingsXRepeat"
+        Me.tbSettingsXRepeat.Size = New System.Drawing.Size(45, 20)
+        Me.tbSettingsXRepeat.TabIndex = 20
         Me.tbSettingsXRepeat.Text = Global.GrblPanel.My.MySettings.Default.JoggingXRepeat
         '
         'Label35
         '
-        resources.ApplyResources(Me.Label35, "Label35")
+        Me.Label35.AutoSize = True
+        Me.Label35.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label35.Location = New System.Drawing.Point(136, 104)
         Me.Label35.Name = "Label35"
+        Me.Label35.Size = New System.Drawing.Size(42, 13)
+        Me.Label35.TabIndex = 19
+        Me.Label35.Text = "Metric"
         '
         'Label34
         '
-        resources.ApplyResources(Me.Label34, "Label34")
+        Me.Label34.AutoSize = True
+        Me.Label34.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label34.Location = New System.Drawing.Point(136, 38)
         Me.Label34.Name = "Label34"
+        Me.Label34.Size = New System.Drawing.Size(51, 13)
+        Me.Label34.TabIndex = 18
+        Me.Label34.Text = "Imperial"
         '
         'Label32
         '
-        resources.ApplyResources(Me.Label32, "Label32")
+        Me.Label32.AutoSize = True
+        Me.Label32.Location = New System.Drawing.Point(129, 146)
         Me.Label32.Name = "Label32"
+        Me.Label32.Size = New System.Drawing.Size(62, 13)
+        Me.Label32.TabIndex = 17
+        Me.Label32.Text = "Feed Rates"
         '
         'tbSettingsFRMetric
         '
-        Me.tbSettingsFRMetric.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.GrblPanel.My.MySettings.Default, "JoggingFRMetric", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
-        resources.ApplyResources(Me.tbSettingsFRMetric, "tbSettingsFRMetric")
+        Me.tbSettingsFRMetric.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.GrblPanel.My.MySettings.Default, "JoggingFRMetric", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
+        Me.tbSettingsFRMetric.Location = New System.Drawing.Point(6, 143)
         Me.tbSettingsFRMetric.Name = "tbSettingsFRMetric"
+        Me.tbSettingsFRMetric.Size = New System.Drawing.Size(117, 20)
+        Me.tbSettingsFRMetric.TabIndex = 16
         Me.tbSettingsFRMetric.Text = Global.GrblPanel.My.MySettings.Default.JoggingFRMetric
         '
         'Label33
         '
-        resources.ApplyResources(Me.Label33, "Label33")
+        Me.Label33.AutoSize = True
+        Me.Label33.Location = New System.Drawing.Point(129, 120)
         Me.Label33.Name = "Label33"
+        Me.Label33.Size = New System.Drawing.Size(86, 13)
+        Me.Label33.TabIndex = 15
+        Me.Label33.Text = "Feed Increments"
         '
         'tbSettingsFIMetric
         '
-        Me.tbSettingsFIMetric.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.GrblPanel.My.MySettings.Default, "JoggingFIMEtric", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
-        resources.ApplyResources(Me.tbSettingsFIMetric, "tbSettingsFIMetric")
+        Me.tbSettingsFIMetric.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.GrblPanel.My.MySettings.Default, "JoggingFIMEtric", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
+        Me.tbSettingsFIMetric.Location = New System.Drawing.Point(6, 117)
         Me.tbSettingsFIMetric.Name = "tbSettingsFIMetric"
+        Me.tbSettingsFIMetric.Size = New System.Drawing.Size(117, 20)
+        Me.tbSettingsFIMetric.TabIndex = 14
         Me.tbSettingsFIMetric.Text = Global.GrblPanel.My.MySettings.Default.JoggingFIMEtric
         '
         'Label31
         '
-        resources.ApplyResources(Me.Label31, "Label31")
+        Me.Label31.AutoSize = True
+        Me.Label31.Location = New System.Drawing.Point(129, 85)
         Me.Label31.Name = "Label31"
+        Me.Label31.Size = New System.Drawing.Size(62, 13)
+        Me.Label31.TabIndex = 13
+        Me.Label31.Text = "Feed Rates"
         '
         'tbSettingsFRImperial
         '
-        Me.tbSettingsFRImperial.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.GrblPanel.My.MySettings.Default, "JoggingFRImperial", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
-        resources.ApplyResources(Me.tbSettingsFRImperial, "tbSettingsFRImperial")
+        Me.tbSettingsFRImperial.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.GrblPanel.My.MySettings.Default, "JoggingFRImperial", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
+        Me.tbSettingsFRImperial.Location = New System.Drawing.Point(6, 82)
         Me.tbSettingsFRImperial.Name = "tbSettingsFRImperial"
+        Me.tbSettingsFRImperial.Size = New System.Drawing.Size(117, 20)
+        Me.tbSettingsFRImperial.TabIndex = 12
         Me.tbSettingsFRImperial.Text = Global.GrblPanel.My.MySettings.Default.JoggingFRImperial
         '
         'Label30
         '
-        resources.ApplyResources(Me.Label30, "Label30")
+        Me.Label30.AutoSize = True
+        Me.Label30.Location = New System.Drawing.Point(129, 59)
         Me.Label30.Name = "Label30"
+        Me.Label30.Size = New System.Drawing.Size(86, 13)
+        Me.Label30.TabIndex = 11
+        Me.Label30.Text = "Feed Increments"
         '
         'cbSettingsMetric
         '
-        resources.ApplyResources(Me.cbSettingsMetric, "cbSettingsMetric")
+        Me.cbSettingsMetric.AutoSize = True
         Me.cbSettingsMetric.Checked = Global.GrblPanel.My.MySettings.Default.JoggingUnitsMetric
-        Me.cbSettingsMetric.DataBindings.Add(New System.Windows.Forms.Binding("Checked", Global.GrblPanel.My.MySettings.Default, "joggingUnitsMetric", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
+        Me.cbSettingsMetric.DataBindings.Add(New System.Windows.Forms.Binding("Checked", Global.GrblPanel.My.MySettings.Default, "joggingUnitsMetric", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
+        Me.cbSettingsMetric.Location = New System.Drawing.Point(3, 21)
         Me.cbSettingsMetric.Name = "cbSettingsMetric"
-        Me.cbSettingsMetric.UseVisualStyleBackColor = true
+        Me.cbSettingsMetric.Size = New System.Drawing.Size(55, 17)
+        Me.cbSettingsMetric.TabIndex = 0
+        Me.cbSettingsMetric.Text = "Metric"
+        Me.cbSettingsMetric.UseVisualStyleBackColor = True
         '
         'tbSettingsFIImperial
         '
-        Me.tbSettingsFIImperial.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.GrblPanel.My.MySettings.Default, "JoggingFIImperial", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
-        resources.ApplyResources(Me.tbSettingsFIImperial, "tbSettingsFIImperial")
+        Me.tbSettingsFIImperial.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.GrblPanel.My.MySettings.Default, "JoggingFIImperial", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
+        Me.tbSettingsFIImperial.Location = New System.Drawing.Point(6, 56)
         Me.tbSettingsFIImperial.Name = "tbSettingsFIImperial"
+        Me.tbSettingsFIImperial.Size = New System.Drawing.Size(117, 20)
+        Me.tbSettingsFIImperial.TabIndex = 10
         Me.tbSettingsFIImperial.Text = Global.GrblPanel.My.MySettings.Default.JoggingFIImperial
         '
         'TabPage1
@@ -2377,9 +3329,12 @@ Partial Class GrblGui
         Me.TabPage1.Controls.Add(Me.dgMacros)
         Me.TabPage1.Controls.Add(Me.lblStatusLabel)
         Me.TabPage1.Controls.Add(Me.btnDeleteMacro)
-        resources.ApplyResources(Me.TabPage1, "TabPage1")
+        Me.TabPage1.Location = New System.Drawing.Point(4, 22)
         Me.TabPage1.Name = "TabPage1"
-        Me.TabPage1.UseVisualStyleBackColor = true
+        Me.TabPage1.Size = New System.Drawing.Size(1134, 677)
+        Me.TabPage1.TabIndex = 2
+        Me.TabPage1.Text = "Macros"
+        Me.TabPage1.UseVisualStyleBackColor = True
         '
         'gbEditor
         '
@@ -2388,188 +3343,226 @@ Partial Class GrblGui
         Me.gbEditor.Controls.Add(Me.tbGCode)
         Me.gbEditor.Controls.Add(Me.lblName)
         Me.gbEditor.Controls.Add(Me.tbName)
-        resources.ApplyResources(Me.gbEditor, "gbEditor")
+        Me.gbEditor.Location = New System.Drawing.Point(6, 147)
         Me.gbEditor.Name = "gbEditor"
-        Me.gbEditor.TabStop = false
+        Me.gbEditor.Size = New System.Drawing.Size(246, 111)
+        Me.gbEditor.TabIndex = 8
+        Me.gbEditor.TabStop = False
+        Me.gbEditor.Text = "Editor"
         '
         'btnAdd
         '
-        resources.ApplyResources(Me.btnAdd, "btnAdd")
+        Me.btnAdd.Location = New System.Drawing.Point(166, 17)
         Me.btnAdd.Name = "btnAdd"
-        Me.btnAdd.UseVisualStyleBackColor = true
+        Me.btnAdd.Size = New System.Drawing.Size(64, 23)
+        Me.btnAdd.TabIndex = 4
+        Me.btnAdd.Text = "Add"
+        Me.btnAdd.UseVisualStyleBackColor = True
         '
         'lblGCode
         '
-        resources.ApplyResources(Me.lblGCode, "lblGCode")
+        Me.lblGCode.Location = New System.Drawing.Point(9, 51)
         Me.lblGCode.Name = "lblGCode"
+        Me.lblGCode.Size = New System.Drawing.Size(50, 15)
+        Me.lblGCode.TabIndex = 3
+        Me.lblGCode.Text = "G Code:"
+        Me.lblGCode.TextAlign = System.Drawing.ContentAlignment.TopRight
         '
         'tbGCode
         '
-        Me.tbGCode.AcceptsReturn = true
-        resources.ApplyResources(Me.tbGCode, "tbGCode")
+        Me.tbGCode.AcceptsReturn = True
+        Me.tbGCode.Location = New System.Drawing.Point(62, 48)
+        Me.tbGCode.Multiline = True
         Me.tbGCode.Name = "tbGCode"
+        Me.tbGCode.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
+        Me.tbGCode.Size = New System.Drawing.Size(168, 57)
+        Me.tbGCode.TabIndex = 2
         '
         'lblName
         '
-        resources.ApplyResources(Me.lblName, "lblName")
+        Me.lblName.Location = New System.Drawing.Point(9, 22)
         Me.lblName.Name = "lblName"
+        Me.lblName.Size = New System.Drawing.Size(50, 15)
+        Me.lblName.TabIndex = 1
+        Me.lblName.Text = "Name:"
+        Me.lblName.TextAlign = System.Drawing.ContentAlignment.TopRight
         '
         'tbName
         '
-        resources.ApplyResources(Me.tbName, "tbName")
+        Me.tbName.Location = New System.Drawing.Point(61, 19)
         Me.tbName.Name = "tbName"
+        Me.tbName.Size = New System.Drawing.Size(99, 20)
+        Me.tbName.TabIndex = 0
         '
         'btnCancel
         '
         Me.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel
-        resources.ApplyResources(Me.btnCancel, "btnCancel")
+        Me.btnCancel.Location = New System.Drawing.Point(177, 32)
         Me.btnCancel.Name = "btnCancel"
-        Me.btnCancel.UseVisualStyleBackColor = true
+        Me.btnCancel.Size = New System.Drawing.Size(75, 23)
+        Me.btnCancel.TabIndex = 10
+        Me.btnCancel.Text = "Cancel"
+        Me.btnCancel.UseVisualStyleBackColor = True
         '
         'btnOK
         '
-        resources.ApplyResources(Me.btnOK, "btnOK")
+        Me.btnOK.Location = New System.Drawing.Point(177, 3)
         Me.btnOK.Name = "btnOK"
-        Me.btnOK.UseVisualStyleBackColor = true
+        Me.btnOK.Size = New System.Drawing.Size(75, 23)
+        Me.btnOK.TabIndex = 9
+        Me.btnOK.Text = "OK"
+        Me.btnOK.UseVisualStyleBackColor = True
         '
         'dgMacros
         '
-        Me.dgMacros.AllowUserToAddRows = false
-        Me.dgMacros.AllowUserToDeleteRows = false
-        Me.dgMacros.AllowUserToResizeColumns = false
-        Me.dgMacros.AllowUserToResizeRows = false
+        Me.dgMacros.AllowUserToAddRows = False
+        Me.dgMacros.AllowUserToDeleteRows = False
+        Me.dgMacros.AllowUserToResizeColumns = False
+        Me.dgMacros.AllowUserToResizeRows = False
         Me.dgMacros.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgMacros.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column1, Me.Column2})
         Me.dgMacros.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically
-        resources.ApplyResources(Me.dgMacros, "dgMacros")
+        Me.dgMacros.Location = New System.Drawing.Point(18, 3)
         Me.dgMacros.Name = "dgMacros"
-        Me.dgMacros.ReadOnly = true
-        Me.dgMacros.RowHeadersVisible = false
+        Me.dgMacros.ReadOnly = True
+        Me.dgMacros.RowHeadersVisible = False
         Me.dgMacros.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing
+        Me.dgMacros.ScrollBars = System.Windows.Forms.ScrollBars.None
         Me.dgMacros.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+        Me.dgMacros.Size = New System.Drawing.Size(148, 134)
+        Me.dgMacros.TabIndex = 11
         '
         'Column1
         '
-        resources.ApplyResources(Me.Column1, "Column1")
+        Me.Column1.HeaderText = "Name"
         Me.Column1.Name = "Column1"
-        Me.Column1.ReadOnly = true
+        Me.Column1.ReadOnly = True
         '
         'Column2
         '
-        resources.ApplyResources(Me.Column2, "Column2")
+        Me.Column2.HeaderText = "GCode"
         Me.Column2.Name = "Column2"
-        Me.Column2.ReadOnly = true
+        Me.Column2.ReadOnly = True
         '
         'lblStatusLabel
         '
-        resources.ApplyResources(Me.lblStatusLabel, "lblStatusLabel")
+        Me.lblStatusLabel.Location = New System.Drawing.Point(9, 263)
         Me.lblStatusLabel.Name = "lblStatusLabel"
+        Me.lblStatusLabel.Size = New System.Drawing.Size(242, 23)
+        Me.lblStatusLabel.TabIndex = 13
         '
         'btnDeleteMacro
         '
-        resources.ApplyResources(Me.btnDeleteMacro, "btnDeleteMacro")
+        Me.btnDeleteMacro.Location = New System.Drawing.Point(177, 102)
         Me.btnDeleteMacro.Name = "btnDeleteMacro"
-        Me.btnDeleteMacro.UseVisualStyleBackColor = true
+        Me.btnDeleteMacro.Size = New System.Drawing.Size(74, 34)
+        Me.btnDeleteMacro.TabIndex = 12
+        Me.btnDeleteMacro.Text = "Delete Selected"
+        Me.btnDeleteMacro.UseVisualStyleBackColor = True
         '
         'ofdGcodeFile
         '
         Me.ofdGcodeFile.DefaultExt = "ngc"
         Me.ofdGcodeFile.FileName = "*.*"
-        resources.ApplyResources(Me.ofdGcodeFile, "ofdGcodeFile")
+        Me.ofdGcodeFile.Filter = "All files (*.*)|*.*"
         '
         'sfdOffsets
         '
         Me.sfdOffsets.DefaultExt = "xml"
-        resources.ApplyResources(Me.sfdOffsets, "sfdOffsets")
+        Me.sfdOffsets.Filter = "WorkOffset Files|*.xml"
         '
         'ofdOffsets
         '
         Me.ofdOffsets.DefaultExt = "xml"
         Me.ofdOffsets.FileName = "OpenFileDialog1"
-        resources.ApplyResources(Me.ofdOffsets, "ofdOffsets")
+        Me.ofdOffsets.Filter = "WorkOffset Files|*.xml"
         '
         'GrblGui
         '
-        resources.ApplyResources(Me, "$this")
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.AutoScroll = True
+        Me.ClientSize = New System.Drawing.Size(1143, 729)
         Me.Controls.Add(Me.TabControl1)
         Me.Controls.Add(Me.MenuStrip1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
-        Me.KeyPreview = true
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
+        Me.KeyPreview = True
         Me.MainMenuStrip = Me.MenuStrip1
-        Me.MinimizeBox = false
+        Me.MinimizeBox = False
         Me.Name = "GrblGui"
         Me.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide
-        Me.MenuStrip1.ResumeLayout(false)
-        Me.MenuStrip1.PerformLayout
-        Me.TabControl1.ResumeLayout(false)
-        Me.tabPgInterface.ResumeLayout(false)
-        Me.gbOverrides.ResumeLayout(false)
-        Me.gbOverrides.PerformLayout
-        Me.gbState.ResumeLayout(false)
-        Me.gbState.PerformLayout
-        Me.gbPinStatus.ResumeLayout(false)
-        Me.gbPinStatus.PerformLayout
-        Me.Panel2.ResumeLayout(false)
-        Me.Panel2.PerformLayout
-        Me.Panel1.ResumeLayout(false)
-        Me.Panel1.PerformLayout
-        Me.gbControl.ResumeLayout(false)
-        Me.gbControl.PerformLayout
-        Me.gbMDI.ResumeLayout(false)
-        Me.gbMDI.PerformLayout
-        Me.gbJogging.ResumeLayout(false)
-        Me.gbJogging.PerformLayout
-        Me.gbFeedRate.ResumeLayout(false)
-        Me.gbFeedRate.PerformLayout
-        Me.gbDistance.ResumeLayout(false)
-        Me.gbDistance.PerformLayout
-        Me.gbStatus.ResumeLayout(false)
-        Me.gbStatus.PerformLayout
-        Me.gbGcode.ResumeLayout(false)
-        Me.gbGcode.PerformLayout
-        CType(Me.dgvGcode,System.ComponentModel.ISupportInitialize).EndInit
-        Me.gbGrbl.ResumeLayout(false)
-        Me.tcConnection.ResumeLayout(false)
-        Me.tbGrblCOM.ResumeLayout(false)
-        Me.tbGrblIP.ResumeLayout(false)
-        Me.tbGrblIP.PerformLayout
-        Me.gbPosition.ResumeLayout(false)
-        Me.tabCtlPosition.ResumeLayout(false)
-        Me.tpWork.ResumeLayout(false)
-        Me.tpWork.PerformLayout
-        Me.Panel5.ResumeLayout(false)
-        Me.Panel5.PerformLayout
-        Me.Panel4.ResumeLayout(false)
-        Me.Panel4.PerformLayout
-        Me.Panel3.ResumeLayout(false)
-        Me.Panel3.PerformLayout
-        Me.GroupBox1.ResumeLayout(false)
-        Me.GroupBox1.PerformLayout
-        Me.tpOffsets.ResumeLayout(false)
-        Me.tpOffsets.PerformLayout
-        Me.tabPgSettings.ResumeLayout(false)
-        Me.tabPgSettings.PerformLayout
-        Me.gbGrblSettings.ResumeLayout(false)
-        Me.gbGrblSettings.PerformLayout
-        CType(Me.dgGrblSettings,System.ComponentModel.ISupportInitialize).EndInit
-        Me.gbSettingsOffsets.ResumeLayout(false)
-        Me.gbSettingsOffsets.PerformLayout
-        Me.gbSettingsMisc.ResumeLayout(false)
-        Me.gbSettingsMisc.PerformLayout
-        Me.gbSettingsPosition.ResumeLayout(false)
-        Me.gbSettingsPosition.PerformLayout
-        Me.gbSettingsJogging.ResumeLayout(false)
-        Me.gbSettingsJogging.PerformLayout
-        Me.TabPage1.ResumeLayout(false)
-        Me.gbEditor.ResumeLayout(false)
-        Me.gbEditor.PerformLayout
-        CType(Me.dgMacros,System.ComponentModel.ISupportInitialize).EndInit
-        CType(Me.GrblSettingsBindingSource,System.ComponentModel.ISupportInitialize).EndInit
-        Me.ResumeLayout(false)
-        Me.PerformLayout
+        Me.Text = "Grbl Panel"
+        Me.MenuStrip1.ResumeLayout(False)
+        Me.MenuStrip1.PerformLayout()
+        Me.TabControl1.ResumeLayout(False)
+        Me.tabPgInterface.ResumeLayout(False)
+        Me.gbOverrides.ResumeLayout(False)
+        Me.gbOverrides.PerformLayout()
+        Me.gbState.ResumeLayout(False)
+        Me.gbState.PerformLayout()
+        Me.gbPinStatus.ResumeLayout(False)
+        Me.gbPinStatus.PerformLayout()
+        Me.Panel2.ResumeLayout(False)
+        Me.Panel2.PerformLayout()
+        Me.Panel1.ResumeLayout(False)
+        Me.Panel1.PerformLayout()
+        Me.gbControl.ResumeLayout(False)
+        Me.gbControl.PerformLayout()
+        Me.gbMDI.ResumeLayout(False)
+        Me.gbMDI.PerformLayout()
+        Me.gbJogging.ResumeLayout(False)
+        Me.gbJogging.PerformLayout()
+        Me.gbFeedRate.ResumeLayout(False)
+        Me.gbFeedRate.PerformLayout()
+        Me.gbDistance.ResumeLayout(False)
+        Me.gbDistance.PerformLayout()
+        Me.gbStatus.ResumeLayout(False)
+        Me.gbStatus.PerformLayout()
+        Me.gbGcode.ResumeLayout(False)
+        Me.gbGcode.PerformLayout()
+        CType(Me.dgvGcode, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.gbGrbl.ResumeLayout(False)
+        Me.tcConnection.ResumeLayout(False)
+        Me.tbGrblCOM.ResumeLayout(False)
+        Me.tbGrblIP.ResumeLayout(False)
+        Me.tbGrblIP.PerformLayout()
+        Me.gbPosition.ResumeLayout(False)
+        Me.tabCtlPosition.ResumeLayout(False)
+        Me.tpWork.ResumeLayout(False)
+        Me.tpWork.PerformLayout()
+        Me.Panel5.ResumeLayout(False)
+        Me.Panel5.PerformLayout()
+        Me.Panel4.ResumeLayout(False)
+        Me.Panel4.PerformLayout()
+        Me.Panel3.ResumeLayout(False)
+        Me.Panel3.PerformLayout()
+        Me.GroupBox1.ResumeLayout(False)
+        Me.GroupBox1.PerformLayout()
+        Me.tpOffsets.ResumeLayout(False)
+        Me.tpOffsets.PerformLayout()
+        Me.tabPgSettings.ResumeLayout(False)
+        Me.tabPgSettings.PerformLayout()
+        Me.gbGrblSettings.ResumeLayout(False)
+        Me.gbGrblSettings.PerformLayout()
+        CType(Me.dgGrblSettings, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.gbSettingsOffsets.ResumeLayout(False)
+        Me.gbSettingsOffsets.PerformLayout()
+        Me.gbSettingsMisc.ResumeLayout(False)
+        Me.gbSettingsMisc.PerformLayout()
+        Me.gbSettingsPosition.ResumeLayout(False)
+        Me.gbSettingsPosition.PerformLayout()
+        Me.gbSettingsJogging.ResumeLayout(False)
+        Me.gbSettingsJogging.PerformLayout()
+        Me.TabPage1.ResumeLayout(False)
+        Me.gbEditor.ResumeLayout(False)
+        Me.gbEditor.PerformLayout()
+        CType(Me.dgMacros, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.GrblSettingsBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.ResumeLayout(False)
+        Me.PerformLayout()
 
-End Sub
+    End Sub
     Friend WithEvents MenuStrip1 As System.Windows.Forms.MenuStrip
     Friend WithEvents ToolStripMenuItem1 As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents SaveToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem

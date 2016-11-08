@@ -1,5 +1,0 @@
-F:\Repos-GitHub-Local\Grbl-Panel\Utilities_CSharp\bin\Debug\Utilities_CSharp.dll
-F:\Repos-GitHub-Local\Grbl-Panel\Utilities_CSharp\bin\Debug\Utilities_CSharp.pdb
-F:\Repos-GitHub-Local\Grbl-Panel\Utilities_CSharp\obj\Debug\Utilities_CSharp.csprojResolveAssemblyReference.cache
-F:\Repos-GitHub-Local\Grbl-Panel\Utilities_CSharp\obj\Debug\Utilities_CSharp.dll
-F:\Repos-GitHub-Local\Grbl-Panel\Utilities_CSharp\obj\Debug\Utilities_CSharp.pdb

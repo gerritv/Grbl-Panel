@@ -124,7 +124,7 @@
     <value>Êtes-vous sûr de vouloir fermer?</value>
   </data>
   <data name="MsgFilter_PreFilterMessage_Start" xml:space="preserve">
-    <value>Départ</value>
+    <value>Démarre</value>
   </data>
   <data name="GrblGui_btnConnDisconnect_Click_Disconnect" xml:space="preserve">
     <value>Déconnectes</value>
@@ -146,38 +146,5 @@
   </data>
   <data name="GrblGui_btnConnDisconnect_Click_Connect" xml:space="preserve">
     <value>Connectes</value>
-  </data>
-  <data name="GrblGcodeView_ExpectedCommandLetter" xml:space="preserve">
-    <value>Lettre de Commande attendue</value>
-  </data>
-  <data name="GrblGcodeView_BadNumberFormat" xml:space="preserve">
-    <value>Mauvais format de nombre</value>
-  </data>
-  <data name="GrblGcodeView_InvalidStatement" xml:space="preserve">
-    <value>Déclaration invalide</value>
-  </data>
-  <data name="GrblGcodeView_Value0" xml:space="preserve">
-    <value>Valeur &lt; 0</value>
-  </data>
-  <data name="GrblGcodeView_SettingDisabled" xml:space="preserve">
-    <value>Réglage désactivé</value>
-  </data>
-  <data name="GrblGcodeView_New_Line" xml:space="preserve">
-    <value>Ligne</value>
-  </data>
-  <data name="GrblGui_showGrblStatus_Resume" xml:space="preserve">
-    <value>Continue</value>
-  </data>
-  <data name="GrblGui_statusSetIndicators_ALARM" xml:space="preserve">
-    <value>ALARME</value>
-  </data>
-  <data name="GrblGui_statusSetIndicators_RUN" xml:space="preserve">
-    <value>FONct</value>
-  </data>
-  <data name="GrblGui_statusSetIndicators_IDLE" xml:space="preserve">
-    <value>EN ATT</value>
-  </data>
-  <data name="GrblGui_statusSetIndicators_CHECK" xml:space="preserve">
-    <value>VERIFIE</value>
   </data>
 </root>

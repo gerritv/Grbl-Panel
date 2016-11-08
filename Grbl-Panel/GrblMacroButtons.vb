@@ -1,6 +1,4 @@
 ﻿Imports System.Windows.Forms
-Imports GrblPanel.My
-
 Partial Class GrblGui
     Private bDataChanged As Boolean = False
     ''' <summary>
@@ -11,7 +9,7 @@ Partial Class GrblGui
     Private Sub GrblMacroButtons_FormClosing(sender As Object, e As FormClosingEventArgs) Handles Me.FormClosing
         Dim retval As Integer
         If bDataChanged Then
-            retval = MsgBox(Resources.GrblGui_GrblMacroButtons_FormClosing_AreYouSureYouWantToExitWithoutSavingYourMacroChanges, MsgBoxStyle.YesNo + MsgBoxStyle.Critical, Resources.GrblGui_GrblMacroButtons_FormClosing_ConfirmExitWithoutSaving)
+            retval = MsgBox("Are you sure you want to exit without saving your Macro changes?", MsgBoxStyle.YesNo + MsgBoxStyle.Critical, "Confirm exit without saving.")
             If retval = vbYes Then
                 e.Cancel = False
             Else
@@ -29,7 +27,7 @@ Partial Class GrblGui
             '    bDataChanged = True
             'End If
         End With
-        btnAdd.Text = Resources.GrblGui_GrblMacroButtons_Load_Add
+        btnAdd.Text = "Add"
         tbName.Text = ""
         tbGCode.Text = ""
     End Sub
@@ -87,7 +85,7 @@ Partial Class GrblGui
             If .CurrentRow.Index >= 0 Then
                 tbName.Text = .Item(0, .CurrentRow.Index).Value
                 tbGCode.Text = .Item(1, .CurrentRow.Index).Value
-                btnAdd.Text = Resources.GrblGui_dgMacros_DoubleClick_Update
+                btnAdd.Text = "Update"
             End If
         End With
     End Sub
@@ -98,8 +96,8 @@ Partial Class GrblGui
 
         With dgMacros
             If .CurrentRow.Index >= 0 Then
-                sMsg = Resources.GrblGui_btnDeleteMacro_Click_AreYouSureYouWantToDeleteThe & .Item(0, .CurrentRow.Index).Value.ToString & " macro?"
-                retval = MsgBox(sMsg, MsgBoxStyle.YesNo + MsgBoxStyle.Critical, Resources.GrblGui_btnDeleteMacro_Click_ConfirmDelete)
+                sMsg = "Are you sure you want to delete the " & .Item(0, .CurrentRow.Index).Value.ToString & " macro?"
+                retval = MsgBox(sMsg, MsgBoxStyle.YesNo + MsgBoxStyle.Critical, "Confirm Delete")
                 If retval = vbYes Then
                     .Rows.Remove(.CurrentRow)
                     bDataChanged = True
@@ -116,19 +114,19 @@ Partial Class GrblGui
         Dim sTemp As String
 
         If sender Is tbName Then
-            sTemp = Resources.GrblGui_UpdateToolTip_NameAppearsOnTheButtonSoKeepItSmall
+            sTemp = "Name appears on the button, so keep it small"
         ElseIf sender Is btnDeleteMacro Then
-            sTemp = Resources.GrblGui_UpdateToolTip_DeleteTheSelectedMacro
+            sTemp = "Delete the selected macro"
         ElseIf sender Is dgMacros Then
-            sTemp = Resources.GrblGui_UpdateToolTip_DblClickNameToEditMacro
+            sTemp = "DblClick name to edit macro"
         ElseIf sender Is btnCancel Then
-            sTemp = Resources.GrblGui_UpdateToolTip_GetMeOuttaHereCancelAllChanges
+            sTemp = "Get me outta here, cancel all changes"
         ElseIf sender Is tbGCode Then
-            sTemp = Resources.GrblGui_UpdateToolTip_GCodeToSendWhenTheButtonIsClicked
+            sTemp = "G-Code to send when the button is clicked."
         ElseIf sender Is btnOK Then
-            sTemp = Resources.GrblGui_UpdateToolTip_CommitAllChangesToSettingsAndClose
+            sTemp = "Commit all changes to Settings and close"
         Else
-            sTemp = Resources.GrblGui_UpdateToolTip_LimitIs5Macros
+            sTemp = "Limit is 5 macros"
         End If
 
         lblStatusLabel.Text = sTemp
@@ -139,7 +137,7 @@ Partial Class GrblGui
 
         If tbName.Text <> "" Then
             If tbGCode.Text <> "" Then
-                If btnAdd.Text = Resources.GrblGui_dgMacros_DoubleClick_Update Then
+                If btnAdd.Text = "Update" Then
                     For Each row As DataGridViewRow In dgMacros.Rows
                         If row.Cells(0).Value.ToString = tbName.Text Then
                             row.Cells(1).Value = tbGCode.Text
@@ -155,14 +153,14 @@ Partial Class GrblGui
                     dgMacros.Rows.Add(tbName.Text, tbGCode.Text)
                 End If
                 bDataChanged = True
-                btnAdd.Text = Resources.GrblGui_GrblMacroButtons_Load_Add
+                btnAdd.Text = "Add"
                 tbGCode.Text = ""
                 tbName.Text = ""
             Else
-                MsgBox(Resources.GrblGui_btnAdd_Click_YouNeedToAddSomeGCodeToSaveAMacro, MsgBoxStyle.Information, Resources.GrblGui_btnAdd_Click_DataValidationError)
+                MsgBox("You need to add some G-code to save a macro", MsgBoxStyle.Information, "Data Validation Error")
             End If
         Else
-            MsgBox(Resources.GrblGui_btnAdd_Click_YouCannotCreateAMacroWithoutAName, MsgBoxStyle.Information, Resources.GrblGui_btnAdd_Click_DataValidationError)
+            MsgBox("You cannot create a macro without a name.", MsgBoxStyle.Information, "Data Validation Error")
         End If
     End Sub
 
