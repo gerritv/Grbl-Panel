@@ -60,7 +60,7 @@ Partial Class GrblGui
 
             tbWorkX.Text = workPos(0).ToString
             tbWorkY.Text = workPos(1).ToString
-            tbWorkZ.Text = workPos(2).ToString
+            tbWorkZ.Text = workPos(2).ToString            
 
             'Set same values into the repeater view on Offsets page
             tbOffSetsMachX.Text = machPos(0).ToString

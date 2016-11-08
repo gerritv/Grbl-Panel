@@ -1,6 +1,9 @@
 ﻿Imports System.Globalization
+Imports System.Reflection
 Imports System.Threading
 Imports System.Threading.Thread
+Imports GrblPanel.My.Resources
+
 
 
 Public Class GrblGui
@@ -16,13 +19,17 @@ Public Class GrblGui
     Public settings As GrblSettings         ' To handle Settings related ops
     Public ovrrides As GrblOverrides       ' to display overrides
     Public pins As GrblPins                 ' to display pin states
+   
+
+
+  
 
     Private _exitClicked As Boolean = False   ' to separate Close (x) from File/Exit
 
     Public Sub myhandler(ByVal sender As Object, args As UnhandledExceptionEventArgs)
         ' Show exception in usable manner
         Dim e As Exception = DirectCast(args.ExceptionObject, Exception)
-        MessageBox.Show("Exception: " + e.Message + vbLf + e.InnerException.Message + vbLf + e.StackTrace)
+        MessageBox.Show("Source: " + e.Source + vbLf + " Target Site = " + e.TargetSite.ToString() + vbLf + e.Message + vbLf + e.InnerException.Message + vbLf + e.StackTrace, "Exception: " + e.Data.ToString())
     End Sub
 
 
@@ -94,7 +101,7 @@ Public Class GrblGui
             Return
         Else
             ' Ignore attempt to exit
-            If MsgBox("Are you certain that you want to close?", MsgBoxStyle.OkCancel) = MsgBoxResult.Cancel Then
+            If MsgBox(GrblGui_grblgui_unload_AreYouCertainThatYouWantToClose, MsgBoxStyle.OkCancel) = MsgBoxResult.Cancel Then
                 e.Cancel = True
             End If
         End If
@@ -199,7 +206,7 @@ Public Class GrblGui
 
                         ' Motion
                         Case Keys.Space
-                            If _gui.btnStartResume.Text = "Start" Then
+                            If _gui.btnStartResume.Text = Resources.MsgFilter_PreFilterMessage_Start Then
                                 _gui.btnHold.PerformClick()
                             Else
                                 _gui.btnStartResume.PerformClick()
@@ -345,25 +352,26 @@ Public Class GrblGui
         ' This routine is used for both Com and IP connections. Buttons are differentiated by using Tag property.
 
         Dim btn As Button = sender
-        Dim connected As Boolean
+        Dim connected As Boolean           
 
         Select Case btn.Text
-            Case "Connect"
+            Case   My.Resources.GrblGui_btnConnDisconnect_Click_Connect
+                '"Connect" 'GrblGui_btnConnDisconnect_Click_Connect '
                 Select Case DirectCast(btn.Tag, String)
                     Case "COM"
                         connected = grblPort.Connect(GrblIF.ConnectionType.Serial)
                         If connected = True Then
                             ' disable other Connect button to prevent reconnects
-                            btn.Text = "Disconnect"
+                            btn.Text = My.Resources.GrblGui_btnConnDisconnect_Click_Disconnect '"Disconnect"
                             btnIPConnect.Enabled = False
                         Else
-                            MessageBox.Show("Please select a Com port" + vbCr + "or connect the cable", "Connect Error", MessageBoxButtons.OK)
+                            MessageBox.Show(Resources.GrblGui_btnConnDisconnect_Click_PleaseSelectAComPort + vbCr + Resources.GrblGui_btnConnDisconnect_Click_OrConnectTheCable, Resources.GrblGui_btnConnDisconnect_Click_Connect_Error, MessageBoxButtons.OK)
                             grblPort.rescan()
                             Return
                         End If
                     Case "IP"
                         If tbIPAddress.TextLength <= 0 Then
-                            MessageBox.Show("Please enter an IP Address" + vbCr + "and a port number in the format" + vbCr + """<ip address>:<port number>""", "Connect Error", MessageBoxButtons.OK)
+                            MessageBox.Show(Resources.GrblGui_btnConnDisconnect_Click_PleaseEnterAnIPAddress + vbCr + Resources.GrblGui_btnConnDisconnect_Click_AndAPortNumberInTheFormat + vbCr + """<ip address>:<port number>""", Resources.GrblGui_btnConnDisconnect_Click_Connect_Error, MessageBoxButtons.OK)
                             Return
                         End If
 
@@ -372,17 +380,17 @@ Public Class GrblGui
                         grblPort.portnum = Integer.Parse(address(1))
 
                         If grblPort.portnum = 0 Then
-                            MessageBox.Show("Please enter an IP Address" + vbCr + "and a port number in the format" + vbCr + """<ip address>:<port number>""", "Connect Error", MessageBoxButtons.OK)
+                            MessageBox.Show(Resources.GrblGui_btnConnDisconnect_Click_PleaseEnterAnIPAddress + vbCr + Resources.GrblGui_btnConnDisconnect_Click_AndAPortNumberInTheFormat + vbCr + """<ip address>:<port number>""", Resources.GrblGui_btnConnDisconnect_Click_Connect_Error, MessageBoxButtons.OK)
                             Return
                         End If
                         ' finally we try to connect
                         connected = grblPort.Connect(GrblIF.ConnectionType.IP)
                         If connected = True Then
                             ' disable other Connect button to prevent reconnects
-                            btn.Text = "Disconnect"
+                            btn.Text = GrblPanel.My.Resources.GrblGui_btnConnDisconnect_Click_Disconnect '"Disconnect"
                             btnConnect.Enabled = False
                         Else
-                            MessageBox.Show("Please enter an IP Address" + vbCr + "and a port number in the format" + vbCr + """<ip address>:<port number>""", "Connect Error", MessageBoxButtons.OK)
+                            MessageBox.Show(Resources.GrblGui_btnConnDisconnect_Click_PleaseEnterAnIPAddress + vbCr + Resources.GrblGui_btnConnDisconnect_Click_AndAPortNumberInTheFormat + vbCr + """<ip address>:<port number>""", Resources.GrblGui_btnConnDisconnect_Click_Connect_Error, MessageBoxButtons.OK)
                             Return
                         End If
                 End Select
@@ -401,14 +409,14 @@ Public Class GrblGui
 
                     RaiseEvent connected("Connected")      ' tell everyone of the happy event
                     setSubPanels("Idle")
-                    ' Start the status poller
+                    ' Start the status poller                     
                     statusPrompt("Start")
                 End If
-            Case "Disconnect"
+            Case GrblPanel.My.Resources.GrblGui_btnConnDisconnect_Click_Disconnect '"Disconnect"
                 ' it must be a disconnect
                 grblPort.Disconnect()
-                btnConnect.Text = "Connect"
-                btnIPConnect.Text = "Connect"
+                btnConnect.Text = GrblPanel.My.Resources.GrblGui_btnConnDisconnect_Click_Connect '"Connect"
+                btnIPConnect.Text = GrblPanel.My.Resources.GrblGui_btnConnDisconnect_Click_Disconnect '"Connect"
                 btnConnect.Enabled = True
                 btnIPConnect.Enabled = True
 

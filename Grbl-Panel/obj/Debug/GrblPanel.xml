@@ -27,9 +27,189 @@ GrblPanel
   Looks up a localized string similar to Connect.
 </summary>
 </member>
+<member name="P:GrblPanel.My.Resources.Resources.GrblGcodeView_AlarmLock">
+<summary>
+  Looks up a localized string similar to Alarm lock .
+</summary>
+</member>
+<member name="P:GrblPanel.My.Resources.Resources.GrblGcodeView_ArcRadiusError">
+<summary>
+  Looks up a localized string similar to Arc radius error .
+</summary>
+</member>
+<member name="P:GrblPanel.My.Resources.Resources.GrblGcodeView_AxisCommandConflict">
+<summary>
+  Looks up a localized string similar to Axis command conflict .
+</summary>
+</member>
+<member name="P:GrblPanel.My.Resources.Resources.GrblGcodeView_AxisWordsExist">
+<summary>
+  Looks up a localized string similar to Axis words exist .
+</summary>
+</member>
+<member name="P:GrblPanel.My.Resources.Resources.GrblGcodeView_BadNumberFormat">
+<summary>
+  Looks up a localized string similar to Bad number format .
+</summary>
+</member>
+<member name="P:GrblPanel.My.Resources.Resources.GrblGcodeView_CheckDoor">
+<summary>
+  Looks up a localized string similar to Check door .
+</summary>
+</member>
+<member name="P:GrblPanel.My.Resources.Resources.GrblGcodeView_CommandValueIsNotInteger">
+<summary>
+  Looks up a localized string similar to Command value is not integer .
+</summary>
+</member>
+<member name="P:GrblPanel.My.Resources.Resources.GrblGcodeView_EEPROMReadFailUsingDefaults">
+<summary>
+  Looks up a localized string similar to EEPROM read fail, using Defaults .
+</summary>
+</member>
+<member name="P:GrblPanel.My.Resources.Resources.GrblGcodeView_ExpectedCommandLetter">
+<summary>
+  Looks up a localized string similar to Expected command letter .
+</summary>
+</member>
+<member name="P:GrblPanel.My.Resources.Resources.GrblGcodeView_G43DynamicAxisError">
+<summary>
+  Looks up a localized string similar to G43 dynamic axis error .
+</summary>
+</member>
+<member name="P:GrblPanel.My.Resources.Resources.GrblGcodeView_G53InvalidMotionMode">
+<summary>
+  Looks up a localized string similar to G53 invalid motion mode .
+</summary>
+</member>
+<member name="P:GrblPanel.My.Resources.Resources.GrblGcodeView_HomingIsNotEnabled">
+<summary>
+  Looks up a localized string similar to Homing is not enabled .
+</summary>
+</member>
+<member name="P:GrblPanel.My.Resources.Resources.GrblGcodeView_InvalidLineNumber">
+<summary>
+  Looks up a localized string similar to &quot;Invalid line number .
+</summary>
+</member>
+<member name="P:GrblPanel.My.Resources.Resources.GrblGcodeView_InvalidStatement">
+<summary>
+  Looks up a localized string similar to Invalid statement .
+</summary>
+</member>
+<member name="P:GrblPanel.My.Resources.Resources.GrblGcodeView_InvalidTarget">
+<summary>
+  Looks up a localized string similar to Invalid target .
+</summary>
+</member>
+<member name="P:GrblPanel.My.Resources.Resources.GrblGcodeView_LineOverflow">
+<summary>
+  Looks up a localized string similar to Line overflow .
+</summary>
+</member>
+<member name="P:GrblPanel.My.Resources.Resources.GrblGcodeView_ModalGroupViolation">
+<summary>
+  Looks up a localized string similar to Modal group violation .
+</summary>
+</member>
+<member name="P:GrblPanel.My.Resources.Resources.GrblGcodeView_New_Line">
+<summary>
+  Looks up a localized string similar to Line.
+</summary>
+</member>
+<member name="P:GrblPanel.My.Resources.Resources.GrblGcodeView_NoAxisWords">
+<summary>
+  Looks up a localized string similar to No axis words .
+</summary>
+</member>
+<member name="P:GrblPanel.My.Resources.Resources.GrblGcodeView_NoAxisWordsInPlane">
+<summary>
+  Looks up a localized string similar to No axis words in plane .
+</summary>
+</member>
+<member name="P:GrblPanel.My.Resources.Resources.GrblGcodeView_NoOffsetsInPlane">
+<summary>
+  Looks up a localized string similar to No offsets in plane .
+</summary>
+</member>
+<member name="P:GrblPanel.My.Resources.Resources.GrblGcodeView_NotIdle">
+<summary>
+  Looks up a localized string similar to Not idle .
+</summary>
+</member>
+<member name="P:GrblPanel.My.Resources.Resources.GrblGcodeView_SettingDisabled">
+<summary>
+  Looks up a localized string similar to Setting disabled .
+</summary>
+</member>
+<member name="P:GrblPanel.My.Resources.Resources.GrblGcodeView_StepRate30kHz">
+<summary>
+  Looks up a localized string similar to Step rate &gt; 30kHz .
+</summary>
+</member>
+<member name="P:GrblPanel.My.Resources.Resources.GrblGcodeView_UndefinedFeedRate">
+<summary>
+  Looks up a localized string similar to Undefined feed rate .
+</summary>
+</member>
+<member name="P:GrblPanel.My.Resources.Resources.GrblGcodeView_UnsupportedCommand">
+<summary>
+  Looks up a localized string similar to Unsupported command .
+</summary>
+</member>
+<member name="P:GrblPanel.My.Resources.Resources.GrblGcodeView_UnsupportedCoordinateSystem">
+<summary>
+  Looks up a localized string similar to Unsupported coordinate system .
+</summary>
+</member>
+<member name="P:GrblPanel.My.Resources.Resources.GrblGcodeView_UnusedWords">
+<summary>
+  Looks up a localized string similar to Unused words .
+</summary>
+</member>
+<member name="P:GrblPanel.My.Resources.Resources.GrblGcodeView_Value0">
+<summary>
+  Looks up a localized string similar to  Value &lt; 0 .
+</summary>
+</member>
+<member name="P:GrblPanel.My.Resources.Resources.GrblGcodeView_Value3Usec">
+<summary>
+  Looks up a localized string similar to Value &lt; 3 usec .
+</summary>
+</member>
+<member name="P:GrblPanel.My.Resources.Resources.GrblGcodeView_ValueWordMissing">
+<summary>
+  Looks up a localized string similar to Value word missing .
+</summary>
+</member>
+<member name="P:GrblPanel.My.Resources.Resources.GrblGcodeView_WordRepeated">
+<summary>
+  Looks up a localized string similar to Word repeated .
+</summary>
+</member>
+<member name="P:GrblPanel.My.Resources.Resources.GrblGui_btnAdd_Click_DataValidationError">
+<summary>
+  Looks up a localized string similar to Data Validation Error.
+</summary>
+</member>
+<member name="P:GrblPanel.My.Resources.Resources.GrblGui_btnAdd_Click_YouCannotCreateAMacroWithoutAName">
+<summary>
+  Looks up a localized string similar to You cannot create a macro without a name..
+</summary>
+</member>
+<member name="P:GrblPanel.My.Resources.Resources.GrblGui_btnAdd_Click_YouNeedToAddSomeGCodeToSaveAMacro">
+<summary>
+  Looks up a localized string similar to You need to add some G-code to save a macro.
+</summary>
+</member>
 <member name="P:GrblPanel.My.Resources.Resources.GrblGui_btnConnDisconnect_Click_And_A_Port_Number_In_The_Format">
 <summary>
   Looks up a localized string similar to And A Port Number In The Format.
+</summary>
+</member>
+<member name="P:GrblPanel.My.Resources.Resources.GrblGui_btnConnDisconnect_Click_AndAPortNumberInTheFormat">
+<summary>
+  Looks up a localized string similar to and a port number in the format.
 </summary>
 </member>
 <member name="P:GrblPanel.My.Resources.Resources.GrblGui_btnConnDisconnect_Click_Connect">
@@ -52,6 +232,11 @@ GrblPanel
   Looks up a localized string similar to Or Connect The Cable.
 </summary>
 </member>
+<member name="P:GrblPanel.My.Resources.Resources.GrblGui_btnConnDisconnect_Click_OrConnectTheCable">
+<summary>
+  Looks up a localized string similar to or connect the cable.
+</summary>
+</member>
 <member name="P:GrblPanel.My.Resources.Resources.GrblGui_btnConnDisconnect_Click_Please_Enter_An_IP_Address">
 <summary>
   Looks up a localized string similar to Please Enter An IP Address.
@@ -62,9 +247,114 @@ GrblPanel
   Looks up a localized string similar to Please Select A Com Port.
 </summary>
 </member>
+<member name="P:GrblPanel.My.Resources.Resources.GrblGui_btnConnDisconnect_Click_PleaseEnterAnIPAddress">
+<summary>
+  Looks up a localized string similar to Please enter an IP Address.
+</summary>
+</member>
+<member name="P:GrblPanel.My.Resources.Resources.GrblGui_btnConnDisconnect_Click_PleaseSelectAComPort">
+<summary>
+  Looks up a localized string similar to Please select a Com port.
+</summary>
+</member>
+<member name="P:GrblPanel.My.Resources.Resources.GrblGui_btnDeleteMacro_Click_AreYouSureYouWantToDeleteThe">
+<summary>
+  Looks up a localized string similar to Are you sure you want to delete the .
+</summary>
+</member>
+<member name="P:GrblPanel.My.Resources.Resources.GrblGui_btnDeleteMacro_Click_ConfirmDelete">
+<summary>
+  Looks up a localized string similar to Confirm Delete.
+</summary>
+</member>
+<member name="P:GrblPanel.My.Resources.Resources.GrblGui_dgMacros_DoubleClick_Update">
+<summary>
+  Looks up a localized string similar to Update.
+</summary>
+</member>
 <member name="P:GrblPanel.My.Resources.Resources.GrblGui_grblgui_unload_Are_You_Certain_That_You_Want_To_Close">
 <summary>
   Looks up a localized string similar to Are You Certain That You Want To Close.
+</summary>
+</member>
+<member name="P:GrblPanel.My.Resources.Resources.GrblGui_grblgui_unload_AreYouCertainThatYouWantToClose">
+<summary>
+  Looks up a localized string similar to Are you certain that you want to close?.
+</summary>
+</member>
+<member name="P:GrblPanel.My.Resources.Resources.GrblGui_GrblMacroButtons_FormClosing_AreYouSureYouWantToExitWithoutSavingYourMacroChanges">
+<summary>
+  Looks up a localized string similar to Are you sure you want to exit without saving your Macro changes?.
+</summary>
+</member>
+<member name="P:GrblPanel.My.Resources.Resources.GrblGui_GrblMacroButtons_FormClosing_ConfirmExitWithoutSaving">
+<summary>
+  Looks up a localized string similar to Confirm exit without saving..
+</summary>
+</member>
+<member name="P:GrblPanel.My.Resources.Resources.GrblGui_GrblMacroButtons_Load_Add">
+<summary>
+  Looks up a localized string similar to Add.
+</summary>
+</member>
+<member name="P:GrblPanel.My.Resources.Resources.GrblGui_showGrblStatus_Resume">
+<summary>
+  Looks up a localized string similar to Resume.
+</summary>
+</member>
+<member name="P:GrblPanel.My.Resources.Resources.GrblGui_statusSetIndicators_ALARM">
+<summary>
+  Looks up a localized string similar to ALARM.
+</summary>
+</member>
+<member name="P:GrblPanel.My.Resources.Resources.GrblGui_statusSetIndicators_CHECK">
+<summary>
+  Looks up a localized string similar to CHECK.
+</summary>
+</member>
+<member name="P:GrblPanel.My.Resources.Resources.GrblGui_statusSetIndicators_IDLE">
+<summary>
+  Looks up a localized string similar to IDLE.
+</summary>
+</member>
+<member name="P:GrblPanel.My.Resources.Resources.GrblGui_statusSetIndicators_RUN">
+<summary>
+  Looks up a localized string similar to RUN.
+</summary>
+</member>
+<member name="P:GrblPanel.My.Resources.Resources.GrblGui_UpdateToolTip_CommitAllChangesToSettingsAndClose">
+<summary>
+  Looks up a localized string similar to Commit all changes to Settings and close.
+</summary>
+</member>
+<member name="P:GrblPanel.My.Resources.Resources.GrblGui_UpdateToolTip_DblClickNameToEditMacro">
+<summary>
+  Looks up a localized string similar to DblClick name to edit macro.
+</summary>
+</member>
+<member name="P:GrblPanel.My.Resources.Resources.GrblGui_UpdateToolTip_DeleteTheSelectedMacro">
+<summary>
+  Looks up a localized string similar to Delete the selected macro.
+</summary>
+</member>
+<member name="P:GrblPanel.My.Resources.Resources.GrblGui_UpdateToolTip_GCodeToSendWhenTheButtonIsClicked">
+<summary>
+  Looks up a localized string similar to G-Code to send when the button is clicked..
+</summary>
+</member>
+<member name="P:GrblPanel.My.Resources.Resources.GrblGui_UpdateToolTip_GetMeOuttaHereCancelAllChanges">
+<summary>
+  Looks up a localized string similar to Get me outta here, cancel all changes.
+</summary>
+</member>
+<member name="P:GrblPanel.My.Resources.Resources.GrblGui_UpdateToolTip_LimitIs5Macros">
+<summary>
+  Looks up a localized string similar to Limit is 5 macros.
+</summary>
+</member>
+<member name="P:GrblPanel.My.Resources.Resources.GrblGui_UpdateToolTip_NameAppearsOnTheButtonSoKeepItSmall">
+<summary>
+  Looks up a localized string similar to Name appears on the button, so keep it small.
 </summary>
 </member>
 <member name="P:GrblPanel.My.Resources.Resources.MsgFilter_PreFilterMessage_Start">
@@ -461,13 +751,6 @@ GrblPanel
  </summary>
  <param name="sender">The source of the event.</param>
  <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event data.</param>
-</member>
-<member name="M:GrblPanel.GrblGui.btnToggleOverride_Click(System.Object,System.EventArgs)">
- <summary>
- Handle toggle of some overrides, constrained by present state
- </summary>
- <param name="sender"></param>
- <param name="e"></param>
 </member>
 <member name="M:GrblPanel.GrblGui.GrblPins.enablePinStatus(System.Boolean)">
  <summary>

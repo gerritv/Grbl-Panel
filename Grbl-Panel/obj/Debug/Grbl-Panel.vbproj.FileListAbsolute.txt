@@ -1,6 +1,5 @@
 F:\Repos-GitHub-Local\Grbl-Panel\Grbl-Panel\obj\Debug\Grbl-Panel.vbprojResolveAssemblyReference.cache
 F:\Repos-GitHub-Local\Grbl-Panel\Grbl-Panel\obj\Debug\GrblPanel.AboutBox.resources
-F:\Repos-GitHub-Local\Grbl-Panel\Grbl-Panel\obj\Debug\GrblPanel.GrblGui.resources
 F:\Repos-GitHub-Local\Grbl-Panel\Grbl-Panel\obj\Debug\GrblPanel.Resources.resources
 F:\Repos-GitHub-Local\Grbl-Panel\Grbl-Panel\obj\Debug\Grbl-Panel.vbproj.GenerateResource.Cache
 F:\Repos-GitHub-Local\Grbl-Panel\Grbl-Panel\obj\Debug\GrblPanel.xml
@@ -21,3 +20,4 @@ F:\Repos-GitHub-Local\Grbl-Panel\Grbl-Panel\bin\Debug\fr-FR\GrblPanel.resources.
 F:\Repos-GitHub-Local\Grbl-Panel\Grbl-Panel\obj\Debug\GrblPanel.Resources.fr-FR.resources
 F:\Repos-GitHub-Local\Grbl-Panel\Grbl-Panel\obj\Debug\fr-FR\GrblPanel.resources.dll
 F:\Repos-GitHub-Local\Grbl-Panel\Grbl-Panel\obj\Debug\GrblPanel.GrblGui.fr-FR.resources
+F:\Repos-GitHub-Local\Grbl-Panel\Grbl-Panel\obj\Debug\GrblPanel.GrblGui.resources

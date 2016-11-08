@@ -1,4 +1,6 @@
 ﻿Imports System.Reflection
+Imports GrblPanel.My
+
 
 Partial Class GrblGui
     Public Class GrblGcodeView
@@ -13,37 +15,37 @@ Partial Class GrblGui
 
         Private _errors As Dictionary(Of String, String) = New Dictionary(Of String, String) From {
         {"0", "ok"},
-        {"1", "Expected command letter "},
-        {"2", "Bad number format "},
-        {"3", "Invalid statement "},
-        {"4", "Value < 0 "},
-        {"5", "Setting disabled "},
-        {"6", "Value < 3 usec "},
-        {"7", "EEPROM read fail, using Defaults "},
-        {"8", "Not idle "},
-        {"9", "Alarm lock "},
-        {"10", "Homing is not enabled "},
-        {"11", "Line overflow "},
-        {"12", "Step rate > 30kHz "},
-        {"13", "Check door "},
-        {"20", "Unsupported command "},
-        {"21", "Modal group violation "},
-        {"22", "Undefined feed rate "},
-        {"23", "Command value is not integer "},
-        {"24", "Axis command conflict "},
-        {"25", "Word repeated "},
-        {"26", "No axis words "},
-        {"27", "Invalid line number "},
-        {"28", "Value word missing "},
-        {"29", "Unsupported coordinate system "},
-        {"30", "G53 invalid motion mode "},
-        {"31", "Axis words exist "},
-        {"32", "No axis words in plane "},
-        {"33", "Invalid target "},
-        {"34", "Arc radius error "},
-        {"35", "No offsets in plane "},
-        {"36", "Unused words "},
-        {"37", "G43 dynamic axis error "}
+        {"1", Resources.GrblGcodeView_ExpectedCommandLetter},
+        {"2", Resources.GrblGcodeView_BadNumberFormat},
+        {"3", Resources.GrblGcodeView_InvalidStatement},
+        {"4", Resources.GrblGcodeView_Value0},
+        {"5", Resources.GrblGcodeView_SettingDisabled},
+        {"6", Resources.GrblGcodeView_Value3Usec},
+        {"7", Resources.GrblGcodeView_EEPROMReadFailUsingDefaults},
+        {"8", Resources.GrblGcodeView_NotIdle},
+        {"9", Resources.GrblGcodeView_AlarmLock},
+        {"10", Resources.GrblGcodeView_HomingIsNotEnabled},
+        {"11", Resources.GrblGcodeView_LineOverflow},
+        {"12", Resources.GrblGcodeView_StepRate30kHz},
+        {"13", Resources.GrblGcodeView_CheckDoor},
+        {"20", Resources.GrblGcodeView_UnsupportedCommand},
+        {"21", Resources.GrblGcodeView_ModalGroupViolation},
+        {"22", Resources.GrblGcodeView_UndefinedFeedRate},
+        {"23", Resources.GrblGcodeView_CommandValueIsNotInteger},
+        {"24", Resources.GrblGcodeView_AxisCommandConflict},
+        {"25", Resources.GrblGcodeView_WordRepeated},
+        {"26", Resources.GrblGcodeView_NoAxisWords},
+        {"27", Resources.GrblGcodeView_InvalidLineNumber},
+        {"28", Resources.GrblGcodeView_ValueWordMissing},
+        {"29", Resources.GrblGcodeView_UnsupportedCoordinateSystem},
+        {"30", Resources.GrblGcodeView_G53InvalidMotionMode},
+        {"31", Resources.GrblGcodeView_AxisWordsExist},
+        {"32", Resources.GrblGcodeView_NoAxisWordsInPlane},
+        {"33", Resources.GrblGcodeView_InvalidTarget},
+        {"34", Resources.GrblGcodeView_ArcRadiusError},
+        {"35", Resources.GrblGcodeView_NoOffsetsInPlane},
+        {"36", Resources.GrblGcodeView_UnusedWords},
+        {"37", Resources.GrblGcodeView_G43DynamicAxisError}
         }
         Public Class gcodeItem   '(Type)
             Private _gcode As String
@@ -124,7 +126,7 @@ Partial Class GrblGui
                 .Columns("stat").Width = 46
                 .Columns("stat").HeaderText = "Sts"
                 .Columns("lineNum").Width = 46
-                .Columns("lineNum").HeaderText = "Line"
+                .Columns("lineNum").HeaderText = Resources.GrblGcodeView_New_Line
                 .Columns("data").Width = 459
                 .Columns("data").HeaderText = "Gcode"
                 '.Columns("sent").Visible = False
