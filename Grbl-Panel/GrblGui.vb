@@ -5,6 +5,7 @@ Imports System.Threading.Thread
 
 Public Class GrblGui
 
+    Public GrblVersion As Integer           ' 0 for 0.x, 1 for 1.x version
     Public WithEvents grblPort As GrblIF    ' Public so that the timer thread can see grblPort
     Private status As GrblStatus            ' For status polling
     Private jogging As GrblJogging          ' for jogging control
@@ -15,7 +16,7 @@ Public Class GrblGui
     Public state As GrblState              ' to track gcode state
     Public settings As GrblSettings         ' To handle Settings related ops
     Public ovrrides As GrblOverrides       ' to display overrides
-    Public pins As GrblPins                 ' to display pin states
+    Public pins As GrblPins               ' to display Pin states
 
     Private _exitClicked As Boolean = False   ' to separate Close (x) from File/Exit
 
@@ -491,7 +492,7 @@ Public Class GrblGui
                 gbSettingsPosition.Enabled = False
                 gbGrblSettings.Enabled = False
 
-                btnStatusGetParser.Enabled = False
+                btnStatusClearPins.Enabled = False
             Case "Disconnected"
                 ' We are not connected so not much you can do
                 gbJogging.Enabled = False
@@ -506,7 +507,7 @@ Public Class GrblGui
                 gbSettingsPosition.Enabled = False
                 gbGrblSettings.Enabled = False
 
-                btnStatusGetParser.Enabled = False
+                btnStatusClearPins.Enabled = False
             Case "Idle"
                 ' General use, no gcode streaming
                 gbJogging.Enabled = True
@@ -521,7 +522,7 @@ Public Class GrblGui
                 gbSettingsPosition.Enabled = True
                 gbGrblSettings.Enabled = True
 
-                btnStatusGetParser.Enabled = True
+                btnStatusClearPins.Enabled = True
         End Select
     End Sub
 
