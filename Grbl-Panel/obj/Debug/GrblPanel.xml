@@ -32,6 +32,11 @@ GrblPanel
   Looks up a localized string similar to And A Port Number In The Format.
 </summary>
 </member>
+<member name="P:GrblPanel.My.Resources.Resources.GrblGui_btnConnDisconnect_Click_AndAPortNumberInTheFormat">
+<summary>
+  Looks up a localized string similar to and a port number in the format.
+</summary>
+</member>
 <member name="P:GrblPanel.My.Resources.Resources.GrblGui_btnConnDisconnect_Click_Connect">
 <summary>
   Looks up a localized string similar to Connect.
@@ -47,9 +52,29 @@ GrblPanel
   Looks up a localized string similar to Disconnect.
 </summary>
 </member>
+<member name="P:GrblPanel.My.Resources.Resources.GrblGui_btnConnDisconnect_Click_Disconnected">
+<summary>
+  Looks up a localized string similar to Disconnected.
+</summary>
+</member>
+<member name="P:GrblPanel.My.Resources.Resources.GrblGui_btnConnDisconnect_Click_End">
+<summary>
+  Looks up a localized string similar to End.
+</summary>
+</member>
+<member name="P:GrblPanel.My.Resources.Resources.GrblGui_btnConnDisconnect_Click_Idle">
+<summary>
+  Looks up a localized string similar to Idle.
+</summary>
+</member>
 <member name="P:GrblPanel.My.Resources.Resources.GrblGui_btnConnDisconnect_Click_Or_Connect_The_Cable">
 <summary>
   Looks up a localized string similar to Or Connect The Cable.
+</summary>
+</member>
+<member name="P:GrblPanel.My.Resources.Resources.GrblGui_btnConnDisconnect_Click_OrConnectTheCable">
+<summary>
+  Looks up a localized string similar to or connect the cable.
 </summary>
 </member>
 <member name="P:GrblPanel.My.Resources.Resources.GrblGui_btnConnDisconnect_Click_Please_Enter_An_IP_Address">
@@ -62,9 +87,49 @@ GrblPanel
   Looks up a localized string similar to Please Select A Com Port.
 </summary>
 </member>
+<member name="P:GrblPanel.My.Resources.Resources.GrblGui_btnConnDisconnect_Click_PleaseEnterAnIPAddress">
+<summary>
+  Looks up a localized string similar to Please enter an IP Address.
+</summary>
+</member>
+<member name="P:GrblPanel.My.Resources.Resources.GrblGui_btnConnDisconnect_Click_PleaseSelectAComPort">
+<summary>
+  Looks up a localized string similar to Please select a Com port.
+</summary>
+</member>
 <member name="P:GrblPanel.My.Resources.Resources.GrblGui_grblgui_unload_Are_You_Certain_That_You_Want_To_Close">
 <summary>
   Looks up a localized string similar to Are You Certain That You Want To Close.
+</summary>
+</member>
+<member name="P:GrblPanel.My.Resources.Resources.GrblGui_grblgui_unload_AreYouCertainThatYouWantToClose">
+<summary>
+  Looks up a localized string similar to Are you certain that you want to close?.
+</summary>
+</member>
+<member name="P:GrblPanel.My.Resources.Resources.GrblGui_showGrblStatus_CHECK">
+<summary>
+  Looks up a localized string similar to CHECK.
+</summary>
+</member>
+<member name="P:GrblPanel.My.Resources.Resources.GrblGui_showGrblStatus_HOLD">
+<summary>
+  Looks up a localized string similar to HOLD.
+</summary>
+</member>
+<member name="P:GrblPanel.My.Resources.Resources.GrblGui_showGrblStatus_IDLE">
+<summary>
+  Looks up a localized string similar to IDLE.
+</summary>
+</member>
+<member name="P:GrblPanel.My.Resources.Resources.GrblGui_showGrblStatus_Resume">
+<summary>
+  Looks up a localized string similar to Resume.
+</summary>
+</member>
+<member name="P:GrblPanel.My.Resources.Resources.GrblGui_showGrblStatus_RUN">
+<summary>
+  Looks up a localized string similar to RUN.
 </summary>
 </member>
 <member name="P:GrblPanel.My.Resources.Resources.MsgFilter_PreFilterMessage_Start">

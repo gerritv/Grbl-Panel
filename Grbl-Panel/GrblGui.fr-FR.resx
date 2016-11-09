@@ -154,13 +154,13 @@
     <value>Gros Grain</value>
   </data>
   <data name="btnSpindleOverrideReset.Text" xml:space="preserve">
-    <value>Réinitialiser</value>
+    <value>Réinit.</value>
   </data>
   <data name="btnRapidOverrideReset.Text" xml:space="preserve">
-    <value>Réinitialiser</value>
+    <value>Réinit.</value>
   </data>
   <data name="btnFeedOverrideReset.Text" xml:space="preserve">
-    <value>Réinitialiser</value>
+    <value>Réinit.</value>
   </data>
   <data name="cbFeedCoarse.Text" xml:space="preserve">
     <value>Gros Grain</value>
@@ -328,16 +328,16 @@
     <value>Vérifie</value>
   </data>
   <data name="btnReset.Text" xml:space="preserve">
-    <value>Réinitialise</value>
+    <value>Réinit.</value>
   </data>
   <data name="btnHold.Text" xml:space="preserve">
-    <value>Maintiens</value>
+    <value>Retiens</value>
   </data>
   <data name="btnStartResume.Text" xml:space="preserve">
     <value>Démarre</value>
   </data>
   <data name="btnUnlock.Text" xml:space="preserve">
-    <value>Débloque</value>
+    <value>Débloq.</value>
   </data>
   <data name="gbControl.Text" xml:space="preserve">
     <value>Contrôle</value>
@@ -349,6 +349,414 @@
     <value>Envois</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
-    <value>Panneau GRBL</value>
+    <value>Panneau de contrôle GRBL</value>
+  </data>
+  <data name="TabPage1.Text" xml:space="preserve">
+    <value>Macros</value>
+  </data>
+  <data name="btnDeleteMacro.Text" xml:space="preserve">
+    <value>Efface Sélection</value>
+  </data>
+  <data name="Column2.HeaderText" xml:space="preserve">
+    <value>GCode</value>
+  </data>
+  <data name="Column1.HeaderText" xml:space="preserve">
+    <value>Nom</value>
+  </data>
+  <data name="btnOK.Text" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="btnCancel.Text" xml:space="preserve">
+    <value>Abandon</value>
+  </data>
+  <data name="gbEditor.Text" xml:space="preserve">
+    <value>Editeur</value>
+  </data>
+  <data name="lblName.Text" xml:space="preserve">
+    <value>Nom:</value>
+  </data>
+  <data name="lblGCode.Text" xml:space="preserve">
+    <value>G Code:</value>
+  </data>
+  <data name="btnAdd.Text" xml:space="preserve">
+    <value>Ajoute</value>
+  </data>
+  <data name="tabPgSettings.Text" xml:space="preserve">
+    <value>Réglages</value>
+  </data>
+  <data name="gbSettingsJogging.Text" xml:space="preserve">
+    <value>Jogging</value>
+  </data>
+  <data name="cbSettingsMetric.Text" xml:space="preserve">
+    <value>Métrique</value>
+  </data>
+  <data name="Label30.Text" xml:space="preserve">
+    <value>Incréments avance</value>
+  </data>
+  <data name="Label31.Text" xml:space="preserve">
+    <value>Taux avance</value>
+  </data>
+  <data name="Label33.Text" xml:space="preserve">
+    <value>Incréments avance</value>
+  </data>
+  <data name="Label32.Text" xml:space="preserve">
+    <value>Taux avance</value>
+  </data>
+  <data name="Label34.Text" xml:space="preserve">
+    <value>Impérial</value>
+  </data>
+  <data name="Label35.Text" xml:space="preserve">
+    <value>Métrique</value>
+  </data>
+  <data name="Label38.Text" xml:space="preserve">
+    <value>X Taux répétition</value>
+  </data>
+  <data name="Label39.Text" xml:space="preserve">
+    <value>Y Taux répétition</value>
+  </data>
+  <data name="Label40.Text" xml:space="preserve">
+    <value>Z Taux répétition</value>
+  </data>
+  <data name="Label41.Text" xml:space="preserve">
+    <value>Bouton Taux Répétition, r/sec</value>
+  </data>
+  <data name="btnSettingsRefreshJogging.Text" xml:space="preserve">
+    <value>Rafraichir</value>
+  </data>
+  <data name="cbSettingsKeyboardJogging.ToolTip" xml:space="preserve">
+    <value>Permet flèches, pg haut, pg bas faire jogging</value>
+  </data>
+  <data name="cbSettingsKeyboardJogging.Text" xml:space="preserve">
+    <value>Activer flèches clavier</value>
+  </data>
+  <data name="gbSettingsPosition.Text" xml:space="preserve">
+    <value>Position</value>
+  </data>
+  <data name="Label11.ToolTip" xml:space="preserve">
+    <value>Aussi connu comme origine Soft</value>
+  </data>
+  <data name="Label11.Text" xml:space="preserve">
+    <value>Va en pos. spé. 1</value>
+  </data>
+  <data name="Label12.Text" xml:space="preserve">
+    <value>Zero ttes CMD</value>
+  </data>
+  <data name="Label13.Text" xml:space="preserve">
+    <value>Travail X 0 cmd</value>
+  </data>
+  <data name="Label28.Text" xml:space="preserve">
+    <value>Travail Y 0 cmd</value>
+  </data>
+  <data name="Label29.Text" xml:space="preserve">
+    <value>Travail Z 0 cmd</value>
+  </data>
+  <data name="btnSettingsRefreshPosition.Text" xml:space="preserve">
+    <value>Rafraichir</value>
+  </data>
+  <data name="Label8.Text" xml:space="preserve">
+    <value>Va en pos. spé. 2</value>
+  </data>
+  <data name="gbSettingsMisc.Text" xml:space="preserve">
+    <value>Divers.</value>
+  </data>
+  <data name="Label26.Text" xml:space="preserve">
+    <value>Intervalle màj (ms)</value>
+  </data>
+  <data name="Label36.Text" xml:space="preserve">
+    <value>Q Taille Max</value>
+  </data>
+  <data name="Label37.Text" xml:space="preserve">
+    <value>RBuf Taille Max</value>
+  </data>
+  <data name="btnSettingsRefreshMisc.Text" xml:space="preserve">
+    <value>Rafraichir</value>
+  </data>
+  <data name="cbStatusPollEnable.Text" xml:space="preserve">
+    <value>MàJ Statut</value>
+  </data>
+  <data name="cbSettingsPauseOnError.Text" xml:space="preserve">
+    <value>Pause sur Erreur</value>
+  </data>
+  <data name="ofdGcodeFile.Filter" xml:space="preserve">
+    <value>Tous fichiers (*.*)|*.*</value>
+  </data>
+  <data name="sfdOffsets.Filter" xml:space="preserve">
+    <value>Fic. Décalage Trav.|*.xml</value>
+  </data>
+  <data name="ofdOffsets.Filter" xml:space="preserve">
+    <value>Fic. Décalage Trav.|*.xml</value>
+  </data>
+  <data name="cbSettingsConnectOnLoad.ToolTip" xml:space="preserve">
+    <value>Connecte automatiquement au dernier port</value>
+  </data>
+  <data name="cbSettingsConnectOnLoad.Text" xml:space="preserve">
+    <value>Connecte à l'ouverture</value>
+  </data>
+  <data name="cbSettingsLeftHanded.Text" xml:space="preserve">
+    <value>IU pour Gaucher</value>
+  </data>
+  <data name="Label6.Text" xml:space="preserve">
+    <value>Ext Fic. par défaut</value>
+  </data>
+  <data name="Label5.Text" xml:space="preserve">
+    <value>Délai démarrage</value>
+  </data>
+  <data name="Label42.Text" xml:space="preserve">
+    <value>Ces réglages sont toujours sauvés à la sortie du Panneau GRBL</value>
+  </data>
+  <data name="gbSettingsOffsets.Text" xml:space="preserve">
+    <value>Décalages (2)</value>
+  </data>
+  <data name="Label69.Text" xml:space="preserve">
+    <value>G30</value>
+  </data>
+  <data name="Label68.Text" xml:space="preserve">
+    <value>G28</value>
+  </data>
+  <data name="btnOffsetsG30Set.ToolTip" xml:space="preserve">
+    <value>Met la Position Spéciale 2 à la position actuelle de la machine</value>
+  </data>
+  <data name="btnOffsetsG30Set.Text" xml:space="preserve">
+    <value>Régle</value>
+  </data>
+  <data name="Label18.Text" xml:space="preserve">
+    <value>Positions Machine</value>
+  </data>
+  <data name="Label7.Text" xml:space="preserve">
+    <value>(Les décalages trav. se font depuis la page principale)</value>
+  </data>
+  <data name="btnSettingsRetrieveLocations.ToolTip" xml:space="preserve">
+    <value>Charger les réglages depuis Grbl</value>
+  </data>
+  <data name="btnSettingsRetrieveLocations.Text" xml:space="preserve">
+    <value>Retrouver</value>
+  </data>
+  <data name="btnOffsetsG28Set.ToolTip" xml:space="preserve">
+    <value>Met la Position Spéciale 1 à la position actuelle de la machine</value>
+  </data>
+  <data name="btnOffsetsG28Set.Text" xml:space="preserve">
+    <value>Règle</value>
+  </data>
+  <data name="gbGrblSettings.Text" xml:space="preserve">
+    <value>Réglages Grbl</value>
+  </data>
+  <data name="btnSettingsGrbl.Text" xml:space="preserve">
+    <value>Charge réglages Grbl</value>
+  </data>
+  <data name="tbSettingsGrblLastParam.ToolTip" xml:space="preserve">
+    <value>Modifier ceci pour le + grand N° de paramètre Grbl</value>
+  </data>
+  <data name="Label4.Text" xml:space="preserve">
+    <value>Dernier paramètre Grbl</value>
+  </data>
+  <data name="tabPgInterface.Text" xml:space="preserve">
+    <value>Interface</value>
+  </data>
+  <data name="gbPosition.Text" xml:space="preserve">
+    <value>Position</value>
+  </data>
+  <data name="tpOffsets.ToolTipText" xml:space="preserve">
+    <value>Cliquer pour régler à la position actuelle de la machine</value>
+  </data>
+  <data name="tpOffsets.Text" xml:space="preserve">
+    <value>Décalages</value>
+  </data>
+  <data name="Label20.Text" xml:space="preserve">
+    <value>Décalages Travail</value>
+  </data>
+  <data name="btnOffsetsLoad.ToolTip" xml:space="preserve">
+    <value>Charger décalages travail depuis Fichier</value>
+  </data>
+  <data name="btnOffsetsLoad.Text" xml:space="preserve">
+    <value>Charger</value>
+  </data>
+  <data name="btnOffsetsRetrieve.ToolTip" xml:space="preserve">
+    <value>Charger depuis Grbl</value>
+  </data>
+  <data name="btnOffsetsRetrieve.Text" xml:space="preserve">
+    <value>Retrouver</value>
+  </data>
+  <data name="btnOffsetsSave.ToolTip" xml:space="preserve">
+    <value>Sauver décalages travail dans Fichier</value>
+  </data>
+  <data name="btnOffsetsSave.Text" xml:space="preserve">
+    <value>Sauver</value>
+  </data>
+  <data name="tbOffSetsMachX.ToolTip" xml:space="preserve">
+    <value>Actuel X Machine</value>
+  </data>
+  <data name="tbOffSetsMachY.ToolTip" xml:space="preserve">
+    <value>Actuel Y Machine</value>
+  </data>
+  <data name="Label19.Text" xml:space="preserve">
+    <value>Décalage longueur d'Outil</value>
+  </data>
+  <data name="tbOffSetsMachZ.ToolTip" xml:space="preserve">
+    <value>Actuel Z Machine</value>
+  </data>
+  <data name="Label10.Text" xml:space="preserve">
+    <value>Position Machine Actuelle</value>
+  </data>
+  <data name="btnSetOffsetG54.ToolTip" xml:space="preserve">
+    <value>Cliquer pour régler à la position actuelle de la machine</value>
+  </data>
+  <data name="btnSetOffsetG55.ToolTip" xml:space="preserve">
+    <value>Cliquer pour régler à la position actuelle de la machine</value>
+  </data>
+  <data name="btnSetOffsetG56.ToolTip" xml:space="preserve">
+    <value>Cliquer pour régler à la position actuelle de la machine</value>
+  </data>
+  <data name="btnSetOffsetG57.ToolTip" xml:space="preserve">
+    <value>Cliquer pour régler à la position actuelle de la machine</value>
+  </data>
+  <data name="btnSetOffsetG58.ToolTip" xml:space="preserve">
+    <value>Cliquer pour régler à la position actuelle de la machine</value>
+  </data>
+  <data name="btnSetOffsetG59.ToolTip" xml:space="preserve">
+    <value>Cliquer pour régler à la position actuelle de la machine</value>
+  </data>
+  <data name="tpWork.Text" xml:space="preserve">
+    <value>Travail</value>
+  </data>
+  <data name="btnWorkY0.ToolTip" xml:space="preserve">
+    <value>Mets l'axe Y à 0 sur le Décalage Actif</value>
+  </data>
+  <data name="btnWorkZ0.ToolTip" xml:space="preserve">
+    <value>Mets l'axe Z à 0 sur le Décalage Actif</value>
+  </data>
+  <data name="btnWorkX0.ToolTip" xml:space="preserve">
+    <value>Mets l'axe X à 0 sur le Décalage Actif</value>
+  </data>
+  <data name="btnWork0.ToolTip" xml:space="preserve">
+    <value>Mets tous les axes à 0 sur le Décalage Actif</value>
+  </data>
+  <data name="btnWork0.Text" xml:space="preserve">
+    <value>Zero XYZ</value>
+  </data>
+  <data name="btnWorkSpclPosition.ToolTip" xml:space="preserve">
+    <value>Va en Position 2 avec G30</value>
+  </data>
+  <data name="btnWorkSpclPosition.Text" xml:space="preserve">
+    <value>Va en pos. spé. 2</value>
+  </data>
+  <data name="btnHome.ToolTip" xml:space="preserve">
+    <value>Effectue le cycle de référencement (Homing)</value>
+  </data>
+  <data name="btnHome.Text" xml:space="preserve">
+    <value>Cycle référencement</value>
+  </data>
+  <data name="btnWorkSoftHome.ToolTip" xml:space="preserve">
+    <value>Va en Position 1 avec G28</value>
+  </data>
+  <data name="btnWorkSoftHome.Text" xml:space="preserve">
+    <value>Va en pos. spé. 1</value>
+  </data>
+  <data name="GroupBox1.Text" xml:space="preserve">
+    <value>Décalage Actif</value>
+  </data>
+  <data name="tbWorkX.ToolTip" xml:space="preserve">
+    <value>Position Travail X</value>
+  </data>
+  <data name="tbMachX.ToolTip" xml:space="preserve">
+    <value>Position Machine X</value>
+  </data>
+  <data name="tbMachY.ToolTip" xml:space="preserve">
+    <value>Position Machine Y</value>
+  </data>
+  <data name="tbWorkY.ToolTip" xml:space="preserve">
+    <value>Position Travail Y</value>
+  </data>
+  <data name="tbMachZ.ToolTip" xml:space="preserve">
+    <value>Position Machine Z</value>
+  </data>
+  <data name="tbWorkZ.ToolTip" xml:space="preserve">
+    <value>Position Travail Z</value>
+  </data>
+  <data name="gbGrbl.Text" xml:space="preserve">
+    <value>Grbl</value>
+  </data>
+  <data name="tbGrblIP.Text" xml:space="preserve">
+    <value>IP</value>
+  </data>
+  <data name="tbIPAddress.ToolTip" xml:space="preserve">
+    <value>Entrez Adresse IP et port comme "&lt;IP&gt;:&lt;port&gt;"</value>
+  </data>
+  <data name="btnIPConnect.Text" xml:space="preserve">
+    <value>Connecter</value>
+  </data>
+  <data name="tbGrblCOM.Text" xml:space="preserve">
+    <value>COM</value>
+  </data>
+  <data name="btnConnect.Text" xml:space="preserve">
+    <value>Connecter</value>
+  </data>
+  <data name="btnRescanPorts.Text" xml:space="preserve">
+    <value>Re-Scan</value>
+  </data>
+  <data name="gbGcode.Text" xml:space="preserve">
+    <value>GCode</value>
+  </data>
+  <data name="btnFileStop.ToolTip" xml:space="preserve">
+    <value>Stop envoi</value>
+  </data>
+  <data name="btnFileSend.ToolTip" xml:space="preserve">
+    <value>Pause/reprise envoi</value>
+  </data>
+  <data name="btnFileSelect.ToolTip" xml:space="preserve">
+    <value>Charger un fichier</value>
+  </data>
+  <data name="btnFilePause.ToolTip" xml:space="preserve">
+    <value>Pause envoi</value>
+  </data>
+  <data name="Label27.Text" xml:space="preserve">
+    <value>Message</value>
+  </data>
+  <data name="btnFileReload.ToolTip" xml:space="preserve">
+    <value>Re-charge fichier</value>
+  </data>
+  <data name="lineNum.HeaderText" xml:space="preserve">
+    <value>Ligne</value>
+  </data>
+  <data name="stat.HeaderText" xml:space="preserve">
+    <value>Stats</value>
+  </data>
+  <data name="Label51.Text" xml:space="preserve">
+    <value>de</value>
+  </data>
+  <data name="Label23.Text" xml:space="preserve">
+    <value>Ecoulé</value>
+  </data>
+  <data name="cbMonitorEnable.Text" xml:space="preserve">
+    <value>Suivre</value>
+  </data>
+  <data name="gbStatus.Text" xml:space="preserve">
+    <value>Statut</value>
+  </data>
+  <data name="cbVerbose.Text" xml:space="preserve">
+    <value>Verbeux</value>
+  </data>
+  <data name="Label24.Text" xml:space="preserve">
+    <value>RX:</value>
+  </data>
+  <data name="tbCurrentStatus.ToolTip" xml:space="preserve">
+    <value>Montre le statut de Grbl</value>
+  </data>
+  <data name="Label25.Text" xml:space="preserve">
+    <value>Q:</value>
+  </data>
+  <data name="gbJogging.Text" xml:space="preserve">
+    <value>Jogging</value>
+  </data>
+  <data name="cbUnits.Text" xml:space="preserve">
+    <value>Métrique</value>
+  </data>
+  <data name="gbDistance.Text" xml:space="preserve">
+    <value>Distance</value>
+  </data>
+  <data name="gbFeedRate.Text" xml:space="preserve">
+    <value>Taux d'Avance</value>
+  </data>
+  <data name="gbMDI.Text" xml:space="preserve">
+    <value>MDI</value>
   </data>
 </root>

@@ -147,4 +147,43 @@
   <data name="GrblGui_btnConnDisconnect_Click_Connect" xml:space="preserve">
     <value>Connect</value>
   </data>
+  <data name="GrblGui_btnConnDisconnect_Click_PleaseSelectAComPort" xml:space="preserve">
+    <value>Please select a Com port</value>
+  </data>
+  <data name="GrblGui_btnConnDisconnect_Click_OrConnectTheCable" xml:space="preserve">
+    <value>or connect the cable</value>
+  </data>
+  <data name="GrblGui_btnConnDisconnect_Click_PleaseEnterAnIPAddress" xml:space="preserve">
+    <value>Please enter an IP Address</value>
+  </data>
+  <data name="GrblGui_btnConnDisconnect_Click_AndAPortNumberInTheFormat" xml:space="preserve">
+    <value>and a port number in the format</value>
+  </data>
+  <data name="GrblGui_btnConnDisconnect_Click_Idle" xml:space="preserve">
+    <value>Idle</value>
+  </data>
+  <data name="GrblGui_btnConnDisconnect_Click_End" xml:space="preserve">
+    <value>End</value>
+  </data>
+  <data name="GrblGui_btnConnDisconnect_Click_Disconnected" xml:space="preserve">
+    <value>Disconnected</value>
+  </data>
+  <data name="GrblGui_grblgui_unload_AreYouCertainThatYouWantToClose" xml:space="preserve">
+    <value>Are you certain that you want to close?</value>
+  </data>
+  <data name="GrblGui_showGrblStatus_IDLE" xml:space="preserve">
+    <value>IDLE</value>
+  </data>
+  <data name="GrblGui_showGrblStatus_RUN" xml:space="preserve">
+    <value>RUN</value>
+  </data>
+  <data name="GrblGui_showGrblStatus_Resume" xml:space="preserve">
+    <value>Resume</value>
+  </data>
+  <data name="GrblGui_showGrblStatus_HOLD" xml:space="preserve">
+    <value>HOLD</value>
+  </data>
+  <data name="GrblGui_showGrblStatus_CHECK" xml:space="preserve">
+    <value>CHECK</value>
+  </data>
 </root>

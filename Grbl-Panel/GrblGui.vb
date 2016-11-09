@@ -1,6 +1,7 @@
 ﻿Imports System.Globalization
 Imports System.Threading
 Imports System.Threading.Thread
+Imports GrblPanel.My.Resources
 
 
 Public Class GrblGui
@@ -95,7 +96,7 @@ Public Class GrblGui
             Return
         Else
             ' Ignore attempt to exit
-            If MsgBox("Are you certain that you want to close?", MsgBoxStyle.OkCancel) = MsgBoxResult.Cancel Then
+            If MsgBox(GrblGui_grblgui_unload_AreYouCertainThatYouWantToClose, MsgBoxStyle.OkCancel) = MsgBoxResult.Cancel Then
                 e.Cancel = True
             End If
         End If
@@ -349,22 +350,22 @@ Public Class GrblGui
         Dim connected As Boolean
 
         Select Case btn.Text
-            Case "Connect"
+            Case Button_Connection_Text_Connect
                 Select Case DirectCast(btn.Tag, String)
                     Case "COM"
                         connected = grblPort.Connect(GrblIF.ConnectionType.Serial)
                         If connected = True Then
                             ' disable other Connect button to prevent reconnects
-                            btn.Text = "Disconnect"
+                            btn.Text = GrblGui_btnConnDisconnect_Click_Disconnect
                             btnIPConnect.Enabled = False
                         Else
-                            MessageBox.Show("Please select a Com port" + vbCr + "or connect the cable", "Connect Error", MessageBoxButtons.OK)
+                            MessageBox.Show(GrblGui_btnConnDisconnect_Click_PleaseSelectAComPort + vbCr + GrblGui_btnConnDisconnect_Click_OrConnectTheCable, GrblGui_btnConnDisconnect_Click_Connect_Error, MessageBoxButtons.OK)
                             grblPort.rescan()
                             Return
                         End If
                     Case "IP"
                         If tbIPAddress.TextLength <= 0 Then
-                            MessageBox.Show("Please enter an IP Address" + vbCr + "and a port number in the format" + vbCr + """<ip address>:<port number>""", "Connect Error", MessageBoxButtons.OK)
+                            MessageBox.Show(GrblGui_btnConnDisconnect_Click_PleaseEnterAnIPAddress + vbCr + GrblGui_btnConnDisconnect_Click_AndAPortNumberInTheFormat + vbCr + """<ip address>:<port number>""", GrblGui_btnConnDisconnect_Click_Connect_Error, MessageBoxButtons.OK)
                             Return
                         End If
 
@@ -373,17 +374,17 @@ Public Class GrblGui
                         grblPort.portnum = Integer.Parse(address(1))
 
                         If grblPort.portnum = 0 Then
-                            MessageBox.Show("Please enter an IP Address" + vbCr + "and a port number in the format" + vbCr + """<ip address>:<port number>""", "Connect Error", MessageBoxButtons.OK)
+                            MessageBox.Show(GrblGui_btnConnDisconnect_Click_PleaseEnterAnIPAddress + vbCr + Resources.GrblGui_btnConnDisconnect_Click_AndAPortNumberInTheFormat + vbCr + """<ip address>:<port number>""", GrblGui_btnConnDisconnect_Click_Connect_Error, MessageBoxButtons.OK)
                             Return
                         End If
                         ' finally we try to connect
                         connected = grblPort.Connect(GrblIF.ConnectionType.IP)
                         If connected = True Then
                             ' disable other Connect button to prevent reconnects
-                            btn.Text = "Disconnect"
+                            btn.Text = GrblGui_btnConnDisconnect_Click_Disconnect
                             btnConnect.Enabled = False
                         Else
-                            MessageBox.Show("Please enter an IP Address" + vbCr + "and a port number in the format" + vbCr + """<ip address>:<port number>""", "Connect Error", MessageBoxButtons.OK)
+                            MessageBox.Show(GrblGui_btnConnDisconnect_Click_PleaseEnterAnIPAddress + vbCr + GrblGui_btnConnDisconnect_Click_AndAPortNumberInTheFormat + vbCr + """<ip address>:<port number>""", GrblGui_btnConnDisconnect_Click_Connect_Error, MessageBoxButtons.OK)
                             Return
                         End If
                 End Select
@@ -401,21 +402,21 @@ Public Class GrblGui
                     settings.EnableState(True)
 
                     RaiseEvent connected("Connected")      ' tell everyone of the happy event
-                    setSubPanels("Idle")
+                    setSubPanels(GrblGui_btnConnDisconnect_Click_Idle)
                     ' Start the status poller
-                    statusPrompt("Start")
+                    statusPrompt(MsgFilter_PreFilterMessage_Start)
                 End If
-            Case "Disconnect"
+            Case GrblGui_btnConnDisconnect_Click_Disconnect
                 ' it must be a disconnect
                 grblPort.Disconnect()
-                btnConnect.Text = "Connect"
-                btnIPConnect.Text = "Connect"
+                btnConnect.Text = Button_Connection_Text_Connect
+                btnIPConnect.Text = Button_Connection_Text_Connect
                 btnConnect.Enabled = True
                 btnIPConnect.Enabled = True
 
                 ' Stop the status poller
                 ' TODO Replace these calls with Event Disconnected handling in each object
-                statusPrompt("End")
+                statusPrompt(GrblGui_btnConnDisconnect_Click_End)
                 status.enableStatus(False)
                 jogging.enableJogging(False)
                 position.enablePosition(False)
@@ -425,7 +426,7 @@ Public Class GrblGui
                 settings.EnableState(False)
 
                 RaiseEvent connected("Disconnected")
-                setSubPanels("Disconnected") ' block GUI 
+                setSubPanels(GrblGui_btnConnDisconnect_Click_Disconnected) ' block GUI 
                 Return
         End Select
     End Sub
@@ -493,7 +494,7 @@ Public Class GrblGui
                 gbGrblSettings.Enabled = False
 
                 btnStatusClearPins.Enabled = False
-            Case "Disconnected"
+            Case GrblGui_btnConnDisconnect_Click_Disconnected
                 ' We are not connected so not much you can do
                 gbJogging.Enabled = False
                 gbPosition.Enabled = False
@@ -508,7 +509,7 @@ Public Class GrblGui
                 gbGrblSettings.Enabled = False
 
                 btnStatusClearPins.Enabled = False
-            Case "Idle"
+            Case GrblGui_btnConnDisconnect_Click_Idle
                 ' General use, no gcode streaming
                 gbJogging.Enabled = True
                 gbPosition.Enabled = True

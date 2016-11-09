@@ -118,16 +118,16 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="Button_Connection_Text_Connect" xml:space="preserve">
-    <value>Connectes</value>
+    <value>Connecter</value>
   </data>
   <data name="GrblGui_grblgui_unload_Are_You_Certain_That_You_Want_To_Close" xml:space="preserve">
     <value>Êtes-vous sûr de vouloir fermer?</value>
   </data>
   <data name="MsgFilter_PreFilterMessage_Start" xml:space="preserve">
-    <value>Démarre</value>
+    <value>Départ</value>
   </data>
   <data name="GrblGui_btnConnDisconnect_Click_Disconnect" xml:space="preserve">
-    <value>Déconnectes</value>
+    <value>Déconnecter</value>
   </data>
   <data name="GrblGui_btnConnDisconnect_Click_Please_Select_A_Com_Port" xml:space="preserve">
     <value>Sélectionnez un Port COM, SVP</value>
@@ -145,6 +145,45 @@
     <value>et un numéro de port, dans le format</value>
   </data>
   <data name="GrblGui_btnConnDisconnect_Click_Connect" xml:space="preserve">
-    <value>Connectes</value>
+    <value>Connecter</value>
+  </data>
+  <data name="GrblGui_btnConnDisconnect_Click_PleaseSelectAComPort" xml:space="preserve">
+    <value>Sélectionnez un port Com SVP</value>
+  </data>
+  <data name="GrblGui_btnConnDisconnect_Click_OrConnectTheCable" xml:space="preserve">
+    <value>ou connectez le cable</value>
+  </data>
+  <data name="GrblGui_btnConnDisconnect_Click_PleaseEnterAnIPAddress" xml:space="preserve">
+    <value>Entrez une adresse IP SVP</value>
+  </data>
+  <data name="GrblGui_btnConnDisconnect_Click_AndAPortNumberInTheFormat" xml:space="preserve">
+    <value>et un N° de port au format </value>
+  </data>
+  <data name="GrblGui_btnConnDisconnect_Click_Idle" xml:space="preserve">
+    <value>Attente</value>
+  </data>
+  <data name="GrblGui_btnConnDisconnect_Click_End" xml:space="preserve">
+    <value>Fin</value>
+  </data>
+  <data name="GrblGui_btnConnDisconnect_Click_Disconnected" xml:space="preserve">
+    <value>Déconnecté</value>
+  </data>
+  <data name="GrblGui_grblgui_unload_AreYouCertainThatYouWantToClose" xml:space="preserve">
+    <value>Etes-vous sûr de vouloir fermer?</value>
+  </data>
+  <data name="GrblGui_showGrblStatus_IDLE" xml:space="preserve">
+    <value>PAUSE</value>
+  </data>
+  <data name="GrblGui_showGrblStatus_RUN" xml:space="preserve">
+    <value>MARCHE</value>
+  </data>
+  <data name="GrblGui_showGrblStatus_Resume" xml:space="preserve">
+    <value>Reprise</value>
+  </data>
+  <data name="GrblGui_showGrblStatus_HOLD" xml:space="preserve">
+    <value>RETIENS</value>
+  </data>
+  <data name="GrblGui_showGrblStatus_CHECK" xml:space="preserve">
+    <value>VERIF.</value>
   </data>
 </root>

@@ -79,6 +79,15 @@ Namespace My.Resources
         End Property
         
         '''<summary>
+        '''  Looks up a localized string similar to and a port number in the format.
+        '''</summary>
+        Friend ReadOnly Property GrblGui_btnConnDisconnect_Click_AndAPortNumberInTheFormat() As String
+            Get
+                Return ResourceManager.GetString("GrblGui_btnConnDisconnect_Click_AndAPortNumberInTheFormat", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Looks up a localized string similar to Connect.
         '''</summary>
         Friend ReadOnly Property GrblGui_btnConnDisconnect_Click_Connect() As String
@@ -106,11 +115,47 @@ Namespace My.Resources
         End Property
         
         '''<summary>
+        '''  Looks up a localized string similar to Disconnected.
+        '''</summary>
+        Friend ReadOnly Property GrblGui_btnConnDisconnect_Click_Disconnected() As String
+            Get
+                Return ResourceManager.GetString("GrblGui_btnConnDisconnect_Click_Disconnected", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to End.
+        '''</summary>
+        Friend ReadOnly Property GrblGui_btnConnDisconnect_Click_End() As String
+            Get
+                Return ResourceManager.GetString("GrblGui_btnConnDisconnect_Click_End", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Idle.
+        '''</summary>
+        Friend ReadOnly Property GrblGui_btnConnDisconnect_Click_Idle() As String
+            Get
+                Return ResourceManager.GetString("GrblGui_btnConnDisconnect_Click_Idle", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Looks up a localized string similar to Or Connect The Cable.
         '''</summary>
         Friend ReadOnly Property GrblGui_btnConnDisconnect_Click_Or_Connect_The_Cable() As String
             Get
                 Return ResourceManager.GetString("GrblGui_btnConnDisconnect_Click_Or_Connect_The_Cable", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to or connect the cable.
+        '''</summary>
+        Friend ReadOnly Property GrblGui_btnConnDisconnect_Click_OrConnectTheCable() As String
+            Get
+                Return ResourceManager.GetString("GrblGui_btnConnDisconnect_Click_OrConnectTheCable", resourceCulture)
             End Get
         End Property
         
@@ -133,11 +178,83 @@ Namespace My.Resources
         End Property
         
         '''<summary>
+        '''  Looks up a localized string similar to Please enter an IP Address.
+        '''</summary>
+        Friend ReadOnly Property GrblGui_btnConnDisconnect_Click_PleaseEnterAnIPAddress() As String
+            Get
+                Return ResourceManager.GetString("GrblGui_btnConnDisconnect_Click_PleaseEnterAnIPAddress", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Please select a Com port.
+        '''</summary>
+        Friend ReadOnly Property GrblGui_btnConnDisconnect_Click_PleaseSelectAComPort() As String
+            Get
+                Return ResourceManager.GetString("GrblGui_btnConnDisconnect_Click_PleaseSelectAComPort", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Looks up a localized string similar to Are You Certain That You Want To Close.
         '''</summary>
         Friend ReadOnly Property GrblGui_grblgui_unload_Are_You_Certain_That_You_Want_To_Close() As String
             Get
                 Return ResourceManager.GetString("GrblGui_grblgui_unload_Are_You_Certain_That_You_Want_To_Close", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Are you certain that you want to close?.
+        '''</summary>
+        Friend ReadOnly Property GrblGui_grblgui_unload_AreYouCertainThatYouWantToClose() As String
+            Get
+                Return ResourceManager.GetString("GrblGui_grblgui_unload_AreYouCertainThatYouWantToClose", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to CHECK.
+        '''</summary>
+        Friend ReadOnly Property GrblGui_showGrblStatus_CHECK() As String
+            Get
+                Return ResourceManager.GetString("GrblGui_showGrblStatus_CHECK", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to HOLD.
+        '''</summary>
+        Friend ReadOnly Property GrblGui_showGrblStatus_HOLD() As String
+            Get
+                Return ResourceManager.GetString("GrblGui_showGrblStatus_HOLD", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to IDLE.
+        '''</summary>
+        Friend ReadOnly Property GrblGui_showGrblStatus_IDLE() As String
+            Get
+                Return ResourceManager.GetString("GrblGui_showGrblStatus_IDLE", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Resume.
+        '''</summary>
+        Friend ReadOnly Property GrblGui_showGrblStatus_Resume() As String
+            Get
+                Return ResourceManager.GetString("GrblGui_showGrblStatus_Resume", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to RUN.
+        '''</summary>
+        Friend ReadOnly Property GrblGui_showGrblStatus_RUN() As String
+            Get
+                Return ResourceManager.GetString("GrblGui_showGrblStatus_RUN", resourceCulture)
             End Get
         End Property
         

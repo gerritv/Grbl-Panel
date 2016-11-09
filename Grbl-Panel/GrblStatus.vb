@@ -1,5 +1,7 @@
 ﻿Imports System.Threading
 Imports GrblPanel.GrblIF
+Imports GrblPanel.My.Resources
+
 
 Partial Class GrblGui
     Public Class GrblStatus
@@ -31,7 +33,7 @@ Partial Class GrblGui
 
         Public Sub shutdown()
             ' Close up shop
-            _gui.statusPrompt("End")
+            _gui.statusPrompt(GrblGui_btnConnDisconnect_Click_End)
 
             enableStatus(False)
         End Sub
@@ -48,10 +50,10 @@ Partial Class GrblGui
         Dim tcb As TimerCallback = AddressOf _statusThreadProc
         Dim state As Object = 0
         ' Start/stop status probe thread
-        If operation = "Start" Then
+        If operation = MsgFilter_PreFilterMessage_Start Then
             _statusTimer = New Timer(tcb, status.timerState, 0, Convert.ToInt16(My.Settings.StatusPollInterval))
         End If
-        If operation = "End" Then
+        If operation = GrblGui_btnConnDisconnect_Click_End Then
             If Not IsNothing(_statusTimer) Then     ' if close before Connect to Grbl
                 _statusTimer.Change(Threading.Timeout.Infinite, Threading.Timeout.Infinite)
             End If
@@ -226,23 +228,23 @@ Partial Class GrblGui
                             Me.btnReset.BackColor = Color.Transparent
                             Me.btnCheckMode.BackColor = Color.Transparent
                             Me.btnStartResume.BackColor = Color.Transparent
-                            Me.btnStartResume.Text = "Start"
+                            Me.btnStartResume.Text = MsgFilter_PreFilterMessage_Start
                             tbCurrentStatus.BackColor = Color.LightGreen
-                            tbCurrentStatus.Text = "IDLE"
+                            tbCurrentStatus.Text = GrblGui_showGrblStatus_IDLE
                         Case "<Run"
                             Me.btnUnlock.BackColor = Color.Transparent
                             Me.btnHold.BackColor = Color.Transparent
                             Me.btnReset.BackColor = Color.Transparent
                             Me.btnStartResume.BackColor = Color.Transparent
-                            Me.btnStartResume.Text = "Start"
+                            Me.btnStartResume.Text = MsgFilter_PreFilterMessage_Start
                             tbCurrentStatus.BackColor = Color.LightGreen
-                            tbCurrentStatus.Text = "RUN"
+                            tbCurrentStatus.Text = GrblGui_showGrblStatus_RUN
                         Case "<Hold"
                             Me.btnStartResume.BackColor = Color.Crimson
-                            Me.btnStartResume.Text = "Resume"
+                            Me.btnStartResume.Text = GrblGui_showGrblStatus_Resume
 
                             tbCurrentStatus.BackColor = Color.LightGreen
-                            tbCurrentStatus.Text = "HOLD"
+                            tbCurrentStatus.Text = GrblGui_showGrblStatus_HOLD
                         Case "<Jog"
                             tbCurrentStatus.BackColor = Color.LightGreen
                             tbCurrentStatus.Text = "JOG"
@@ -253,7 +255,7 @@ Partial Class GrblGui
                             Me.btnCheckMode.BackColor = Color.Crimson
 
                             tbCurrentStatus.BackColor = Color.LightGreen
-                            tbCurrentStatus.Text = "CHECK"
+                            tbCurrentStatus.Text = Resources.GrblGui_showGrblStatus_CHECK
                         Case "<Home"
                             tbCurrentStatus.BackColor = Color.LightGreen
                             tbCurrentStatus.Text = "HOME"
@@ -291,13 +293,13 @@ Partial Class GrblGui
                 tbCurrentStatus.Text = "ALARM"
             Case "<Run"
                 tbCurrentStatus.BackColor = Color.LightGreen
-                tbCurrentStatus.Text = "RUN"
+                tbCurrentStatus.Text = GrblGui_showGrblStatus_RUN
             Case "<Idle"
                 tbCurrentStatus.BackColor = Color.LightGreen
-                tbCurrentStatus.Text = "IDLE"
+                tbCurrentStatus.Text = GrblGui_showGrblStatus_IDLE
             Case "<Check"
                 tbCurrentStatus.BackColor = Color.YellowGreen
-                tbCurrentStatus.Text = "CHECK"
+                tbCurrentStatus.Text = GrblGui_showGrblStatus_CHECK
             Case "<Queue"
                 tbCurrentStatus.BackColor = Color.YellowGreen
                 tbCurrentStatus.Text = "QUEUE"
