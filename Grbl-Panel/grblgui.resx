@@ -5428,6 +5428,10 @@
   <data name="dgGrblSettings.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
   </data>
+  <data name="dgGrblSettings.ToolTip" xml:space="preserve">
+    <value>To send modified value to Grbl, dbleclick on it.
+</value>
+  </data>
   <data name="&gt;&gt;dgGrblSettings.Name" xml:space="preserve">
     <value>dgGrblSettings</value>
   </data>

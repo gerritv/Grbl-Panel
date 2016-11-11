@@ -1916,6 +1916,7 @@ Partial Class GrblGui
         Me.dgGrblSettings.MultiSelect = false
         Me.dgGrblSettings.Name = "dgGrblSettings"
         Me.dgGrblSettings.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect
+        Me.ToolTip1.SetToolTip(Me.dgGrblSettings, resources.GetString("dgGrblSettings.ToolTip"))
         '
         'btnSettingsGrbl
         '

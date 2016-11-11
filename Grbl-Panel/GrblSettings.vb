@@ -1,5 +1,7 @@
 ﻿Imports System.Windows.Forms
 Imports System.Threading.Thread
+Imports GrblPanel.My.Resources
+
 
 Partial Class GrblGui
     Public Class GrblSettings
@@ -11,43 +13,43 @@ Partial Class GrblGui
         Private _nextParam As Integer       ' to track which param line is next
 
         Private _settings As Dictionary(Of String, String) = New Dictionary(Of String, String) From {
-            {"0", "step pulse, usec"},
-            {"1", "step idle delay, msec"},
-            {"2", "step port invert mask:"},
-            {"3", "dir port invert mask:"},
-            {"4", "step enable invert, bool"},
-            {"5", "limit pins invert, bool"},
-            {"6", "probe pin invert, bool"},
-            {"10", "status report mask"},
-            {"11", "junction deviation, mm"},
-            {"12", "arc tolerance, mm"},
-            {"13", "report inches, bool"},
-            {"20", "soft limits, bool"},
-            {"21", "hard limits, bool"},
-            {"22", "homing cycle, bool"},
-            {"23", "homing dir invert mask"},
-            {"24", "homing feed, mm/min"},
-            {"25", "homing seek, mm/min"},
-            {"26", "homing debounce, msec"},
-            {"27", "homing pull-off, mm"},
-            {"30", "rpm max"},
-            {"31", "rpm min"},
-            {"100", "x, step/mm"},
-            {"101", "y, step/mm"},
-            {"102", "z, step/mm"},
-            {"103", "a, step/mm"},
-            {"110", "x max rate, mm/min"},
-            {"111", "y max rate, mm/min"},
-            {"112", "z max rate, mm/min"},
-            {"113", "a max rate, mm/min"},
-            {"120", "x accel, mm/sec^2"},
-            {"121", "y accel, mm/sec^2"},
-            {"122", "z accel, mm/sec^2"},
-            {"123", "a accel, mm/sec^2"},
-            {"130", "x max travel, mm"},
-            {"131", "y max travel, mm"},
-            {"132", "z max travel, mm"},
-            {"133", "a max travel, mm"}
+            {"0", Resources.GrblSettings_StepPulseUsec},
+            {"1", Resources.GrblSettings_StepIdleDelayMsec},
+            {"2", Resources.GrblSettings_StepPortInvertMask},
+            {"3", Resources.GrblSettings_DirPortInvertMask},
+            {"4",Resources.GrblSettings_StepEnableInvertBool},
+            {"5",Resources.GrblSettings_LimitPinsInvertBool},
+            {"6", Resources.GrblSettings_ProbePinInvertBool},
+            {"10", Resources.GrblSettings_StatusReportMask},
+            {"11", Resources.GrblSettings_JunctionDeviationMm},
+            {"12", Resources.GrblSettings_ArcToleranceMm},
+            {"13", Resources.GrblSettings_ReportInchesBool},
+            {"20", Resources.GrblSettings_SoftLimitsBool},
+            {"21", Resources.GrblSettings_HardLimitsBool},
+            {"22", Resources.GrblSettings_HomingCycleBool},
+            {"23", Resources.GrblSettings_HomingDirInvertMask},
+            {"24",Resources.GrblSettings_HomingFeedMmMin},
+            {"25", Resources.GrblSettings_HomingSeekMmMin},
+            {"26",Resources.GrblSettings_HomingDebounceMsec},
+            {"27", Resources.GrblSettings_HomingPullOffMm},
+            {"30", Resources.GrblSettings_RpmMax},
+            {"31", Resources.GrblSettings_RpmMin},
+            {"100", Resources.GrblSettings_XStepMm},
+            {"101", Resources.GrblSettings_YStepMm},
+            {"102", Resources.GrblSettings_ZStepMm},
+            {"103", Resources.GrblSettings_AStepMm},
+            {"110", Resources.GrblSettings_XMaxRateMmMin},
+            {"111", Resources.GrblSettings_YMaxRateMmMin},
+            {"112", Resources.GrblSettings_ZMaxRateMmMin},
+            {"113", Resources.GrblSettings_AMaxRateMmMin},
+            {"120", Resources.GrblSettings_XAccelMmSec2},
+            {"121", Resources.GrblSettings_YAccelMmSec2},
+            {"122", Resources.GrblSettings_ZAccelMmSec2},
+            {"123", Resources.GrblSettings_AAccelMmSec2},
+            {"130", Resources.GrblSettings_XMaxTravelMm},
+            {"131", Resources.GrblSettings_YMaxTravelMm},
+            {"132", Resources.GrblSettings_ZMaxTravelMm},
+            {"133", Resources.GrblSettings_AMaxTravelMm}
             }
 #Region "Properties"
         ReadOnly Property IsHomingEnabled As Integer
@@ -55,7 +57,7 @@ Partial Class GrblGui
                 Dim row As DataRow
                 row = _paramTable.Rows.Find("$22")
                 If Not IsNothing(row) Then
-                    Return row.Item("Value")
+                    Return row.Item(Resources.GrblSettings_FillSettings_Value)
                 End If
                 Return 0
             End Get
@@ -115,7 +117,7 @@ Partial Class GrblGui
                 _paramTable = New DataTable
                 With _paramTable
                     .Columns.Add("ID")
-                    .Columns.Add("Value")
+                    .Columns.Add(Resources.GrblSettings_FillSettings_Value)
                     .Columns.Add("Description")
                     .PrimaryKey = New DataColumn() { .Columns("ID")}
                 End With
@@ -141,7 +143,7 @@ Partial Class GrblGui
                     .Columns("ID").Width = 40
                     .Columns("ID").ReadOnly = True
                     .Columns("ID").DefaultCellStyle.BackColor = SystemColors.Control
-                    .Columns("Value").Width = 60
+                    .Columns(Resources.GrblSettings_FillSettings_Value).Width = 60
                     .Columns("Description").Width = 200
                     .Columns("Description").ReadOnly = True
                     .Columns("Description").DefaultCellStyle.BackColor = SystemColors.Control

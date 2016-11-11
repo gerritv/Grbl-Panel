@@ -61,11 +61,344 @@ Namespace My.Resources
         End Property
         
         '''<summary>
+        '''  Looks up a localized string similar to For more details on this app, please visit: .
+        '''</summary>
+        Friend ReadOnly Property AboutBox_AboutBox_Load_ForMoreDetailsOnThisAppPleaseVisit() As String
+            Get
+                Return ResourceManager.GetString("AboutBox_AboutBox_Load_ForMoreDetailsOnThisAppPleaseVisit", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to GrblPanel is designed for use with Grbl 0.9G or later..
+        '''</summary>
+        Friend ReadOnly Property AboutBox_AboutBox_Load_GrblPanelIsDesignedForUseWithGrbl09GOrLater() As String
+            Get
+                Return ResourceManager.GetString("AboutBox_AboutBox_Load_GrblPanelIsDesignedForUseWithGrbl09GOrLater", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Looks up a localized string similar to Connect.
         '''</summary>
         Friend ReadOnly Property Button_Connection_Text_Connect() As String
             Get
                 Return ResourceManager.GetString("Button_Connection_Text_Connect", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Alarm lock .
+        '''</summary>
+        Friend ReadOnly Property GrblGcodeView_AlarmLock() As String
+            Get
+                Return ResourceManager.GetString("GrblGcodeView_AlarmLock", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Arc radius error .
+        '''</summary>
+        Friend ReadOnly Property GrblGcodeView_ArcRadiusError() As String
+            Get
+                Return ResourceManager.GetString("GrblGcodeView_ArcRadiusError", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Axis command conflict .
+        '''</summary>
+        Friend ReadOnly Property GrblGcodeView_AxisCommandConflict() As String
+            Get
+                Return ResourceManager.GetString("GrblGcodeView_AxisCommandConflict", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Axis words exist .
+        '''</summary>
+        Friend ReadOnly Property GrblGcodeView_AxisWordsExist() As String
+            Get
+                Return ResourceManager.GetString("GrblGcodeView_AxisWordsExist", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Bad number format .
+        '''</summary>
+        Friend ReadOnly Property GrblGcodeView_BadNumberFormat() As String
+            Get
+                Return ResourceManager.GetString("GrblGcodeView_BadNumberFormat", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Check door .
+        '''</summary>
+        Friend ReadOnly Property GrblGcodeView_CheckDoor() As String
+            Get
+                Return ResourceManager.GetString("GrblGcodeView_CheckDoor", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Command value is not integer .
+        '''</summary>
+        Friend ReadOnly Property GrblGcodeView_CommandValueIsNotInteger() As String
+            Get
+                Return ResourceManager.GetString("GrblGcodeView_CommandValueIsNotInteger", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to EEPROM read fail, using Defaults .
+        '''</summary>
+        Friend ReadOnly Property GrblGcodeView_EEPROMReadFailUsingDefaults() As String
+            Get
+                Return ResourceManager.GetString("GrblGcodeView_EEPROMReadFailUsingDefaults", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Expected command letter .
+        '''</summary>
+        Friend ReadOnly Property GrblGcodeView_ExpectedCommandLetter() As String
+            Get
+                Return ResourceManager.GetString("GrblGcodeView_ExpectedCommandLetter", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to G43 dynamic axis error .
+        '''</summary>
+        Friend ReadOnly Property GrblGcodeView_G43DynamicAxisError() As String
+            Get
+                Return ResourceManager.GetString("GrblGcodeView_G43DynamicAxisError", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to G53 invalid motion mode .
+        '''</summary>
+        Friend ReadOnly Property GrblGcodeView_G53InvalidMotionMode() As String
+            Get
+                Return ResourceManager.GetString("GrblGcodeView_G53InvalidMotionMode", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Homing is not enabled .
+        '''</summary>
+        Friend ReadOnly Property GrblGcodeView_HomingIsNotEnabled() As String
+            Get
+                Return ResourceManager.GetString("GrblGcodeView_HomingIsNotEnabled", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Invalid line number .
+        '''</summary>
+        Friend ReadOnly Property GrblGcodeView_InvalidLineNumber() As String
+            Get
+                Return ResourceManager.GetString("GrblGcodeView_InvalidLineNumber", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Invalid statement .
+        '''</summary>
+        Friend ReadOnly Property GrblGcodeView_InvalidStatement() As String
+            Get
+                Return ResourceManager.GetString("GrblGcodeView_InvalidStatement", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Invalid target .
+        '''</summary>
+        Friend ReadOnly Property GrblGcodeView_InvalidTarget() As String
+            Get
+                Return ResourceManager.GetString("GrblGcodeView_InvalidTarget", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Line overflow .
+        '''</summary>
+        Friend ReadOnly Property GrblGcodeView_LineOverflow() As String
+            Get
+                Return ResourceManager.GetString("GrblGcodeView_LineOverflow", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Modal group violation .
+        '''</summary>
+        Friend ReadOnly Property GrblGcodeView_ModalGroupViolation() As String
+            Get
+                Return ResourceManager.GetString("GrblGcodeView_ModalGroupViolation", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Line.
+        '''</summary>
+        Friend ReadOnly Property GrblGcodeView_New_Line() As String
+            Get
+                Return ResourceManager.GetString("GrblGcodeView_New_Line", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to No axis words .
+        '''</summary>
+        Friend ReadOnly Property GrblGcodeView_NoAxisWords() As String
+            Get
+                Return ResourceManager.GetString("GrblGcodeView_NoAxisWords", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to No axis words in plane .
+        '''</summary>
+        Friend ReadOnly Property GrblGcodeView_NoAxisWordsInPlane() As String
+            Get
+                Return ResourceManager.GetString("GrblGcodeView_NoAxisWordsInPlane", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to No offsets in plane .
+        '''</summary>
+        Friend ReadOnly Property GrblGcodeView_NoOffsetsInPlane() As String
+            Get
+                Return ResourceManager.GetString("GrblGcodeView_NoOffsetsInPlane", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Not idle .
+        '''</summary>
+        Friend ReadOnly Property GrblGcodeView_NotIdle() As String
+            Get
+                Return ResourceManager.GetString("GrblGcodeView_NotIdle", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Setting disabled .
+        '''</summary>
+        Friend ReadOnly Property GrblGcodeView_SettingDisabled() As String
+            Get
+                Return ResourceManager.GetString("GrblGcodeView_SettingDisabled", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Step rate &gt; 30kHz .
+        '''</summary>
+        Friend ReadOnly Property GrblGcodeView_StepRate30kHz() As String
+            Get
+                Return ResourceManager.GetString("GrblGcodeView_StepRate30kHz", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Undefined feed rate .
+        '''</summary>
+        Friend ReadOnly Property GrblGcodeView_UndefinedFeedRate() As String
+            Get
+                Return ResourceManager.GetString("GrblGcodeView_UndefinedFeedRate", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Unsupported command .
+        '''</summary>
+        Friend ReadOnly Property GrblGcodeView_UnsupportedCommand() As String
+            Get
+                Return ResourceManager.GetString("GrblGcodeView_UnsupportedCommand", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Unsupported coordinate system .
+        '''</summary>
+        Friend ReadOnly Property GrblGcodeView_UnsupportedCoordinateSystem() As String
+            Get
+                Return ResourceManager.GetString("GrblGcodeView_UnsupportedCoordinateSystem", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Unused words .
+        '''</summary>
+        Friend ReadOnly Property GrblGcodeView_UnusedWords() As String
+            Get
+                Return ResourceManager.GetString("GrblGcodeView_UnusedWords", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Value &lt; 0 .
+        '''</summary>
+        Friend ReadOnly Property GrblGcodeView_Value0() As String
+            Get
+                Return ResourceManager.GetString("GrblGcodeView_Value0", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Value &lt; 3 usec .
+        '''</summary>
+        Friend ReadOnly Property GrblGcodeView_Value3Usec() As String
+            Get
+                Return ResourceManager.GetString("GrblGcodeView_Value3Usec", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Value word missing .
+        '''</summary>
+        Friend ReadOnly Property GrblGcodeView_ValueWordMissing() As String
+            Get
+                Return ResourceManager.GetString("GrblGcodeView_ValueWordMissing", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Word repeated .
+        '''</summary>
+        Friend ReadOnly Property GrblGcodeView_WordRepeated() As String
+            Get
+                Return ResourceManager.GetString("GrblGcodeView_WordRepeated", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Data Validation Error.
+        '''</summary>
+        Friend ReadOnly Property GrblGui_btnAdd_Click_DataValidationError() As String
+            Get
+                Return ResourceManager.GetString("GrblGui_btnAdd_Click_DataValidationError", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to You cannot create a macro without a name..
+        '''</summary>
+        Friend ReadOnly Property GrblGui_btnAdd_Click_YouCannotCreateAMacroWithoutAName() As String
+            Get
+                Return ResourceManager.GetString("GrblGui_btnAdd_Click_YouCannotCreateAMacroWithoutAName", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to You need to add some G-code to save a macro.
+        '''</summary>
+        Friend ReadOnly Property GrblGui_btnAdd_Click_YouNeedToAddSomeGCodeToSaveAMacro() As String
+            Get
+                Return ResourceManager.GetString("GrblGui_btnAdd_Click_YouNeedToAddSomeGCodeToSaveAMacro", resourceCulture)
             End Get
         End Property
         
@@ -196,6 +529,33 @@ Namespace My.Resources
         End Property
         
         '''<summary>
+        '''  Looks up a localized string similar to Are you sure you want to delete the .
+        '''</summary>
+        Friend ReadOnly Property GrblGui_btnDeleteMacro_Click_AreYouSureYouWantToDeleteThe() As String
+            Get
+                Return ResourceManager.GetString("GrblGui_btnDeleteMacro_Click_AreYouSureYouWantToDeleteThe", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Confirm Delete.
+        '''</summary>
+        Friend ReadOnly Property GrblGui_btnDeleteMacro_Click_ConfirmDelete() As String
+            Get
+                Return ResourceManager.GetString("GrblGui_btnDeleteMacro_Click_ConfirmDelete", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Update.
+        '''</summary>
+        Friend ReadOnly Property GrblGui_dgMacros_DoubleClick_Update() As String
+            Get
+                Return ResourceManager.GetString("GrblGui_dgMacros_DoubleClick_Update", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Looks up a localized string similar to Are You Certain That You Want To Close.
         '''</summary>
         Friend ReadOnly Property GrblGui_grblgui_unload_Are_You_Certain_That_You_Want_To_Close() As String
@@ -210,6 +570,34 @@ Namespace My.Resources
         Friend ReadOnly Property GrblGui_grblgui_unload_AreYouCertainThatYouWantToClose() As String
             Get
                 Return ResourceManager.GetString("GrblGui_grblgui_unload_AreYouCertainThatYouWantToClose", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Are you sure you want to exit without saving your Macro changes?.
+        '''</summary>
+        Friend ReadOnly Property GrblGui_GrblMacroButtons_FormClosing_AreYouSureYouWantToExitWithoutSavingYourMacroChanges() As String
+            Get
+                Return ResourceManager.GetString("GrblGui_GrblMacroButtons_FormClosing_AreYouSureYouWantToExitWithoutSavingYourMacr"& _ 
+                        "oChanges", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Confirm exit without saving..
+        '''</summary>
+        Friend ReadOnly Property GrblGui_GrblMacroButtons_FormClosing_ConfirmExitWithoutSaving() As String
+            Get
+                Return ResourceManager.GetString("GrblGui_GrblMacroButtons_FormClosing_ConfirmExitWithoutSaving", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Add.
+        '''</summary>
+        Friend ReadOnly Property GrblGui_GrblMacroButtons_Load_Add() As String
+            Get
+                Return ResourceManager.GetString("GrblGui_GrblMacroButtons_Load_Add", resourceCulture)
             End Get
         End Property
         
@@ -255,6 +643,429 @@ Namespace My.Resources
         Friend ReadOnly Property GrblGui_showGrblStatus_RUN() As String
             Get
                 Return ResourceManager.GetString("GrblGui_showGrblStatus_RUN", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Commit all changes to Settings and close.
+        '''</summary>
+        Friend ReadOnly Property GrblGui_UpdateToolTip_CommitAllChangesToSettingsAndClose() As String
+            Get
+                Return ResourceManager.GetString("GrblGui_UpdateToolTip_CommitAllChangesToSettingsAndClose", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to DblClick name to edit macro.
+        '''</summary>
+        Friend ReadOnly Property GrblGui_UpdateToolTip_DblClickNameToEditMacro() As String
+            Get
+                Return ResourceManager.GetString("GrblGui_UpdateToolTip_DblClickNameToEditMacro", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Delete the selected macro.
+        '''</summary>
+        Friend ReadOnly Property GrblGui_UpdateToolTip_DeleteTheSelectedMacro() As String
+            Get
+                Return ResourceManager.GetString("GrblGui_UpdateToolTip_DeleteTheSelectedMacro", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to G-Code to send when the button is clicked..
+        '''</summary>
+        Friend ReadOnly Property GrblGui_UpdateToolTip_GCodeToSendWhenTheButtonIsClicked() As String
+            Get
+                Return ResourceManager.GetString("GrblGui_UpdateToolTip_GCodeToSendWhenTheButtonIsClicked", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Get me outta here, cancel all changes.
+        '''</summary>
+        Friend ReadOnly Property GrblGui_UpdateToolTip_GetMeOuttaHereCancelAllChanges() As String
+            Get
+                Return ResourceManager.GetString("GrblGui_UpdateToolTip_GetMeOuttaHereCancelAllChanges", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Limit is 5 macros.
+        '''</summary>
+        Friend ReadOnly Property GrblGui_UpdateToolTip_LimitIs5Macros() As String
+            Get
+                Return ResourceManager.GetString("GrblGui_UpdateToolTip_LimitIs5Macros", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Name appears on the button, so keep it small.
+        '''</summary>
+        Friend ReadOnly Property GrblGui_UpdateToolTip_NameAppearsOnTheButtonSoKeepItSmall() As String
+            Get
+                Return ResourceManager.GetString("GrblGui_UpdateToolTip_NameAppearsOnTheButtonSoKeepItSmall", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Error on close of Grbl port.
+        '''</summary>
+        Friend ReadOnly Property GrblIF_Disconnect_ErrorOnCloseOfGrblPort() As String
+            Get
+                Return ResourceManager.GetString("GrblIF_Disconnect_ErrorOnCloseOfGrblPort", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Fatal error on write to Grbl.
+        '''</summary>
+        Friend ReadOnly Property GrblIF_sendData_FatalErrorOnWriteToGrbl() As String
+            Get
+                Return ResourceManager.GetString("GrblIF_sendData_FatalErrorOnWriteToGrbl", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to a accel, mm/sec^2.
+        '''</summary>
+        Friend ReadOnly Property GrblSettings_AAccelMmSec2() As String
+            Get
+                Return ResourceManager.GetString("GrblSettings_AAccelMmSec2", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to  a max rate, mm/min.
+        '''</summary>
+        Friend ReadOnly Property GrblSettings_AMaxRateMmMin() As String
+            Get
+                Return ResourceManager.GetString("GrblSettings_AMaxRateMmMin", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to a max travel, mm.
+        '''</summary>
+        Friend ReadOnly Property GrblSettings_AMaxTravelMm() As String
+            Get
+                Return ResourceManager.GetString("GrblSettings_AMaxTravelMm", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to arc tolerance, mm.
+        '''</summary>
+        Friend ReadOnly Property GrblSettings_ArcToleranceMm() As String
+            Get
+                Return ResourceManager.GetString("GrblSettings_ArcToleranceMm", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to a, step/mm.
+        '''</summary>
+        Friend ReadOnly Property GrblSettings_AStepMm() As String
+            Get
+                Return ResourceManager.GetString("GrblSettings_AStepMm", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to dir port invert mask:.
+        '''</summary>
+        Friend ReadOnly Property GrblSettings_DirPortInvertMask() As String
+            Get
+                Return ResourceManager.GetString("GrblSettings_DirPortInvertMask", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Value.
+        '''</summary>
+        Friend ReadOnly Property GrblSettings_FillSettings_Value() As String
+            Get
+                Return ResourceManager.GetString("GrblSettings_FillSettings_Value", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to hard limits, bool.
+        '''</summary>
+        Friend ReadOnly Property GrblSettings_HardLimitsBool() As String
+            Get
+                Return ResourceManager.GetString("GrblSettings_HardLimitsBool", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to homing cycle, bool.
+        '''</summary>
+        Friend ReadOnly Property GrblSettings_HomingCycleBool() As String
+            Get
+                Return ResourceManager.GetString("GrblSettings_HomingCycleBool", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to  homing debounce, msec.
+        '''</summary>
+        Friend ReadOnly Property GrblSettings_HomingDebounceMsec() As String
+            Get
+                Return ResourceManager.GetString("GrblSettings_HomingDebounceMsec", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to homing dir invert mask.
+        '''</summary>
+        Friend ReadOnly Property GrblSettings_HomingDirInvertMask() As String
+            Get
+                Return ResourceManager.GetString("GrblSettings_HomingDirInvertMask", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to  homing feed, mm/min.
+        '''</summary>
+        Friend ReadOnly Property GrblSettings_HomingFeedMmMin() As String
+            Get
+                Return ResourceManager.GetString("GrblSettings_HomingFeedMmMin", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to homing pull-off, mm.
+        '''</summary>
+        Friend ReadOnly Property GrblSettings_HomingPullOffMm() As String
+            Get
+                Return ResourceManager.GetString("GrblSettings_HomingPullOffMm", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to homing seek, mm/min.
+        '''</summary>
+        Friend ReadOnly Property GrblSettings_HomingSeekMmMin() As String
+            Get
+                Return ResourceManager.GetString("GrblSettings_HomingSeekMmMin", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to junction deviation, mm.
+        '''</summary>
+        Friend ReadOnly Property GrblSettings_JunctionDeviationMm() As String
+            Get
+                Return ResourceManager.GetString("GrblSettings_JunctionDeviationMm", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to  limit pins invert, bool.
+        '''</summary>
+        Friend ReadOnly Property GrblSettings_LimitPinsInvertBool() As String
+            Get
+                Return ResourceManager.GetString("GrblSettings_LimitPinsInvertBool", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to probe pin invert, bool.
+        '''</summary>
+        Friend ReadOnly Property GrblSettings_ProbePinInvertBool() As String
+            Get
+                Return ResourceManager.GetString("GrblSettings_ProbePinInvertBool", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to report inches, bool.
+        '''</summary>
+        Friend ReadOnly Property GrblSettings_ReportInchesBool() As String
+            Get
+                Return ResourceManager.GetString("GrblSettings_ReportInchesBool", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to rpm max.
+        '''</summary>
+        Friend ReadOnly Property GrblSettings_RpmMax() As String
+            Get
+                Return ResourceManager.GetString("GrblSettings_RpmMax", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to rpm min.
+        '''</summary>
+        Friend ReadOnly Property GrblSettings_RpmMin() As String
+            Get
+                Return ResourceManager.GetString("GrblSettings_RpmMin", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to soft limits, bool.
+        '''</summary>
+        Friend ReadOnly Property GrblSettings_SoftLimitsBool() As String
+            Get
+                Return ResourceManager.GetString("GrblSettings_SoftLimitsBool", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to status report mask.
+        '''</summary>
+        Friend ReadOnly Property GrblSettings_StatusReportMask() As String
+            Get
+                Return ResourceManager.GetString("GrblSettings_StatusReportMask", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to  step enable invert, bool.
+        '''</summary>
+        Friend ReadOnly Property GrblSettings_StepEnableInvertBool() As String
+            Get
+                Return ResourceManager.GetString("GrblSettings_StepEnableInvertBool", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to step idle delay, msec.
+        '''</summary>
+        Friend ReadOnly Property GrblSettings_StepIdleDelayMsec() As String
+            Get
+                Return ResourceManager.GetString("GrblSettings_StepIdleDelayMsec", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to step port invert mask:.
+        '''</summary>
+        Friend ReadOnly Property GrblSettings_StepPortInvertMask() As String
+            Get
+                Return ResourceManager.GetString("GrblSettings_StepPortInvertMask", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to step pulse, usec.
+        '''</summary>
+        Friend ReadOnly Property GrblSettings_StepPulseUsec() As String
+            Get
+                Return ResourceManager.GetString("GrblSettings_StepPulseUsec", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to x accel, mm/sec^2.
+        '''</summary>
+        Friend ReadOnly Property GrblSettings_XAccelMmSec2() As String
+            Get
+                Return ResourceManager.GetString("GrblSettings_XAccelMmSec2", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to x max rate, mm/min.
+        '''</summary>
+        Friend ReadOnly Property GrblSettings_XMaxRateMmMin() As String
+            Get
+                Return ResourceManager.GetString("GrblSettings_XMaxRateMmMin", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to x max travel, mm.
+        '''</summary>
+        Friend ReadOnly Property GrblSettings_XMaxTravelMm() As String
+            Get
+                Return ResourceManager.GetString("GrblSettings_XMaxTravelMm", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to x, step/mm.
+        '''</summary>
+        Friend ReadOnly Property GrblSettings_XStepMm() As String
+            Get
+                Return ResourceManager.GetString("GrblSettings_XStepMm", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to y accel, mm/sec^2.
+        '''</summary>
+        Friend ReadOnly Property GrblSettings_YAccelMmSec2() As String
+            Get
+                Return ResourceManager.GetString("GrblSettings_YAccelMmSec2", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to y max rate, mm/min.
+        '''</summary>
+        Friend ReadOnly Property GrblSettings_YMaxRateMmMin() As String
+            Get
+                Return ResourceManager.GetString("GrblSettings_YMaxRateMmMin", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to y max travel, mm.
+        '''</summary>
+        Friend ReadOnly Property GrblSettings_YMaxTravelMm() As String
+            Get
+                Return ResourceManager.GetString("GrblSettings_YMaxTravelMm", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to y, step/mm.
+        '''</summary>
+        Friend ReadOnly Property GrblSettings_YStepMm() As String
+            Get
+                Return ResourceManager.GetString("GrblSettings_YStepMm", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to z accel, mm/sec^2.
+        '''</summary>
+        Friend ReadOnly Property GrblSettings_ZAccelMmSec2() As String
+            Get
+                Return ResourceManager.GetString("GrblSettings_ZAccelMmSec2", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to z max rate, mm/min.
+        '''</summary>
+        Friend ReadOnly Property GrblSettings_ZMaxRateMmMin() As String
+            Get
+                Return ResourceManager.GetString("GrblSettings_ZMaxRateMmMin", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to z max travel, mm.
+        '''</summary>
+        Friend ReadOnly Property GrblSettings_ZMaxTravelMm() As String
+            Get
+                Return ResourceManager.GetString("GrblSettings_ZMaxTravelMm", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to z, step/mm.
+        '''</summary>
+        Friend ReadOnly Property GrblSettings_ZStepMm() As String
+            Get
+                Return ResourceManager.GetString("GrblSettings_ZStepMm", resourceCulture)
             End Get
         End Property
         

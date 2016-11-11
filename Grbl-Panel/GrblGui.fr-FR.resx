@@ -759,4 +759,7 @@
   <data name="gbMDI.Text" xml:space="preserve">
     <value>MDI</value>
   </data>
+  <data name="dgGrblSettings.ToolTip" xml:space="preserve">
+    <value>Pour envoyer une valeur modifiée à Grbl, double cliquez dessus.</value>
+  </data>
 </root>

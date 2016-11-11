@@ -4,6 +4,8 @@ Imports System.Collections.Queue
 Imports System.Net.Sockets
 Imports System.Net
 Imports System.Text
+Imports GrblPanel.My.Resources
+
 '
 ' Useful serialport tips, #3 is important!!!!
 ' http://blogs.msdn.com/b/bclteam/archive/2006/10/10/top-5-serialport-tips-_5b00_kim-hamilton_5d00_.aspx
@@ -110,7 +112,7 @@ Public Class GrblIF
                     End If
                 Catch
                     ' This happens for sure if user disconnects the USB cable
-                    MessageBox.Show("Error on close of Grbl port")
+                    MessageBox.Show(Resources.GrblIF_Disconnect_ErrorOnCloseOfGrblPort)
                 End Try
         End Select
         _connected = False
@@ -346,7 +348,7 @@ Public Class GrblIF
                         Catch
                             _connected = False
                             ' _port.Close()
-                            MessageBox.Show("Fatal error on write to Grbl")
+                            MessageBox.Show(Resources.GrblIF_sendData_FatalErrorOnWriteToGrbl)
                         End Try
 
                         'Console.WriteLine("GrblIF::sendData Sent: " + data + " to Grbl")
@@ -358,7 +360,7 @@ Public Class GrblIF
                         Catch
                             _connected = False
                             '_port.Close()
-                            MessageBox.Show("Fatal error on write to Grbl")
+                            MessageBox.Show(GrblIF_sendData_FatalErrorOnWriteToGrbl)
                         End Try
                         'Console.WriteLine("GrblIF::sendData Sent: " + data + " to Grbl")
                     End If
@@ -383,7 +385,7 @@ Public Class GrblIF
                         Catch e As Exception
                             _connected = False
                             ' _port.Close()
-                            MessageBox.Show("Fatal error on write to Grbl, " + e.Message)
+                            MessageBox.Show(GrblIF_sendData_FatalErrorOnWriteToGrbl + ", " + e.Message)
                         End Try
 
                         ' Console.WriteLine("GrblIF:char:sendData Sent: " + data + " to Grbl")
@@ -395,7 +397,7 @@ Public Class GrblIF
                         Catch e As Exception
                             _connected = False
                             '_port.Close()
-                            MessageBox.Show("Fatal error on write to Grbl, " + e.Message)
+                            MessageBox.Show(GrblIF_sendData_FatalErrorOnWriteToGrbl + ", " + e.Message)
                         End Try
                         ' Console.WriteLine(String.Format("Sent as byte: {0:X} {1:X}", c(0), c(1)))
                         ' Console.WriteLine("GrblIF:line:sendData Sent: " + data + " to Grbl")

@@ -186,11 +186,11 @@ Partial Class GrblGui
                 Me.btnHold.BackColor = Color.Transparent
                 Me.btnReset.BackColor = Color.Transparent
                 Me.btnStartResume.BackColor = Color.Transparent
-                Me.btnStartResume.Text = "Start"
+                Me.btnStartResume.Text = Resources.MsgFilter_PreFilterMessage_Start
             End If
             If data.StartsWith("<Queue") Or data.StartsWith("<Hold") Then   ' This might become Hold later when fixed in Grbl
                 Me.btnStartResume.BackColor = Color.Crimson
-                Me.btnStartResume.Text = "Resume"
+                Me.btnStartResume.Text = Resources.GrblGui_showGrblStatus_Resume
             End If
             If status(0) = "<Alarm" Then
                 Me.btnUnlock.BackColor = Color.Crimson
