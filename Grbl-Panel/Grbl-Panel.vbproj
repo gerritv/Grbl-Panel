@@ -205,14 +205,14 @@
       <DependentUpon>AboutBox.vb</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="GrblGui.fr-FR.resx">
+    <EmbeddedResource Include="GrblGui.fr.resx">
       <DependentUpon>GrblGui.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GrblGui.resx">
       <DependentUpon>GrblGui.vb</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="My Project\Resources.fr-FR.resx" />
+    <EmbeddedResource Include="My Project\Resources.fr.resx" />
     <EmbeddedResource Include="My Project\Resources.resx">
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
