@@ -592,5 +592,4 @@ Public Class GrblGui
             gcode.sendGCodeLine(aData(iCounter))
         Next
     End Sub
-
 End Class

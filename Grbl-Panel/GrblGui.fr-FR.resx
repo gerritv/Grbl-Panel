@@ -754,7 +754,7 @@
     <value>Distance</value>
   </data>
   <data name="gbFeedRate.Text" xml:space="preserve">
-    <value>Taux d'Avance</value>
+    <value>Tx d'Avance</value>
   </data>
   <data name="gbMDI.Text" xml:space="preserve">
     <value>MDI</value>
