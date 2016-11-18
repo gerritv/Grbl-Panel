@@ -139,6 +139,7 @@
     <Compile Include="ApplicationEvents.vb">
       <DependentUpon>GrblMacroButtons.vb</DependentUpon>
     </Compile>
+    <Compile Include="GrblErrorsSingleton.vb" />
     <Compile Include="GrblGcodeView.vb">
       <SubType>Form</SubType>
     </Compile>

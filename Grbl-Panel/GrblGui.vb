@@ -3,7 +3,7 @@ Imports System.Threading
 Imports System.Threading.Thread
 Imports GrblPanel.My.Resources
 
-
+'TODO BG Generic Note: maybe it would be nice if a GCode file could call in a macro. But I have no idea how to get that to work! Well, In fact, maybe I have....:-)
 Public Class GrblGui
 
     Public GrblVersion As Integer           ' 0 for 0.x, 1 for 1.x version
@@ -591,5 +591,5 @@ Public Class GrblGui
         For iCounter = 0 To aData.Count - 1
             gcode.sendGCodeLine(aData(iCounter))
         Next
-    End Sub
+    End Sub    
 End Class

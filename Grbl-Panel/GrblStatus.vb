@@ -108,7 +108,11 @@ Partial Class GrblGui
         grblPort.sendData("~")
     End Sub
 
+     Private GrblErrors As GrblErrorsSingleton = GrblErrorsSingleton.GetInstance()
+     Private _errors As Dictionary(Of String, String) = GrblErrors.GetErrorsDct()
+
     Public Sub showGrblStatus(ByVal data As String)
+
         ' TODO This needs tidying up, pre-process message to remove leading, trailing < [ , etc. so 
         ' we have a clean code flow below, create a messageType variable?
         'Console.WriteLine("showGrblStatus: " + data)
@@ -124,7 +128,7 @@ Partial Class GrblGui
         Else
             ' filter out <> , ok, $G, $$ response messages
             If data.Length > 0 And Not (data.First() = "<") And Not (data.First = "o") And Not (data.First = "$") And
-                               Not (data.First = "G") And Not (data.First = "[" And data.Contains("F")) Then
+                               Not (data.First = "G") And Not (data.First = "[" And data.Contains("F"))  And Not data.StartsWith("error:") Then
                 ' Show data in the Status screen (from our own thread)
                 Me.lbResponses.Items.Add(data)
                 Me.lbResponses.TopIndex = Me.lbResponses.Items.Count - 1
@@ -150,6 +154,19 @@ Partial Class GrblGui
             state.GrblConnected("Connected")   ' Reset State object
                 gcode.ResetGcode(False)
 
+        End If
+
+            ' BG Modification to get errors in plain text. Looks like this is the same, independantly of Grbl version, which is why its here.
+            Dim errorCode As Integer
+
+            If (data.StartsWith("error:")) Then
+                If IsNumeric(data("error:".Length + 1)) Then ' If Grbl in GUI mode, then char follwing the : is number
+                    ' We are in GUI mode so expand the message
+                    errorCode = Convert.ToInt16(data.Substring(6, data.Length - 6 - 2))
+                    data = data + " -> " + _errors(errorCode)
+                    Me.lbResponses.Items.Add(data)
+                    Me.lbResponses.TopIndex = Me.lbResponses.Items.Count - 1
+                End If
             End If
 
             ' We switch processing based on Grbl version, 1.x is quite different
