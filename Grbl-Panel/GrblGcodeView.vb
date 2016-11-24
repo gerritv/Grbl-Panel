@@ -1,4 +1,5 @@
 ﻿Imports System.Reflection
+Imports GrblPanel.My.Resources
 
 Partial Class GrblGui
     Public Class GrblGcodeView
@@ -10,41 +11,9 @@ Partial Class GrblGui
         Private _gcodeTable As List(Of gcodeItem)
         Private _filemode As Boolean = False ' True if in File Send mode
         Private _source As BindingSource = New BindingSource()
+        Private GrblErrors As GrblErrorsSingleton = GrblErrorsSingleton.GetInstance()
+        Private _errors As Dictionary(Of String, String) = GrblErrors.GetErrorsDct()
 
-        Private _errors As Dictionary(Of String, String) = New Dictionary(Of String, String) From {
-        {"0", "ok"},
-        {"1", "Expected command letter "},
-        {"2", "Bad number format "},
-        {"3", "Invalid statement "},
-        {"4", "Value < 0 "},
-        {"5", "Setting disabled "},
-        {"6", "Value < 3 usec "},
-        {"7", "EEPROM read fail, using Defaults "},
-        {"8", "Not idle "},
-        {"9", "Alarm lock "},
-        {"10", "Homing is not enabled "},
-        {"11", "Line overflow "},
-        {"12", "Step rate > 30kHz "},
-        {"13", "Check door "},
-        {"20", "Unsupported command "},
-        {"21", "Modal group violation "},
-        {"22", "Undefined feed rate "},
-        {"23", "Command value is not integer "},
-        {"24", "Axis command conflict "},
-        {"25", "Word repeated "},
-        {"26", "No axis words "},
-        {"27", "Invalid line number "},
-        {"28", "Value word missing "},
-        {"29", "Unsupported coordinate system "},
-        {"30", "G53 invalid motion mode "},
-        {"31", "Axis words exist "},
-        {"32", "No axis words in plane "},
-        {"33", "Invalid target "},
-        {"34", "Arc radius error "},
-        {"35", "No offsets in plane "},
-        {"36", "Unused words "},
-        {"37", "G43 dynamic axis error "}
-        }
         Public Class gcodeItem   '(Type)
             Private _gcode As String
             ' Information about the gcode line
@@ -124,7 +93,7 @@ Partial Class GrblGui
                 .Columns("stat").Width = 46
                 .Columns("stat").HeaderText = "Sts"
                 .Columns("lineNum").Width = 46
-                .Columns("lineNum").HeaderText = "Line"
+                .Columns("lineNum").HeaderText = Resources.GrblGcodeView_New_Line   
                 .Columns("data").Width = 459
                 .Columns("data").HeaderText = "Gcode"
                 '.Columns("sent").Visible = False

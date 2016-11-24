@@ -4,6 +4,8 @@ Imports System.IO
 Imports System.Drawing
 Imports System.Text.RegularExpressions
 Imports Microsoft.Win32
+Imports GrblPanel.My.Resources
+
 
 ''' <summary>
 ''' generic, self-contained About Box dialog
@@ -199,7 +201,7 @@ Public Class AboutBox
 
         '  _MinWindowHeight = AppCopyrightLabel.Top + AppCopyrightLabel.Height + OKButton.Height + 30
         ' Always add a ref to Github repository
-        AppMoreInfo = "GrblPanel is designed for use with Grbl 0.9G or later." + vbLf + vbLf + "For more details on this app, please visit: "
+        AppMoreInfo = AboutBox_AboutBox_Load_GrblPanelIsDesignedForUseWithGrbl09GOrLater + vbLf + vbLf + Resources.AboutBox_AboutBox_Load_ForMoreDetailsOnThisAppPleaseVisit
         AppMoreInfo = MoreRichTextBox.Text + githubLink
 
         Me.TabPanelDetails.Visible = False
@@ -322,9 +324,9 @@ Public Class AboutBox
                 Case "System.Reflection.AssemblyTitleAttribute"
                     Value = CType(attrib, AssemblyTitleAttribute).Title.ToString
                 Case "System.Resources.NeutralResourcesLanguageAttribute"
-                    Value = CType(attrib, Resources.NeutralResourcesLanguageAttribute).CultureName.ToString
+                    Value = CType(attrib, System.Resources.NeutralResourcesLanguageAttribute).CultureName.ToString
                 Case "System.Resources.SatelliteContractVersionAttribute"
-                    Value = CType(attrib, Resources.SatelliteContractVersionAttribute).Version.ToString
+                    Value = CType(attrib, System.Resources.SatelliteContractVersionAttribute).Version.ToString
                 Case "System.Runtime.InteropServices.ComCompatibleVersionAttribute"
                     Dim x As Runtime.InteropServices.ComCompatibleVersionAttribute
                     x = CType(attrib, Runtime.InteropServices.ComCompatibleVersionAttribute)

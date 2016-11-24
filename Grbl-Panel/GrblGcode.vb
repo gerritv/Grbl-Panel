@@ -1,5 +1,7 @@
 ﻿Imports System.IO
 Imports GrblPanel.GrblIF
+Imports GrblPanel.My.Resources
+
 
 Partial Class GrblGui
 
@@ -173,7 +175,7 @@ Partial Class GrblGui
                 'gcode.closeGCodeFile()
                 With _gui
                     ' Re-enable manual control
-                    .setSubPanels("Idle")
+                    .setSubPanels(Resources.GrblGui_btnConnDisconnect_Click_Idle)
                     .btnFileSelect.Enabled = True
                     .btnFileSend.Tag = "Send"
                     .btnFileSend.Enabled = True
@@ -420,7 +422,7 @@ Partial Class GrblGui
                 gcode.sendGCodeFilePause()
                 gcode.closeGCodeFile()
                 ' Re-enable manual control
-                setSubPanels("Idle")
+                setSubPanels(GrblGui_btnConnDisconnect_Click_Idle)
 
                 btnFileSelect.Enabled = True
                 btnFileSend.Tag = "Send"

@@ -139,6 +139,7 @@
     <Compile Include="ApplicationEvents.vb">
       <DependentUpon>GrblMacroButtons.vb</DependentUpon>
     </Compile>
+    <Compile Include="GrblErrorsSingleton.vb" />
     <Compile Include="GrblGcodeView.vb">
       <SubType>Form</SubType>
     </Compile>
@@ -205,14 +206,18 @@
       <DependentUpon>AboutBox.vb</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="GrblGui.fr.resx">
+      <DependentUpon>GrblGui.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GrblGui.resx">
       <DependentUpon>GrblGui.vb</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="My Project\Resources.fr.resx" />
     <EmbeddedResource Include="My Project\Resources.resx">
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
-      <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
