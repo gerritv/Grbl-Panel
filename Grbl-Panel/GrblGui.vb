@@ -228,13 +228,13 @@ Public Class GrblGui
                             _gui.btnSpindleOverrideReset.PerformClick()
                             handled = True
                         Case Keys.R And My.Computer.Keyboard.ShiftKeyDown
-                            _gui.btnRapidPlus.PerformClick()
+                            _gui.btnRapidOverrideReset.PerformClick()
                             handled = True
                         Case Keys.R
-                            _gui.btnRapidMinus.PerformClick()
+                            _gui.btnRapidOverride50.PerformClick()
                             handled = True
                         Case Keys.R And My.Computer.Keyboard.AltKeyDown
-                            _gui.btnRapidOverrideReset.PerformClick()
+                            _gui.btnRapidOverride25.PerformClick()
                             handled = True
 
                     End Select

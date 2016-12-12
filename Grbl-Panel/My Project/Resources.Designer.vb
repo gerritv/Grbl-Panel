@@ -863,6 +863,15 @@ Namespace My.Resources
         End Property
         
         '''<summary>
+        '''  Looks up a localized string similar to laser mode.
+        '''</summary>
+        Friend ReadOnly Property GrblSettings_LaserMode() As String
+            Get
+                Return ResourceManager.GetString("GrblSettings_LaserMode", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Looks up a localized string similar to  limit pins invert, bool.
         '''</summary>
         Friend ReadOnly Property GrblSettings_LimitPinsInvertBool() As String

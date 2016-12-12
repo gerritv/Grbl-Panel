@@ -13,3 +13,4 @@ This tool would not have been possible without:
 - Peter Smid, for his amazing books on CNC and Gcode
 - Ed Reed, aka JoeBananas10 for the Macro button code and OffSet setting changes
 - matmurdock for adding the icon
+- Bernard Grosperrin for the work to internationalize all the messages and text, and the French translations

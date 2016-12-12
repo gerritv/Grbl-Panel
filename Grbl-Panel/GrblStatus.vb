@@ -262,6 +262,9 @@ Partial Class GrblGui
 
                             tbCurrentStatus.BackColor = Color.LightGreen
                             tbCurrentStatus.Text = GrblGui_showGrblStatus_HOLD
+						Case "<Alarm"
+                            Me.btnUnlock.BackColor = Color.Crimson
+                            statusSetIndicators("<Alarm")       ' Messy Status messages make for messy code :(
                         Case "<Jog"
                             tbCurrentStatus.BackColor = Color.LightGreen
                             tbCurrentStatus.Text = "JOG"
@@ -284,6 +287,7 @@ Partial Class GrblGui
                             Catch
                             End Try
                         Case "F"
+                        Case "FS"
                             ' TODO Figure out where to display Grbl's actual feedrate, if at all
                     End Select
                 Next

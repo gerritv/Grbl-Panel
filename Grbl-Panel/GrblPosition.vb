@@ -74,32 +74,43 @@ Partial Class GrblGui
 
 
     Public Sub showGrblPositions(ByVal data As String)
-
+		dim positions() as String
+		
         ' Show data in the Positions group (from our own thread)
         If data = vbCrLf Then Return
 
         If GrblVersion = 0 Then
-            ' Grbl versions 0.x
+            ' Grbl versions 0.x, assume/expect $10=3 or equivalent 
+			data = data.Remove(data.Length - 3, 3)   ' Remove the "> " at end
             If (data.Contains("MPos:")) Then
                 ' Lets display the values
-                data = data.Remove(data.Length - 3, 3)   ' Remove the "> " at end
-                Dim positions = Split(data, ":")
-                Dim machPos = Split(positions(1), ",")
-                Dim workPos = Split(positions(2), ",")
+                    positions = Split(data, ":")
+                    ' MPos will always be first
+                    Dim machPos = Split(positions(1), ",")
 
-                tbMachX.Text = machPos(0).ToString
-                tbMachY.Text = machPos(1).ToString
-                tbMachZ.Text = machPos(2).ToString
+                    tbMachX.Text = machPos(0).ToString
+                    tbMachY.Text = machPos(1).ToString
+                    tbMachZ.Text = machPos(2).ToString
+                    'Set same values into the repeater view on Offsets page
+                    tbOffSetsMachX.Text = machPos(0).ToString
+                    tbOffSetsMachY.Text = machPos(1).ToString
+                    tbOffSetsMachZ.Text = machPos(2).ToString
 
-                tbWorkX.Text = workPos(0).ToString
-                tbWorkY.Text = workPos(1).ToString
-                tbWorkZ.Text = workPos(2).ToString
-
-                'Set same values into the repeater view on Offsets page
-                tbOffSetsMachX.Text = machPos(0).ToString
-                tbOffSetsMachY.Text = machPos(1).ToString
-                tbOffSetsMachZ.Text = machPos(2).ToString
             End If
+			if (data.Contains("WPos:")) Then
+				Dim workPos() As String
+                     positions = Split(data, ":")
+                    ' WPos might be first or it might be second (if MPos is also present)
+                    If positions.Count = 2 Then
+                        workPos = Split(positions(1), ",")
+                    Else
+                        workPos = Split(positions(2), ",")
+                    End If
+                    tbWorkX.Text = workPos(0).ToString
+                    tbWorkY.Text = workPos(1).ToString
+                    tbWorkZ.Text = workPos(2).ToString
+            End If
+
         End If
 
         If GrblVersion = 1 Then

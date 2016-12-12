@@ -1,4 +1,14 @@
 This file documents changes made:
+V1.0.9.9	- 2016 Dec 12
+			- Add Laser Mode text to Settings list, Issue 71
+			- Fix revision, Issue 77
+			- Fix handling of Rapid Overrides, Issue 77
+			- Fix Alarm decoding, Issue 67
+			- Avoid Exception if Grbl 0.9x reporting not set for both MPos and WPos
+			- Adapt to new A: messages for Aux item status (which replace T: messages)
+V1.0.9.8	- 2016 Nov 24
+			- French translation, special thanks to Bernard Grosperrin for the hard work
+			- prep for other translations
 V1.0.9.7	- 2016 Oct 12
 			- Adapt to new Gbrl 1.1a reports, etc.
 			- Added button to clear Pin states, makes them latch on even a single report

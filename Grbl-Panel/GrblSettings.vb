@@ -34,6 +34,7 @@ Partial Class GrblGui
             {"27", Resources.GrblSettings_HomingPullOffMm},
             {"30", Resources.GrblSettings_RpmMax},
             {"31", Resources.GrblSettings_RpmMin},
+			{"32", Resources.GrblSettings_LaserMode},
             {"100", Resources.GrblSettings_XStepMm},
             {"101", Resources.GrblSettings_YStepMm},
             {"102", Resources.GrblSettings_ZStepMm},

@@ -456,4 +456,7 @@
   <data name="GrblSettings_FillSettings_Value" xml:space="preserve">
     <value>Valeur</value>
   </data>
+  <data name="GrblSettings_LaserMode" xml:space="preserve">
+    <value>Mode laser</value>
+  </data>
 </root>

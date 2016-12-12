@@ -40,15 +40,15 @@ Partial Class GrblGui
         Me.btnSpindleOverride = New System.Windows.Forms.Button()
         Me.cbSpindleCoarse = New System.Windows.Forms.CheckBox()
         Me.btnSpindleOverrideReset = New System.Windows.Forms.Button()
-        Me.btnRapidOverrideReset = New System.Windows.Forms.Button()
+        Me.btnRapidOverride25 = New System.Windows.Forms.Button()
         Me.btnFeedOverrideReset = New System.Windows.Forms.Button()
         Me.cbFeedCoarse = New System.Windows.Forms.CheckBox()
         Me.Label44 = New System.Windows.Forms.Label()
         Me.btnSpindleMinus = New System.Windows.Forms.Button()
         Me.btnSpindlePlus = New System.Windows.Forms.Button()
         Me.Label22 = New System.Windows.Forms.Label()
-        Me.btnRapidMinus = New System.Windows.Forms.Button()
-        Me.btnRapidPlus = New System.Windows.Forms.Button()
+        Me.btnRapidOverride50 = New System.Windows.Forms.Button()
+        Me.btnRapidOverrideReset = New System.Windows.Forms.Button()
         Me.tbSpindleOvr = New System.Windows.Forms.TextBox()
         Me.tbRapidOvr = New System.Windows.Forms.TextBox()
         Me.tbFeedOvr = New System.Windows.Forms.TextBox()
@@ -99,6 +99,12 @@ Partial Class GrblGui
         Me.btnSend = New System.Windows.Forms.Button()
         Me.tbSendData = New System.Windows.Forms.TextBox()
         Me.gbJogging = New System.Windows.Forms.GroupBox()
+        Me.btnZMinus = New RepeatButton.RepeatButton()
+        Me.btnZPlus = New RepeatButton.RepeatButton()
+        Me.btnXPlus = New RepeatButton.RepeatButton()
+        Me.btnYMinus = New RepeatButton.RepeatButton()
+        Me.btnXMinus = New RepeatButton.RepeatButton()
+        Me.btnYPlus = New RepeatButton.RepeatButton()
         Me.gbFeedRate = New System.Windows.Forms.GroupBox()
         Me.rbFeedRate1 = New System.Windows.Forms.RadioButton()
         Me.rbFeedRate2 = New System.Windows.Forms.RadioButton()
@@ -308,52 +314,46 @@ Partial Class GrblGui
         Me.sfdOffsets = New System.Windows.Forms.SaveFileDialog()
         Me.ofdOffsets = New System.Windows.Forms.OpenFileDialog()
         Me.GrblSettingsBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.btnZMinus = New RepeatButton.RepeatButton()
-        Me.btnZPlus = New RepeatButton.RepeatButton()
-        Me.btnXPlus = New RepeatButton.RepeatButton()
-        Me.btnYMinus = New RepeatButton.RepeatButton()
-        Me.btnXMinus = New RepeatButton.RepeatButton()
-        Me.btnYPlus = New RepeatButton.RepeatButton()
-        Me.MenuStrip1.SuspendLayout
-        Me.TabControl1.SuspendLayout
-        Me.tabPgInterface.SuspendLayout
-        Me.gbOverrides.SuspendLayout
-        Me.gbState.SuspendLayout
-        Me.gbPinStatus.SuspendLayout
-        Me.Panel2.SuspendLayout
-        Me.Panel1.SuspendLayout
-        Me.gbControl.SuspendLayout
-        Me.gbMDI.SuspendLayout
-        Me.gbJogging.SuspendLayout
-        Me.gbFeedRate.SuspendLayout
-        Me.gbDistance.SuspendLayout
-        Me.gbStatus.SuspendLayout
-        Me.gbGcode.SuspendLayout
-        CType(Me.dgvGcode,System.ComponentModel.ISupportInitialize).BeginInit
-        Me.gbGrbl.SuspendLayout
-        Me.tcConnection.SuspendLayout
-        Me.tbGrblCOM.SuspendLayout
-        Me.tbGrblIP.SuspendLayout
-        Me.gbPosition.SuspendLayout
-        Me.tabCtlPosition.SuspendLayout
-        Me.tpWork.SuspendLayout
-        Me.Panel5.SuspendLayout
-        Me.Panel4.SuspendLayout
-        Me.Panel3.SuspendLayout
-        Me.GroupBox1.SuspendLayout
-        Me.tpOffsets.SuspendLayout
-        Me.tabPgSettings.SuspendLayout
-        Me.gbGrblSettings.SuspendLayout
-        CType(Me.dgGrblSettings,System.ComponentModel.ISupportInitialize).BeginInit
-        Me.gbSettingsOffsets.SuspendLayout
-        Me.gbSettingsMisc.SuspendLayout
-        Me.gbSettingsPosition.SuspendLayout
-        Me.gbSettingsJogging.SuspendLayout
-        Me.TabPage1.SuspendLayout
-        Me.gbEditor.SuspendLayout
-        CType(Me.dgMacros,System.ComponentModel.ISupportInitialize).BeginInit
-        CType(Me.GrblSettingsBindingSource,System.ComponentModel.ISupportInitialize).BeginInit
-        Me.SuspendLayout
+        Me.MenuStrip1.SuspendLayout()
+        Me.TabControl1.SuspendLayout()
+        Me.tabPgInterface.SuspendLayout()
+        Me.gbOverrides.SuspendLayout()
+        Me.gbState.SuspendLayout()
+        Me.gbPinStatus.SuspendLayout()
+        Me.Panel2.SuspendLayout()
+        Me.Panel1.SuspendLayout()
+        Me.gbControl.SuspendLayout()
+        Me.gbMDI.SuspendLayout()
+        Me.gbJogging.SuspendLayout()
+        Me.gbFeedRate.SuspendLayout()
+        Me.gbDistance.SuspendLayout()
+        Me.gbStatus.SuspendLayout()
+        Me.gbGcode.SuspendLayout()
+        CType(Me.dgvGcode, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.gbGrbl.SuspendLayout()
+        Me.tcConnection.SuspendLayout()
+        Me.tbGrblCOM.SuspendLayout()
+        Me.tbGrblIP.SuspendLayout()
+        Me.gbPosition.SuspendLayout()
+        Me.tabCtlPosition.SuspendLayout()
+        Me.tpWork.SuspendLayout()
+        Me.Panel5.SuspendLayout()
+        Me.Panel4.SuspendLayout()
+        Me.Panel3.SuspendLayout()
+        Me.GroupBox1.SuspendLayout()
+        Me.tpOffsets.SuspendLayout()
+        Me.tabPgSettings.SuspendLayout()
+        Me.gbGrblSettings.SuspendLayout()
+        CType(Me.dgGrblSettings, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.gbSettingsOffsets.SuspendLayout()
+        Me.gbSettingsMisc.SuspendLayout()
+        Me.gbSettingsPosition.SuspendLayout()
+        Me.gbSettingsJogging.SuspendLayout()
+        Me.TabPage1.SuspendLayout()
+        Me.gbEditor.SuspendLayout()
+        CType(Me.dgMacros, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.GrblSettingsBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.SuspendLayout()
         '
         'MenuStrip1
         '
@@ -424,7 +424,7 @@ Partial Class GrblGui
         Me.tabPgInterface.Controls.Add(Me.gbPosition)
         resources.ApplyResources(Me.tabPgInterface, "tabPgInterface")
         Me.tabPgInterface.Name = "tabPgInterface"
-        Me.tabPgInterface.UseVisualStyleBackColor = true
+        Me.tabPgInterface.UseVisualStyleBackColor = True
         '
         'gbOverrides
         '
@@ -433,15 +433,15 @@ Partial Class GrblGui
         Me.gbOverrides.Controls.Add(Me.btnSpindleOverride)
         Me.gbOverrides.Controls.Add(Me.cbSpindleCoarse)
         Me.gbOverrides.Controls.Add(Me.btnSpindleOverrideReset)
-        Me.gbOverrides.Controls.Add(Me.btnRapidOverrideReset)
+        Me.gbOverrides.Controls.Add(Me.btnRapidOverride25)
         Me.gbOverrides.Controls.Add(Me.btnFeedOverrideReset)
         Me.gbOverrides.Controls.Add(Me.cbFeedCoarse)
         Me.gbOverrides.Controls.Add(Me.Label44)
         Me.gbOverrides.Controls.Add(Me.btnSpindleMinus)
         Me.gbOverrides.Controls.Add(Me.btnSpindlePlus)
         Me.gbOverrides.Controls.Add(Me.Label22)
-        Me.gbOverrides.Controls.Add(Me.btnRapidMinus)
-        Me.gbOverrides.Controls.Add(Me.btnRapidPlus)
+        Me.gbOverrides.Controls.Add(Me.btnRapidOverride50)
+        Me.gbOverrides.Controls.Add(Me.btnRapidOverrideReset)
         Me.gbOverrides.Controls.Add(Me.tbSpindleOvr)
         Me.gbOverrides.Controls.Add(Me.tbRapidOvr)
         Me.gbOverrides.Controls.Add(Me.tbFeedOvr)
@@ -450,66 +450,66 @@ Partial Class GrblGui
         Me.gbOverrides.Controls.Add(Me.btnFeedPlus)
         resources.ApplyResources(Me.gbOverrides, "gbOverrides")
         Me.gbOverrides.Name = "gbOverrides"
-        Me.gbOverrides.TabStop = false
+        Me.gbOverrides.TabStop = False
         '
         'btnMistOverride
         '
         resources.ApplyResources(Me.btnMistOverride, "btnMistOverride")
         Me.btnMistOverride.Name = "btnMistOverride"
-        Me.btnMistOverride.TabStop = false
+        Me.btnMistOverride.TabStop = False
         Me.btnMistOverride.Tag = "MistOverride"
-        Me.btnMistOverride.UseVisualStyleBackColor = true
+        Me.btnMistOverride.UseVisualStyleBackColor = True
         '
         'btnFloodOverride
         '
         resources.ApplyResources(Me.btnFloodOverride, "btnFloodOverride")
         Me.btnFloodOverride.Name = "btnFloodOverride"
         Me.btnFloodOverride.Tag = "FloodOverride"
-        Me.btnFloodOverride.UseVisualStyleBackColor = true
+        Me.btnFloodOverride.UseVisualStyleBackColor = True
         '
         'btnSpindleOverride
         '
         resources.ApplyResources(Me.btnSpindleOverride, "btnSpindleOverride")
         Me.btnSpindleOverride.Name = "btnSpindleOverride"
         Me.btnSpindleOverride.Tag = "SpindleOverride"
-        Me.btnSpindleOverride.UseVisualStyleBackColor = true
+        Me.btnSpindleOverride.UseVisualStyleBackColor = True
         '
         'cbSpindleCoarse
         '
         resources.ApplyResources(Me.cbSpindleCoarse, "cbSpindleCoarse")
-        Me.cbSpindleCoarse.Checked = true
+        Me.cbSpindleCoarse.Checked = True
         Me.cbSpindleCoarse.CheckState = System.Windows.Forms.CheckState.Checked
         Me.cbSpindleCoarse.Name = "cbSpindleCoarse"
-        Me.cbSpindleCoarse.UseVisualStyleBackColor = true
+        Me.cbSpindleCoarse.UseVisualStyleBackColor = True
         '
         'btnSpindleOverrideReset
         '
         resources.ApplyResources(Me.btnSpindleOverrideReset, "btnSpindleOverrideReset")
         Me.btnSpindleOverrideReset.Name = "btnSpindleOverrideReset"
         Me.btnSpindleOverrideReset.Tag = "Spindle"
-        Me.btnSpindleOverrideReset.UseVisualStyleBackColor = true
+        Me.btnSpindleOverrideReset.UseVisualStyleBackColor = True
         '
-        'btnRapidOverrideReset
+        'btnRapidOverride25
         '
-        resources.ApplyResources(Me.btnRapidOverrideReset, "btnRapidOverrideReset")
-        Me.btnRapidOverrideReset.Name = "btnRapidOverrideReset"
-        Me.btnRapidOverrideReset.Tag = "Rapid"
-        Me.btnRapidOverrideReset.UseVisualStyleBackColor = true
+        resources.ApplyResources(Me.btnRapidOverride25, "btnRapidOverride25")
+        Me.btnRapidOverride25.Name = "btnRapidOverride25"
+        Me.btnRapidOverride25.Tag = "25"
+        Me.btnRapidOverride25.UseVisualStyleBackColor = True
         '
         'btnFeedOverrideReset
         '
         resources.ApplyResources(Me.btnFeedOverrideReset, "btnFeedOverrideReset")
         Me.btnFeedOverrideReset.Name = "btnFeedOverrideReset"
         Me.btnFeedOverrideReset.Tag = "Feed"
-        Me.btnFeedOverrideReset.UseVisualStyleBackColor = true
+        Me.btnFeedOverrideReset.UseVisualStyleBackColor = True
         '
         'cbFeedCoarse
         '
         resources.ApplyResources(Me.cbFeedCoarse, "cbFeedCoarse")
-        Me.cbFeedCoarse.Checked = true
+        Me.cbFeedCoarse.Checked = True
         Me.cbFeedCoarse.CheckState = System.Windows.Forms.CheckState.Checked
         Me.cbFeedCoarse.Name = "cbFeedCoarse"
-        Me.cbFeedCoarse.UseVisualStyleBackColor = true
+        Me.cbFeedCoarse.UseVisualStyleBackColor = True
         '
         'Label44
         '
@@ -521,33 +521,33 @@ Partial Class GrblGui
         resources.ApplyResources(Me.btnSpindleMinus, "btnSpindleMinus")
         Me.btnSpindleMinus.Name = "btnSpindleMinus"
         Me.btnSpindleMinus.Tag = "minus"
-        Me.btnSpindleMinus.UseVisualStyleBackColor = true
+        Me.btnSpindleMinus.UseVisualStyleBackColor = True
         '
         'btnSpindlePlus
         '
         resources.ApplyResources(Me.btnSpindlePlus, "btnSpindlePlus")
         Me.btnSpindlePlus.Name = "btnSpindlePlus"
         Me.btnSpindlePlus.Tag = "plus"
-        Me.btnSpindlePlus.UseVisualStyleBackColor = true
+        Me.btnSpindlePlus.UseVisualStyleBackColor = True
         '
         'Label22
         '
         resources.ApplyResources(Me.Label22, "Label22")
         Me.Label22.Name = "Label22"
         '
-        'btnRapidMinus
+        'btnRapidOverride50
         '
-        resources.ApplyResources(Me.btnRapidMinus, "btnRapidMinus")
-        Me.btnRapidMinus.Name = "btnRapidMinus"
-        Me.btnRapidMinus.Tag = "minus"
-        Me.btnRapidMinus.UseVisualStyleBackColor = true
+        resources.ApplyResources(Me.btnRapidOverride50, "btnRapidOverride50")
+        Me.btnRapidOverride50.Name = "btnRapidOverride50"
+        Me.btnRapidOverride50.Tag = "50"
+        Me.btnRapidOverride50.UseVisualStyleBackColor = True
         '
-        'btnRapidPlus
+        'btnRapidOverrideReset
         '
-        resources.ApplyResources(Me.btnRapidPlus, "btnRapidPlus")
-        Me.btnRapidPlus.Name = "btnRapidPlus"
-        Me.btnRapidPlus.Tag = "plus"
-        Me.btnRapidPlus.UseVisualStyleBackColor = true
+        resources.ApplyResources(Me.btnRapidOverrideReset, "btnRapidOverrideReset")
+        Me.btnRapidOverrideReset.Name = "btnRapidOverrideReset"
+        Me.btnRapidOverrideReset.Tag = "Rapid"
+        Me.btnRapidOverrideReset.UseVisualStyleBackColor = True
         '
         'tbSpindleOvr
         '
@@ -574,14 +574,14 @@ Partial Class GrblGui
         resources.ApplyResources(Me.btnFeedMinus, "btnFeedMinus")
         Me.btnFeedMinus.Name = "btnFeedMinus"
         Me.btnFeedMinus.Tag = "minus"
-        Me.btnFeedMinus.UseVisualStyleBackColor = true
+        Me.btnFeedMinus.UseVisualStyleBackColor = True
         '
         'btnFeedPlus
         '
         resources.ApplyResources(Me.btnFeedPlus, "btnFeedPlus")
         Me.btnFeedPlus.Name = "btnFeedPlus"
         Me.btnFeedPlus.Tag = "plus"
-        Me.btnFeedPlus.UseVisualStyleBackColor = true
+        Me.btnFeedPlus.UseVisualStyleBackColor = True
         '
         'gbState
         '
@@ -590,7 +590,7 @@ Partial Class GrblGui
         Me.gbState.Controls.Add(Me.Panel1)
         resources.ApplyResources(Me.gbState, "gbState")
         Me.gbState.Name = "gbState"
-        Me.gbState.TabStop = false
+        Me.gbState.TabStop = False
         '
         'gbPinStatus
         '
@@ -605,77 +605,77 @@ Partial Class GrblGui
         Me.gbPinStatus.Controls.Add(Me.cbLimitY)
         resources.ApplyResources(Me.gbPinStatus, "gbPinStatus")
         Me.gbPinStatus.Name = "gbPinStatus"
-        Me.gbPinStatus.TabStop = false
+        Me.gbPinStatus.TabStop = False
         '
         'cbFeedHold
         '
-        Me.cbFeedHold.AutoCheck = false
+        Me.cbFeedHold.AutoCheck = False
         resources.ApplyResources(Me.cbFeedHold, "cbFeedHold")
         Me.cbFeedHold.Name = "cbFeedHold"
         Me.ToolTip1.SetToolTip(Me.cbFeedHold, resources.GetString("cbFeedHold.ToolTip"))
-        Me.cbFeedHold.UseVisualStyleBackColor = true
+        Me.cbFeedHold.UseVisualStyleBackColor = True
         '
         'cbStartResume
         '
-        Me.cbStartResume.AutoCheck = false
+        Me.cbStartResume.AutoCheck = False
         resources.ApplyResources(Me.cbStartResume, "cbStartResume")
         Me.cbStartResume.Name = "cbStartResume"
         Me.ToolTip1.SetToolTip(Me.cbStartResume, resources.GetString("cbStartResume.ToolTip"))
-        Me.cbStartResume.UseVisualStyleBackColor = true
+        Me.cbStartResume.UseVisualStyleBackColor = True
         '
         'cbResetAbort
         '
-        Me.cbResetAbort.AutoCheck = false
+        Me.cbResetAbort.AutoCheck = False
         resources.ApplyResources(Me.cbResetAbort, "cbResetAbort")
         Me.cbResetAbort.Name = "cbResetAbort"
         Me.ToolTip1.SetToolTip(Me.cbResetAbort, resources.GetString("cbResetAbort.ToolTip"))
-        Me.cbResetAbort.UseVisualStyleBackColor = true
+        Me.cbResetAbort.UseVisualStyleBackColor = True
         '
         'btnStatusClearPins
         '
         resources.ApplyResources(Me.btnStatusClearPins, "btnStatusClearPins")
         Me.btnStatusClearPins.Name = "btnStatusClearPins"
-        Me.btnStatusClearPins.UseVisualStyleBackColor = true
+        Me.btnStatusClearPins.UseVisualStyleBackColor = True
         '
         'cbLimitX
         '
-        Me.cbLimitX.AutoCheck = false
+        Me.cbLimitX.AutoCheck = False
         resources.ApplyResources(Me.cbLimitX, "cbLimitX")
         Me.cbLimitX.Name = "cbLimitX"
         Me.ToolTip1.SetToolTip(Me.cbLimitX, resources.GetString("cbLimitX.ToolTip"))
-        Me.cbLimitX.UseVisualStyleBackColor = true
+        Me.cbLimitX.UseVisualStyleBackColor = True
         '
         'cbDoorOpen
         '
-        Me.cbDoorOpen.AutoCheck = false
+        Me.cbDoorOpen.AutoCheck = False
         resources.ApplyResources(Me.cbDoorOpen, "cbDoorOpen")
         Me.cbDoorOpen.Name = "cbDoorOpen"
         Me.ToolTip1.SetToolTip(Me.cbDoorOpen, resources.GetString("cbDoorOpen.ToolTip"))
-        Me.cbDoorOpen.UseVisualStyleBackColor = true
+        Me.cbDoorOpen.UseVisualStyleBackColor = True
         '
         'cbProbePin
         '
-        Me.cbProbePin.AutoCheck = false
+        Me.cbProbePin.AutoCheck = False
         resources.ApplyResources(Me.cbProbePin, "cbProbePin")
         Me.cbProbePin.Name = "cbProbePin"
         Me.ToolTip1.SetToolTip(Me.cbProbePin, resources.GetString("cbProbePin.ToolTip"))
-        Me.cbProbePin.UseVisualStyleBackColor = true
+        Me.cbProbePin.UseVisualStyleBackColor = True
         '
         'cbLimitZ
         '
-        Me.cbLimitZ.AutoCheck = false
+        Me.cbLimitZ.AutoCheck = False
         resources.ApplyResources(Me.cbLimitZ, "cbLimitZ")
         Me.cbLimitZ.Name = "cbLimitZ"
         Me.ToolTip1.SetToolTip(Me.cbLimitZ, resources.GetString("cbLimitZ.ToolTip"))
-        Me.cbLimitZ.UseVisualStyleBackColor = true
+        Me.cbLimitZ.UseVisualStyleBackColor = True
         '
         'cbLimitY
         '
-        Me.cbLimitY.AutoCheck = false
+        Me.cbLimitY.AutoCheck = False
         resources.ApplyResources(Me.cbLimitY, "cbLimitY")
         Me.cbLimitY.Name = "cbLimitY"
         Me.ToolTip1.SetToolTip(Me.cbLimitY, resources.GetString("cbLimitY.ToolTip"))
-        Me.cbLimitY.UseVisualStyleBackColor = true
+        Me.cbLimitY.UseVisualStyleBackColor = True
         '
         'Panel2
         '
@@ -742,7 +742,7 @@ Partial Class GrblGui
         'cbxStateFeedMode
         '
         Me.cbxStateFeedMode.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.cbxStateFeedMode.FormattingEnabled = true
+        Me.cbxStateFeedMode.FormattingEnabled = True
         Me.cbxStateFeedMode.Items.AddRange(New Object() {resources.GetString("cbxStateFeedMode.Items"), resources.GetString("cbxStateFeedMode.Items1"), resources.GetString("cbxStateFeedMode.Items2")})
         resources.ApplyResources(Me.cbxStateFeedMode, "cbxStateFeedMode")
         Me.cbxStateFeedMode.Name = "cbxStateFeedMode"
@@ -750,7 +750,7 @@ Partial Class GrblGui
         'cbxStateDistance
         '
         Me.cbxStateDistance.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.cbxStateDistance.FormattingEnabled = true
+        Me.cbxStateDistance.FormattingEnabled = True
         Me.cbxStateDistance.Items.AddRange(New Object() {resources.GetString("cbxStateDistance.Items"), resources.GetString("cbxStateDistance.Items1"), resources.GetString("cbxStateDistance.Items2")})
         resources.ApplyResources(Me.cbxStateDistance, "cbxStateDistance")
         Me.cbxStateDistance.Name = "cbxStateDistance"
@@ -763,7 +763,7 @@ Partial Class GrblGui
         'cbxStateUnits
         '
         Me.cbxStateUnits.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.cbxStateUnits.FormattingEnabled = true
+        Me.cbxStateUnits.FormattingEnabled = True
         Me.cbxStateUnits.Items.AddRange(New Object() {resources.GetString("cbxStateUnits.Items"), resources.GetString("cbxStateUnits.Items1"), resources.GetString("cbxStateUnits.Items2")})
         resources.ApplyResources(Me.cbxStateUnits, "cbxStateUnits")
         Me.cbxStateUnits.Name = "cbxStateUnits"
@@ -781,7 +781,7 @@ Partial Class GrblGui
         'cbxStatePlane
         '
         Me.cbxStatePlane.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.cbxStatePlane.FormattingEnabled = true
+        Me.cbxStatePlane.FormattingEnabled = True
         Me.cbxStatePlane.Items.AddRange(New Object() {resources.GetString("cbxStatePlane.Items"), resources.GetString("cbxStatePlane.Items1"), resources.GetString("cbxStatePlane.Items2"), resources.GetString("cbxStatePlane.Items3")})
         resources.ApplyResources(Me.cbxStatePlane, "cbxStatePlane")
         Me.cbxStatePlane.Name = "cbxStatePlane"
@@ -799,7 +799,7 @@ Partial Class GrblGui
         'cbxStateOffset
         '
         Me.cbxStateOffset.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.cbxStateOffset.FormattingEnabled = true
+        Me.cbxStateOffset.FormattingEnabled = True
         Me.cbxStateOffset.Items.AddRange(New Object() {resources.GetString("cbxStateOffset.Items"), resources.GetString("cbxStateOffset.Items1"), resources.GetString("cbxStateOffset.Items2"), resources.GetString("cbxStateOffset.Items3"), resources.GetString("cbxStateOffset.Items4"), resources.GetString("cbxStateOffset.Items5"), resources.GetString("cbxStateOffset.Items6")})
         resources.ApplyResources(Me.cbxStateOffset, "cbxStateOffset")
         Me.cbxStateOffset.Name = "cbxStateOffset"
@@ -807,7 +807,7 @@ Partial Class GrblGui
         'cbxStateCoolant
         '
         Me.cbxStateCoolant.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.cbxStateCoolant.FormattingEnabled = true
+        Me.cbxStateCoolant.FormattingEnabled = True
         Me.cbxStateCoolant.Items.AddRange(New Object() {resources.GetString("cbxStateCoolant.Items"), resources.GetString("cbxStateCoolant.Items1"), resources.GetString("cbxStateCoolant.Items2")})
         resources.ApplyResources(Me.cbxStateCoolant, "cbxStateCoolant")
         Me.cbxStateCoolant.Name = "cbxStateCoolant"
@@ -825,7 +825,7 @@ Partial Class GrblGui
         'cbxStateSpindle
         '
         Me.cbxStateSpindle.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.cbxStateSpindle.FormattingEnabled = true
+        Me.cbxStateSpindle.FormattingEnabled = True
         Me.cbxStateSpindle.Items.AddRange(New Object() {resources.GetString("cbxStateSpindle.Items"), resources.GetString("cbxStateSpindle.Items1"), resources.GetString("cbxStateSpindle.Items2"), resources.GetString("cbxStateSpindle.Items3")})
         resources.ApplyResources(Me.cbxStateSpindle, "cbxStateSpindle")
         Me.cbxStateSpindle.Name = "cbxStateSpindle"
@@ -839,45 +839,45 @@ Partial Class GrblGui
         Me.gbControl.Controls.Add(Me.btnUnlock)
         resources.ApplyResources(Me.gbControl, "gbControl")
         Me.gbControl.Name = "gbControl"
-        Me.gbControl.TabStop = false
+        Me.gbControl.TabStop = False
         '
         'btnCheckMode
         '
         resources.ApplyResources(Me.btnCheckMode, "btnCheckMode")
         Me.btnCheckMode.Name = "btnCheckMode"
-        Me.btnCheckMode.UseCompatibleTextRendering = true
-        Me.btnCheckMode.UseVisualStyleBackColor = true
+        Me.btnCheckMode.UseCompatibleTextRendering = True
+        Me.btnCheckMode.UseVisualStyleBackColor = True
         '
         'btnReset
         '
         resources.ApplyResources(Me.btnReset, "btnReset")
         Me.btnReset.BackColor = System.Drawing.Color.Transparent
         Me.btnReset.Name = "btnReset"
-        Me.btnReset.UseCompatibleTextRendering = true
-        Me.btnReset.UseVisualStyleBackColor = false
+        Me.btnReset.UseCompatibleTextRendering = True
+        Me.btnReset.UseVisualStyleBackColor = False
         '
         'btnHold
         '
         resources.ApplyResources(Me.btnHold, "btnHold")
         Me.btnHold.BackColor = System.Drawing.Color.Transparent
         Me.btnHold.Name = "btnHold"
-        Me.btnHold.UseCompatibleTextRendering = true
-        Me.btnHold.UseVisualStyleBackColor = false
+        Me.btnHold.UseCompatibleTextRendering = True
+        Me.btnHold.UseVisualStyleBackColor = False
         '
         'btnStartResume
         '
         resources.ApplyResources(Me.btnStartResume, "btnStartResume")
         Me.btnStartResume.Name = "btnStartResume"
-        Me.btnStartResume.UseCompatibleTextRendering = true
-        Me.btnStartResume.UseVisualStyleBackColor = true
+        Me.btnStartResume.UseCompatibleTextRendering = True
+        Me.btnStartResume.UseVisualStyleBackColor = True
         '
         'btnUnlock
         '
         resources.ApplyResources(Me.btnUnlock, "btnUnlock")
         Me.btnUnlock.BackColor = System.Drawing.Color.Transparent
         Me.btnUnlock.Name = "btnUnlock"
-        Me.btnUnlock.UseCompatibleTextRendering = true
-        Me.btnUnlock.UseVisualStyleBackColor = false
+        Me.btnUnlock.UseCompatibleTextRendering = True
+        Me.btnUnlock.UseVisualStyleBackColor = False
         '
         'gbMDI
         '
@@ -886,7 +886,7 @@ Partial Class GrblGui
         Me.gbMDI.Controls.Add(Me.tbSendData)
         resources.ApplyResources(Me.gbMDI, "gbMDI")
         Me.gbMDI.Name = "gbMDI"
-        Me.gbMDI.TabStop = false
+        Me.gbMDI.TabStop = False
         '
         'Label9
         '
@@ -897,7 +897,7 @@ Partial Class GrblGui
         '
         resources.ApplyResources(Me.btnSend, "btnSend")
         Me.btnSend.Name = "btnSend"
-        Me.btnSend.UseVisualStyleBackColor = true
+        Me.btnSend.UseVisualStyleBackColor = True
         '
         'tbSendData
         '
@@ -918,7 +918,55 @@ Partial Class GrblGui
         Me.gbJogging.Controls.Add(Me.gbDistance)
         Me.gbJogging.Controls.Add(Me.cbUnits)
         Me.gbJogging.Name = "gbJogging"
-        Me.gbJogging.TabStop = false
+        Me.gbJogging.TabStop = False
+        '
+        'btnZMinus
+        '
+        resources.ApplyResources(Me.btnZMinus, "btnZMinus")
+        Me.btnZMinus.Interval = 100
+        Me.btnZMinus.Name = "btnZMinus"
+        Me.btnZMinus.Tag = "Z-"
+        Me.btnZMinus.UseVisualStyleBackColor = True
+        '
+        'btnZPlus
+        '
+        resources.ApplyResources(Me.btnZPlus, "btnZPlus")
+        Me.btnZPlus.Interval = 100
+        Me.btnZPlus.Name = "btnZPlus"
+        Me.btnZPlus.Tag = "Z+"
+        Me.btnZPlus.UseVisualStyleBackColor = True
+        '
+        'btnXPlus
+        '
+        resources.ApplyResources(Me.btnXPlus, "btnXPlus")
+        Me.btnXPlus.Interval = 100
+        Me.btnXPlus.Name = "btnXPlus"
+        Me.btnXPlus.Tag = "X+"
+        Me.btnXPlus.UseVisualStyleBackColor = True
+        '
+        'btnYMinus
+        '
+        resources.ApplyResources(Me.btnYMinus, "btnYMinus")
+        Me.btnYMinus.Interval = 100
+        Me.btnYMinus.Name = "btnYMinus"
+        Me.btnYMinus.Tag = "Y-"
+        Me.btnYMinus.UseVisualStyleBackColor = True
+        '
+        'btnXMinus
+        '
+        resources.ApplyResources(Me.btnXMinus, "btnXMinus")
+        Me.btnXMinus.Interval = 100
+        Me.btnXMinus.Name = "btnXMinus"
+        Me.btnXMinus.Tag = "X-"
+        Me.btnXMinus.UseVisualStyleBackColor = True
+        '
+        'btnYPlus
+        '
+        resources.ApplyResources(Me.btnYPlus, "btnYPlus")
+        Me.btnYPlus.Interval = 100
+        Me.btnYPlus.Name = "btnYPlus"
+        Me.btnYPlus.Tag = "Y+"
+        Me.btnYPlus.UseVisualStyleBackColor = True
         '
         'gbFeedRate
         '
@@ -928,40 +976,40 @@ Partial Class GrblGui
         Me.gbFeedRate.Controls.Add(Me.rbFeedRate4)
         resources.ApplyResources(Me.gbFeedRate, "gbFeedRate")
         Me.gbFeedRate.Name = "gbFeedRate"
-        Me.gbFeedRate.TabStop = false
+        Me.gbFeedRate.TabStop = False
         '
         'rbFeedRate1
         '
         resources.ApplyResources(Me.rbFeedRate1, "rbFeedRate1")
         Me.rbFeedRate1.Cursor = System.Windows.Forms.Cursors.Default
         Me.rbFeedRate1.Name = "rbFeedRate1"
-        Me.rbFeedRate1.TabStop = true
+        Me.rbFeedRate1.TabStop = True
         Me.rbFeedRate1.Tag = "F1"
-        Me.rbFeedRate1.UseVisualStyleBackColor = true
+        Me.rbFeedRate1.UseVisualStyleBackColor = True
         '
         'rbFeedRate2
         '
         resources.ApplyResources(Me.rbFeedRate2, "rbFeedRate2")
         Me.rbFeedRate2.Name = "rbFeedRate2"
-        Me.rbFeedRate2.TabStop = true
+        Me.rbFeedRate2.TabStop = True
         Me.rbFeedRate2.Tag = "F2"
-        Me.rbFeedRate2.UseVisualStyleBackColor = true
+        Me.rbFeedRate2.UseVisualStyleBackColor = True
         '
         'rbFeedRate3
         '
         resources.ApplyResources(Me.rbFeedRate3, "rbFeedRate3")
         Me.rbFeedRate3.Name = "rbFeedRate3"
-        Me.rbFeedRate3.TabStop = true
+        Me.rbFeedRate3.TabStop = True
         Me.rbFeedRate3.Tag = "F3"
-        Me.rbFeedRate3.UseVisualStyleBackColor = true
+        Me.rbFeedRate3.UseVisualStyleBackColor = True
         '
         'rbFeedRate4
         '
         resources.ApplyResources(Me.rbFeedRate4, "rbFeedRate4")
         Me.rbFeedRate4.Name = "rbFeedRate4"
-        Me.rbFeedRate4.TabStop = true
+        Me.rbFeedRate4.TabStop = True
         Me.rbFeedRate4.Tag = "F4"
-        Me.rbFeedRate4.UseVisualStyleBackColor = true
+        Me.rbFeedRate4.UseVisualStyleBackColor = True
         '
         'gbDistance
         '
@@ -971,45 +1019,45 @@ Partial Class GrblGui
         Me.gbDistance.Controls.Add(Me.rbDistance4)
         resources.ApplyResources(Me.gbDistance, "gbDistance")
         Me.gbDistance.Name = "gbDistance"
-        Me.gbDistance.TabStop = false
+        Me.gbDistance.TabStop = False
         '
         'rbDistance1
         '
         resources.ApplyResources(Me.rbDistance1, "rbDistance1")
         Me.rbDistance1.Name = "rbDistance1"
-        Me.rbDistance1.TabStop = true
+        Me.rbDistance1.TabStop = True
         Me.rbDistance1.Tag = "I1"
-        Me.rbDistance1.UseVisualStyleBackColor = true
+        Me.rbDistance1.UseVisualStyleBackColor = True
         '
         'rbDistance2
         '
         resources.ApplyResources(Me.rbDistance2, "rbDistance2")
         Me.rbDistance2.Name = "rbDistance2"
-        Me.rbDistance2.TabStop = true
+        Me.rbDistance2.TabStop = True
         Me.rbDistance2.Tag = "I2"
-        Me.rbDistance2.UseVisualStyleBackColor = true
+        Me.rbDistance2.UseVisualStyleBackColor = True
         '
         'rbDistance3
         '
         resources.ApplyResources(Me.rbDistance3, "rbDistance3")
         Me.rbDistance3.Name = "rbDistance3"
-        Me.rbDistance3.TabStop = true
+        Me.rbDistance3.TabStop = True
         Me.rbDistance3.Tag = "I3"
-        Me.rbDistance3.UseVisualStyleBackColor = true
+        Me.rbDistance3.UseVisualStyleBackColor = True
         '
         'rbDistance4
         '
         resources.ApplyResources(Me.rbDistance4, "rbDistance4")
         Me.rbDistance4.Name = "rbDistance4"
-        Me.rbDistance4.TabStop = true
+        Me.rbDistance4.TabStop = True
         Me.rbDistance4.Tag = "I4"
-        Me.rbDistance4.UseVisualStyleBackColor = true
+        Me.rbDistance4.UseVisualStyleBackColor = True
         '
         'cbUnits
         '
         resources.ApplyResources(Me.cbUnits, "cbUnits")
         Me.cbUnits.Name = "cbUnits"
-        Me.cbUnits.UseVisualStyleBackColor = true
+        Me.cbUnits.UseVisualStyleBackColor = True
         '
         'gbStatus
         '
@@ -1022,7 +1070,7 @@ Partial Class GrblGui
         Me.gbStatus.Controls.Add(Me.cbVerbose)
         Me.gbStatus.Controls.Add(Me.lbResponses)
         Me.gbStatus.Name = "gbStatus"
-        Me.gbStatus.TabStop = false
+        Me.gbStatus.TabStop = False
         '
         'Label25
         '
@@ -1058,14 +1106,14 @@ Partial Class GrblGui
         '
         resources.ApplyResources(Me.cbVerbose, "cbVerbose")
         Me.cbVerbose.Checked = Global.GrblPanel.My.MySettings.Default.StatusVerbose
-        Me.cbVerbose.DataBindings.Add(New System.Windows.Forms.Binding("Checked", Global.GrblPanel.My.MySettings.Default, "statusVerbose", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
+        Me.cbVerbose.DataBindings.Add(New System.Windows.Forms.Binding("Checked", Global.GrblPanel.My.MySettings.Default, "statusVerbose", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
         Me.cbVerbose.Name = "cbVerbose"
-        Me.cbVerbose.UseVisualStyleBackColor = true
+        Me.cbVerbose.UseVisualStyleBackColor = True
         '
         'lbResponses
         '
         resources.ApplyResources(Me.lbResponses, "lbResponses")
-        Me.lbResponses.FormattingEnabled = true
+        Me.lbResponses.FormattingEnabled = True
         Me.lbResponses.Name = "lbResponses"
         '
         'gbGcode
@@ -1087,15 +1135,15 @@ Partial Class GrblGui
         Me.gbGcode.Controls.Add(Me.btnFileSend)
         Me.gbGcode.Controls.Add(Me.btnFileStop)
         Me.gbGcode.Name = "gbGcode"
-        Me.gbGcode.TabStop = false
+        Me.gbGcode.TabStop = False
         '
         'cbMonitorEnable
         '
         resources.ApplyResources(Me.cbMonitorEnable, "cbMonitorEnable")
-        Me.cbMonitorEnable.Checked = true
+        Me.cbMonitorEnable.Checked = True
         Me.cbMonitorEnable.CheckState = System.Windows.Forms.CheckState.Checked
         Me.cbMonitorEnable.Name = "cbMonitorEnable"
-        Me.cbMonitorEnable.UseVisualStyleBackColor = true
+        Me.cbMonitorEnable.UseVisualStyleBackColor = True
         '
         'lblElapsedTime
         '
@@ -1120,27 +1168,27 @@ Partial Class GrblGui
         'dgvGcode
         '
         Me.dgvGcode.AccessibleRole = System.Windows.Forms.AccessibleRole.None
-        Me.dgvGcode.AllowUserToAddRows = false
-        Me.dgvGcode.AllowUserToDeleteRows = false
-        Me.dgvGcode.AllowUserToResizeRows = false
+        Me.dgvGcode.AllowUserToAddRows = False
+        Me.dgvGcode.AllowUserToDeleteRows = False
+        Me.dgvGcode.AllowUserToResizeRows = False
         resources.ApplyResources(Me.dgvGcode, "dgvGcode")
         Me.dgvGcode.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgvGcode.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.stat, Me.lineNum, Me.data})
-        Me.dgvGcode.MultiSelect = false
+        Me.dgvGcode.MultiSelect = False
         Me.dgvGcode.Name = "dgvGcode"
-        Me.dgvGcode.ReadOnly = true
-        Me.dgvGcode.RowHeadersVisible = false
+        Me.dgvGcode.ReadOnly = True
+        Me.dgvGcode.RowHeadersVisible = False
         Me.dgvGcode.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.dgvGcode.StandardTab = true
-        Me.dgvGcode.VirtualMode = true
+        Me.dgvGcode.StandardTab = True
+        Me.dgvGcode.VirtualMode = True
         '
         'stat
         '
         Me.stat.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None
-        Me.stat.Frozen = true
+        Me.stat.Frozen = True
         resources.ApplyResources(Me.stat, "stat")
         Me.stat.Name = "stat"
-        Me.stat.ReadOnly = true
+        Me.stat.ReadOnly = True
         Me.stat.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable
         '
         'lineNum
@@ -1148,7 +1196,7 @@ Partial Class GrblGui
         Me.lineNum.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None
         resources.ApplyResources(Me.lineNum, "lineNum")
         Me.lineNum.Name = "lineNum"
-        Me.lineNum.ReadOnly = true
+        Me.lineNum.ReadOnly = True
         Me.lineNum.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable
         '
         'data
@@ -1156,7 +1204,7 @@ Partial Class GrblGui
         Me.data.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None
         resources.ApplyResources(Me.data, "data")
         Me.data.Name = "data"
-        Me.data.ReadOnly = true
+        Me.data.ReadOnly = True
         Me.data.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
         Me.data.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable
         '
@@ -1166,7 +1214,7 @@ Partial Class GrblGui
         Me.btnFileReload.Name = "btnFileReload"
         Me.btnFileReload.Tag = "Reload"
         Me.ToolTip1.SetToolTip(Me.btnFileReload, resources.GetString("btnFileReload.ToolTip"))
-        Me.btnFileReload.UseVisualStyleBackColor = true
+        Me.btnFileReload.UseVisualStyleBackColor = True
         '
         'tbGCodeMessage
         '
@@ -1190,7 +1238,7 @@ Partial Class GrblGui
         Me.btnFilePause.Name = "btnFilePause"
         Me.btnFilePause.Tag = "Pause"
         Me.ToolTip1.SetToolTip(Me.btnFilePause, resources.GetString("btnFilePause.ToolTip"))
-        Me.btnFilePause.UseVisualStyleBackColor = true
+        Me.btnFilePause.UseVisualStyleBackColor = True
         '
         'tbGcodeFile
         '
@@ -1203,7 +1251,7 @@ Partial Class GrblGui
         Me.btnFileSelect.Name = "btnFileSelect"
         Me.btnFileSelect.Tag = "File"
         Me.ToolTip1.SetToolTip(Me.btnFileSelect, resources.GetString("btnFileSelect.ToolTip"))
-        Me.btnFileSelect.UseVisualStyleBackColor = true
+        Me.btnFileSelect.UseVisualStyleBackColor = True
         '
         'btnFileSend
         '
@@ -1211,7 +1259,7 @@ Partial Class GrblGui
         Me.btnFileSend.Name = "btnFileSend"
         Me.btnFileSend.Tag = "Send"
         Me.ToolTip1.SetToolTip(Me.btnFileSend, resources.GetString("btnFileSend.ToolTip"))
-        Me.btnFileSend.UseVisualStyleBackColor = true
+        Me.btnFileSend.UseVisualStyleBackColor = True
         '
         'btnFileStop
         '
@@ -1219,14 +1267,14 @@ Partial Class GrblGui
         Me.btnFileStop.Name = "btnFileStop"
         Me.btnFileStop.Tag = "Stop"
         Me.ToolTip1.SetToolTip(Me.btnFileStop, resources.GetString("btnFileStop.ToolTip"))
-        Me.btnFileStop.UseVisualStyleBackColor = true
+        Me.btnFileStop.UseVisualStyleBackColor = True
         '
         'gbGrbl
         '
         resources.ApplyResources(Me.gbGrbl, "gbGrbl")
         Me.gbGrbl.Controls.Add(Me.tcConnection)
         Me.gbGrbl.Name = "gbGrbl"
-        Me.gbGrbl.TabStop = false
+        Me.gbGrbl.TabStop = False
         '
         'tcConnection
         '
@@ -1244,17 +1292,17 @@ Partial Class GrblGui
         Me.tbGrblCOM.Controls.Add(Me.cbBaud)
         resources.ApplyResources(Me.tbGrblCOM, "tbGrblCOM")
         Me.tbGrblCOM.Name = "tbGrblCOM"
-        Me.tbGrblCOM.UseVisualStyleBackColor = true
+        Me.tbGrblCOM.UseVisualStyleBackColor = True
         '
         'btnRescanPorts
         '
         resources.ApplyResources(Me.btnRescanPorts, "btnRescanPorts")
         Me.btnRescanPorts.Name = "btnRescanPorts"
-        Me.btnRescanPorts.UseVisualStyleBackColor = true
+        Me.btnRescanPorts.UseVisualStyleBackColor = True
         '
         'cbPorts
         '
-        Me.cbPorts.FormattingEnabled = true
+        Me.cbPorts.FormattingEnabled = True
         resources.ApplyResources(Me.cbPorts, "cbPorts")
         Me.cbPorts.Name = "cbPorts"
         '
@@ -1263,11 +1311,11 @@ Partial Class GrblGui
         resources.ApplyResources(Me.btnConnect, "btnConnect")
         Me.btnConnect.Name = "btnConnect"
         Me.btnConnect.Tag = "COM"
-        Me.btnConnect.UseVisualStyleBackColor = true
+        Me.btnConnect.UseVisualStyleBackColor = True
         '
         'cbBaud
         '
-        Me.cbBaud.FormattingEnabled = true
+        Me.cbBaud.FormattingEnabled = True
         Me.cbBaud.Items.AddRange(New Object() {resources.GetString("cbBaud.Items"), resources.GetString("cbBaud.Items1")})
         resources.ApplyResources(Me.cbBaud, "cbBaud")
         Me.cbBaud.Name = "cbBaud"
@@ -1278,14 +1326,14 @@ Partial Class GrblGui
         Me.tbGrblIP.Controls.Add(Me.tbIPAddress)
         resources.ApplyResources(Me.tbGrblIP, "tbGrblIP")
         Me.tbGrblIP.Name = "tbGrblIP"
-        Me.tbGrblIP.UseVisualStyleBackColor = true
+        Me.tbGrblIP.UseVisualStyleBackColor = True
         '
         'btnIPConnect
         '
         resources.ApplyResources(Me.btnIPConnect, "btnIPConnect")
         Me.btnIPConnect.Name = "btnIPConnect"
         Me.btnIPConnect.Tag = "IP"
-        Me.btnIPConnect.UseVisualStyleBackColor = true
+        Me.btnIPConnect.UseVisualStyleBackColor = True
         '
         'tbIPAddress
         '
@@ -1299,7 +1347,7 @@ Partial Class GrblGui
         resources.ApplyResources(Me.gbPosition, "gbPosition")
         Me.gbPosition.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.gbPosition.Name = "gbPosition"
-        Me.gbPosition.TabStop = false
+        Me.gbPosition.TabStop = False
         '
         'tabCtlPosition
         '
@@ -1327,7 +1375,7 @@ Partial Class GrblGui
         Me.tpWork.Controls.Add(Me.btnWorkY0)
         resources.ApplyResources(Me.tpWork, "tpWork")
         Me.tpWork.Name = "tpWork"
-        Me.tpWork.UseVisualStyleBackColor = true
+        Me.tpWork.UseVisualStyleBackColor = True
         '
         'Panel5
         '
@@ -1403,7 +1451,7 @@ Partial Class GrblGui
         Me.GroupBox1.Controls.Add(Me.lblPositionCurrentOffset)
         resources.ApplyResources(Me.GroupBox1, "GroupBox1")
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.TabStop = false
+        Me.GroupBox1.TabStop = False
         '
         'lblPositionCurrentOffset
         '
@@ -1416,7 +1464,7 @@ Partial Class GrblGui
         Me.btnWorkSoftHome.Name = "btnWorkSoftHome"
         Me.btnWorkSoftHome.Tag = "Spcl Posn1"
         Me.ToolTip1.SetToolTip(Me.btnWorkSoftHome, resources.GetString("btnWorkSoftHome.ToolTip"))
-        Me.btnWorkSoftHome.UseVisualStyleBackColor = true
+        Me.btnWorkSoftHome.UseVisualStyleBackColor = True
         '
         'btnHome
         '
@@ -1425,7 +1473,7 @@ Partial Class GrblGui
         Me.btnHome.Name = "btnHome"
         Me.btnHome.Tag = "HomeCycle"
         Me.ToolTip1.SetToolTip(Me.btnHome, resources.GetString("btnHome.ToolTip"))
-        Me.btnHome.UseVisualStyleBackColor = false
+        Me.btnHome.UseVisualStyleBackColor = False
         '
         'btnWorkSpclPosition
         '
@@ -1433,7 +1481,7 @@ Partial Class GrblGui
         Me.btnWorkSpclPosition.Name = "btnWorkSpclPosition"
         Me.btnWorkSpclPosition.Tag = "Spcl Posn2"
         Me.ToolTip1.SetToolTip(Me.btnWorkSpclPosition, resources.GetString("btnWorkSpclPosition.ToolTip"))
-        Me.btnWorkSpclPosition.UseVisualStyleBackColor = true
+        Me.btnWorkSpclPosition.UseVisualStyleBackColor = True
         '
         'Label3
         '
@@ -1446,7 +1494,7 @@ Partial Class GrblGui
         Me.btnWork0.Name = "btnWork0"
         Me.btnWork0.Tag = "ZeroXYZ"
         Me.ToolTip1.SetToolTip(Me.btnWork0, resources.GetString("btnWork0.ToolTip"))
-        Me.btnWork0.UseVisualStyleBackColor = true
+        Me.btnWork0.UseVisualStyleBackColor = True
         '
         'Label2
         '
@@ -1459,7 +1507,7 @@ Partial Class GrblGui
         Me.btnWorkX0.Name = "btnWorkX0"
         Me.btnWorkX0.Tag = "X"
         Me.ToolTip1.SetToolTip(Me.btnWorkX0, resources.GetString("btnWorkX0.ToolTip"))
-        Me.btnWorkX0.UseVisualStyleBackColor = true
+        Me.btnWorkX0.UseVisualStyleBackColor = True
         '
         'Label1
         '
@@ -1472,7 +1520,7 @@ Partial Class GrblGui
         Me.btnWorkZ0.Name = "btnWorkZ0"
         Me.btnWorkZ0.Tag = "Z"
         Me.ToolTip1.SetToolTip(Me.btnWorkZ0, resources.GetString("btnWorkZ0.ToolTip"))
-        Me.btnWorkZ0.UseVisualStyleBackColor = true
+        Me.btnWorkZ0.UseVisualStyleBackColor = True
         '
         'btnWorkY0
         '
@@ -1480,7 +1528,7 @@ Partial Class GrblGui
         Me.btnWorkY0.Name = "btnWorkY0"
         Me.btnWorkY0.Tag = "Y"
         Me.ToolTip1.SetToolTip(Me.btnWorkY0, resources.GetString("btnWorkY0.ToolTip"))
-        Me.btnWorkY0.UseVisualStyleBackColor = true
+        Me.btnWorkY0.UseVisualStyleBackColor = True
         '
         'tpOffsets
         '
@@ -1531,7 +1579,7 @@ Partial Class GrblGui
         Me.tpOffsets.Controls.Add(Me.Label21)
         resources.ApplyResources(Me.tpOffsets, "tpOffsets")
         Me.tpOffsets.Name = "tpOffsets"
-        Me.tpOffsets.UseVisualStyleBackColor = true
+        Me.tpOffsets.UseVisualStyleBackColor = True
         '
         'btnSetOffsetG59
         '
@@ -1539,7 +1587,7 @@ Partial Class GrblGui
         Me.btnSetOffsetG59.Name = "btnSetOffsetG59"
         Me.btnSetOffsetG59.Tag = "G59"
         Me.ToolTip1.SetToolTip(Me.btnSetOffsetG59, resources.GetString("btnSetOffsetG59.ToolTip"))
-        Me.btnSetOffsetG59.UseVisualStyleBackColor = true
+        Me.btnSetOffsetG59.UseVisualStyleBackColor = True
         '
         'btnSetOffsetG58
         '
@@ -1547,7 +1595,7 @@ Partial Class GrblGui
         Me.btnSetOffsetG58.Name = "btnSetOffsetG58"
         Me.btnSetOffsetG58.Tag = "G58"
         Me.ToolTip1.SetToolTip(Me.btnSetOffsetG58, resources.GetString("btnSetOffsetG58.ToolTip"))
-        Me.btnSetOffsetG58.UseVisualStyleBackColor = true
+        Me.btnSetOffsetG58.UseVisualStyleBackColor = True
         '
         'btnSetOffsetG57
         '
@@ -1555,7 +1603,7 @@ Partial Class GrblGui
         Me.btnSetOffsetG57.Name = "btnSetOffsetG57"
         Me.btnSetOffsetG57.Tag = "G57"
         Me.ToolTip1.SetToolTip(Me.btnSetOffsetG57, resources.GetString("btnSetOffsetG57.ToolTip"))
-        Me.btnSetOffsetG57.UseVisualStyleBackColor = true
+        Me.btnSetOffsetG57.UseVisualStyleBackColor = True
         '
         'btnSetOffsetG56
         '
@@ -1563,7 +1611,7 @@ Partial Class GrblGui
         Me.btnSetOffsetG56.Name = "btnSetOffsetG56"
         Me.btnSetOffsetG56.Tag = "G56"
         Me.ToolTip1.SetToolTip(Me.btnSetOffsetG56, resources.GetString("btnSetOffsetG56.ToolTip"))
-        Me.btnSetOffsetG56.UseVisualStyleBackColor = true
+        Me.btnSetOffsetG56.UseVisualStyleBackColor = True
         '
         'btnSetOffsetG55
         '
@@ -1571,7 +1619,7 @@ Partial Class GrblGui
         Me.btnSetOffsetG55.Name = "btnSetOffsetG55"
         Me.btnSetOffsetG55.Tag = "G55"
         Me.ToolTip1.SetToolTip(Me.btnSetOffsetG55, resources.GetString("btnSetOffsetG55.ToolTip"))
-        Me.btnSetOffsetG55.UseVisualStyleBackColor = true
+        Me.btnSetOffsetG55.UseVisualStyleBackColor = True
         '
         'btnSetOffsetG54
         '
@@ -1579,7 +1627,7 @@ Partial Class GrblGui
         Me.btnSetOffsetG54.Name = "btnSetOffsetG54"
         Me.btnSetOffsetG54.Tag = "G54"
         Me.ToolTip1.SetToolTip(Me.btnSetOffsetG54, resources.GetString("btnSetOffsetG54.ToolTip"))
-        Me.btnSetOffsetG54.UseVisualStyleBackColor = true
+        Me.btnSetOffsetG54.UseVisualStyleBackColor = True
         '
         'Label10
         '
@@ -1640,7 +1688,7 @@ Partial Class GrblGui
         resources.ApplyResources(Me.btnOffsetsG57Zero, "btnOffsetsG57Zero")
         Me.btnOffsetsG57Zero.Name = "btnOffsetsG57Zero"
         Me.btnOffsetsG57Zero.Tag = "G57Zero"
-        Me.btnOffsetsG57Zero.UseVisualStyleBackColor = true
+        Me.btnOffsetsG57Zero.UseVisualStyleBackColor = True
         '
         'tbOffsetsG54X
         '
@@ -1653,7 +1701,7 @@ Partial Class GrblGui
         resources.ApplyResources(Me.btnOffsetsG56Zero, "btnOffsetsG56Zero")
         Me.btnOffsetsG56Zero.Name = "btnOffsetsG56Zero"
         Me.btnOffsetsG56Zero.Tag = "G56Zero"
-        Me.btnOffsetsG56Zero.UseVisualStyleBackColor = true
+        Me.btnOffsetsG56Zero.UseVisualStyleBackColor = True
         '
         'tbOffsetsG54Y
         '
@@ -1672,7 +1720,7 @@ Partial Class GrblGui
         resources.ApplyResources(Me.btnOffsetsSave, "btnOffsetsSave")
         Me.btnOffsetsSave.Name = "btnOffsetsSave"
         Me.ToolTip1.SetToolTip(Me.btnOffsetsSave, resources.GetString("btnOffsetsSave.ToolTip"))
-        Me.btnOffsetsSave.UseVisualStyleBackColor = true
+        Me.btnOffsetsSave.UseVisualStyleBackColor = True
         '
         'tbOffsetsG55X
         '
@@ -1697,7 +1745,7 @@ Partial Class GrblGui
         resources.ApplyResources(Me.btnOffsetsRetrieve, "btnOffsetsRetrieve")
         Me.btnOffsetsRetrieve.Name = "btnOffsetsRetrieve"
         Me.ToolTip1.SetToolTip(Me.btnOffsetsRetrieve, resources.GetString("btnOffsetsRetrieve.ToolTip"))
-        Me.btnOffsetsRetrieve.UseVisualStyleBackColor = true
+        Me.btnOffsetsRetrieve.UseVisualStyleBackColor = True
         '
         'tbOffsetsG55Y
         '
@@ -1710,7 +1758,7 @@ Partial Class GrblGui
         resources.ApplyResources(Me.btnOffsetsG54Zero, "btnOffsetsG54Zero")
         Me.btnOffsetsG54Zero.Name = "btnOffsetsG54Zero"
         Me.btnOffsetsG54Zero.Tag = "G54Zero"
-        Me.btnOffsetsG54Zero.UseVisualStyleBackColor = true
+        Me.btnOffsetsG54Zero.UseVisualStyleBackColor = True
         '
         'tbOffsetsG57X
         '
@@ -1723,7 +1771,7 @@ Partial Class GrblGui
         resources.ApplyResources(Me.btnOffsetsLoad, "btnOffsetsLoad")
         Me.btnOffsetsLoad.Name = "btnOffsetsLoad"
         Me.ToolTip1.SetToolTip(Me.btnOffsetsLoad, resources.GetString("btnOffsetsLoad.ToolTip"))
-        Me.btnOffsetsLoad.UseVisualStyleBackColor = true
+        Me.btnOffsetsLoad.UseVisualStyleBackColor = True
         '
         'tbOffsetsG55Z
         '
@@ -1742,14 +1790,14 @@ Partial Class GrblGui
         resources.ApplyResources(Me.btnOffsetsG58Zero, "btnOffsetsG58Zero")
         Me.btnOffsetsG58Zero.Name = "btnOffsetsG58Zero"
         Me.btnOffsetsG58Zero.Tag = "G58Zero"
-        Me.btnOffsetsG58Zero.UseVisualStyleBackColor = true
+        Me.btnOffsetsG58Zero.UseVisualStyleBackColor = True
         '
         'btnOffsetsG43Zero
         '
         resources.ApplyResources(Me.btnOffsetsG43Zero, "btnOffsetsG43Zero")
         Me.btnOffsetsG43Zero.Name = "btnOffsetsG43Zero"
         Me.btnOffsetsG43Zero.Tag = "G43Zero"
-        Me.btnOffsetsG43Zero.UseVisualStyleBackColor = true
+        Me.btnOffsetsG43Zero.UseVisualStyleBackColor = True
         '
         'tbOffsetsG59Y
         '
@@ -1768,7 +1816,7 @@ Partial Class GrblGui
         resources.ApplyResources(Me.btnOffsetsG55Zero, "btnOffsetsG55Zero")
         Me.btnOffsetsG55Zero.Name = "btnOffsetsG55Zero"
         Me.btnOffsetsG55Zero.Tag = "G55Zero"
-        Me.btnOffsetsG55Zero.UseVisualStyleBackColor = true
+        Me.btnOffsetsG55Zero.UseVisualStyleBackColor = True
         '
         'tbOffsetsG59Z
         '
@@ -1808,7 +1856,7 @@ Partial Class GrblGui
         resources.ApplyResources(Me.btnOffsetsG59Zero, "btnOffsetsG59Zero")
         Me.btnOffsetsG59Zero.Name = "btnOffsetsG59Zero"
         Me.btnOffsetsG59Zero.Tag = "G59Zero"
-        Me.btnOffsetsG59Zero.UseVisualStyleBackColor = true
+        Me.btnOffsetsG59Zero.UseVisualStyleBackColor = True
         '
         'tbOffsetsG58X
         '
@@ -1831,7 +1879,7 @@ Partial Class GrblGui
         Me.tabPgSettings.Controls.Add(Me.gbSettingsJogging)
         resources.ApplyResources(Me.tabPgSettings, "tabPgSettings")
         Me.tabPgSettings.Name = "tabPgSettings"
-        Me.tabPgSettings.UseVisualStyleBackColor = true
+        Me.tabPgSettings.UseVisualStyleBackColor = True
         '
         'gbGrblSettings
         '
@@ -1841,7 +1889,7 @@ Partial Class GrblGui
         Me.gbGrblSettings.Controls.Add(Me.btnSettingsGrbl)
         resources.ApplyResources(Me.gbGrblSettings, "gbGrblSettings")
         Me.gbGrblSettings.Name = "gbGrblSettings"
-        Me.gbGrblSettings.TabStop = false
+        Me.gbGrblSettings.TabStop = False
         '
         'Label4
         '
@@ -1850,7 +1898,7 @@ Partial Class GrblGui
         '
         'tbSettingsGrblLastParam
         '
-        Me.tbSettingsGrblLastParam.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.GrblPanel.My.MySettings.Default, "GrblLastParamID", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
+        Me.tbSettingsGrblLastParam.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.GrblPanel.My.MySettings.Default, "GrblLastParamID", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
         resources.ApplyResources(Me.tbSettingsGrblLastParam, "tbSettingsGrblLastParam")
         Me.tbSettingsGrblLastParam.Name = "tbSettingsGrblLastParam"
         Me.tbSettingsGrblLastParam.Text = Global.GrblPanel.My.MySettings.Default.GrblLastParamID
@@ -1858,14 +1906,14 @@ Partial Class GrblGui
         '
         'dgGrblSettings
         '
-        Me.dgGrblSettings.AllowUserToAddRows = false
-        Me.dgGrblSettings.AllowUserToDeleteRows = false
-        Me.dgGrblSettings.AllowUserToResizeColumns = false
-        Me.dgGrblSettings.AllowUserToResizeRows = false
+        Me.dgGrblSettings.AllowUserToAddRows = False
+        Me.dgGrblSettings.AllowUserToDeleteRows = False
+        Me.dgGrblSettings.AllowUserToResizeColumns = False
+        Me.dgGrblSettings.AllowUserToResizeRows = False
         Me.dgGrblSettings.BackgroundColor = System.Drawing.SystemColors.Window
         Me.dgGrblSettings.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         resources.ApplyResources(Me.dgGrblSettings, "dgGrblSettings")
-        Me.dgGrblSettings.MultiSelect = false
+        Me.dgGrblSettings.MultiSelect = False
         Me.dgGrblSettings.Name = "dgGrblSettings"
         Me.dgGrblSettings.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect
         Me.ToolTip1.SetToolTip(Me.dgGrblSettings, resources.GetString("dgGrblSettings.ToolTip"))
@@ -1874,7 +1922,7 @@ Partial Class GrblGui
         '
         resources.ApplyResources(Me.btnSettingsGrbl, "btnSettingsGrbl")
         Me.btnSettingsGrbl.Name = "btnSettingsGrbl"
-        Me.btnSettingsGrbl.UseVisualStyleBackColor = true
+        Me.btnSettingsGrbl.UseVisualStyleBackColor = True
         '
         'gbSettingsOffsets
         '
@@ -1893,7 +1941,7 @@ Partial Class GrblGui
         Me.gbSettingsOffsets.Controls.Add(Me.Label69)
         resources.ApplyResources(Me.gbSettingsOffsets, "gbSettingsOffsets")
         Me.gbSettingsOffsets.Name = "gbSettingsOffsets"
-        Me.gbSettingsOffsets.TabStop = false
+        Me.gbSettingsOffsets.TabStop = False
         '
         'btnOffsetsG28Set
         '
@@ -1901,14 +1949,14 @@ Partial Class GrblGui
         Me.btnOffsetsG28Set.Name = "btnOffsetsG28Set"
         Me.btnOffsetsG28Set.Tag = "G28Set"
         Me.ToolTip1.SetToolTip(Me.btnOffsetsG28Set, resources.GetString("btnOffsetsG28Set.ToolTip"))
-        Me.btnOffsetsG28Set.UseVisualStyleBackColor = true
+        Me.btnOffsetsG28Set.UseVisualStyleBackColor = True
         '
         'btnSettingsRetrieveLocations
         '
         resources.ApplyResources(Me.btnSettingsRetrieveLocations, "btnSettingsRetrieveLocations")
         Me.btnSettingsRetrieveLocations.Name = "btnSettingsRetrieveLocations"
         Me.ToolTip1.SetToolTip(Me.btnSettingsRetrieveLocations, resources.GetString("btnSettingsRetrieveLocations.ToolTip"))
-        Me.btnSettingsRetrieveLocations.UseVisualStyleBackColor = true
+        Me.btnSettingsRetrieveLocations.UseVisualStyleBackColor = True
         '
         'Label7
         '
@@ -1950,7 +1998,7 @@ Partial Class GrblGui
         Me.btnOffsetsG30Set.Name = "btnOffsetsG30Set"
         Me.btnOffsetsG30Set.Tag = "G30Set"
         Me.ToolTip1.SetToolTip(Me.btnOffsetsG30Set, resources.GetString("btnOffsetsG30Set.ToolTip"))
-        Me.btnOffsetsG30Set.UseVisualStyleBackColor = true
+        Me.btnOffsetsG30Set.UseVisualStyleBackColor = True
         '
         'tbOffsetsG28Y
         '
@@ -1998,11 +2046,11 @@ Partial Class GrblGui
         Me.gbSettingsMisc.Controls.Add(Me.tbSettingsPollRate)
         resources.ApplyResources(Me.gbSettingsMisc, "gbSettingsMisc")
         Me.gbSettingsMisc.Name = "gbSettingsMisc"
-        Me.gbSettingsMisc.TabStop = false
+        Me.gbSettingsMisc.TabStop = False
         '
         'tbSettingsDefaultExt
         '
-        Me.tbSettingsDefaultExt.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.GrblPanel.My.MySettings.Default, "DefaultFileExt", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
+        Me.tbSettingsDefaultExt.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.GrblPanel.My.MySettings.Default, "DefaultFileExt", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
         resources.ApplyResources(Me.tbSettingsDefaultExt, "tbSettingsDefaultExt")
         Me.tbSettingsDefaultExt.Name = "tbSettingsDefaultExt"
         Me.tbSettingsDefaultExt.Text = Global.GrblPanel.My.MySettings.Default.DefaultFileExt
@@ -2019,7 +2067,7 @@ Partial Class GrblGui
         '
         'tbSettingsStartupDelay
         '
-        Me.tbSettingsStartupDelay.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.GrblPanel.My.MySettings.Default, "StartupDelay", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
+        Me.tbSettingsStartupDelay.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.GrblPanel.My.MySettings.Default, "StartupDelay", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
         resources.ApplyResources(Me.tbSettingsStartupDelay, "tbSettingsStartupDelay")
         Me.tbSettingsStartupDelay.Name = "tbSettingsStartupDelay"
         Me.tbSettingsStartupDelay.Text = Global.GrblPanel.My.MySettings.Default.StartupDelay
@@ -2028,43 +2076,43 @@ Partial Class GrblGui
         '
         resources.ApplyResources(Me.cbSettingsLeftHanded, "cbSettingsLeftHanded")
         Me.cbSettingsLeftHanded.Checked = Global.GrblPanel.My.MySettings.Default.LeftHandedGUI
-        Me.cbSettingsLeftHanded.DataBindings.Add(New System.Windows.Forms.Binding("Checked", Global.GrblPanel.My.MySettings.Default, "LeftHandedGUI", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
+        Me.cbSettingsLeftHanded.DataBindings.Add(New System.Windows.Forms.Binding("Checked", Global.GrblPanel.My.MySettings.Default, "LeftHandedGUI", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
         Me.cbSettingsLeftHanded.Name = "cbSettingsLeftHanded"
-        Me.cbSettingsLeftHanded.UseVisualStyleBackColor = true
+        Me.cbSettingsLeftHanded.UseVisualStyleBackColor = True
         '
         'cbSettingsConnectOnLoad
         '
         resources.ApplyResources(Me.cbSettingsConnectOnLoad, "cbSettingsConnectOnLoad")
         Me.cbSettingsConnectOnLoad.Checked = Global.GrblPanel.My.MySettings.Default.GrblConnectOnLoad
-        Me.cbSettingsConnectOnLoad.DataBindings.Add(New System.Windows.Forms.Binding("Checked", Global.GrblPanel.My.MySettings.Default, "GrblConnectOnLoad", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
+        Me.cbSettingsConnectOnLoad.DataBindings.Add(New System.Windows.Forms.Binding("Checked", Global.GrblPanel.My.MySettings.Default, "GrblConnectOnLoad", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
         Me.cbSettingsConnectOnLoad.Name = "cbSettingsConnectOnLoad"
         Me.ToolTip1.SetToolTip(Me.cbSettingsConnectOnLoad, resources.GetString("cbSettingsConnectOnLoad.ToolTip"))
-        Me.cbSettingsConnectOnLoad.UseVisualStyleBackColor = true
+        Me.cbSettingsConnectOnLoad.UseVisualStyleBackColor = True
         '
         'cbSettingsPauseOnError
         '
         resources.ApplyResources(Me.cbSettingsPauseOnError, "cbSettingsPauseOnError")
         Me.cbSettingsPauseOnError.Checked = Global.GrblPanel.My.MySettings.Default.GCodePauseOnError
         Me.cbSettingsPauseOnError.CheckState = System.Windows.Forms.CheckState.Checked
-        Me.cbSettingsPauseOnError.DataBindings.Add(New System.Windows.Forms.Binding("Checked", Global.GrblPanel.My.MySettings.Default, "GCodePauseOnError", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
+        Me.cbSettingsPauseOnError.DataBindings.Add(New System.Windows.Forms.Binding("Checked", Global.GrblPanel.My.MySettings.Default, "GCodePauseOnError", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
         Me.cbSettingsPauseOnError.Name = "cbSettingsPauseOnError"
-        Me.cbSettingsPauseOnError.UseVisualStyleBackColor = true
+        Me.cbSettingsPauseOnError.UseVisualStyleBackColor = True
         '
         'cbStatusPollEnable
         '
         resources.ApplyResources(Me.cbStatusPollEnable, "cbStatusPollEnable")
         Me.cbStatusPollEnable.Checked = Global.GrblPanel.My.MySettings.Default.StatusPollEnabled
         Me.cbStatusPollEnable.CheckState = System.Windows.Forms.CheckState.Checked
-        Me.cbStatusPollEnable.DataBindings.Add(New System.Windows.Forms.Binding("Checked", Global.GrblPanel.My.MySettings.Default, "StatusPollEnabled", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
+        Me.cbStatusPollEnable.DataBindings.Add(New System.Windows.Forms.Binding("Checked", Global.GrblPanel.My.MySettings.Default, "StatusPollEnabled", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
         Me.cbStatusPollEnable.Name = "cbStatusPollEnable"
-        Me.cbStatusPollEnable.UseVisualStyleBackColor = true
+        Me.cbStatusPollEnable.UseVisualStyleBackColor = True
         '
         'btnSettingsRefreshMisc
         '
         resources.ApplyResources(Me.btnSettingsRefreshMisc, "btnSettingsRefreshMisc")
         Me.btnSettingsRefreshMisc.Name = "btnSettingsRefreshMisc"
         Me.btnSettingsRefreshMisc.Tag = "Misc"
-        Me.btnSettingsRefreshMisc.UseVisualStyleBackColor = true
+        Me.btnSettingsRefreshMisc.UseVisualStyleBackColor = True
         '
         'Label37
         '
@@ -2078,14 +2126,14 @@ Partial Class GrblGui
         '
         'tbSettingsRBuffSize
         '
-        Me.tbSettingsRBuffSize.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.GrblPanel.My.MySettings.Default, "RBuffMaxSize", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
+        Me.tbSettingsRBuffSize.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.GrblPanel.My.MySettings.Default, "RBuffMaxSize", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
         resources.ApplyResources(Me.tbSettingsRBuffSize, "tbSettingsRBuffSize")
         Me.tbSettingsRBuffSize.Name = "tbSettingsRBuffSize"
         Me.tbSettingsRBuffSize.Text = Global.GrblPanel.My.MySettings.Default.RBuffMaxSize
         '
         'tbSettingsQSize
         '
-        Me.tbSettingsQSize.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.GrblPanel.My.MySettings.Default, "QBuffMaxSize", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
+        Me.tbSettingsQSize.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.GrblPanel.My.MySettings.Default, "QBuffMaxSize", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
         resources.ApplyResources(Me.tbSettingsQSize, "tbSettingsQSize")
         Me.tbSettingsQSize.Name = "tbSettingsQSize"
         Me.tbSettingsQSize.Text = Global.GrblPanel.My.MySettings.Default.QBuffMaxSize
@@ -2097,7 +2145,7 @@ Partial Class GrblGui
         '
         'tbSettingsPollRate
         '
-        Me.tbSettingsPollRate.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.GrblPanel.My.MySettings.Default, "statusPollInterval", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
+        Me.tbSettingsPollRate.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.GrblPanel.My.MySettings.Default, "statusPollInterval", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
         resources.ApplyResources(Me.tbSettingsPollRate, "tbSettingsPollRate")
         Me.tbSettingsPollRate.Name = "tbSettingsPollRate"
         Me.tbSettingsPollRate.Text = Global.GrblPanel.My.MySettings.Default.StatusPollInterval
@@ -2119,7 +2167,7 @@ Partial Class GrblGui
         Me.gbSettingsPosition.Controls.Add(Me.tbSettingsSpclPosition1)
         resources.ApplyResources(Me.gbSettingsPosition, "gbSettingsPosition")
         Me.gbSettingsPosition.Name = "gbSettingsPosition"
-        Me.gbSettingsPosition.TabStop = false
+        Me.gbSettingsPosition.TabStop = False
         '
         'Label8
         '
@@ -2128,7 +2176,7 @@ Partial Class GrblGui
         '
         'tbSettingsSpclPosition2
         '
-        Me.tbSettingsSpclPosition2.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.GrblPanel.My.MySettings.Default, "MachineSpclPosition2", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
+        Me.tbSettingsSpclPosition2.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.GrblPanel.My.MySettings.Default, "MachineSpclPosition2", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
         resources.ApplyResources(Me.tbSettingsSpclPosition2, "tbSettingsSpclPosition2")
         Me.tbSettingsSpclPosition2.Name = "tbSettingsSpclPosition2"
         Me.tbSettingsSpclPosition2.Text = Global.GrblPanel.My.MySettings.Default.MachineSpclPosition2
@@ -2138,7 +2186,7 @@ Partial Class GrblGui
         resources.ApplyResources(Me.btnSettingsRefreshPosition, "btnSettingsRefreshPosition")
         Me.btnSettingsRefreshPosition.Name = "btnSettingsRefreshPosition"
         Me.btnSettingsRefreshPosition.Tag = "Position"
-        Me.btnSettingsRefreshPosition.UseVisualStyleBackColor = true
+        Me.btnSettingsRefreshPosition.UseVisualStyleBackColor = True
         '
         'Label29
         '
@@ -2147,7 +2195,7 @@ Partial Class GrblGui
         '
         'tbWorkZ0Cmd
         '
-        Me.tbWorkZ0Cmd.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.GrblPanel.My.MySettings.Default, "WorkZ0Cmd", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
+        Me.tbWorkZ0Cmd.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.GrblPanel.My.MySettings.Default, "WorkZ0Cmd", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
         resources.ApplyResources(Me.tbWorkZ0Cmd, "tbWorkZ0Cmd")
         Me.tbWorkZ0Cmd.Name = "tbWorkZ0Cmd"
         Me.tbWorkZ0Cmd.Text = Global.GrblPanel.My.MySettings.Default.WorkZ0Cmd
@@ -2159,7 +2207,7 @@ Partial Class GrblGui
         '
         'tbWorkY0Cmd
         '
-        Me.tbWorkY0Cmd.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.GrblPanel.My.MySettings.Default, "WorkY0Cmd", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
+        Me.tbWorkY0Cmd.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.GrblPanel.My.MySettings.Default, "WorkY0Cmd", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
         resources.ApplyResources(Me.tbWorkY0Cmd, "tbWorkY0Cmd")
         Me.tbWorkY0Cmd.Name = "tbWorkY0Cmd"
         Me.tbWorkY0Cmd.Text = Global.GrblPanel.My.MySettings.Default.WorkY0Cmd
@@ -2176,14 +2224,14 @@ Partial Class GrblGui
         '
         'tbWorkX0Cmd
         '
-        Me.tbWorkX0Cmd.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.GrblPanel.My.MySettings.Default, "WorkX0Cmd", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
+        Me.tbWorkX0Cmd.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.GrblPanel.My.MySettings.Default, "WorkX0Cmd", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
         resources.ApplyResources(Me.tbWorkX0Cmd, "tbWorkX0Cmd")
         Me.tbWorkX0Cmd.Name = "tbWorkX0Cmd"
         Me.tbWorkX0Cmd.Text = Global.GrblPanel.My.MySettings.Default.WorkX0Cmd
         '
         'tbSettingsZeroXYZCmd
         '
-        Me.tbSettingsZeroXYZCmd.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.GrblPanel.My.MySettings.Default, "Work0Cmd", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
+        Me.tbSettingsZeroXYZCmd.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.GrblPanel.My.MySettings.Default, "Work0Cmd", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
         resources.ApplyResources(Me.tbSettingsZeroXYZCmd, "tbSettingsZeroXYZCmd")
         Me.tbSettingsZeroXYZCmd.Name = "tbSettingsZeroXYZCmd"
         Me.tbSettingsZeroXYZCmd.Text = Global.GrblPanel.My.MySettings.Default.Work0Cmd
@@ -2196,7 +2244,7 @@ Partial Class GrblGui
         '
         'tbSettingsSpclPosition1
         '
-        Me.tbSettingsSpclPosition1.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.GrblPanel.My.MySettings.Default, "MachineSpclPosition1", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
+        Me.tbSettingsSpclPosition1.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.GrblPanel.My.MySettings.Default, "MachineSpclPosition1", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
         resources.ApplyResources(Me.tbSettingsSpclPosition1, "tbSettingsSpclPosition1")
         Me.tbSettingsSpclPosition1.Name = "tbSettingsSpclPosition1"
         Me.tbSettingsSpclPosition1.Text = Global.GrblPanel.My.MySettings.Default.MachineSpclPosition1
@@ -2225,23 +2273,23 @@ Partial Class GrblGui
         Me.gbSettingsJogging.Controls.Add(Me.tbSettingsFIImperial)
         resources.ApplyResources(Me.gbSettingsJogging, "gbSettingsJogging")
         Me.gbSettingsJogging.Name = "gbSettingsJogging"
-        Me.gbSettingsJogging.TabStop = false
+        Me.gbSettingsJogging.TabStop = False
         '
         'cbSettingsKeyboardJogging
         '
         resources.ApplyResources(Me.cbSettingsKeyboardJogging, "cbSettingsKeyboardJogging")
         Me.cbSettingsKeyboardJogging.Checked = Global.GrblPanel.My.MySettings.Default.JoggingUseKeyboard
-        Me.cbSettingsKeyboardJogging.DataBindings.Add(New System.Windows.Forms.Binding("Checked", Global.GrblPanel.My.MySettings.Default, "JoggingUseKeyboard", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
+        Me.cbSettingsKeyboardJogging.DataBindings.Add(New System.Windows.Forms.Binding("Checked", Global.GrblPanel.My.MySettings.Default, "JoggingUseKeyboard", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
         Me.cbSettingsKeyboardJogging.Name = "cbSettingsKeyboardJogging"
         Me.ToolTip1.SetToolTip(Me.cbSettingsKeyboardJogging, resources.GetString("cbSettingsKeyboardJogging.ToolTip"))
-        Me.cbSettingsKeyboardJogging.UseVisualStyleBackColor = true
+        Me.cbSettingsKeyboardJogging.UseVisualStyleBackColor = True
         '
         'btnSettingsRefreshJogging
         '
         resources.ApplyResources(Me.btnSettingsRefreshJogging, "btnSettingsRefreshJogging")
         Me.btnSettingsRefreshJogging.Name = "btnSettingsRefreshJogging"
         Me.btnSettingsRefreshJogging.Tag = "Jogging"
-        Me.btnSettingsRefreshJogging.UseVisualStyleBackColor = true
+        Me.btnSettingsRefreshJogging.UseVisualStyleBackColor = True
         '
         'Label41
         '
@@ -2265,21 +2313,21 @@ Partial Class GrblGui
         '
         'tbSettingsZRepeat
         '
-        Me.tbSettingsZRepeat.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.GrblPanel.My.MySettings.Default, "JoggingZRepeat", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
+        Me.tbSettingsZRepeat.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.GrblPanel.My.MySettings.Default, "JoggingZRepeat", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
         resources.ApplyResources(Me.tbSettingsZRepeat, "tbSettingsZRepeat")
         Me.tbSettingsZRepeat.Name = "tbSettingsZRepeat"
         Me.tbSettingsZRepeat.Text = Global.GrblPanel.My.MySettings.Default.JoggingZRepeat
         '
         'tbSettingsYRepeat
         '
-        Me.tbSettingsYRepeat.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.GrblPanel.My.MySettings.Default, "JoggingYRepeat", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
+        Me.tbSettingsYRepeat.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.GrblPanel.My.MySettings.Default, "JoggingYRepeat", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
         resources.ApplyResources(Me.tbSettingsYRepeat, "tbSettingsYRepeat")
         Me.tbSettingsYRepeat.Name = "tbSettingsYRepeat"
         Me.tbSettingsYRepeat.Text = Global.GrblPanel.My.MySettings.Default.JoggingYRepeat
         '
         'tbSettingsXRepeat
         '
-        Me.tbSettingsXRepeat.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.GrblPanel.My.MySettings.Default, "JoggingXRepeat", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
+        Me.tbSettingsXRepeat.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.GrblPanel.My.MySettings.Default, "JoggingXRepeat", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
         resources.ApplyResources(Me.tbSettingsXRepeat, "tbSettingsXRepeat")
         Me.tbSettingsXRepeat.Name = "tbSettingsXRepeat"
         Me.tbSettingsXRepeat.Text = Global.GrblPanel.My.MySettings.Default.JoggingXRepeat
@@ -2301,7 +2349,7 @@ Partial Class GrblGui
         '
         'tbSettingsFRMetric
         '
-        Me.tbSettingsFRMetric.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.GrblPanel.My.MySettings.Default, "JoggingFRMetric", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
+        Me.tbSettingsFRMetric.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.GrblPanel.My.MySettings.Default, "JoggingFRMetric", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
         resources.ApplyResources(Me.tbSettingsFRMetric, "tbSettingsFRMetric")
         Me.tbSettingsFRMetric.Name = "tbSettingsFRMetric"
         Me.tbSettingsFRMetric.Text = Global.GrblPanel.My.MySettings.Default.JoggingFRMetric
@@ -2313,7 +2361,7 @@ Partial Class GrblGui
         '
         'tbSettingsFIMetric
         '
-        Me.tbSettingsFIMetric.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.GrblPanel.My.MySettings.Default, "JoggingFIMEtric", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
+        Me.tbSettingsFIMetric.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.GrblPanel.My.MySettings.Default, "JoggingFIMEtric", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
         resources.ApplyResources(Me.tbSettingsFIMetric, "tbSettingsFIMetric")
         Me.tbSettingsFIMetric.Name = "tbSettingsFIMetric"
         Me.tbSettingsFIMetric.Text = Global.GrblPanel.My.MySettings.Default.JoggingFIMEtric
@@ -2325,7 +2373,7 @@ Partial Class GrblGui
         '
         'tbSettingsFRImperial
         '
-        Me.tbSettingsFRImperial.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.GrblPanel.My.MySettings.Default, "JoggingFRImperial", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
+        Me.tbSettingsFRImperial.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.GrblPanel.My.MySettings.Default, "JoggingFRImperial", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
         resources.ApplyResources(Me.tbSettingsFRImperial, "tbSettingsFRImperial")
         Me.tbSettingsFRImperial.Name = "tbSettingsFRImperial"
         Me.tbSettingsFRImperial.Text = Global.GrblPanel.My.MySettings.Default.JoggingFRImperial
@@ -2339,13 +2387,13 @@ Partial Class GrblGui
         '
         resources.ApplyResources(Me.cbSettingsMetric, "cbSettingsMetric")
         Me.cbSettingsMetric.Checked = Global.GrblPanel.My.MySettings.Default.JoggingUnitsMetric
-        Me.cbSettingsMetric.DataBindings.Add(New System.Windows.Forms.Binding("Checked", Global.GrblPanel.My.MySettings.Default, "joggingUnitsMetric", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
+        Me.cbSettingsMetric.DataBindings.Add(New System.Windows.Forms.Binding("Checked", Global.GrblPanel.My.MySettings.Default, "joggingUnitsMetric", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
         Me.cbSettingsMetric.Name = "cbSettingsMetric"
-        Me.cbSettingsMetric.UseVisualStyleBackColor = true
+        Me.cbSettingsMetric.UseVisualStyleBackColor = True
         '
         'tbSettingsFIImperial
         '
-        Me.tbSettingsFIImperial.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.GrblPanel.My.MySettings.Default, "JoggingFIImperial", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
+        Me.tbSettingsFIImperial.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.GrblPanel.My.MySettings.Default, "JoggingFIImperial", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
         resources.ApplyResources(Me.tbSettingsFIImperial, "tbSettingsFIImperial")
         Me.tbSettingsFIImperial.Name = "tbSettingsFIImperial"
         Me.tbSettingsFIImperial.Text = Global.GrblPanel.My.MySettings.Default.JoggingFIImperial
@@ -2360,7 +2408,7 @@ Partial Class GrblGui
         Me.TabPage1.Controls.Add(Me.btnDeleteMacro)
         resources.ApplyResources(Me.TabPage1, "TabPage1")
         Me.TabPage1.Name = "TabPage1"
-        Me.TabPage1.UseVisualStyleBackColor = true
+        Me.TabPage1.UseVisualStyleBackColor = True
         '
         'gbEditor
         '
@@ -2371,13 +2419,13 @@ Partial Class GrblGui
         Me.gbEditor.Controls.Add(Me.tbName)
         resources.ApplyResources(Me.gbEditor, "gbEditor")
         Me.gbEditor.Name = "gbEditor"
-        Me.gbEditor.TabStop = false
+        Me.gbEditor.TabStop = False
         '
         'btnAdd
         '
         resources.ApplyResources(Me.btnAdd, "btnAdd")
         Me.btnAdd.Name = "btnAdd"
-        Me.btnAdd.UseVisualStyleBackColor = true
+        Me.btnAdd.UseVisualStyleBackColor = True
         '
         'lblGCode
         '
@@ -2386,7 +2434,7 @@ Partial Class GrblGui
         '
         'tbGCode
         '
-        Me.tbGCode.AcceptsReturn = true
+        Me.tbGCode.AcceptsReturn = True
         resources.ApplyResources(Me.tbGCode, "tbGCode")
         Me.tbGCode.Name = "tbGCode"
         '
@@ -2405,27 +2453,27 @@ Partial Class GrblGui
         Me.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel
         resources.ApplyResources(Me.btnCancel, "btnCancel")
         Me.btnCancel.Name = "btnCancel"
-        Me.btnCancel.UseVisualStyleBackColor = true
+        Me.btnCancel.UseVisualStyleBackColor = True
         '
         'btnOK
         '
         resources.ApplyResources(Me.btnOK, "btnOK")
         Me.btnOK.Name = "btnOK"
-        Me.btnOK.UseVisualStyleBackColor = true
+        Me.btnOK.UseVisualStyleBackColor = True
         '
         'dgMacros
         '
-        Me.dgMacros.AllowUserToAddRows = false
-        Me.dgMacros.AllowUserToDeleteRows = false
-        Me.dgMacros.AllowUserToResizeColumns = false
-        Me.dgMacros.AllowUserToResizeRows = false
+        Me.dgMacros.AllowUserToAddRows = False
+        Me.dgMacros.AllowUserToDeleteRows = False
+        Me.dgMacros.AllowUserToResizeColumns = False
+        Me.dgMacros.AllowUserToResizeRows = False
         Me.dgMacros.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgMacros.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column1, Me.Column2})
         Me.dgMacros.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically
         resources.ApplyResources(Me.dgMacros, "dgMacros")
         Me.dgMacros.Name = "dgMacros"
-        Me.dgMacros.ReadOnly = true
-        Me.dgMacros.RowHeadersVisible = false
+        Me.dgMacros.ReadOnly = True
+        Me.dgMacros.RowHeadersVisible = False
         Me.dgMacros.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing
         Me.dgMacros.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         '
@@ -2433,13 +2481,13 @@ Partial Class GrblGui
         '
         resources.ApplyResources(Me.Column1, "Column1")
         Me.Column1.Name = "Column1"
-        Me.Column1.ReadOnly = true
+        Me.Column1.ReadOnly = True
         '
         'Column2
         '
         resources.ApplyResources(Me.Column2, "Column2")
         Me.Column2.Name = "Column2"
-        Me.Column2.ReadOnly = true
+        Me.Column2.ReadOnly = True
         '
         'lblStatusLabel
         '
@@ -2450,7 +2498,7 @@ Partial Class GrblGui
         '
         resources.ApplyResources(Me.btnDeleteMacro, "btnDeleteMacro")
         Me.btnDeleteMacro.Name = "btnDeleteMacro"
-        Me.btnDeleteMacro.UseVisualStyleBackColor = true
+        Me.btnDeleteMacro.UseVisualStyleBackColor = True
         '
         'ofdGcodeFile
         '
@@ -2468,54 +2516,6 @@ Partial Class GrblGui
         Me.ofdOffsets.DefaultExt = "xml"
         Me.ofdOffsets.FileName = "OpenFileDialog1"
         resources.ApplyResources(Me.ofdOffsets, "ofdOffsets")
-        '
-        'btnZMinus
-        '
-        resources.ApplyResources(Me.btnZMinus, "btnZMinus")
-        Me.btnZMinus.Interval = 100
-        Me.btnZMinus.Name = "btnZMinus"
-        Me.btnZMinus.Tag = "Z-"
-        Me.btnZMinus.UseVisualStyleBackColor = true
-        '
-        'btnZPlus
-        '
-        resources.ApplyResources(Me.btnZPlus, "btnZPlus")
-        Me.btnZPlus.Interval = 100
-        Me.btnZPlus.Name = "btnZPlus"
-        Me.btnZPlus.Tag = "Z+"
-        Me.btnZPlus.UseVisualStyleBackColor = true
-        '
-        'btnXPlus
-        '
-        resources.ApplyResources(Me.btnXPlus, "btnXPlus")
-        Me.btnXPlus.Interval = 100
-        Me.btnXPlus.Name = "btnXPlus"
-        Me.btnXPlus.Tag = "X+"
-        Me.btnXPlus.UseVisualStyleBackColor = true
-        '
-        'btnYMinus
-        '
-        resources.ApplyResources(Me.btnYMinus, "btnYMinus")
-        Me.btnYMinus.Interval = 100
-        Me.btnYMinus.Name = "btnYMinus"
-        Me.btnYMinus.Tag = "Y-"
-        Me.btnYMinus.UseVisualStyleBackColor = true
-        '
-        'btnXMinus
-        '
-        resources.ApplyResources(Me.btnXMinus, "btnXMinus")
-        Me.btnXMinus.Interval = 100
-        Me.btnXMinus.Name = "btnXMinus"
-        Me.btnXMinus.Tag = "X-"
-        Me.btnXMinus.UseVisualStyleBackColor = true
-        '
-        'btnYPlus
-        '
-        resources.ApplyResources(Me.btnYPlus, "btnYPlus")
-        Me.btnYPlus.Interval = 100
-        Me.btnYPlus.Name = "btnYPlus"
-        Me.btnYPlus.Tag = "Y+"
-        Me.btnYPlus.UseVisualStyleBackColor = true
         '
         'GrblGui
         '
@@ -2861,12 +2861,12 @@ End Sub
     Friend WithEvents btnSpindleMinus As Button
     Friend WithEvents btnSpindlePlus As Button
     Friend WithEvents Label22 As Label
-    Friend WithEvents btnRapidMinus As Button
-    Friend WithEvents btnRapidPlus As Button
+    Friend WithEvents btnRapidOverride50 As Button
+    Friend WithEvents btnRapidOverrideReset As Button
     Friend WithEvents btnFeedOverrideReset As Button
     Friend WithEvents cbFeedCoarse As CheckBox
     Friend WithEvents btnSpindleOverrideReset As Button
-    Friend WithEvents btnRapidOverrideReset As Button
+    Friend WithEvents btnRapidOverride25 As Button
     Friend WithEvents cbSpindleCoarse As CheckBox
     Friend WithEvents cbStartResume As CheckBox
     Friend WithEvents cbFeedHold As CheckBox

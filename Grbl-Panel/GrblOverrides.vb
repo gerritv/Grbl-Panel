@@ -14,7 +14,7 @@ Partial Class grblgui
         CMD_FEED_OVR_COARSE_MINUS = 146 ' 0x92
         CMD_FEED_OVR_FINE_PLUS = 147 ' 0x93
         CMD_FEED_OVR_FINE_MINUS = 148 ' 0x94
-        CMD_RAPID_OVR_RESET = 149 ' 0x95       'Restores rapid override value To 100%.
+        CMD_RAPID_OVR_FULL = 149 ' 0x95       'Restores rapid override value To 100%.
         CMD_RAPID_OVR_MEDIUM = 150 '0x96
         CMD_RAPID_OVR_LOW = 151 ' 0x97
         ' CMD_RAPID_OVR_EXTRA_LOW 0x98 ' *Not SUPPORTED*
@@ -62,7 +62,7 @@ Partial Class grblgui
     Public Sub showOverrides(ByVal data As String)
 
         ' Process Override values, Grbl 1.x only
-        If data.Contains("Ov:") Or data.Contains("T:") Then
+        If data.Contains("Ov:") Or data.Contains("A:") Then
             data = data.Remove(data.Length - 3, 3)
             Dim statusMessage = Split(data, "|")
             For Each item As String In statusMessage
@@ -73,26 +73,26 @@ Partial Class grblgui
                         tbFeedOvr.Text = ovr(0) + "%"
                         tbRapidOvr.Text = ovr(1) + "%"
                         tbSpindleOvr.Text = ovr(2) + "%"
-                        If Not data.Contains("T") Then
+                        If Not data.Contains("A") Then
                             btnSpindleOverride.BackColor = Color.Transparent
+                            btnFloodOverride.BackColor = Color.Transparent
+                            btnMistOverride.BackColor = Color.Transparent
                         End If
-                    Case "T"
+                    Case "A"
                         If portion(1).Contains("S") Then
                             btnSpindleOverride.BackColor = Color.Crimson
+                        Else
+                            btnSpindleOverride.BackColor = Color.Transparent
                         End If
                         If portion(1).Contains("F") Then
-                            If btnFloodOverride.BackColor = Color.Crimson Then
-                                btnFloodOverride.BackColor = Color.Transparent
-                            Else
-                                btnFloodOverride.BackColor = Color.Crimson
-                            End If
+                            btnFloodOverride.BackColor = Color.Crimson
+                        Else
+                            btnFloodOverride.BackColor = Color.Transparent
                         End If
                         If portion(1).Contains("M") Then
-                            If btnMistOverride.BackColor = Color.Crimson Then
-                                btnMistOverride.BackColor = Color.Transparent
-                            Else
-                                btnMistOverride.BackColor = Color.Crimson
-                            End If
+                            btnMistOverride.BackColor = Color.Crimson
+                        Else
+                            btnMistOverride.BackColor = Color.Transparent
                         End If
                 End Select
             Next
@@ -123,13 +123,13 @@ Partial Class grblgui
                 End If
         End Select
     End Sub
-    Private Sub btnRapidOverride_Click(sender As Object, e As EventArgs) Handles btnRapidPlus.Click, btnRapidMinus.Click
+    Private Sub btnRapidOverride_Click(sender As Object, e As EventArgs) Handles btnRapidOverrideReset.Click, btnRapidOverride50.Click, btnRapidOverride25.Click
         Dim btn As Button = sender
 
         Select Case DirectCast(btn.Tag, String)
-            Case "plus"
+            Case "50"
                 grblPort.sendData(Chr(overrideChars.CMD_RAPID_OVR_MEDIUM))
-            Case "minus"
+            Case "25"
                 grblPort.sendData(Chr(overrideChars.CMD_RAPID_OVR_LOW))
         End Select
     End Sub
@@ -155,10 +155,10 @@ Partial Class grblgui
     Private Sub btnFeedOverrideReset_Click(sender As Object, e As EventArgs) Handles btnFeedOverrideReset.Click, btnSpindleOverrideReset.Click, btnRapidOverrideReset.Click
         Dim btn As Button = sender
         Select Case DirectCast(btn.Tag, String)
+            Case "Rapid"
+                grblPort.sendData(Chr(overrideChars.CMD_RAPID_OVR_FULL))
             Case "Feed"
                 grblPort.sendData(Chr(overrideChars.CMD_FEED_OVR_RESET))
-            Case "Rapid"
-                grblPort.sendData(Chr(overrideChars.CMD_RAPID_OVR_RESET))
             Case "Spindle"
                 grblPort.sendData(Chr(overrideChars.CMD_SPINDLE_OVR_RESET))
         End Select
@@ -175,15 +175,11 @@ Partial Class grblgui
         Select Case DirectCast(btn.Tag, String)
             Case "SpindleOverride"
                 grblPort.sendData(Chr(overrideChars.CMD_SPINDLE_OVR_STOP))
-
-                If btnSpindleOverride.BackColor = Color.Crimson Then
-                    btnSpindleOverride.BackColor = Color.Transparent
-                End If
             Case "FloodOverride"
                 grblPort.sendData(Chr(overrideChars.CMD_TOGGLE_FLOOD))
             Case "MistOverride"
                 grblPort.sendData(Chr(overrideChars.CMD_TOGGLE_MIST))
         End Select
-        ' btn colour changes based on T:SFM response handled in showOverrides()
+        ' btn colour changes based on A:SFM response handled in showOverrides()
     End Sub
 End Class
