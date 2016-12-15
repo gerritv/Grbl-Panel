@@ -142,7 +142,7 @@ Partial Class GrblGui
                 If btnAdd.Text = Resources.GrblGui_dgMacros_DoubleClick_Update Then
                     For Each row As DataGridViewRow In dgMacros.Rows
                         If row.Cells(0).Value.ToString = tbName.Text Then
-                            row.Cells(1).Value = tbGCode.Text
+                            row.Cells(1).Value = tbGCode.Text.ToUpper()
                             bMatchFound = True
                             Exit For
                         End If
@@ -152,7 +152,7 @@ Partial Class GrblGui
                         dgMacros.Rows.Add(tbName.Text, tbGCode.Text)
                     End If
                 Else
-                    dgMacros.Rows.Add(tbName.Text, tbGCode.Text)
+                    dgMacros.Rows.Add(tbName.Text, tbGCode.Text.ToUpper)
                 End If
                 bDataChanged = True
                 btnAdd.Text = Resources.GrblGui_GrblMacroButtons_Load_Add

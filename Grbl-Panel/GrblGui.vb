@@ -18,6 +18,7 @@ Public Class GrblGui
     Public settings As GrblSettings         ' To handle Settings related ops
     Public ovrrides As GrblOverrides       ' to display overrides
     Public pins As GrblPins               ' to display Pin states
+    Public info As GrblInfo                 ' to display Grbl information
 
     Private _exitClicked As Boolean = False   ' to separate Close (x) from File/Exit
 
@@ -66,6 +67,7 @@ Public Class GrblGui
         state = New GrblState(Me)
         ovrrides = New GrblOverrides(Me)
         pins = New GrblPins(Me)
+        info = New GrblInfo(Me)
 
         rescanPorts()
         If My.Settings.Port <> "" Then

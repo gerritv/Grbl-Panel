@@ -108,8 +108,8 @@ Partial Class GrblGui
         grblPort.sendData("~")
     End Sub
 
-     Private GrblErrors As GrblErrorsSingleton = GrblErrorsSingleton.GetInstance()
-     Private _errors As Dictionary(Of String, String) = GrblErrors.GetErrorsDct()
+    Private GrblErrors As GrblErrorsSingleton = GrblErrorsSingleton.GetInstance()
+    Private _errors As Dictionary(Of String, String) = GrblErrors.GetErrorsDct()
 
     Public Sub showGrblStatus(ByVal data As String)
 
@@ -128,7 +128,7 @@ Partial Class GrblGui
         Else
             ' filter out <> , ok, $G, $$ response messages
             If data.Length > 0 And Not (data.First() = "<") And Not (data.First = "o") And Not (data.First = "$") And
-                               Not (data.First = "G") And Not (data.First = "[" And data.Contains("F"))  And Not data.StartsWith("error:") Then
+                               Not (data.First = "G") And Not (data.First = "[" And data.Contains("F")) And Not data.StartsWith("error:") Then
                 ' Show data in the Status screen (from our own thread)
                 Me.lbResponses.Items.Add(data)
                 Me.lbResponses.TopIndex = Me.lbResponses.Items.Count - 1
@@ -148,30 +148,32 @@ Partial Class GrblGui
             Else
                 pins.LimitsSeen = True      ' Show limit pins only
             End If
+            ' Set version into Settings page
+            tbGrblVersion.Text = Split(data, "[")(0)
 
             ' Something reset the Grbl device, likely a physical Reset
             ' Stop what we are doing and clear out for restart
             state.GrblConnected("Connected")   ' Reset State object
-                gcode.ResetGcode(False)
+            gcode.ResetGcode(False)
 
         End If
 
-            ' BG Modification to get errors in plain text. Looks like this is the same, independantly of Grbl version, which is why its here.
-            Dim errorCode As Integer
+        ' BG Modification to get errors in plain text. Looks like this is the same, independantly of Grbl version, which is why its here.
+        Dim errorCode As Integer
 
-            If (data.StartsWith("error:")) Then
-                If IsNumeric(data("error:".Length + 1)) Then ' If Grbl in GUI mode, then char follwing the : is number
-                    ' We are in GUI mode so expand the message
-                    errorCode = Convert.ToInt16(data.Substring(6, data.Length - 6 - 2))
-                    data = data + " -> " + _errors(errorCode)
-                    Me.lbResponses.Items.Add(data)
-                    Me.lbResponses.TopIndex = Me.lbResponses.Items.Count - 1
-                End If
+        If (data.StartsWith("error:")) Then
+            If IsNumeric(data("error:".Length + 1)) Then ' If Grbl in GUI mode, then char follwing the : is number
+                ' We are in GUI mode so expand the message
+                errorCode = Convert.ToInt16(data.Substring(6, data.Length - 6 - 2))
+                data = data + " -> " + _errors(errorCode)
+                Me.lbResponses.Items.Add(data)
+                Me.lbResponses.TopIndex = Me.lbResponses.Items.Count - 1
             End If
+        End If
 
-            ' We switch processing based on Grbl version, 1.x is quite different
+        ' We switch processing based on Grbl version, 1.x is quite different
 
-            If GrblVersion = 0 Then
+        If GrblVersion = 0 Then
             ' Split out the Q and Buffer sizes
             ' (Look for Buf:nn,RX:nnn)
             If (data.Contains("Buf:")) Then     ' Pre Grbl 1.0
@@ -262,7 +264,7 @@ Partial Class GrblGui
 
                             tbCurrentStatus.BackColor = Color.LightGreen
                             tbCurrentStatus.Text = GrblGui_showGrblStatus_HOLD
-						Case "<Alarm"
+                        Case "<Alarm"
                             Me.btnUnlock.BackColor = Color.Crimson
                             statusSetIndicators("<Alarm")       ' Messy Status messages make for messy code :(
                         Case "<Jog"

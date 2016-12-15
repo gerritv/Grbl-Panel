@@ -1,4 +1,10 @@
 This file documents changes made:
+V1.0.9.10	- 2016 Dec 15
+			- Fix send of tool offset setting, Issue #79
+			- Expand Macro editing box, Issue #80
+			- Add indicator colour when Overrides active, Issue #80
+			- Add Grbl/GrblPanel version info to Settings page, Issue #80
+			- Add Single Step to file panel, Issue #80, Issue #23
 V1.0.9.9	- 2016 Dec 12
 			- Add Laser Mode text to Settings list, Issue 71
 			- Fix revision, Issue 77

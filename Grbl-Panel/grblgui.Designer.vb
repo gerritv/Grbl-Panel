@@ -314,6 +314,12 @@ Partial Class GrblGui
         Me.sfdOffsets = New System.Windows.Forms.SaveFileDialog()
         Me.ofdOffsets = New System.Windows.Forms.OpenFileDialog()
         Me.GrblSettingsBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.gbMiscInfo = New System.Windows.Forms.GroupBox()
+        Me.tbGrblVersion = New System.Windows.Forms.TextBox()
+        Me.Label48 = New System.Windows.Forms.Label()
+        Me.tbGrblOptions = New System.Windows.Forms.TextBox()
+        Me.Label49 = New System.Windows.Forms.Label()
+        Me.btnFileStep = New System.Windows.Forms.Button()
         Me.MenuStrip1.SuspendLayout()
         Me.TabControl1.SuspendLayout()
         Me.tabPgInterface.SuspendLayout()
@@ -353,6 +359,7 @@ Partial Class GrblGui
         Me.gbEditor.SuspendLayout()
         CType(Me.dgMacros, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.GrblSettingsBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.gbMiscInfo.SuspendLayout()
         Me.SuspendLayout()
         '
         'MenuStrip1
@@ -1119,6 +1126,7 @@ Partial Class GrblGui
         'gbGcode
         '
         resources.ApplyResources(Me.gbGcode, "gbGcode")
+        Me.gbGcode.Controls.Add(Me.btnFileStep)
         Me.gbGcode.Controls.Add(Me.cbMonitorEnable)
         Me.gbGcode.Controls.Add(Me.lblElapsedTime)
         Me.gbGcode.Controls.Add(Me.Label23)
@@ -1871,6 +1879,7 @@ Partial Class GrblGui
         '
         'tabPgSettings
         '
+        Me.tabPgSettings.Controls.Add(Me.gbMiscInfo)
         Me.tabPgSettings.Controls.Add(Me.gbGrblSettings)
         Me.tabPgSettings.Controls.Add(Me.gbSettingsOffsets)
         Me.tabPgSettings.Controls.Add(Me.Label42)
@@ -2517,6 +2526,44 @@ Partial Class GrblGui
         Me.ofdOffsets.FileName = "OpenFileDialog1"
         resources.ApplyResources(Me.ofdOffsets, "ofdOffsets")
         '
+        'gbMiscInfo
+        '
+        Me.gbMiscInfo.Controls.Add(Me.Label49)
+        Me.gbMiscInfo.Controls.Add(Me.tbGrblOptions)
+        Me.gbMiscInfo.Controls.Add(Me.Label48)
+        Me.gbMiscInfo.Controls.Add(Me.tbGrblVersion)
+        resources.ApplyResources(Me.gbMiscInfo, "gbMiscInfo")
+        Me.gbMiscInfo.Name = "gbMiscInfo"
+        Me.gbMiscInfo.TabStop = False
+        '
+        'tbGrblVersion
+        '
+        resources.ApplyResources(Me.tbGrblVersion, "tbGrblVersion")
+        Me.tbGrblVersion.Name = "tbGrblVersion"
+        '
+        'Label48
+        '
+        resources.ApplyResources(Me.Label48, "Label48")
+        Me.Label48.Name = "Label48"
+        '
+        'tbGrblOptions
+        '
+        resources.ApplyResources(Me.tbGrblOptions, "tbGrblOptions")
+        Me.tbGrblOptions.Name = "tbGrblOptions"
+        '
+        'Label49
+        '
+        resources.ApplyResources(Me.Label49, "Label49")
+        Me.Label49.Name = "Label49"
+        '
+        'btnFileStep
+        '
+        resources.ApplyResources(Me.btnFileStep, "btnFileStep")
+        Me.btnFileStep.Name = "btnFileStep"
+        Me.btnFileStep.Tag = "Step"
+        Me.ToolTip1.SetToolTip(Me.btnFileStep, resources.GetString("btnFileStep.ToolTip"))
+        Me.btnFileStep.UseVisualStyleBackColor = True
+        '
         'GrblGui
         '
         resources.ApplyResources(Me, "$this")
@@ -2524,77 +2571,79 @@ Partial Class GrblGui
         Me.Controls.Add(Me.TabControl1)
         Me.Controls.Add(Me.MenuStrip1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
-        Me.KeyPreview = true
+        Me.KeyPreview = True
         Me.MainMenuStrip = Me.MenuStrip1
-        Me.MinimizeBox = false
+        Me.MinimizeBox = False
         Me.Name = "GrblGui"
         Me.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide
-        Me.MenuStrip1.ResumeLayout(false)
-        Me.MenuStrip1.PerformLayout
-        Me.TabControl1.ResumeLayout(false)
-        Me.tabPgInterface.ResumeLayout(false)
-        Me.gbOverrides.ResumeLayout(false)
-        Me.gbOverrides.PerformLayout
-        Me.gbState.ResumeLayout(false)
-        Me.gbPinStatus.ResumeLayout(false)
-        Me.gbPinStatus.PerformLayout
-        Me.Panel2.ResumeLayout(false)
-        Me.Panel2.PerformLayout
-        Me.Panel1.ResumeLayout(false)
-        Me.Panel1.PerformLayout
-        Me.gbControl.ResumeLayout(false)
-        Me.gbControl.PerformLayout
-        Me.gbMDI.ResumeLayout(false)
-        Me.gbMDI.PerformLayout
-        Me.gbJogging.ResumeLayout(false)
-        Me.gbJogging.PerformLayout
-        Me.gbFeedRate.ResumeLayout(false)
-        Me.gbFeedRate.PerformLayout
-        Me.gbDistance.ResumeLayout(false)
-        Me.gbDistance.PerformLayout
-        Me.gbStatus.ResumeLayout(false)
-        Me.gbStatus.PerformLayout
-        Me.gbGcode.ResumeLayout(false)
-        Me.gbGcode.PerformLayout
-        CType(Me.dgvGcode,System.ComponentModel.ISupportInitialize).EndInit
-        Me.gbGrbl.ResumeLayout(false)
-        Me.tcConnection.ResumeLayout(false)
-        Me.tbGrblCOM.ResumeLayout(false)
-        Me.tbGrblIP.ResumeLayout(false)
-        Me.tbGrblIP.PerformLayout
-        Me.gbPosition.ResumeLayout(false)
-        Me.tabCtlPosition.ResumeLayout(false)
-        Me.tpWork.ResumeLayout(false)
-        Me.tpWork.PerformLayout
-        Me.Panel5.ResumeLayout(false)
-        Me.Panel5.PerformLayout
-        Me.Panel4.ResumeLayout(false)
-        Me.Panel4.PerformLayout
-        Me.Panel3.ResumeLayout(false)
-        Me.Panel3.PerformLayout
-        Me.GroupBox1.ResumeLayout(false)
-        Me.GroupBox1.PerformLayout
-        Me.tpOffsets.ResumeLayout(false)
-        Me.tpOffsets.PerformLayout
-        Me.tabPgSettings.ResumeLayout(false)
-        Me.tabPgSettings.PerformLayout
-        Me.gbGrblSettings.ResumeLayout(false)
-        Me.gbGrblSettings.PerformLayout
-        CType(Me.dgGrblSettings,System.ComponentModel.ISupportInitialize).EndInit
-        Me.gbSettingsOffsets.ResumeLayout(false)
-        Me.gbSettingsOffsets.PerformLayout
-        Me.gbSettingsMisc.ResumeLayout(false)
-        Me.gbSettingsMisc.PerformLayout
-        Me.gbSettingsPosition.ResumeLayout(false)
-        Me.gbSettingsPosition.PerformLayout
-        Me.gbSettingsJogging.ResumeLayout(false)
-        Me.gbSettingsJogging.PerformLayout
-        Me.TabPage1.ResumeLayout(false)
-        Me.gbEditor.ResumeLayout(false)
-        Me.gbEditor.PerformLayout
-        CType(Me.dgMacros,System.ComponentModel.ISupportInitialize).EndInit
-        CType(Me.GrblSettingsBindingSource,System.ComponentModel.ISupportInitialize).EndInit
-        Me.ResumeLayout(false)
+        Me.MenuStrip1.ResumeLayout(False)
+        Me.MenuStrip1.PerformLayout()
+        Me.TabControl1.ResumeLayout(False)
+        Me.tabPgInterface.ResumeLayout(False)
+        Me.gbOverrides.ResumeLayout(False)
+        Me.gbOverrides.PerformLayout()
+        Me.gbState.ResumeLayout(False)
+        Me.gbPinStatus.ResumeLayout(False)
+        Me.gbPinStatus.PerformLayout()
+        Me.Panel2.ResumeLayout(False)
+        Me.Panel2.PerformLayout()
+        Me.Panel1.ResumeLayout(False)
+        Me.Panel1.PerformLayout()
+        Me.gbControl.ResumeLayout(False)
+        Me.gbControl.PerformLayout()
+        Me.gbMDI.ResumeLayout(False)
+        Me.gbMDI.PerformLayout()
+        Me.gbJogging.ResumeLayout(False)
+        Me.gbJogging.PerformLayout()
+        Me.gbFeedRate.ResumeLayout(False)
+        Me.gbFeedRate.PerformLayout()
+        Me.gbDistance.ResumeLayout(False)
+        Me.gbDistance.PerformLayout()
+        Me.gbStatus.ResumeLayout(False)
+        Me.gbStatus.PerformLayout()
+        Me.gbGcode.ResumeLayout(False)
+        Me.gbGcode.PerformLayout()
+        CType(Me.dgvGcode, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.gbGrbl.ResumeLayout(False)
+        Me.tcConnection.ResumeLayout(False)
+        Me.tbGrblCOM.ResumeLayout(False)
+        Me.tbGrblIP.ResumeLayout(False)
+        Me.tbGrblIP.PerformLayout()
+        Me.gbPosition.ResumeLayout(False)
+        Me.tabCtlPosition.ResumeLayout(False)
+        Me.tpWork.ResumeLayout(False)
+        Me.tpWork.PerformLayout()
+        Me.Panel5.ResumeLayout(False)
+        Me.Panel5.PerformLayout()
+        Me.Panel4.ResumeLayout(False)
+        Me.Panel4.PerformLayout()
+        Me.Panel3.ResumeLayout(False)
+        Me.Panel3.PerformLayout()
+        Me.GroupBox1.ResumeLayout(False)
+        Me.GroupBox1.PerformLayout()
+        Me.tpOffsets.ResumeLayout(False)
+        Me.tpOffsets.PerformLayout()
+        Me.tabPgSettings.ResumeLayout(False)
+        Me.tabPgSettings.PerformLayout()
+        Me.gbGrblSettings.ResumeLayout(False)
+        Me.gbGrblSettings.PerformLayout()
+        CType(Me.dgGrblSettings, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.gbSettingsOffsets.ResumeLayout(False)
+        Me.gbSettingsOffsets.PerformLayout()
+        Me.gbSettingsMisc.ResumeLayout(False)
+        Me.gbSettingsMisc.PerformLayout()
+        Me.gbSettingsPosition.ResumeLayout(False)
+        Me.gbSettingsPosition.PerformLayout()
+        Me.gbSettingsJogging.ResumeLayout(False)
+        Me.gbSettingsJogging.PerformLayout()
+        Me.TabPage1.ResumeLayout(False)
+        Me.gbEditor.ResumeLayout(False)
+        Me.gbEditor.PerformLayout()
+        CType(Me.dgMacros, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.GrblSettingsBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.gbMiscInfo.ResumeLayout(False)
+        Me.gbMiscInfo.PerformLayout()
+        Me.ResumeLayout(False)
         Me.PerformLayout
 
 End Sub
@@ -2888,4 +2937,10 @@ End Sub
     Friend WithEvents btnMistOverride As Button
     Friend WithEvents btnFloodOverride As Button
     Friend WithEvents btnSpindleOverride As Button
+    Friend WithEvents gbMiscInfo As GroupBox
+    Friend WithEvents Label48 As Label
+    Friend WithEvents tbGrblVersion As TextBox
+    Friend WithEvents Label49 As Label
+    Friend WithEvents tbGrblOptions As TextBox
+    Friend WithEvents btnFileStep As Button
 End Class

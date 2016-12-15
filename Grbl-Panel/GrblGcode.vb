@@ -14,6 +14,7 @@ Partial Class GrblGui
         Private _gui As GrblGui
         Private _wtgForAck As Boolean = False         '
         Private _runMode As Boolean = True            '
+        Private _stepMode As Boolean = False              ' for single stepping gcode
         Private _sendAnotherLine As Boolean = False   '
         Private _lineCount As Integer = 0               ' No of lines left to send
         Private _linesDone As Integer = 0
@@ -139,7 +140,18 @@ Partial Class GrblGui
             ' Resume sending of file
             _sendAnotherLine = True
             _runMode = True
+            _stepMode = False
             gcodeview.fileMode = True
+            _gui.processLineEvent("")              ' Prime the pump again
+
+        End Sub
+
+        Public Sub sendGCodeFileStep()
+            ' Single Step Line from file
+            _sendAnotherLine = True
+            _runMode = False
+            _stepMode = True
+            _gui.gcodeview.fileMode = True
             _gui.processLineEvent("")              ' Prime the pump again
 
         End Sub
@@ -235,6 +247,14 @@ Partial Class GrblGui
                 _wtgForAck = value
             End Set
         End Property
+        Property stepMode() As Boolean
+            Get
+                Return _stepMode
+            End Get
+            Set(value As Boolean)
+                _stepMode = value
+            End Set
+        End Property
         Property sendAnotherLine() As Boolean
             Get
                 Return _sendAnotherLine
@@ -304,50 +324,50 @@ Partial Class GrblGui
                     End If
                 End If
             End If
-            ' Do we have another line to send?
-            If gcode.runMode = True Then                    ' if not paused or stopped
-                If gcode.sendAnotherLine Then
-                    gcode.sendAnotherLine = False
-                    ' if count > 0
-                    If gcode.lineCount > 0 Then
-                        Dim line As String
-                        ' Read another line
-                        line = gcodeview.readGcode(gcode.lineCount, gcode.linesDone)
-                        If Not line.StartsWith("EOF") Then  ' We never hit this but is here just in case the file gets truncated
-                            ' count - 1
-                            gcode.lineCount -= 1
-                            ' show as sent
-                            gcodeview.UpdateGcodeSent(gcode.linesDone)                  ' Mark line as sent
-                            gcode.linesDone += 1
-                            lblCurrentLine.Text = gcode.linesDone.ToString              ' Issue #60
-                            state.ProcessGCode(line)
-                            ' Set Message if it starts with (
-                            If line.StartsWith("(") Then
-                                Dim templine As String = line
-                                templine = templine.Remove(0, 1)
-                                templine = templine.Remove(templine.Length - 1, 1)
-                                tbGCodeMessage.Text = templine
-                            End If
-                            If line.StartsWith("m30") Or line.StartsWith("M30") Then
-                                ' Set M30 flag to rewind on 'ok'
-                                gcode.m30Flag = True
-                            End If
-                            ' Remove all whitespace
-                            line = line.Replace(" ", "")
-                            ' set wtg for Ack
-                            gcode.wtgForAck = True
-                            ' Ship it Dano!
-                            grblPort.sendData(line)
+        ' Do we have another line to send?
+        If gcode.runMode = True Or gcode.stepMode = True Then                    ' if not paused or stopped
+            If gcode.sendAnotherLine Then
+                gcode.sendAnotherLine = False
+                ' if count > 0
+                If gcode.lineCount > 0 Then
+                    Dim line As String
+                    ' Read another line
+                    line = gcodeview.readGcode(gcode.lineCount, gcode.linesDone)
+                    If Not line.StartsWith("EOF") Then  ' We never hit this but is here just in case the file gets truncated
+                        ' count - 1
+                        gcode.lineCount -= 1
+                        ' show as sent
+                        gcodeview.UpdateGcodeSent(gcode.linesDone)                  ' Mark line as sent
+                        gcode.linesDone += 1
+                        lblCurrentLine.Text = gcode.linesDone.ToString              ' Issue #60
+                        state.ProcessGCode(line)
+                        ' Set Message if it starts with (
+                        If line.StartsWith("(") Then
+                            Dim templine As String = line
+                            templine = templine.Remove(0, 1)
+                            templine = templine.Remove(templine.Length - 1, 1)
+                            tbGCodeMessage.Text = templine
                         End If
-                    Else
-                        ' We reached the EOF aka linecount=0, yippee
-                        gcode.sendGCodeFileStop()
+                        If line.StartsWith("m30") Or line.StartsWith("M30") Then
+                            ' Set M30 flag to rewind on 'ok'
+                            gcode.m30Flag = True
+                        End If
+                        ' Remove all whitespace
+                        line = line.Replace(" ", "")
+                        ' set wtg for Ack
+                        gcode.wtgForAck = True
+                        ' Ship it Dano!
+                        grblPort.sendData(line)
                     End If
+                Else
+                    ' We reached the EOF aka linecount=0, yippee
+                    gcode.sendGCodeFileStop()
                 End If
             End If
-            ' Check for status responses that we need to handle here
-            ' Extract status
-            Dim status = Split(data, ",")
+        End If
+        ' Check for status responses that we need to handle here
+        ' Extract status
+        Dim status = Split(data, ",")
             If status(0) = "<Alarm" Or status(0).StartsWith("ALARM") Then
                 ' Major problem so cancel the file
                 ' GrblStatus has set the Alarm indicator etc
@@ -368,7 +388,7 @@ Partial Class GrblGui
     End Sub
 
     Private Sub btnFileGroup_Click(sender As Object, e As EventArgs) Handles btnFileSend.Click, btnFileSelect.Click, btnFilePause.Click, btnFileStop.Click,
-                                    btnFileReload.Click
+                                    btnFileReload.Click, btnFileStep.Click
         ' This event handler deals with the gcode file related buttons
         ' Implements a simple state machine to keep user from clicking the wrong buttons
         ' Uses button.tag instead of .text so the text doesn't mess up the images on the buttons
@@ -391,6 +411,7 @@ Partial Class GrblGui
 
                     btnFileSelect.Enabled = True    ' Allow changing your mind about the file
                     btnFileSend.Enabled = True
+                    btnFileStep.Enabled = True
                     btnFilePause.Enabled = False
                     btnFileStop.Enabled = False
                     btnFileReload.Enabled = False
@@ -404,6 +425,15 @@ Partial Class GrblGui
 
                 btnFileSelect.Enabled = False
                 btnFileSend.Enabled = False
+                btnFilePause.Enabled = True
+                btnFileStop.Enabled = True
+                btnFileReload.Enabled = False
+
+            Case "Step"
+                gcode.sendGCodeFileStep()
+                btnFileSend.Tag = "Resume"
+                btnFileSend.Enabled = True
+                btnFileSelect.Enabled = False
                 btnFilePause.Enabled = True
                 btnFileStop.Enabled = True
                 btnFileReload.Enabled = False

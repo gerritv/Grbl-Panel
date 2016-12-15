@@ -71,8 +71,23 @@ Partial Class grblgui
                     Case "Ov"
                         Dim ovr = Split(portion(1), ",")
                         tbFeedOvr.Text = ovr(0) + "%"
+                        If ovr(0) = "100" Then
+                            tbFeedOvr.BackColor = Color.White
+                        Else
+                            tbFeedOvr.BackColor = Color.Coral
+                        End If
                         tbRapidOvr.Text = ovr(1) + "%"
+                        If ovr(1) = "100" Then
+                            tbRapidOvr.BackColor = Color.White
+                        Else
+                            tbRapidOvr.BackColor = Color.Coral
+                        End If
                         tbSpindleOvr.Text = ovr(2) + "%"
+                        If ovr(2) = "100" Then
+                            tbSpindleOvr.BackColor = Color.White
+                        Else
+                            tbSpindleOvr.BackColor = Color.Coral
+                        End If
                         If Not data.Contains("A") Then
                             btnSpindleOverride.BackColor = Color.Transparent
                             btnFloodOverride.BackColor = Color.Transparent
@@ -80,17 +95,17 @@ Partial Class grblgui
                         End If
                     Case "A"
                         If portion(1).Contains("S") Then
-                            btnSpindleOverride.BackColor = Color.Crimson
+                            btnSpindleOverride.BackColor = Color.Coral
                         Else
                             btnSpindleOverride.BackColor = Color.Transparent
                         End If
                         If portion(1).Contains("F") Then
-                            btnFloodOverride.BackColor = Color.Crimson
+                            btnFloodOverride.BackColor = Color.Coral
                         Else
                             btnFloodOverride.BackColor = Color.Transparent
                         End If
                         If portion(1).Contains("M") Then
-                            btnMistOverride.BackColor = Color.Crimson
+                            btnMistOverride.BackColor = Color.Coral
                         Else
                             btnMistOverride.BackColor = Color.Transparent
                         End If

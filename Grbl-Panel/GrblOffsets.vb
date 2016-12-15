@@ -204,6 +204,9 @@ Partial Class GrblGui
             End Select
             gcode.sendGCodeLine("G10 L2 " + index + " " + axis + value)
         End If
+        If tag.Contains("G43") Then
+            gcode.sendGCodeLine("G43.1" + axis + value)
+        End If
 
     End Sub
     ''' <summary>

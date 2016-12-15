@@ -20,7 +20,7 @@
             If yes Then
                 _gui.gbState.Enabled = True
             Else
-                _gui.gbStatus.Enabled = False
+                _gui.gbState.Enabled = False
             End If
         End Sub
 

@@ -143,6 +143,9 @@
     <Compile Include="GrblGcodeView.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="GrblInfo.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="GrblMacroButtons.vb">
       <SubType>Form</SubType>
     </Compile>
