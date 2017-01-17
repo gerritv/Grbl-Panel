@@ -95,6 +95,7 @@ Partial Class GrblGui
 
     Private Sub btnReset_Click(sender As Object, e As EventArgs) Handles btnReset.Click
         ' Send Reset command to Grbl
+        gcode.ResetGcode(False)
         grblPort.sendData(Chr(24))      ' ctl-X
     End Sub
 
@@ -293,14 +294,17 @@ Partial Class GrblGui
                             ' TODO Figure out where to display Grbl's actual feedrate, if at all
                     End Select
                 Next
-
             End If
-        End If
+            ' A bit messy but it doesn't really fit anywhere else
+            If data.StartsWith("ALARM") Then
+                statusSetIndicators(data.Substring(0, 6))
+            End If
 
-        ' TODO Move to Settings handler
-        If data(0) = "$" And IsNumeric(data(1)) Then
-            ' we have a Grbl Settings response
-            settings.FillSettings(data)
+            ' TODO Move to Settings handler
+            If data(0) = "$" And IsNumeric(data(1)) Then
+                ' we have a Grbl Settings response
+                settings.FillSettings(data)
+            End If
         End If
 
 

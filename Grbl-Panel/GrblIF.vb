@@ -83,6 +83,8 @@ Public Class GrblIF
                     _port.Open()
                 Catch ex As System.IO.IOException
                     Return False
+                Catch ex As System.UnauthorizedAccessException
+                    Return False
                 End Try
                 ' Reset the board
                 _port.DtrEnable = True

@@ -99,12 +99,6 @@ Partial Class GrblGui
         Me.btnSend = New System.Windows.Forms.Button()
         Me.tbSendData = New System.Windows.Forms.TextBox()
         Me.gbJogging = New System.Windows.Forms.GroupBox()
-        Me.btnZMinus = New RepeatButton.RepeatButton()
-        Me.btnZPlus = New RepeatButton.RepeatButton()
-        Me.btnXPlus = New RepeatButton.RepeatButton()
-        Me.btnYMinus = New RepeatButton.RepeatButton()
-        Me.btnXMinus = New RepeatButton.RepeatButton()
-        Me.btnYPlus = New RepeatButton.RepeatButton()
         Me.gbFeedRate = New System.Windows.Forms.GroupBox()
         Me.rbFeedRate1 = New System.Windows.Forms.RadioButton()
         Me.rbFeedRate2 = New System.Windows.Forms.RadioButton()
@@ -125,6 +119,7 @@ Partial Class GrblGui
         Me.cbVerbose = New System.Windows.Forms.CheckBox()
         Me.lbResponses = New System.Windows.Forms.ListBox()
         Me.gbGcode = New System.Windows.Forms.GroupBox()
+        Me.btnFileStep = New System.Windows.Forms.Button()
         Me.cbMonitorEnable = New System.Windows.Forms.CheckBox()
         Me.lblElapsedTime = New System.Windows.Forms.Label()
         Me.Label23 = New System.Windows.Forms.Label()
@@ -224,6 +219,11 @@ Partial Class GrblGui
         Me.tbOffsetsG58X = New System.Windows.Forms.TextBox()
         Me.Label21 = New System.Windows.Forms.Label()
         Me.tabPgSettings = New System.Windows.Forms.TabPage()
+        Me.gbMiscInfo = New System.Windows.Forms.GroupBox()
+        Me.Label49 = New System.Windows.Forms.Label()
+        Me.tbGrblOptions = New System.Windows.Forms.TextBox()
+        Me.Label48 = New System.Windows.Forms.Label()
+        Me.tbGrblVersion = New System.Windows.Forms.TextBox()
         Me.gbGrblSettings = New System.Windows.Forms.GroupBox()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.tbSettingsGrblLastParam = New System.Windows.Forms.TextBox()
@@ -314,12 +314,12 @@ Partial Class GrblGui
         Me.sfdOffsets = New System.Windows.Forms.SaveFileDialog()
         Me.ofdOffsets = New System.Windows.Forms.OpenFileDialog()
         Me.GrblSettingsBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.gbMiscInfo = New System.Windows.Forms.GroupBox()
-        Me.tbGrblVersion = New System.Windows.Forms.TextBox()
-        Me.Label48 = New System.Windows.Forms.Label()
-        Me.tbGrblOptions = New System.Windows.Forms.TextBox()
-        Me.Label49 = New System.Windows.Forms.Label()
-        Me.btnFileStep = New System.Windows.Forms.Button()
+        Me.btnZMinus = New RepeatButton.RepeatButton()
+        Me.btnZPlus = New RepeatButton.RepeatButton()
+        Me.btnXPlus = New RepeatButton.RepeatButton()
+        Me.btnYMinus = New RepeatButton.RepeatButton()
+        Me.btnXMinus = New RepeatButton.RepeatButton()
+        Me.btnYPlus = New RepeatButton.RepeatButton()
         Me.MenuStrip1.SuspendLayout()
         Me.TabControl1.SuspendLayout()
         Me.tabPgInterface.SuspendLayout()
@@ -349,6 +349,7 @@ Partial Class GrblGui
         Me.GroupBox1.SuspendLayout()
         Me.tpOffsets.SuspendLayout()
         Me.tabPgSettings.SuspendLayout()
+        Me.gbMiscInfo.SuspendLayout()
         Me.gbGrblSettings.SuspendLayout()
         CType(Me.dgGrblSettings, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.gbSettingsOffsets.SuspendLayout()
@@ -359,7 +360,6 @@ Partial Class GrblGui
         Me.gbEditor.SuspendLayout()
         CType(Me.dgMacros, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.GrblSettingsBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.gbMiscInfo.SuspendLayout()
         Me.SuspendLayout()
         '
         'MenuStrip1
@@ -927,54 +927,6 @@ Partial Class GrblGui
         Me.gbJogging.Name = "gbJogging"
         Me.gbJogging.TabStop = False
         '
-        'btnZMinus
-        '
-        resources.ApplyResources(Me.btnZMinus, "btnZMinus")
-        Me.btnZMinus.Interval = 100
-        Me.btnZMinus.Name = "btnZMinus"
-        Me.btnZMinus.Tag = "Z-"
-        Me.btnZMinus.UseVisualStyleBackColor = True
-        '
-        'btnZPlus
-        '
-        resources.ApplyResources(Me.btnZPlus, "btnZPlus")
-        Me.btnZPlus.Interval = 100
-        Me.btnZPlus.Name = "btnZPlus"
-        Me.btnZPlus.Tag = "Z+"
-        Me.btnZPlus.UseVisualStyleBackColor = True
-        '
-        'btnXPlus
-        '
-        resources.ApplyResources(Me.btnXPlus, "btnXPlus")
-        Me.btnXPlus.Interval = 100
-        Me.btnXPlus.Name = "btnXPlus"
-        Me.btnXPlus.Tag = "X+"
-        Me.btnXPlus.UseVisualStyleBackColor = True
-        '
-        'btnYMinus
-        '
-        resources.ApplyResources(Me.btnYMinus, "btnYMinus")
-        Me.btnYMinus.Interval = 100
-        Me.btnYMinus.Name = "btnYMinus"
-        Me.btnYMinus.Tag = "Y-"
-        Me.btnYMinus.UseVisualStyleBackColor = True
-        '
-        'btnXMinus
-        '
-        resources.ApplyResources(Me.btnXMinus, "btnXMinus")
-        Me.btnXMinus.Interval = 100
-        Me.btnXMinus.Name = "btnXMinus"
-        Me.btnXMinus.Tag = "X-"
-        Me.btnXMinus.UseVisualStyleBackColor = True
-        '
-        'btnYPlus
-        '
-        resources.ApplyResources(Me.btnYPlus, "btnYPlus")
-        Me.btnYPlus.Interval = 100
-        Me.btnYPlus.Name = "btnYPlus"
-        Me.btnYPlus.Tag = "Y+"
-        Me.btnYPlus.UseVisualStyleBackColor = True
-        '
         'gbFeedRate
         '
         Me.gbFeedRate.Controls.Add(Me.rbFeedRate1)
@@ -1144,6 +1096,14 @@ Partial Class GrblGui
         Me.gbGcode.Controls.Add(Me.btnFileStop)
         Me.gbGcode.Name = "gbGcode"
         Me.gbGcode.TabStop = False
+        '
+        'btnFileStep
+        '
+        resources.ApplyResources(Me.btnFileStep, "btnFileStep")
+        Me.btnFileStep.Name = "btnFileStep"
+        Me.btnFileStep.Tag = "Step"
+        Me.ToolTip1.SetToolTip(Me.btnFileStep, resources.GetString("btnFileStep.ToolTip"))
+        Me.btnFileStep.UseVisualStyleBackColor = True
         '
         'cbMonitorEnable
         '
@@ -1890,6 +1850,36 @@ Partial Class GrblGui
         Me.tabPgSettings.Name = "tabPgSettings"
         Me.tabPgSettings.UseVisualStyleBackColor = True
         '
+        'gbMiscInfo
+        '
+        Me.gbMiscInfo.Controls.Add(Me.Label49)
+        Me.gbMiscInfo.Controls.Add(Me.tbGrblOptions)
+        Me.gbMiscInfo.Controls.Add(Me.Label48)
+        Me.gbMiscInfo.Controls.Add(Me.tbGrblVersion)
+        resources.ApplyResources(Me.gbMiscInfo, "gbMiscInfo")
+        Me.gbMiscInfo.Name = "gbMiscInfo"
+        Me.gbMiscInfo.TabStop = False
+        '
+        'Label49
+        '
+        resources.ApplyResources(Me.Label49, "Label49")
+        Me.Label49.Name = "Label49"
+        '
+        'tbGrblOptions
+        '
+        resources.ApplyResources(Me.tbGrblOptions, "tbGrblOptions")
+        Me.tbGrblOptions.Name = "tbGrblOptions"
+        '
+        'Label48
+        '
+        resources.ApplyResources(Me.Label48, "Label48")
+        Me.Label48.Name = "Label48"
+        '
+        'tbGrblVersion
+        '
+        resources.ApplyResources(Me.tbGrblVersion, "tbGrblVersion")
+        Me.tbGrblVersion.Name = "tbGrblVersion"
+        '
         'gbGrblSettings
         '
         Me.gbGrblSettings.Controls.Add(Me.Label4)
@@ -2526,43 +2516,53 @@ Partial Class GrblGui
         Me.ofdOffsets.FileName = "OpenFileDialog1"
         resources.ApplyResources(Me.ofdOffsets, "ofdOffsets")
         '
-        'gbMiscInfo
+        'btnZMinus
         '
-        Me.gbMiscInfo.Controls.Add(Me.Label49)
-        Me.gbMiscInfo.Controls.Add(Me.tbGrblOptions)
-        Me.gbMiscInfo.Controls.Add(Me.Label48)
-        Me.gbMiscInfo.Controls.Add(Me.tbGrblVersion)
-        resources.ApplyResources(Me.gbMiscInfo, "gbMiscInfo")
-        Me.gbMiscInfo.Name = "gbMiscInfo"
-        Me.gbMiscInfo.TabStop = False
+        resources.ApplyResources(Me.btnZMinus, "btnZMinus")
+        Me.btnZMinus.Interval = 100
+        Me.btnZMinus.Name = "btnZMinus"
+        Me.btnZMinus.Tag = "Z-"
+        Me.btnZMinus.UseVisualStyleBackColor = True
         '
-        'tbGrblVersion
+        'btnZPlus
         '
-        resources.ApplyResources(Me.tbGrblVersion, "tbGrblVersion")
-        Me.tbGrblVersion.Name = "tbGrblVersion"
+        resources.ApplyResources(Me.btnZPlus, "btnZPlus")
+        Me.btnZPlus.Interval = 100
+        Me.btnZPlus.Name = "btnZPlus"
+        Me.btnZPlus.Tag = "Z+"
+        Me.btnZPlus.UseVisualStyleBackColor = True
         '
-        'Label48
+        'btnXPlus
         '
-        resources.ApplyResources(Me.Label48, "Label48")
-        Me.Label48.Name = "Label48"
+        resources.ApplyResources(Me.btnXPlus, "btnXPlus")
+        Me.btnXPlus.Interval = 100
+        Me.btnXPlus.Name = "btnXPlus"
+        Me.btnXPlus.Tag = "X+"
+        Me.btnXPlus.UseVisualStyleBackColor = True
         '
-        'tbGrblOptions
+        'btnYMinus
         '
-        resources.ApplyResources(Me.tbGrblOptions, "tbGrblOptions")
-        Me.tbGrblOptions.Name = "tbGrblOptions"
+        resources.ApplyResources(Me.btnYMinus, "btnYMinus")
+        Me.btnYMinus.Interval = 100
+        Me.btnYMinus.Name = "btnYMinus"
+        Me.btnYMinus.Tag = "Y-"
+        Me.btnYMinus.UseVisualStyleBackColor = True
         '
-        'Label49
+        'btnXMinus
         '
-        resources.ApplyResources(Me.Label49, "Label49")
-        Me.Label49.Name = "Label49"
+        resources.ApplyResources(Me.btnXMinus, "btnXMinus")
+        Me.btnXMinus.Interval = 100
+        Me.btnXMinus.Name = "btnXMinus"
+        Me.btnXMinus.Tag = "X-"
+        Me.btnXMinus.UseVisualStyleBackColor = True
         '
-        'btnFileStep
+        'btnYPlus
         '
-        resources.ApplyResources(Me.btnFileStep, "btnFileStep")
-        Me.btnFileStep.Name = "btnFileStep"
-        Me.btnFileStep.Tag = "Step"
-        Me.ToolTip1.SetToolTip(Me.btnFileStep, resources.GetString("btnFileStep.ToolTip"))
-        Me.btnFileStep.UseVisualStyleBackColor = True
+        resources.ApplyResources(Me.btnYPlus, "btnYPlus")
+        Me.btnYPlus.Interval = 100
+        Me.btnYPlus.Name = "btnYPlus"
+        Me.btnYPlus.Tag = "Y+"
+        Me.btnYPlus.UseVisualStyleBackColor = True
         '
         'GrblGui
         '
@@ -2570,10 +2570,8 @@ Partial Class GrblGui
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.Controls.Add(Me.TabControl1)
         Me.Controls.Add(Me.MenuStrip1)
-        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.KeyPreview = True
         Me.MainMenuStrip = Me.MenuStrip1
-        Me.MinimizeBox = False
         Me.Name = "GrblGui"
         Me.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide
         Me.MenuStrip1.ResumeLayout(False)
@@ -2625,6 +2623,8 @@ Partial Class GrblGui
         Me.tpOffsets.PerformLayout()
         Me.tabPgSettings.ResumeLayout(False)
         Me.tabPgSettings.PerformLayout()
+        Me.gbMiscInfo.ResumeLayout(False)
+        Me.gbMiscInfo.PerformLayout()
         Me.gbGrblSettings.ResumeLayout(False)
         Me.gbGrblSettings.PerformLayout()
         CType(Me.dgGrblSettings, System.ComponentModel.ISupportInitialize).EndInit()
@@ -2641,8 +2641,6 @@ Partial Class GrblGui
         Me.gbEditor.PerformLayout()
         CType(Me.dgMacros, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.GrblSettingsBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.gbMiscInfo.ResumeLayout(False)
-        Me.gbMiscInfo.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout
 

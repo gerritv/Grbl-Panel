@@ -142,6 +142,7 @@ Partial Class GrblGui
         If GrblVersion = 1 Then
             Return "$J=G91" + whichUnits() + axis + whichDistance() + " F" + whichFeedRate()
         End If
+        Return ""
     End Function
     ''' <summary>
     ''' Return value of current Distance Increment

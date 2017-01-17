@@ -1,4 +1,10 @@
 This file documents changes made:
+V1.0.9.11	- 2017 Jan 15
+			- Handle exception for port in use, Issue #73
+			- Fix Reset behaviour to prevent sending more data, Issue #83
+			- Add Hold, Reset and Unlock keyboard shortcuts, Issue #84
+			- Fix handling of Alarm report, Issue #85
+			- Re-enable Minimize button as well as Resize handles, Issue #86
 V1.0.9.10	- 2016 Dec 15
 			- Fix send of tool offset setting, Issue #79
 			- Expand Macro editing box, Issue #80

@@ -48,7 +48,7 @@ Partial Class GrblGui
         Public Function loadGCodeFile(ByVal file As String) As Boolean
             Dim data As String
             ' Start from clean slate
-            resetGcode(True)
+            ResetGcode(True)
             ' Load the file, count lines
             _inputfh = My.Computer.FileSystem.OpenTextFileReader(file)
             ' count the lines while loading up
@@ -151,7 +151,7 @@ Partial Class GrblGui
             _sendAnotherLine = True
             _runMode = False
             _stepMode = True
-            _gui.gcodeview.fileMode = True
+            gcodeview.fileMode = True
             _gui.processLineEvent("")              ' Prime the pump again
 
         End Sub
@@ -203,7 +203,7 @@ Partial Class GrblGui
 
         Public Sub shutdown()
             ' Close up shop
-            resetGcode(True)
+            ResetGcode(True)
         End Sub
 
         Public Sub ResetGcode(ByVal fullstop As Boolean)
@@ -306,24 +306,24 @@ Partial Class GrblGui
 
         ' are we waiting for Ack?
         If gcode.wtgForAck Then
-                ' is recvData ok or error?
+            ' is recvData ok or error?
 
-                If data.StartsWith("ok") Or data.StartsWith("error") Then
-                    ' Mark gcode item as ok/error
-                    gcodeview.UpdateGCodeStatus(data, gcode.linesDone - 1)
-                    ' No longer waiting for Ack
-                    gcode.wtgForAck = False
-                    ' Handle rewind of gcode if this ack/ok was for an M30
-                    If gcode.m30Flag = True Then
-                        gcode.m30Flag = False
-                        gcode.sendGCodeFileRewind() ' reset to beginning
-                    End If
-                    If gcode.runMode Then               ' if not paused or stopped
-                        ' Mark sendAnotherLine
-                        gcode.sendAnotherLine = True
-                    End If
+            If data.StartsWith("ok") Or data.StartsWith("error") Then
+                ' Mark gcode item as ok/error
+                gcodeview.UpdateGCodeStatus(data, gcode.linesDone - 1)
+                ' No longer waiting for Ack
+                gcode.wtgForAck = False
+                ' Handle rewind of gcode if this ack/ok was for an M30
+                If gcode.m30Flag = True Then
+                    gcode.m30Flag = False
+                    gcode.sendGCodeFileRewind() ' reset to beginning
+                End If
+                If gcode.runMode Then               ' if not paused or stopped
+                    ' Mark sendAnotherLine
+                    gcode.sendAnotherLine = True
                 End If
             End If
+        End If
         ' Do we have another line to send?
         If gcode.runMode = True Or gcode.stepMode = True Then                    ' if not paused or stopped
             If gcode.sendAnotherLine Then
@@ -368,11 +368,11 @@ Partial Class GrblGui
         ' Check for status responses that we need to handle here
         ' Extract status
         Dim status = Split(data, ",")
-            If status(0) = "<Alarm" Or status(0).StartsWith("ALARM") Then
-                ' Major problem so cancel the file
-                ' GrblStatus has set the Alarm indicator etc
-                gcode.sendGCodeFileStop()
-            End If
+        If status(0) = "<Alarm" Or status(0).StartsWith("ALARM") Then
+            ' Major problem so cancel the file
+            ' GrblStatus has set the Alarm indicator etc
+            gcode.sendGCodeFileStop()
+        End If
         If status(0).StartsWith("error") Then
             ' We pause file send to allow operator to determine proceed or not
             If cbSettingsPauseOnError.Checked Then

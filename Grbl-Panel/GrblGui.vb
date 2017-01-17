@@ -210,6 +210,15 @@ Public Class GrblGui
                             End If
                             handled = True
 
+                        ' Grbl State
+                        Case Keys.H And Keys.ControlKey
+                            _gui.btnHold.PerformClick()
+                            handled = True
+                        Case Keys.U And Keys.ControlKey
+                            _gui.btnUnlock.PerformClick()
+                        Case Keys.R And Keys.ControlKey
+                            _gui.btnReset.PerformClick()
+
                         ' Overrides
                         Case Keys.F And My.Computer.Keyboard.ShiftKeyDown
                             _gui.btnFeedPlus.PerformClick()
@@ -593,5 +602,5 @@ Public Class GrblGui
         For iCounter = 0 To aData.Count - 1
             gcode.sendGCodeLine(aData(iCounter))
         Next
-    End Sub    
+    End Sub
 End Class

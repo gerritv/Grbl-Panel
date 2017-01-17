@@ -14,7 +14,7 @@ Imports System.Runtime.InteropServices
 <Assembly: AssemblyDescription("A control panel for Grbl")> 
 <Assembly: AssemblyCompany("")> 
 <Assembly: AssemblyProduct("Grbl Panel")>
-<Assembly: AssemblyCopyright("Copyright ©  2014-2016")>
+<Assembly: AssemblyCopyright("Copyright ©  2014-2017")>
 <Assembly: AssemblyTrademark("(c) Gerrit Visser")> 
 
 <Assembly: ComVisible(False)> 
@@ -33,7 +33,7 @@ Imports System.Runtime.InteropServices
 ' by using the '*' as shown below:
 ' <Assembly: AssemblyVersion("1.0.*")> 
 
-<Assembly: AssemblyVersion("1.0.9.10")>
-<Assembly: AssemblyFileVersion("1.0.9.10")>
+<Assembly: AssemblyVersion("1.0.9.11")>
+<Assembly: AssemblyFileVersion("1.0.9.11")>
 
 <Assembly: NeutralResourcesLanguageAttribute("en-CA")> 
