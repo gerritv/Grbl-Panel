@@ -1,4 +1,6 @@
 This file documents changes made:
+V1.0.9.12	- 2017 Jan 22
+			- Fix mistakes in keyboard shortcuts, Issue #84
 V1.0.9.11	- 2017 Jan 15
 			- Handle exception for port in use, Issue #73
 			- Fix Reset behaviour to prevent sending more data, Issue #83
