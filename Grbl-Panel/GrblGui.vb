@@ -129,9 +129,9 @@ Public Class GrblGui
         ''' <summary>
         ''' Handle key press overrides and keyboard mapping
         ''' </summary>
-        ''' <param name="msg"></param>
+        ''' <param name="msg"><DebuggerStepThrough()></param>
         ''' <returns>True if key msg was handled</returns>
-        <DebuggerStepThrough()> Private Function PreFilterMessage(ByRef msg As Message) As Boolean Implements IMessageFilter.PreFilterMessage
+        Private Function PreFilterMessage(ByRef msg As Message) As Boolean Implements IMessageFilter.PreFilterMessage
             Dim handled As Boolean = False
 
             If msg.Msg = &H100 Then  ' We have a KeyDown event
@@ -158,7 +158,9 @@ Public Class GrblGui
                                 _gui.btnZMinus.PerformClick()
                                 handled = True
                         End Select
-                        Return handled
+                        If handled Then
+                            Return True
+                        End If
                     End If
                 End If
 
@@ -167,12 +169,10 @@ Public Class GrblGui
                     Not _gui.gbEditor.ContainsFocus Then ' in case user is working in MDI
                     Select Case msg.WParam
                         ' Act on Distance Increment keyboard requests
-                        Case Keys.Shift
-                            Dim m As IntPtr = msg.WParam
-                        Case Keys.Add
+                        Case Keys.Add, Keys.Oemplus And My.Computer.Keyboard.ShiftKeyDown
                             _gui.changeDistanceIncrement(True)
                             handled = True
-                        Case Keys.Subtract
+                        Case Keys.Subtract, Keys.OemMinus
                             _gui.changeDistanceIncrement(False)
                             handled = True
 
@@ -185,7 +185,7 @@ Public Class GrblGui
                             handled = True
 
                         ' Reset x,y,z axis to 0
-                        Case Keys.X
+                        Case Keys.X And Not My.Computer.Keyboard.CtrlKeyDown
                             _gui.btnWorkX0.PerformClick()
                             handled = True
                         Case Keys.Y
@@ -210,14 +210,27 @@ Public Class GrblGui
                             End If
                             handled = True
 
+                        ' Single Step
+                        Case Keys.O
+                            _gui.btnFileStep.PerformClick()
+                            handled = True
+
+                        ' Macro 1 execute
+                        Case Keys.F2
+                            Dim macro1 As Button = _gui.IsMacroBtn1()
+                            If Not IsNothing(macro1) Then
+                                macro1.PerformClick()
+                                handled = True
+                            End If
+
                         ' Grbl State
-                        Case Keys.H And My.Computer.Keyboard.CtrlKeyDown 'Keys.ControlKey
+                        Case Keys.H And My.Computer.Keyboard.CtrlKeyDown
                             _gui.btnHold.PerformClick()
                             handled = True
-                        Case Keys.U And My.Computer.Keyboard.CtrlKeyDown 'Keys.ControlKey
+                        Case Keys.U And My.Computer.Keyboard.CtrlKeyDown
                             _gui.btnUnlock.PerformClick()
                             handled = True
-                        Case Keys.X And My.Computer.Keyboard.CtrlKeyDown 'Keys.ControlKey
+                        Case Keys.X And My.Computer.Keyboard.CtrlKeyDown
                             _gui.btnReset.PerformClick()
                             handled = True
 
@@ -225,7 +238,7 @@ Public Class GrblGui
                         Case Keys.F And My.Computer.Keyboard.ShiftKeyDown
                             _gui.btnFeedPlus.PerformClick()
                             handled = True
-                        Case Keys.F
+                        Case Keys.F And Not (My.Computer.Keyboard.ShiftKeyDown Or My.Computer.Keyboard.CtrlKeyDown)
                             _gui.btnFeedMinus.PerformClick()
                             handled = True
                         Case Keys.F And My.Computer.Keyboard.CtrlKeyDown
@@ -234,7 +247,7 @@ Public Class GrblGui
                         Case Keys.S And My.Computer.Keyboard.ShiftKeyDown
                             _gui.btnSpindlePlus.PerformClick()
                             handled = True
-                        Case Keys.S
+                        Case Keys.S And Not (My.Computer.Keyboard.ShiftKeyDown Or My.Computer.Keyboard.CtrlKeyDown)
                             _gui.btnSpindleMinus.PerformClick()
                             handled = True
                         Case Keys.S And My.Computer.Keyboard.CtrlKeyDown
@@ -246,14 +259,16 @@ Public Class GrblGui
                         Case Keys.R And My.Computer.Keyboard.CtrlKeyDown
                             _gui.btnRapidOverride25.PerformClick()
                             handled = True
-                        Case Keys.R
+                        Case Keys.R And Not (My.Computer.Keyboard.ShiftKeyDown Or My.Computer.Keyboard.CtrlKeyDown)
                             _gui.btnRapidOverride50.PerformClick()
                             handled = True
 
                     End Select
                 End If
 
-                Return handled
+                If handled Then
+                    Return True
+                End If
 
             End If
 

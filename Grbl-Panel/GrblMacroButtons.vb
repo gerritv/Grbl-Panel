@@ -166,6 +166,18 @@ Partial Class GrblGui
         End If
     End Sub
 
+    Public Function IsMacroBtn1() As Button
+        For iLoopCounter As Integer = (gbMDI.Controls.Count - 1) To 0 Step -1
+            Dim mButton As Control = gbMDI.Controls(iLoopCounter)
+
+            If mButton.Name = "btnMacro0" Then
+                Return mButton
+            End If
+        Next iLoopCounter
+
+        Return Nothing
+    End Function
+
     Public ReadOnly Property macroNames As String()
         Get
             Return _macroNames

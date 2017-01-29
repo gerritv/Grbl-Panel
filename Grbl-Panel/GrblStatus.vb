@@ -299,13 +299,14 @@ Partial Class GrblGui
             If data.StartsWith("ALARM") Then
                 statusSetIndicators(data.Substring(0, 6))
             End If
-
-            ' TODO Move to Settings handler
-            If data(0) = "$" And IsNumeric(data(1)) Then
-                ' we have a Grbl Settings response
-                settings.FillSettings(data)
-            End If
         End If
+
+        ' TODO Move to Settings handler
+        If data(0) = "$" And IsNumeric(data(1)) Then
+            ' we have a Grbl Settings response
+            settings.FillSettings(data)
+        End If
+
 
 
 

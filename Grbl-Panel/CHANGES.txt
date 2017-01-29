@@ -1,4 +1,9 @@
 This file documents changes made:
+V1.0.9.13	- 2017 Jan 27
+			- Fix more things in Issue #84
+			- Add F2 as key to run Macro 1 if it exists, Issue #84
+			- Add O key to Single Step a gcode file, Issue #84
+			- Fix missing Settings display if Grbl is 0.9, Issue #88
 V1.0.9.12	- 2017 Jan 22
 			- Fix mistakes in keyboard shortcuts, Issue #84
 V1.0.9.11	- 2017 Jan 15
