@@ -9,6 +9,7 @@ Partial Class GrblGui
 
             _gui = gui
 
+            AddHandler(_gui.settings.GrblSettingsRetrievedEvent), AddressOf GrblSettingsRetrieved
             ' Do set up things
 
             With My.Settings
@@ -52,6 +53,11 @@ Partial Class GrblGui
             enableJogging(False)
         End Sub
 
+        Private Sub GrblSettingsRetrieved()  ' Handles the named event
+
+            _gui.cbUnits.Checked = _gui.settings.IsGrblMetric
+
+        End Sub
     End Class
 
     Private Sub btnJogArray_Click(sender As Object, e As EventArgs) Handles btnXPlus.Click, btnXMinus.Click, btnYPlus.Click, btnYMinus.Click, _

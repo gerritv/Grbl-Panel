@@ -34,7 +34,7 @@ Partial Class grblgui
             _gui = gui
 
             ' We wait to enable Overrides panel until we know if Grbl supports it (V1.0 and later)
-            AddHandler(_gui.settings.GrblSettingsRetrieved), AddressOf GrblSettingsRetrieved
+            AddHandler(_gui.settings.GrblSettingsRetrievedEvent), AddressOf GrblSettingsRetrieved
 
             ' For Connected events
             AddHandler(GrblGui.Connected), AddressOf GrblConnected

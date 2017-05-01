@@ -129,7 +129,7 @@ Public Class GrblGui
         ''' <summary>
         ''' Handle key press overrides and keyboard mapping
         ''' </summary>
-        ''' <param name="msg"><DebuggerStepThrough()></param>
+        ''' <param name="msg"></param>
         ''' <returns>True if key msg was handled</returns>
         Private Function PreFilterMessage(ByRef msg As Message) As Boolean Implements IMessageFilter.PreFilterMessage
             Dim handled As Boolean = False
@@ -561,6 +561,8 @@ Public Class GrblGui
 
     ' Raised when we succesfully connected to Grbl
     Public Event Connected(ByVal msg As String)
+    ' Event template for Settings Retrieved indication
+    Public Event GrblSettingsRetrieved()
 
 
     'Private Sub MacroButtonEditorToolStripMenuItem_Click(sender As Object, e As EventArgs)
@@ -620,4 +622,5 @@ Public Class GrblGui
             gcode.sendGCodeLine(aData(iCounter))
         Next
     End Sub
+
 End Class

@@ -8,7 +8,7 @@ Partial Class GrblGui
             _gui = gui
             ' For Connected events
             AddHandler (GrblGui.Connected), AddressOf GrblConnected
-            AddHandler (_gui.settings.GrblSettingsRetrieved), AddressOf GrblSettingsRetrieved
+            AddHandler(_gui.settings.GrblSettingsRetrievedEvent), AddressOf GrblSettingsRetrieved
         End Sub
 
         Public Sub enablePosition(ByVal action As Boolean)
@@ -40,10 +40,12 @@ Partial Class GrblGui
                 _gui.btnHome.Visible = True
             End If
 
+            _gui.cbUnits.Checked = _gui.settings.IsGrblMetric
+
         End Sub
 
         Private _wcoX As Decimal
-        Public Property wcoX() As Decimal
+        Public Property WcoX() As Decimal
             Get
                 Return _wcoX
             End Get
@@ -52,7 +54,7 @@ Partial Class GrblGui
             End Set
         End Property
         Private _wcoY As Decimal
-        Public Property wcoY() As Decimal
+        Public Property WcoY() As Decimal
             Get
                 Return _wcoY
             End Get
@@ -62,7 +64,7 @@ Partial Class GrblGui
         End Property
 
         Private _wcoZ As Decimal
-        Public Property wcoZ() As Decimal
+        Public Property WcoZ() As Decimal
             Get
                 Return _wcoZ
             End Get
@@ -74,41 +76,41 @@ Partial Class GrblGui
 
 
     Public Sub showGrblPositions(ByVal data As String)
-		dim positions() as String
-		
+        Dim positions() As String
+
         ' Show data in the Positions group (from our own thread)
         If data = vbCrLf Then Return
 
         If GrblVersion = 0 Then
             ' Grbl versions 0.x, assume/expect $10=3 or equivalent 
-			data = data.Remove(data.Length - 3, 3)   ' Remove the "> " at end
+            data = data.Remove(data.Length - 3, 3)   ' Remove the "> " at end
             If (data.Contains("MPos:")) Then
                 ' Lets display the values
-                    positions = Split(data, ":")
-                    ' MPos will always be first
-                    Dim machPos = Split(positions(1), ",")
+                positions = Split(data, ":")
+                ' MPos will always be first
+                Dim machPos = Split(positions(1), ",")
 
-                    tbMachX.Text = machPos(0).ToString
-                    tbMachY.Text = machPos(1).ToString
-                    tbMachZ.Text = machPos(2).ToString
-                    'Set same values into the repeater view on Offsets page
-                    tbOffSetsMachX.Text = machPos(0).ToString
-                    tbOffSetsMachY.Text = machPos(1).ToString
-                    tbOffSetsMachZ.Text = machPos(2).ToString
+                tbMachX.Text = machPos(0).ToString
+                tbMachY.Text = machPos(1).ToString
+                tbMachZ.Text = machPos(2).ToString
+                'Set same values into the repeater view on Offsets page
+                tbOffSetsMachX.Text = machPos(0).ToString
+                tbOffSetsMachY.Text = machPos(1).ToString
+                tbOffSetsMachZ.Text = machPos(2).ToString
 
             End If
-			if (data.Contains("WPos:")) Then
-				Dim workPos() As String
-                     positions = Split(data, ":")
-                    ' WPos might be first or it might be second (if MPos is also present)
-                    If positions.Count = 2 Then
-                        workPos = Split(positions(1), ",")
-                    Else
-                        workPos = Split(positions(2), ",")
-                    End If
-                    tbWorkX.Text = workPos(0).ToString
-                    tbWorkY.Text = workPos(1).ToString
-                    tbWorkZ.Text = workPos(2).ToString
+            If (data.Contains("WPos:")) Then
+                Dim workPos() As String
+                positions = Split(data, ":")
+                ' WPos might be first or it might be second (if MPos is also present)
+                If positions.Count = 2 Then
+                    workPos = Split(positions(1), ",")
+                Else
+                    workPos = Split(positions(2), ",")
+                End If
+                tbWorkX.Text = workPos(0).ToString
+                tbWorkY.Text = workPos(1).ToString
+                tbWorkZ.Text = workPos(2).ToString
             End If
 
         End If
@@ -125,9 +127,9 @@ Partial Class GrblGui
                         Case "WCO"
                             ' WCO appears now and then or if it changes
                             Dim wco = Split(portion(1), ",")
-                            position.wcoX = wco(0)
-                            position.wcoY = wco(1)
-                            position.wcoZ = wco(2)
+                            position.WcoX = wco(0)
+                            position.WcoY = wco(1)
+                            position.WcoZ = wco(2)
                         Case "MPos"
                             ' We get Mpos but no WPos depending on $10
                             Dim machPos = Split(portion(1), ",")
@@ -135,9 +137,9 @@ Partial Class GrblGui
                             tbMachY.Text = machPos(1).ToString
                             tbMachZ.Text = machPos(2).ToString
 
-                            tbWorkX.Text = (machPos(0) - position.wcoX).ToString("0.000")
-                            tbWorkY.Text = (machPos(1) - position.wcoY).ToString("0.000")
-                            tbWorkZ.Text = (machPos(2) - position.wcoZ).ToString("0.000")
+                            tbWorkX.Text = (machPos(0) - position.WcoX).ToString("0.000")
+                            tbWorkY.Text = (machPos(1) - position.WcoY).ToString("0.000")
+                            tbWorkZ.Text = (machPos(2) - position.WcoZ).ToString("0.000")
 
                             'Set same values into the repeater view on Offsets page
                             tbOffSetsMachX.Text = tbMachX.Text
@@ -150,9 +152,9 @@ Partial Class GrblGui
                             tbWorkY.Text = workPos(1).ToString
                             tbWorkZ.Text = workPos(2).ToString
 
-                            tbMachX.Text = (workPos(0) + position.wcoX).ToString("0.000")
-                            tbMachY.Text = (workPos(1) + position.wcoY).ToString("0.000")
-                            tbMachZ.Text = (workPos(2) + position.wcoZ).ToString("0.000")
+                            tbMachX.Text = (workPos(0) + position.WcoX).ToString("0.000")
+                            tbMachY.Text = (workPos(1) + position.WcoY).ToString("0.000")
+                            tbMachZ.Text = (workPos(2) + position.WcoZ).ToString("0.000")
 
                     End Select
                 Next

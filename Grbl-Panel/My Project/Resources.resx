@@ -231,6 +231,15 @@
   <data name="GrblGcodeView_CheckDoor" xml:space="preserve">
     <value>Check door </value>
   </data>
+  <data name="GrblGcodeView_BuildInfoLength" xml:space="preserve">
+    <value>Build info length </value>
+  </data>
+  <data name="GrblGcodeView_JogTravel" xml:space="preserve">
+    <value>Jog Travel </value>
+  </data>
+  <data name="GrblGcodeView_JogFormat" xml:space="preserve">
+    <value>Jog format </value>
+  </data>
   <data name="GrblGcodeView_UnsupportedCommand" xml:space="preserve">
     <value>Unsupported command </value>
   </data>

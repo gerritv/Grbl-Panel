@@ -99,6 +99,12 @@ Partial Class GrblGui
         Me.btnSend = New System.Windows.Forms.Button()
         Me.tbSendData = New System.Windows.Forms.TextBox()
         Me.gbJogging = New System.Windows.Forms.GroupBox()
+        Me.btnZMinus = New RepeatButton.RepeatButton()
+        Me.btnZPlus = New RepeatButton.RepeatButton()
+        Me.btnXPlus = New RepeatButton.RepeatButton()
+        Me.btnYMinus = New RepeatButton.RepeatButton()
+        Me.btnXMinus = New RepeatButton.RepeatButton()
+        Me.btnYPlus = New RepeatButton.RepeatButton()
         Me.gbFeedRate = New System.Windows.Forms.GroupBox()
         Me.rbFeedRate1 = New System.Windows.Forms.RadioButton()
         Me.rbFeedRate2 = New System.Windows.Forms.RadioButton()
@@ -314,12 +320,6 @@ Partial Class GrblGui
         Me.sfdOffsets = New System.Windows.Forms.SaveFileDialog()
         Me.ofdOffsets = New System.Windows.Forms.OpenFileDialog()
         Me.GrblSettingsBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.btnZMinus = New RepeatButton.RepeatButton()
-        Me.btnZPlus = New RepeatButton.RepeatButton()
-        Me.btnXPlus = New RepeatButton.RepeatButton()
-        Me.btnYMinus = New RepeatButton.RepeatButton()
-        Me.btnXMinus = New RepeatButton.RepeatButton()
-        Me.btnYPlus = New RepeatButton.RepeatButton()
         Me.MenuStrip1.SuspendLayout()
         Me.TabControl1.SuspendLayout()
         Me.tabPgInterface.SuspendLayout()
@@ -926,6 +926,54 @@ Partial Class GrblGui
         Me.gbJogging.Controls.Add(Me.cbUnits)
         Me.gbJogging.Name = "gbJogging"
         Me.gbJogging.TabStop = False
+        '
+        'btnZMinus
+        '
+        resources.ApplyResources(Me.btnZMinus, "btnZMinus")
+        Me.btnZMinus.Interval = 100
+        Me.btnZMinus.Name = "btnZMinus"
+        Me.btnZMinus.Tag = "Z-"
+        Me.btnZMinus.UseVisualStyleBackColor = True
+        '
+        'btnZPlus
+        '
+        resources.ApplyResources(Me.btnZPlus, "btnZPlus")
+        Me.btnZPlus.Interval = 100
+        Me.btnZPlus.Name = "btnZPlus"
+        Me.btnZPlus.Tag = "Z+"
+        Me.btnZPlus.UseVisualStyleBackColor = True
+        '
+        'btnXPlus
+        '
+        resources.ApplyResources(Me.btnXPlus, "btnXPlus")
+        Me.btnXPlus.Interval = 100
+        Me.btnXPlus.Name = "btnXPlus"
+        Me.btnXPlus.Tag = "X+"
+        Me.btnXPlus.UseVisualStyleBackColor = True
+        '
+        'btnYMinus
+        '
+        resources.ApplyResources(Me.btnYMinus, "btnYMinus")
+        Me.btnYMinus.Interval = 100
+        Me.btnYMinus.Name = "btnYMinus"
+        Me.btnYMinus.Tag = "Y-"
+        Me.btnYMinus.UseVisualStyleBackColor = True
+        '
+        'btnXMinus
+        '
+        resources.ApplyResources(Me.btnXMinus, "btnXMinus")
+        Me.btnXMinus.Interval = 100
+        Me.btnXMinus.Name = "btnXMinus"
+        Me.btnXMinus.Tag = "X-"
+        Me.btnXMinus.UseVisualStyleBackColor = True
+        '
+        'btnYPlus
+        '
+        resources.ApplyResources(Me.btnYPlus, "btnYPlus")
+        Me.btnYPlus.Interval = 100
+        Me.btnYPlus.Name = "btnYPlus"
+        Me.btnYPlus.Tag = "Y+"
+        Me.btnYPlus.UseVisualStyleBackColor = True
         '
         'gbFeedRate
         '
@@ -2515,54 +2563,6 @@ Partial Class GrblGui
         Me.ofdOffsets.DefaultExt = "xml"
         Me.ofdOffsets.FileName = "OpenFileDialog1"
         resources.ApplyResources(Me.ofdOffsets, "ofdOffsets")
-        '
-        'btnZMinus
-        '
-        resources.ApplyResources(Me.btnZMinus, "btnZMinus")
-        Me.btnZMinus.Interval = 100
-        Me.btnZMinus.Name = "btnZMinus"
-        Me.btnZMinus.Tag = "Z-"
-        Me.btnZMinus.UseVisualStyleBackColor = True
-        '
-        'btnZPlus
-        '
-        resources.ApplyResources(Me.btnZPlus, "btnZPlus")
-        Me.btnZPlus.Interval = 100
-        Me.btnZPlus.Name = "btnZPlus"
-        Me.btnZPlus.Tag = "Z+"
-        Me.btnZPlus.UseVisualStyleBackColor = True
-        '
-        'btnXPlus
-        '
-        resources.ApplyResources(Me.btnXPlus, "btnXPlus")
-        Me.btnXPlus.Interval = 100
-        Me.btnXPlus.Name = "btnXPlus"
-        Me.btnXPlus.Tag = "X+"
-        Me.btnXPlus.UseVisualStyleBackColor = True
-        '
-        'btnYMinus
-        '
-        resources.ApplyResources(Me.btnYMinus, "btnYMinus")
-        Me.btnYMinus.Interval = 100
-        Me.btnYMinus.Name = "btnYMinus"
-        Me.btnYMinus.Tag = "Y-"
-        Me.btnYMinus.UseVisualStyleBackColor = True
-        '
-        'btnXMinus
-        '
-        resources.ApplyResources(Me.btnXMinus, "btnXMinus")
-        Me.btnXMinus.Interval = 100
-        Me.btnXMinus.Name = "btnXMinus"
-        Me.btnXMinus.Tag = "X-"
-        Me.btnXMinus.UseVisualStyleBackColor = True
-        '
-        'btnYPlus
-        '
-        resources.ApplyResources(Me.btnYPlus, "btnYPlus")
-        Me.btnYPlus.Interval = 100
-        Me.btnYPlus.Name = "btnYPlus"
-        Me.btnYPlus.Tag = "Y+"
-        Me.btnYPlus.UseVisualStyleBackColor = True
         '
         'GrblGui
         '

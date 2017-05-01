@@ -133,6 +133,15 @@ Namespace My.Resources
         End Property
         
         '''<summary>
+        '''  Looks up a localized string similar to Build info length .
+        '''</summary>
+        Friend ReadOnly Property GrblGcodeView_BuildInfoLength() As String
+            Get
+                Return ResourceManager.GetString("GrblGcodeView_BuildInfoLength", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Looks up a localized string similar to Check door .
         '''</summary>
         Friend ReadOnly Property GrblGcodeView_CheckDoor() As String
@@ -219,6 +228,24 @@ Namespace My.Resources
         Friend ReadOnly Property GrblGcodeView_InvalidTarget() As String
             Get
                 Return ResourceManager.GetString("GrblGcodeView_InvalidTarget", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Jog format .
+        '''</summary>
+        Friend ReadOnly Property GrblGcodeView_JogFormat() As String
+            Get
+                Return ResourceManager.GetString("GrblGcodeView_JogFormat", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Jog Travel .
+        '''</summary>
+        Friend ReadOnly Property GrblGcodeView_JogTravel() As String
+            Get
+                Return ResourceManager.GetString("GrblGcodeView_JogTravel", resourceCulture)
             End Get
         End Property
         

@@ -79,7 +79,22 @@ Partial Class GrblGui
                 Return False
             End Get
         End Property
-
+        ''' <summary>
+        ''' 
+        ''' </summary>
+        ''' <returns></returns>
+        ReadOnly Property IsGrblMetric As Boolean
+            Get
+                Dim row As DataRow
+                row = _paramTable.Rows.Find("$13")
+                If Not IsNothing(row) Then
+                    If (row.Item(1).ToString(0) = "0") Then
+                        Return True
+                    End If
+                End If
+                Return False
+            End Get
+        End Property
 #End Region
 
         Public Sub New(ByRef gui As GrblGui)
@@ -151,12 +166,12 @@ Partial Class GrblGui
                     .Refresh()
                 End With
                 ' Tell everyone we have the params
-                RaiseEvent GrblSettingsRetrieved()
+                RaiseEvent GrblSettingsRetrievedEvent()
             End If
         End Sub
 
         ' Event template for Settings Retrieved indication
-        Public Event GrblSettingsRetrieved()
+        Public Event GrblSettingsRetrievedEvent()
 
         Public Sub RefreshSettings()
             _nextParam = 0
