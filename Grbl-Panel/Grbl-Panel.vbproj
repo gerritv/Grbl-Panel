@@ -211,6 +211,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GrblGui.fr.resx">
       <DependentUpon>GrblGui.vb</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="GrblGui.resx">
       <DependentUpon>GrblGui.vb</DependentUpon>

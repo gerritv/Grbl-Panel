@@ -1,4 +1,11 @@
 This file documents changes made:
+V1.0.9.15	- 2017 May 30
+			- Fix exception when USB cable is unplugged, Issue #110
+			- Add keymapping for all 5 macro buttons, Issue #115
+V1.0.9.14	- 2017 Apr 30
+			- Fix licence.rtf, deleted the file, Issue #106
+			- Fix missing error texts, Issue #108
+			- Add feature to track Grbl setting $13 (Inch/Metric display) to Jogging configuration. Issue #109
 V1.0.9.13	- 2017 Jan 27
 			- Fix more things in Issue #84
 			- Add F2 as key to run Macro 1 if it exists, Issue #84

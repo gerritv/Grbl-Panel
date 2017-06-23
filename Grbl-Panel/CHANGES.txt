@@ -1,4 +1,7 @@
 This file documents changes made:
+V1.0.9.15	- 2017 May 30
+			- Fix exception when USB cable is unplugged, Issue #110
+			- Add keymapping for all 5 macro buttons, Issue #115
 V1.0.9.14	- 2017 Apr 30
 			- Fix licence.rtf, deleted the file, Issue #106
 			- Fix missing error texts, Issue #108

@@ -285,6 +285,7 @@ Public Class GrblIF
             RaiseEvent serialDataEvent(System.Text.ASCIIEncoding.ASCII.GetString(_received))
             _client_ComReadData() ' reprime the read
         Catch e As System.InvalidOperationException
+        Catch e As System.UnauthorizedAccessException
         Catch e As System.IO.IOException
             Debug.WriteLine("_client_ComReadData: error on reading from port " + e.Message)
         Catch e As TimeoutException

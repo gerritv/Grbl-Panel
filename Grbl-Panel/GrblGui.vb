@@ -217,7 +217,31 @@ Public Class GrblGui
 
                         ' Macro 1 execute
                         Case Keys.F2
-                            Dim macro1 As Button = _gui.IsMacroBtn1()
+                            Dim macro1 As Button = _gui.IsMacroBtn(1)
+                            If Not IsNothing(macro1) Then
+                                macro1.PerformClick()
+                                handled = True
+                            End If
+                        Case Keys.F3
+                            Dim macro1 As Button = _gui.IsMacroBtn(2)
+                            If Not IsNothing(macro1) Then
+                                macro1.PerformClick()
+                                handled = True
+                            End If
+                        Case Keys.F4
+                            Dim macro1 As Button = _gui.IsMacroBtn(3)
+                            If Not IsNothing(macro1) Then
+                                macro1.PerformClick()
+                                handled = True
+                            End If
+                        Case Keys.F5
+                            Dim macro1 As Button = _gui.IsMacroBtn(4)
+                            If Not IsNothing(macro1) Then
+                                macro1.PerformClick()
+                                handled = True
+                            End If
+                        Case Keys.F6
+                            Dim macro1 As Button = _gui.IsMacroBtn(5)
                             If Not IsNothing(macro1) Then
                                 macro1.PerformClick()
                                 handled = True
@@ -306,7 +330,10 @@ Public Class GrblGui
                     Return True
                 End If
             End If
+            ' Process setting of offset from main display
+            ' TODO Add code
         End If
+
 
         ' we didn't do anything with the key so pass it on
         Return MyBase.ProcessCmdKey(msg, keyData)
