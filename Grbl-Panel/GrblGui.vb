@@ -166,7 +166,10 @@ Public Class GrblGui
 
                 ' Non-jog mappings
                 If Not _gui.tbSendData.ContainsFocus And
-                    Not _gui.gbEditor.ContainsFocus Then ' in case user is working in MDI
+                    Not _gui.gbEditor.ContainsFocus And
+                    Not _gui.gbSettingsMisc.ContainsFocus And
+                    Not _gui.gbSettingsJogging.ContainsFocus And
+                    Not _gui.gbSettingsPosition.ContainsFocus Then ' in case user is working in MDI
                     Select Case msg.WParam
                         ' Act on Distance Increment keyboard requests
                         Case Keys.Add, Keys.Oemplus And My.Computer.Keyboard.ShiftKeyDown
@@ -331,9 +334,22 @@ Public Class GrblGui
                 End If
             End If
             ' Process setting of offset from main display
-            ' TODO Add code
+            If tbWorkX.ContainsFocus Then
+                SendOffsets(lblPositionCurrentOffset.Text + "X", tbWorkX.Text)
+                tabCtlPosition.Focus()
+                Return True
+            End If
+            If tbWorkY.ContainsFocus Then
+                SendOffsets(lblPositionCurrentOffset.Text + "Y", tbWorkY.Text)
+                tabCtlPosition.Focus()
+                Return True
+            End If
+            If tbWorkZ.ContainsFocus Then
+                SendOffsets(lblPositionCurrentOffset.Text + "Z", tbWorkZ.Text)
+                tabCtlPosition.Focus()
+                Return True
+            End If
         End If
-
 
         ' we didn't do anything with the key so pass it on
         Return MyBase.ProcessCmdKey(msg, keyData)
@@ -648,6 +664,26 @@ Public Class GrblGui
         For iCounter = 0 To aData.Count - 1
             gcode.sendGCodeLine(aData(iCounter))
         Next
+    End Sub
+
+    Private Sub tbWorkX_TextChanged(sender As Object, e As EventArgs) Handles tbWorkX.DoubleClick
+        Dim Index As String = ""
+        Dim sndr As TextBox = DirectCast(sender, TextBox)
+        Select Case lblPositionCurrentOffset.Text.Substring(0, 3) ' Get the offset value
+            Case "G54"
+                Index = "P1"
+            Case "G55"
+                Index = "P2"
+            Case "G56"
+                Index = "P3"
+            Case "G57"
+                Index = "P4"
+            Case "G58"
+                Index = "P5"
+            Case "G59"
+                Index = "P6"
+        End Select
+        gcode.sendGCodeLine("G10 L2 " + Index + " " + sndr.Tag.ToString + sndr.Text)
     End Sub
 
 End Class

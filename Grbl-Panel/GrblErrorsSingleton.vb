@@ -68,7 +68,8 @@ Public Class GrblErrorsSingleton
         {"34", Resources.GrblGcodeView_ArcRadiusError},
         {"35", Resources.GrblGcodeView_NoOffsetsInPlane},
         {"36", Resources.GrblGcodeView_UnusedWords},
-        {"37", Resources.GrblGcodeView_G43DynamicAxisError}
+        {"37", Resources.GrblGcodeView_G43DynamicAxisError},
+        {"38", Resources.GrblGcodeView_InvalidToolNumber}
         }
         Return _errors
     End Function

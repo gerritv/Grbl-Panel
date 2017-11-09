@@ -1,4 +1,6 @@
-﻿Imports GrblPanel.GrblIF
+﻿
+Imports System.Threading.Thread
+Imports GrblPanel.GrblIF
 Imports System.Xml
 Partial Class GrblGui
     Public Class GrblOffsets
@@ -203,9 +205,13 @@ Partial Class GrblGui
                     index = "P6"
             End Select
             gcode.sendGCodeLine("G10 L2 " + index + " " + axis + value)
+            Sleep(400)              ' Have to wait for EEProm write
+            btnOffsetsRetrieve_Click(Nothing, Nothing)
         End If
         If tag.Contains("G43") Then
             gcode.sendGCodeLine("G43.1" + axis + value)
+            Sleep(400)              ' Have to wait for EEProm write
+            btnOffsetsRetrieve_Click(Nothing, Nothing)
         End If
 
     End Sub

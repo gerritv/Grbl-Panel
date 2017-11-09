@@ -7,7 +7,7 @@ Partial Class GrblGui
         Public Sub New(ByRef gui As GrblGui)
             _gui = gui
             ' For Connected events
-            AddHandler (GrblGui.Connected), AddressOf GrblConnected
+            AddHandler(GrblGui.Connected), AddressOf GrblConnected
             AddHandler(_gui.settings.GrblSettingsRetrievedEvent), AddressOf GrblSettingsRetrieved
         End Sub
 
@@ -133,14 +133,18 @@ Partial Class GrblGui
                         Case "MPos"
                             ' We get Mpos but no WPos depending on $10
                             Dim machPos = Split(portion(1), ",")
-                            tbMachX.Text = machPos(0).ToString
-                            tbMachY.Text = machPos(1).ToString
-                            tbMachZ.Text = machPos(2).ToString
-
-                            tbWorkX.Text = (machPos(0) - position.WcoX).ToString("0.000")
-                            tbWorkY.Text = (machPos(1) - position.WcoY).ToString("0.000")
-                            tbWorkZ.Text = (machPos(2) - position.WcoZ).ToString("0.000")
-
+                            tbMachX.Text = TruncRound(Convert.ToDecimal(machPos(0))).ToString
+                            tbMachY.Text = TruncRound(Convert.ToDecimal(machPos(1))).ToString
+                            tbMachZ.Text = TruncRound(Convert.ToDecimal(machPos(2))).ToString
+                            If Not tbWorkX.ContainsFocus Then
+                                tbWorkX.Text = TruncRound(Convert.ToDecimal(machPos(0)) - position.WcoX).ToString
+                            End If
+                            If Not tbWorkY.ContainsFocus Then
+                                tbWorkY.Text = TruncRound(Convert.ToDecimal(machPos(1)) - position.WcoY).ToString
+                            End If
+                            If Not tbWorkZ.ContainsFocus Then
+                                tbWorkZ.Text = TruncRound(Convert.ToDecimal(machPos(2)) - position.WcoZ).ToString
+                            End If
                             'Set same values into the repeater view on Offsets page
                             tbOffSetsMachX.Text = tbMachX.Text
                             tbOffSetsMachY.Text = tbMachY.Text
@@ -148,13 +152,18 @@ Partial Class GrblGui
                         Case "WPos"
                             ' We get WPos but no MPos depending on $10
                             Dim workPos = Split(portion(1), ",")
-                            tbWorkX.Text = workPos(0).ToString
-                            tbWorkY.Text = workPos(1).ToString
-                            tbWorkZ.Text = workPos(2).ToString
-
-                            tbMachX.Text = (workPos(0) + position.WcoX).ToString("0.000")
-                            tbMachY.Text = (workPos(1) + position.WcoY).ToString("0.000")
-                            tbMachZ.Text = (workPos(2) + position.WcoZ).ToString("0.000")
+                            If Not tbWorkX.ContainsFocus Then
+                                tbWorkX.Text = TruncRound(Convert.ToDecimal(workPos(0))).ToString
+                            End If
+                            If Not tbWorkY.ContainsFocus Then
+                                tbWorkY.Text = TruncRound(Convert.ToDecimal(workPos(1))).ToString
+                            End If
+                            If Not tbWorkZ.ContainsFocus Then
+                                tbWorkZ.Text = TruncRound(Convert.ToDecimal(workPos(2))).ToString
+                            End If
+                            tbMachX.Text = TruncRound(Convert.ToDecimal(workPos(0)) + position.WcoX).ToString
+                            tbMachY.Text = TruncRound(Convert.ToDecimal(workPos(1)) + position.WcoY).ToString
+                            tbMachZ.Text = TruncRound(Convert.ToDecimal(workPos(2)) + position.WcoZ).ToString
 
                     End Select
                 Next
@@ -163,6 +172,25 @@ Partial Class GrblGui
         End If
     End Sub
 
+    ''' <summary>
+    ''' Round per Settings
+    ''' </summary>
+    ''' <returns></returns>
+    Private Function TruncRound(value As Decimal) As Decimal
+
+
+        If tbTruncationDigits.Text = "0" Then
+            Return value
+        Else
+            If IsNumeric(tbTruncationDigits.Text) Then
+                Return Math.Round(Convert.ToDecimal(value), Convert.ToInt16(tbTruncationDigits.Text))
+            End If
+            Return value
+        End If
+
+
+
+    End Function
     Private Sub btnPosition_Click(sender As Object, e As EventArgs) Handles btnWork0.Click, btnHome.Click, btnWorkSoftHome.Click, btnWorkSpclPosition.Click
         Dim b As Button = sender
         Select Case DirectCast(b.Tag, String)
@@ -191,6 +219,16 @@ Partial Class GrblGui
                 gcode.sendGCodeLine(My.Settings.WorkZ0Cmd)
         End Select
 
+    End Sub
+    ''' <summary>
+    ''' Support for entering Work Pos directly, clear text on focus
+    ''' </summary>
+    ''' <param name="sender"></param>
+    ''' <param name="e"></param>
+    Private Sub tbWork_Click(sender As Object, e As EventArgs) Handles tbWorkX.Click, tbWorkY.Click, tbWorkZ.Click
+        Dim tb As TextBox = sender
+
+        tb.Text = ""
     End Sub
 
 End Class

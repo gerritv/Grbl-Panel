@@ -90,7 +90,7 @@
       <Value Profile="(Default)">1.5</Value>
     </Setting>
     <Setting Name="DefaultFileExt" Type="System.String" Scope="User">
-      <Value Profile="(Default)" />
+      <Value Profile="(Default)">txt</Value>
     </Setting>
     <Setting Name="IPAddress" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
@@ -115,6 +115,9 @@
     </Setting>
     <Setting Name="UpgradeSettings" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="TruncationDigits" Type="System.String" Scope="User">
+      <Value Profile="(Default)">0</Value>
     </Setting>
   </Settings>
 </SettingsFile>

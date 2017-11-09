@@ -654,7 +654,8 @@
   <data name="GroupBox1.Text" xml:space="preserve">
     <value>Décalage Actif</value>
   </data>
-  <data name="tbWorkX.ToolTip" xml:space="preserve">
+  <data name="
+        .ToolTip" xml:space="preserve">
     <value>Position Travail X</value>
   </data>
   <data name="tbMachX.ToolTip" xml:space="preserve">

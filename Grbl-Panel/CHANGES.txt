@@ -1,4 +1,9 @@
 This file documents changes made:
+V1.0.9.16	- 2017 Nov 10
+			- Fix crash on invalid tool number< Issue #128
+			- Implement configurable rounding, Issue #116
+			- Fix 'default file extension not working', Issue #119
+			- Implement direct setting of Work Pos on main tab, Issue #111, Issue #12
 V1.0.9.15	- 2017 May 30
 			- Fix exception when USB cable is unplugged, Issue #110
 			- Add keymapping for all 5 macro buttons, Issue #115

@@ -468,4 +468,7 @@
   <data name="GrblSettings_LaserMode" xml:space="preserve">
     <value>laser mode</value>
   </data>
+  <data name="GrblGcodeView_InvalidToolNumber" xml:space="preserve">
+    <value>Tool number &gt;max supported</value>
+  </data>
 </root>

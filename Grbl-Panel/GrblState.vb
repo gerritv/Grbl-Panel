@@ -94,7 +94,7 @@
                             _gui.cbxStateUnits.SelectedItem = find(_gui.cbxStateUnits, code)
                         Case "G54", "G55", "G56", "G57", "G58", "G59"
                             _gui.cbxStateOffset.SelectedItem = find(_gui.cbxStateOffset, code)
-                            _gui.lblPositionCurrentOffset.Text = find(_gui.cbxStateOffset, code)
+                            _gui.lblPositionCurrentOffset.Text = code 'find(_gui.cbxStateOffset, code)
                         Case "G90", "G91"
                             _gui.cbxStateDistance.SelectedItem = find(_gui.cbxStateDistance, code)
                         Case "G93", "G94"

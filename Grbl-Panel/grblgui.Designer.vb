@@ -24,6 +24,7 @@ Partial Class GrblGui
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(GrblGui))
+        Dim MySettings4 As GrblPanel.My.MySettings = New GrblPanel.My.MySettings()
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
         Me.ToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.SaveToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -251,6 +252,8 @@ Partial Class GrblGui
         Me.Label69 = New System.Windows.Forms.Label()
         Me.Label42 = New System.Windows.Forms.Label()
         Me.gbSettingsMisc = New System.Windows.Forms.GroupBox()
+        Me.Label52 = New System.Windows.Forms.Label()
+        Me.tbTruncationDigits = New System.Windows.Forms.TextBox()
         Me.tbSettingsDefaultExt = New System.Windows.Forms.TextBox()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Label6 = New System.Windows.Forms.Label()
@@ -1407,6 +1410,7 @@ Partial Class GrblGui
         Me.tbWorkZ.BorderStyle = System.Windows.Forms.BorderStyle.None
         resources.ApplyResources(Me.tbWorkZ, "tbWorkZ")
         Me.tbWorkZ.Name = "tbWorkZ"
+        Me.tbWorkZ.Tag = "Z"
         Me.ToolTip1.SetToolTip(Me.tbWorkZ, resources.GetString("tbWorkZ.ToolTip"))
         '
         'tbMachZ
@@ -1430,6 +1434,7 @@ Partial Class GrblGui
         Me.tbWorkY.BorderStyle = System.Windows.Forms.BorderStyle.None
         resources.ApplyResources(Me.tbWorkY, "tbWorkY")
         Me.tbWorkY.Name = "tbWorkY"
+        Me.tbWorkY.Tag = "Y"
         Me.ToolTip1.SetToolTip(Me.tbWorkY, resources.GetString("tbWorkY.ToolTip"))
         '
         'tbMachY
@@ -1460,6 +1465,7 @@ Partial Class GrblGui
         Me.tbWorkX.BorderStyle = System.Windows.Forms.BorderStyle.None
         resources.ApplyResources(Me.tbWorkX, "tbWorkX")
         Me.tbWorkX.Name = "tbWorkX"
+        Me.tbWorkX.Tag = "X"
         Me.ToolTip1.SetToolTip(Me.tbWorkX, resources.GetString("tbWorkX.ToolTip"))
         '
         'GroupBox1
@@ -2076,6 +2082,8 @@ Partial Class GrblGui
         '
         'gbSettingsMisc
         '
+        Me.gbSettingsMisc.Controls.Add(Me.Label52)
+        Me.gbSettingsMisc.Controls.Add(Me.tbTruncationDigits)
         Me.gbSettingsMisc.Controls.Add(Me.tbSettingsDefaultExt)
         Me.gbSettingsMisc.Controls.Add(Me.Label5)
         Me.gbSettingsMisc.Controls.Add(Me.Label6)
@@ -2094,6 +2102,18 @@ Partial Class GrblGui
         resources.ApplyResources(Me.gbSettingsMisc, "gbSettingsMisc")
         Me.gbSettingsMisc.Name = "gbSettingsMisc"
         Me.gbSettingsMisc.TabStop = False
+        '
+        'Label52
+        '
+        resources.ApplyResources(Me.Label52, "Label52")
+        Me.Label52.Name = "Label52"
+        '
+        'tbTruncationDigits
+        '
+        Me.tbTruncationDigits.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.GrblPanel.My.MySettings.Default, "TruncationDigits", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
+        resources.ApplyResources(Me.tbTruncationDigits, "tbTruncationDigits")
+        Me.tbTruncationDigits.Name = "tbTruncationDigits"
+        Me.tbTruncationDigits.Text = Global.GrblPanel.My.MySettings.Default.TruncationDigits
         '
         'tbSettingsDefaultExt
         '
@@ -2114,7 +2134,47 @@ Partial Class GrblGui
         '
         'tbSettingsStartupDelay
         '
-        Me.tbSettingsStartupDelay.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.GrblPanel.My.MySettings.Default, "StartupDelay", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
+        MySettings4.Baud = "115200"
+        MySettings4.ConnectionType = "0"
+        MySettings4.DefaultFileExt = "txt"
+        MySettings4.GCodePauseOnError = True
+        MySettings4.GrblConnectOnLoad = False
+        MySettings4.GrblLastParamID = "$132"
+        MySettings4.IPAddress = ""
+        MySettings4.JoggingFIDefault = "I2"
+        MySettings4.JoggingFIImperial = "1,0.1,0.01,0.001"
+        MySettings4.JoggingFIMEtric = "10,1,0.1,0.01 "
+        MySettings4.JoggingFRDefault = "F2"
+        MySettings4.JoggingFRImperial = "100,50,10,5"
+        MySettings4.JoggingFRMetric = "1000,500,100,5"
+        MySettings4.JoggingUnitsMetric = False
+        MySettings4.JoggingUseKeyboard = False
+        MySettings4.JoggingXRepeat = "2.5"
+        MySettings4.JoggingYRepeat = "2.5"
+        MySettings4.JoggingZRepeat = "2.5"
+        MySettings4.LeftHandedGUI = False
+        MySettings4.MachineSpclPosition1 = "G28"
+        MySettings4.MachineSpclPosition2 = "G30"
+        MySettings4.Macro1 = ""
+        MySettings4.Macro2 = ""
+        MySettings4.Macro3 = ""
+        MySettings4.Macro4 = ""
+        MySettings4.Macro5 = ""
+        MySettings4.Port = ""
+        MySettings4.QBuffMaxSize = "17"
+        MySettings4.RBuffMaxSize = "127"
+        MySettings4.SettingsKey = ""
+        MySettings4.StartupDelay = "1.5"
+        MySettings4.StatusPollEnabled = True
+        MySettings4.StatusPollInterval = "200"
+        MySettings4.StatusVerbose = False
+        MySettings4.TruncationDigits = "0"
+        MySettings4.UpgradeSettings = True
+        MySettings4.Work0Cmd = "G90 G10 L20 P0 X0 Y0 Z0"
+        MySettings4.WorkX0Cmd = "G90 G10 L20 P0 X0"
+        MySettings4.WorkY0Cmd = "G90 G10 L20 P0 Y0"
+        MySettings4.WorkZ0Cmd = "G90 G10 L20 P0 Z0"
+        Me.tbSettingsStartupDelay.DataBindings.Add(New System.Windows.Forms.Binding("Text", MySettings4, "StartupDelay", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
         resources.ApplyResources(Me.tbSettingsStartupDelay, "tbSettingsStartupDelay")
         Me.tbSettingsStartupDelay.Name = "tbSettingsStartupDelay"
         Me.tbSettingsStartupDelay.Text = Global.GrblPanel.My.MySettings.Default.StartupDelay
@@ -2642,9 +2702,9 @@ Partial Class GrblGui
         CType(Me.dgMacros, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.GrblSettingsBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
-        Me.PerformLayout
+        Me.PerformLayout()
 
-End Sub
+    End Sub
     Friend WithEvents MenuStrip1 As System.Windows.Forms.MenuStrip
     Friend WithEvents ToolStripMenuItem1 As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents SaveToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
@@ -2941,4 +3001,6 @@ End Sub
     Friend WithEvents Label49 As Label
     Friend WithEvents tbGrblOptions As TextBox
     Friend WithEvents btnFileStep As Button
+    Friend WithEvents tbTruncationDigits As TextBox
+    Friend WithEvents Label52 As Label
 End Class
