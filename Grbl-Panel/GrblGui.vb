@@ -169,7 +169,10 @@ Public Class GrblGui
                     Not _gui.gbEditor.ContainsFocus And
                     Not _gui.gbSettingsMisc.ContainsFocus And
                     Not _gui.gbSettingsJogging.ContainsFocus And
-                    Not _gui.gbSettingsPosition.ContainsFocus Then ' in case user is working in MDI
+                    Not _gui.gbSettingsPosition.ContainsFocus And
+                    Not _gui.tbWorkX.ContainsFocus And
+                    Not _gui.tbWorkY.ContainsFocus And
+                    Not _gui.tbWorkZ.ContainsFocus Then ' in case user is working in MDI
                     Select Case msg.WParam
                         ' Act on Distance Increment keyboard requests
                         Case Keys.Add, Keys.Oemplus And My.Computer.Keyboard.ShiftKeyDown
