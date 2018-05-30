@@ -1,0 +1,27 @@
+suggestion Jog with Keybard
+
+--> After keyup, the machine stops immediately !!
+
+Approach / suggestion / idea
+
+    Private Sub GrblGui_KeyUp(sender As Object, e As KeyEventArgs) Handles Me.KeyUp
+        Select Case e.KeyData
+            Case Keys.Left
+                Me.btnHold.PerformClick()
+            Case Keys.Right
+                Me.btnHold.PerformClick()
+            Case Keys.Up
+                Me.btnHold.PerformClick()
+            Case Keys.Down
+                Me.btnHold.PerformClick()
+            Case Keys.PageUp
+                Me.btnHold.PerformClick()
+            Case Keys.PageDown
+                Me.btnHold.PerformClick()
+        End Select
+    End Sub
+    
+    
+Thanks for checking
+
+Patrik Rindlisbacher 
