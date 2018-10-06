@@ -47,7 +47,7 @@ Partial Class GrblGui
             Else
                 If Not IsNothing(state) And _stopwatch.IsRunning Then
                     _span = FromMilliseconds(_stopwatch.ElapsedMilliseconds)
-                    state.Text = _span.ToString("hh\:mm\:ss")
+                    c.Text = _span.ToString("hh\:mm\:ss")
                 End If
             End If
         End Sub

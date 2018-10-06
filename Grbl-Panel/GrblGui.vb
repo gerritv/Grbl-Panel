@@ -215,6 +215,10 @@ Public Class GrblGui
                                 _gui.btnStartResume.PerformClick()
                             End If
                             handled = True
+                        Case Keys.R And My.Computer.Keyboard.CtrlKeyDown
+                            ' Start sending the file
+                            _gui.btnFileSend.PerformClick()
+                            handled = True
 
                         ' Single Step
                         Case Keys.O
@@ -291,6 +295,20 @@ Public Class GrblGui
                             handled = True
                         Case Keys.R And Not (My.Computer.Keyboard.ShiftKeyDown Or My.Computer.Keyboard.CtrlKeyDown)
                             _gui.btnRapidOverride50.PerformClick()
+                            handled = True
+
+                       ' Miscellaneous mappings
+                        Case Keys.H     ' Go Home
+                            _gui.btnHome.PerformClick()
+                            handled = True
+                        Case Keys.D1 And My.Computer.Keyboard.CtrlKeyDown
+                            _gui.btnWorkSoftHome.PerformClick()
+                            handled = True
+                        Case Keys.D2 And My.Computer.Keyboard.CtrlKeyDown
+                            _gui.btnWorkSpclPosition.PerformClick()
+                            handled = True
+                        Case Keys.C And My.Computer.Keyboard.CtrlKeyDown
+                            _gui.btnConnect.PerformClick()
                             handled = True
 
                     End Select

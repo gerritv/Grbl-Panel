@@ -36,7 +36,26 @@
                 _single = value
             End Set
         End Property
+        Private _QueueSize As Int16
+        Public Property QueueSize() As Int16
+            Get
+                Return _QueueSize
+            End Get
+            Set(ByVal value As Int16)
+                _QueueSize = value
+            End Set
+        End Property
+        Private _BufferSize As Int16
+        Public Property BufferSize() As Int16
+            Get
+                Return _BufferSize
+            End Get
+            Set(ByVal value As Int16)
+                _BufferSize = value
+            End Set
+        End Property
     End Class
+
     ''' <summary>
     ''' Handle incoming VER and OPT message from $I request
     ''' </summary>
@@ -50,6 +69,12 @@
             If data.StartsWith("[OPT") Then
                 Dim str As String = data.Remove(data.Length - 3)
                 tbGrblOptions.Text = str.Remove(0, 5)
+
+                Dim values() As String
+                values = Split(tbGrblOptions.Text, ",")
+                info.BufferSize = Convert.ToInt16(values(2))
+                info.QueueSize = Convert.ToInt16(values(1))
+
                 info.once = False
             End If
         End If

@@ -24,7 +24,6 @@ Partial Class GrblGui
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(GrblGui))
-        Dim MySettings4 As GrblPanel.My.MySettings = New GrblPanel.My.MySettings()
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
         Me.ToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.SaveToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -123,7 +122,6 @@ Partial Class GrblGui
         Me.Label24 = New System.Windows.Forms.Label()
         Me.prgbRxBuf = New System.Windows.Forms.ProgressBar()
         Me.prgBarQ = New System.Windows.Forms.ProgressBar()
-        Me.cbVerbose = New System.Windows.Forms.CheckBox()
         Me.lbResponses = New System.Windows.Forms.ListBox()
         Me.gbGcode = New System.Windows.Forms.GroupBox()
         Me.btnFileStep = New System.Windows.Forms.Button()
@@ -233,7 +231,6 @@ Partial Class GrblGui
         Me.tbGrblVersion = New System.Windows.Forms.TextBox()
         Me.gbGrblSettings = New System.Windows.Forms.GroupBox()
         Me.Label4 = New System.Windows.Forms.Label()
-        Me.tbSettingsGrblLastParam = New System.Windows.Forms.TextBox()
         Me.dgGrblSettings = New System.Windows.Forms.DataGridView()
         Me.btnSettingsGrbl = New System.Windows.Forms.Button()
         Me.gbSettingsOffsets = New System.Windows.Forms.GroupBox()
@@ -253,57 +250,33 @@ Partial Class GrblGui
         Me.Label42 = New System.Windows.Forms.Label()
         Me.gbSettingsMisc = New System.Windows.Forms.GroupBox()
         Me.Label52 = New System.Windows.Forms.Label()
-        Me.tbTruncationDigits = New System.Windows.Forms.TextBox()
-        Me.tbSettingsDefaultExt = New System.Windows.Forms.TextBox()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.tbSettingsStartupDelay = New System.Windows.Forms.TextBox()
-        Me.cbSettingsLeftHanded = New System.Windows.Forms.CheckBox()
-        Me.cbSettingsConnectOnLoad = New System.Windows.Forms.CheckBox()
-        Me.cbSettingsPauseOnError = New System.Windows.Forms.CheckBox()
-        Me.cbStatusPollEnable = New System.Windows.Forms.CheckBox()
         Me.btnSettingsRefreshMisc = New System.Windows.Forms.Button()
         Me.Label37 = New System.Windows.Forms.Label()
         Me.Label36 = New System.Windows.Forms.Label()
-        Me.tbSettingsRBuffSize = New System.Windows.Forms.TextBox()
-        Me.tbSettingsQSize = New System.Windows.Forms.TextBox()
         Me.Label26 = New System.Windows.Forms.Label()
-        Me.tbSettingsPollRate = New System.Windows.Forms.TextBox()
         Me.gbSettingsPosition = New System.Windows.Forms.GroupBox()
         Me.Label8 = New System.Windows.Forms.Label()
-        Me.tbSettingsSpclPosition2 = New System.Windows.Forms.TextBox()
         Me.btnSettingsRefreshPosition = New System.Windows.Forms.Button()
         Me.Label29 = New System.Windows.Forms.Label()
-        Me.tbWorkZ0Cmd = New System.Windows.Forms.TextBox()
         Me.Label28 = New System.Windows.Forms.Label()
-        Me.tbWorkY0Cmd = New System.Windows.Forms.TextBox()
         Me.Label13 = New System.Windows.Forms.Label()
         Me.Label12 = New System.Windows.Forms.Label()
-        Me.tbWorkX0Cmd = New System.Windows.Forms.TextBox()
-        Me.tbSettingsZeroXYZCmd = New System.Windows.Forms.TextBox()
         Me.Label11 = New System.Windows.Forms.Label()
-        Me.tbSettingsSpclPosition1 = New System.Windows.Forms.TextBox()
         Me.gbSettingsJogging = New System.Windows.Forms.GroupBox()
-        Me.cbSettingsKeyboardJogging = New System.Windows.Forms.CheckBox()
         Me.btnSettingsRefreshJogging = New System.Windows.Forms.Button()
         Me.Label41 = New System.Windows.Forms.Label()
         Me.Label40 = New System.Windows.Forms.Label()
         Me.Label39 = New System.Windows.Forms.Label()
         Me.Label38 = New System.Windows.Forms.Label()
-        Me.tbSettingsZRepeat = New System.Windows.Forms.TextBox()
-        Me.tbSettingsYRepeat = New System.Windows.Forms.TextBox()
-        Me.tbSettingsXRepeat = New System.Windows.Forms.TextBox()
         Me.Label35 = New System.Windows.Forms.Label()
         Me.Label34 = New System.Windows.Forms.Label()
         Me.Label32 = New System.Windows.Forms.Label()
-        Me.tbSettingsFRMetric = New System.Windows.Forms.TextBox()
         Me.Label33 = New System.Windows.Forms.Label()
-        Me.tbSettingsFIMetric = New System.Windows.Forms.TextBox()
         Me.Label31 = New System.Windows.Forms.Label()
-        Me.tbSettingsFRImperial = New System.Windows.Forms.TextBox()
         Me.Label30 = New System.Windows.Forms.Label()
-        Me.cbSettingsMetric = New System.Windows.Forms.CheckBox()
-        Me.tbSettingsFIImperial = New System.Windows.Forms.TextBox()
         Me.TabPage1 = New System.Windows.Forms.TabPage()
         Me.gbEditor = New System.Windows.Forms.GroupBox()
         Me.btnAdd = New System.Windows.Forms.Button()
@@ -323,6 +296,32 @@ Partial Class GrblGui
         Me.sfdOffsets = New System.Windows.Forms.SaveFileDialog()
         Me.ofdOffsets = New System.Windows.Forms.OpenFileDialog()
         Me.GrblSettingsBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.cbVerbose = New System.Windows.Forms.CheckBox()
+        Me.tbSettingsGrblLastParam = New System.Windows.Forms.TextBox()
+        Me.tbTruncationDigits = New System.Windows.Forms.TextBox()
+        Me.tbSettingsDefaultExt = New System.Windows.Forms.TextBox()
+        Me.cbSettingsLeftHanded = New System.Windows.Forms.CheckBox()
+        Me.cbSettingsConnectOnLoad = New System.Windows.Forms.CheckBox()
+        Me.cbSettingsPauseOnError = New System.Windows.Forms.CheckBox()
+        Me.cbStatusPollEnable = New System.Windows.Forms.CheckBox()
+        Me.tbSettingsRBuffSize = New System.Windows.Forms.TextBox()
+        Me.tbSettingsQSize = New System.Windows.Forms.TextBox()
+        Me.tbSettingsPollRate = New System.Windows.Forms.TextBox()
+        Me.tbSettingsSpclPosition2 = New System.Windows.Forms.TextBox()
+        Me.tbWorkZ0Cmd = New System.Windows.Forms.TextBox()
+        Me.tbWorkY0Cmd = New System.Windows.Forms.TextBox()
+        Me.tbWorkX0Cmd = New System.Windows.Forms.TextBox()
+        Me.tbSettingsZeroXYZCmd = New System.Windows.Forms.TextBox()
+        Me.tbSettingsSpclPosition1 = New System.Windows.Forms.TextBox()
+        Me.cbSettingsKeyboardJogging = New System.Windows.Forms.CheckBox()
+        Me.tbSettingsZRepeat = New System.Windows.Forms.TextBox()
+        Me.tbSettingsYRepeat = New System.Windows.Forms.TextBox()
+        Me.tbSettingsXRepeat = New System.Windows.Forms.TextBox()
+        Me.tbSettingsFRMetric = New System.Windows.Forms.TextBox()
+        Me.tbSettingsFIMetric = New System.Windows.Forms.TextBox()
+        Me.tbSettingsFRImperial = New System.Windows.Forms.TextBox()
+        Me.cbSettingsMetric = New System.Windows.Forms.CheckBox()
+        Me.tbSettingsFIImperial = New System.Windows.Forms.TextBox()
         Me.MenuStrip1.SuspendLayout()
         Me.TabControl1.SuspendLayout()
         Me.tabPgInterface.SuspendLayout()
@@ -1111,14 +1110,6 @@ Partial Class GrblGui
         Me.prgBarQ.Maximum = 25
         Me.prgBarQ.Name = "prgBarQ"
         Me.prgBarQ.Style = System.Windows.Forms.ProgressBarStyle.Continuous
-        '
-        'cbVerbose
-        '
-        resources.ApplyResources(Me.cbVerbose, "cbVerbose")
-        Me.cbVerbose.Checked = Global.GrblPanel.My.MySettings.Default.StatusVerbose
-        Me.cbVerbose.DataBindings.Add(New System.Windows.Forms.Binding("Checked", Global.GrblPanel.My.MySettings.Default, "statusVerbose", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
-        Me.cbVerbose.Name = "cbVerbose"
-        Me.cbVerbose.UseVisualStyleBackColor = True
         '
         'lbResponses
         '
@@ -1949,14 +1940,6 @@ Partial Class GrblGui
         resources.ApplyResources(Me.Label4, "Label4")
         Me.Label4.Name = "Label4"
         '
-        'tbSettingsGrblLastParam
-        '
-        Me.tbSettingsGrblLastParam.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.GrblPanel.My.MySettings.Default, "GrblLastParamID", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
-        resources.ApplyResources(Me.tbSettingsGrblLastParam, "tbSettingsGrblLastParam")
-        Me.tbSettingsGrblLastParam.Name = "tbSettingsGrblLastParam"
-        Me.tbSettingsGrblLastParam.Text = Global.GrblPanel.My.MySettings.Default.GrblLastParamID
-        Me.ToolTip1.SetToolTip(Me.tbSettingsGrblLastParam, resources.GetString("tbSettingsGrblLastParam.ToolTip"))
-        '
         'dgGrblSettings
         '
         Me.dgGrblSettings.AllowUserToAddRows = False
@@ -2108,20 +2091,6 @@ Partial Class GrblGui
         resources.ApplyResources(Me.Label52, "Label52")
         Me.Label52.Name = "Label52"
         '
-        'tbTruncationDigits
-        '
-        Me.tbTruncationDigits.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.GrblPanel.My.MySettings.Default, "TruncationDigits", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
-        resources.ApplyResources(Me.tbTruncationDigits, "tbTruncationDigits")
-        Me.tbTruncationDigits.Name = "tbTruncationDigits"
-        Me.tbTruncationDigits.Text = Global.GrblPanel.My.MySettings.Default.TruncationDigits
-        '
-        'tbSettingsDefaultExt
-        '
-        Me.tbSettingsDefaultExt.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.GrblPanel.My.MySettings.Default, "DefaultFileExt", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
-        resources.ApplyResources(Me.tbSettingsDefaultExt, "tbSettingsDefaultExt")
-        Me.tbSettingsDefaultExt.Name = "tbSettingsDefaultExt"
-        Me.tbSettingsDefaultExt.Text = Global.GrblPanel.My.MySettings.Default.DefaultFileExt
-        '
         'Label5
         '
         resources.ApplyResources(Me.Label5, "Label5")
@@ -2134,85 +2103,10 @@ Partial Class GrblGui
         '
         'tbSettingsStartupDelay
         '
-        MySettings4.Baud = "115200"
-        MySettings4.ConnectionType = "0"
-        MySettings4.DefaultFileExt = "txt"
-        MySettings4.GCodePauseOnError = True
-        MySettings4.GrblConnectOnLoad = False
-        MySettings4.GrblLastParamID = "$132"
-        MySettings4.IPAddress = ""
-        MySettings4.JoggingFIDefault = "I2"
-        MySettings4.JoggingFIImperial = "1,0.1,0.01,0.001"
-        MySettings4.JoggingFIMEtric = "10,1,0.1,0.01 "
-        MySettings4.JoggingFRDefault = "F2"
-        MySettings4.JoggingFRImperial = "100,50,10,5"
-        MySettings4.JoggingFRMetric = "1000,500,100,5"
-        MySettings4.JoggingUnitsMetric = False
-        MySettings4.JoggingUseKeyboard = False
-        MySettings4.JoggingXRepeat = "2.5"
-        MySettings4.JoggingYRepeat = "2.5"
-        MySettings4.JoggingZRepeat = "2.5"
-        MySettings4.LeftHandedGUI = False
-        MySettings4.MachineSpclPosition1 = "G28"
-        MySettings4.MachineSpclPosition2 = "G30"
-        MySettings4.Macro1 = ""
-        MySettings4.Macro2 = ""
-        MySettings4.Macro3 = ""
-        MySettings4.Macro4 = ""
-        MySettings4.Macro5 = ""
-        MySettings4.Port = ""
-        MySettings4.QBuffMaxSize = "17"
-        MySettings4.RBuffMaxSize = "127"
-        MySettings4.SettingsKey = ""
-        MySettings4.StartupDelay = "1.5"
-        MySettings4.StatusPollEnabled = True
-        MySettings4.StatusPollInterval = "200"
-        MySettings4.StatusVerbose = False
-        MySettings4.TruncationDigits = "0"
-        MySettings4.UpgradeSettings = True
-        MySettings4.Work0Cmd = "G90 G10 L20 P0 X0 Y0 Z0"
-        MySettings4.WorkX0Cmd = "G90 G10 L20 P0 X0"
-        MySettings4.WorkY0Cmd = "G90 G10 L20 P0 Y0"
-        MySettings4.WorkZ0Cmd = "G90 G10 L20 P0 Z0"
-        Me.tbSettingsStartupDelay.DataBindings.Add(New System.Windows.Forms.Binding("Text", MySettings4, "StartupDelay", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
+        Me.tbSettingsStartupDelay.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.GrblPanel.My.MySettings.Default, "StartDelay", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
         resources.ApplyResources(Me.tbSettingsStartupDelay, "tbSettingsStartupDelay")
         Me.tbSettingsStartupDelay.Name = "tbSettingsStartupDelay"
-        Me.tbSettingsStartupDelay.Text = Global.GrblPanel.My.MySettings.Default.StartupDelay
-        '
-        'cbSettingsLeftHanded
-        '
-        resources.ApplyResources(Me.cbSettingsLeftHanded, "cbSettingsLeftHanded")
-        Me.cbSettingsLeftHanded.Checked = Global.GrblPanel.My.MySettings.Default.LeftHandedGUI
-        Me.cbSettingsLeftHanded.DataBindings.Add(New System.Windows.Forms.Binding("Checked", Global.GrblPanel.My.MySettings.Default, "LeftHandedGUI", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
-        Me.cbSettingsLeftHanded.Name = "cbSettingsLeftHanded"
-        Me.cbSettingsLeftHanded.UseVisualStyleBackColor = True
-        '
-        'cbSettingsConnectOnLoad
-        '
-        resources.ApplyResources(Me.cbSettingsConnectOnLoad, "cbSettingsConnectOnLoad")
-        Me.cbSettingsConnectOnLoad.Checked = Global.GrblPanel.My.MySettings.Default.GrblConnectOnLoad
-        Me.cbSettingsConnectOnLoad.DataBindings.Add(New System.Windows.Forms.Binding("Checked", Global.GrblPanel.My.MySettings.Default, "GrblConnectOnLoad", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
-        Me.cbSettingsConnectOnLoad.Name = "cbSettingsConnectOnLoad"
-        Me.ToolTip1.SetToolTip(Me.cbSettingsConnectOnLoad, resources.GetString("cbSettingsConnectOnLoad.ToolTip"))
-        Me.cbSettingsConnectOnLoad.UseVisualStyleBackColor = True
-        '
-        'cbSettingsPauseOnError
-        '
-        resources.ApplyResources(Me.cbSettingsPauseOnError, "cbSettingsPauseOnError")
-        Me.cbSettingsPauseOnError.Checked = Global.GrblPanel.My.MySettings.Default.GCodePauseOnError
-        Me.cbSettingsPauseOnError.CheckState = System.Windows.Forms.CheckState.Checked
-        Me.cbSettingsPauseOnError.DataBindings.Add(New System.Windows.Forms.Binding("Checked", Global.GrblPanel.My.MySettings.Default, "GCodePauseOnError", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
-        Me.cbSettingsPauseOnError.Name = "cbSettingsPauseOnError"
-        Me.cbSettingsPauseOnError.UseVisualStyleBackColor = True
-        '
-        'cbStatusPollEnable
-        '
-        resources.ApplyResources(Me.cbStatusPollEnable, "cbStatusPollEnable")
-        Me.cbStatusPollEnable.Checked = Global.GrblPanel.My.MySettings.Default.StatusPollEnabled
-        Me.cbStatusPollEnable.CheckState = System.Windows.Forms.CheckState.Checked
-        Me.cbStatusPollEnable.DataBindings.Add(New System.Windows.Forms.Binding("Checked", Global.GrblPanel.My.MySettings.Default, "StatusPollEnabled", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
-        Me.cbStatusPollEnable.Name = "cbStatusPollEnable"
-        Me.cbStatusPollEnable.UseVisualStyleBackColor = True
+        Me.tbSettingsStartupDelay.Text = Global.GrblPanel.My.MySettings.Default.StartDelay
         '
         'btnSettingsRefreshMisc
         '
@@ -2231,31 +2125,10 @@ Partial Class GrblGui
         resources.ApplyResources(Me.Label36, "Label36")
         Me.Label36.Name = "Label36"
         '
-        'tbSettingsRBuffSize
-        '
-        Me.tbSettingsRBuffSize.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.GrblPanel.My.MySettings.Default, "RBuffMaxSize", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
-        resources.ApplyResources(Me.tbSettingsRBuffSize, "tbSettingsRBuffSize")
-        Me.tbSettingsRBuffSize.Name = "tbSettingsRBuffSize"
-        Me.tbSettingsRBuffSize.Text = Global.GrblPanel.My.MySettings.Default.RBuffMaxSize
-        '
-        'tbSettingsQSize
-        '
-        Me.tbSettingsQSize.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.GrblPanel.My.MySettings.Default, "QBuffMaxSize", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
-        resources.ApplyResources(Me.tbSettingsQSize, "tbSettingsQSize")
-        Me.tbSettingsQSize.Name = "tbSettingsQSize"
-        Me.tbSettingsQSize.Text = Global.GrblPanel.My.MySettings.Default.QBuffMaxSize
-        '
         'Label26
         '
         resources.ApplyResources(Me.Label26, "Label26")
         Me.Label26.Name = "Label26"
-        '
-        'tbSettingsPollRate
-        '
-        Me.tbSettingsPollRate.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.GrblPanel.My.MySettings.Default, "statusPollInterval", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
-        resources.ApplyResources(Me.tbSettingsPollRate, "tbSettingsPollRate")
-        Me.tbSettingsPollRate.Name = "tbSettingsPollRate"
-        Me.tbSettingsPollRate.Text = Global.GrblPanel.My.MySettings.Default.StatusPollInterval
         '
         'gbSettingsPosition
         '
@@ -2281,13 +2154,6 @@ Partial Class GrblGui
         resources.ApplyResources(Me.Label8, "Label8")
         Me.Label8.Name = "Label8"
         '
-        'tbSettingsSpclPosition2
-        '
-        Me.tbSettingsSpclPosition2.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.GrblPanel.My.MySettings.Default, "MachineSpclPosition2", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
-        resources.ApplyResources(Me.tbSettingsSpclPosition2, "tbSettingsSpclPosition2")
-        Me.tbSettingsSpclPosition2.Name = "tbSettingsSpclPosition2"
-        Me.tbSettingsSpclPosition2.Text = Global.GrblPanel.My.MySettings.Default.MachineSpclPosition2
-        '
         'btnSettingsRefreshPosition
         '
         resources.ApplyResources(Me.btnSettingsRefreshPosition, "btnSettingsRefreshPosition")
@@ -2300,24 +2166,10 @@ Partial Class GrblGui
         resources.ApplyResources(Me.Label29, "Label29")
         Me.Label29.Name = "Label29"
         '
-        'tbWorkZ0Cmd
-        '
-        Me.tbWorkZ0Cmd.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.GrblPanel.My.MySettings.Default, "WorkZ0Cmd", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
-        resources.ApplyResources(Me.tbWorkZ0Cmd, "tbWorkZ0Cmd")
-        Me.tbWorkZ0Cmd.Name = "tbWorkZ0Cmd"
-        Me.tbWorkZ0Cmd.Text = Global.GrblPanel.My.MySettings.Default.WorkZ0Cmd
-        '
         'Label28
         '
         resources.ApplyResources(Me.Label28, "Label28")
         Me.Label28.Name = "Label28"
-        '
-        'tbWorkY0Cmd
-        '
-        Me.tbWorkY0Cmd.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.GrblPanel.My.MySettings.Default, "WorkY0Cmd", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
-        resources.ApplyResources(Me.tbWorkY0Cmd, "tbWorkY0Cmd")
-        Me.tbWorkY0Cmd.Name = "tbWorkY0Cmd"
-        Me.tbWorkY0Cmd.Text = Global.GrblPanel.My.MySettings.Default.WorkY0Cmd
         '
         'Label13
         '
@@ -2329,32 +2181,11 @@ Partial Class GrblGui
         resources.ApplyResources(Me.Label12, "Label12")
         Me.Label12.Name = "Label12"
         '
-        'tbWorkX0Cmd
-        '
-        Me.tbWorkX0Cmd.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.GrblPanel.My.MySettings.Default, "WorkX0Cmd", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
-        resources.ApplyResources(Me.tbWorkX0Cmd, "tbWorkX0Cmd")
-        Me.tbWorkX0Cmd.Name = "tbWorkX0Cmd"
-        Me.tbWorkX0Cmd.Text = Global.GrblPanel.My.MySettings.Default.WorkX0Cmd
-        '
-        'tbSettingsZeroXYZCmd
-        '
-        Me.tbSettingsZeroXYZCmd.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.GrblPanel.My.MySettings.Default, "Work0Cmd", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
-        resources.ApplyResources(Me.tbSettingsZeroXYZCmd, "tbSettingsZeroXYZCmd")
-        Me.tbSettingsZeroXYZCmd.Name = "tbSettingsZeroXYZCmd"
-        Me.tbSettingsZeroXYZCmd.Text = Global.GrblPanel.My.MySettings.Default.Work0Cmd
-        '
         'Label11
         '
         resources.ApplyResources(Me.Label11, "Label11")
         Me.Label11.Name = "Label11"
         Me.ToolTip1.SetToolTip(Me.Label11, resources.GetString("Label11.ToolTip"))
-        '
-        'tbSettingsSpclPosition1
-        '
-        Me.tbSettingsSpclPosition1.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.GrblPanel.My.MySettings.Default, "MachineSpclPosition1", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
-        resources.ApplyResources(Me.tbSettingsSpclPosition1, "tbSettingsSpclPosition1")
-        Me.tbSettingsSpclPosition1.Name = "tbSettingsSpclPosition1"
-        Me.tbSettingsSpclPosition1.Text = Global.GrblPanel.My.MySettings.Default.MachineSpclPosition1
         '
         'gbSettingsJogging
         '
@@ -2381,15 +2212,6 @@ Partial Class GrblGui
         resources.ApplyResources(Me.gbSettingsJogging, "gbSettingsJogging")
         Me.gbSettingsJogging.Name = "gbSettingsJogging"
         Me.gbSettingsJogging.TabStop = False
-        '
-        'cbSettingsKeyboardJogging
-        '
-        resources.ApplyResources(Me.cbSettingsKeyboardJogging, "cbSettingsKeyboardJogging")
-        Me.cbSettingsKeyboardJogging.Checked = Global.GrblPanel.My.MySettings.Default.JoggingUseKeyboard
-        Me.cbSettingsKeyboardJogging.DataBindings.Add(New System.Windows.Forms.Binding("Checked", Global.GrblPanel.My.MySettings.Default, "JoggingUseKeyboard", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
-        Me.cbSettingsKeyboardJogging.Name = "cbSettingsKeyboardJogging"
-        Me.ToolTip1.SetToolTip(Me.cbSettingsKeyboardJogging, resources.GetString("cbSettingsKeyboardJogging.ToolTip"))
-        Me.cbSettingsKeyboardJogging.UseVisualStyleBackColor = True
         '
         'btnSettingsRefreshJogging
         '
@@ -2418,27 +2240,6 @@ Partial Class GrblGui
         resources.ApplyResources(Me.Label38, "Label38")
         Me.Label38.Name = "Label38"
         '
-        'tbSettingsZRepeat
-        '
-        Me.tbSettingsZRepeat.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.GrblPanel.My.MySettings.Default, "JoggingZRepeat", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
-        resources.ApplyResources(Me.tbSettingsZRepeat, "tbSettingsZRepeat")
-        Me.tbSettingsZRepeat.Name = "tbSettingsZRepeat"
-        Me.tbSettingsZRepeat.Text = Global.GrblPanel.My.MySettings.Default.JoggingZRepeat
-        '
-        'tbSettingsYRepeat
-        '
-        Me.tbSettingsYRepeat.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.GrblPanel.My.MySettings.Default, "JoggingYRepeat", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
-        resources.ApplyResources(Me.tbSettingsYRepeat, "tbSettingsYRepeat")
-        Me.tbSettingsYRepeat.Name = "tbSettingsYRepeat"
-        Me.tbSettingsYRepeat.Text = Global.GrblPanel.My.MySettings.Default.JoggingYRepeat
-        '
-        'tbSettingsXRepeat
-        '
-        Me.tbSettingsXRepeat.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.GrblPanel.My.MySettings.Default, "JoggingXRepeat", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
-        resources.ApplyResources(Me.tbSettingsXRepeat, "tbSettingsXRepeat")
-        Me.tbSettingsXRepeat.Name = "tbSettingsXRepeat"
-        Me.tbSettingsXRepeat.Text = Global.GrblPanel.My.MySettings.Default.JoggingXRepeat
-        '
         'Label35
         '
         resources.ApplyResources(Me.Label35, "Label35")
@@ -2454,56 +2255,20 @@ Partial Class GrblGui
         resources.ApplyResources(Me.Label32, "Label32")
         Me.Label32.Name = "Label32"
         '
-        'tbSettingsFRMetric
-        '
-        Me.tbSettingsFRMetric.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.GrblPanel.My.MySettings.Default, "JoggingFRMetric", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
-        resources.ApplyResources(Me.tbSettingsFRMetric, "tbSettingsFRMetric")
-        Me.tbSettingsFRMetric.Name = "tbSettingsFRMetric"
-        Me.tbSettingsFRMetric.Text = Global.GrblPanel.My.MySettings.Default.JoggingFRMetric
-        '
         'Label33
         '
         resources.ApplyResources(Me.Label33, "Label33")
         Me.Label33.Name = "Label33"
-        '
-        'tbSettingsFIMetric
-        '
-        Me.tbSettingsFIMetric.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.GrblPanel.My.MySettings.Default, "JoggingFIMEtric", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
-        resources.ApplyResources(Me.tbSettingsFIMetric, "tbSettingsFIMetric")
-        Me.tbSettingsFIMetric.Name = "tbSettingsFIMetric"
-        Me.tbSettingsFIMetric.Text = Global.GrblPanel.My.MySettings.Default.JoggingFIMEtric
         '
         'Label31
         '
         resources.ApplyResources(Me.Label31, "Label31")
         Me.Label31.Name = "Label31"
         '
-        'tbSettingsFRImperial
-        '
-        Me.tbSettingsFRImperial.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.GrblPanel.My.MySettings.Default, "JoggingFRImperial", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
-        resources.ApplyResources(Me.tbSettingsFRImperial, "tbSettingsFRImperial")
-        Me.tbSettingsFRImperial.Name = "tbSettingsFRImperial"
-        Me.tbSettingsFRImperial.Text = Global.GrblPanel.My.MySettings.Default.JoggingFRImperial
-        '
         'Label30
         '
         resources.ApplyResources(Me.Label30, "Label30")
         Me.Label30.Name = "Label30"
-        '
-        'cbSettingsMetric
-        '
-        resources.ApplyResources(Me.cbSettingsMetric, "cbSettingsMetric")
-        Me.cbSettingsMetric.Checked = Global.GrblPanel.My.MySettings.Default.JoggingUnitsMetric
-        Me.cbSettingsMetric.DataBindings.Add(New System.Windows.Forms.Binding("Checked", Global.GrblPanel.My.MySettings.Default, "joggingUnitsMetric", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
-        Me.cbSettingsMetric.Name = "cbSettingsMetric"
-        Me.cbSettingsMetric.UseVisualStyleBackColor = True
-        '
-        'tbSettingsFIImperial
-        '
-        Me.tbSettingsFIImperial.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.GrblPanel.My.MySettings.Default, "JoggingFIImperial", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
-        resources.ApplyResources(Me.tbSettingsFIImperial, "tbSettingsFIImperial")
-        Me.tbSettingsFIImperial.Name = "tbSettingsFIImperial"
-        Me.tbSettingsFIImperial.Text = Global.GrblPanel.My.MySettings.Default.JoggingFIImperial
         '
         'TabPage1
         '
@@ -2623,6 +2388,200 @@ Partial Class GrblGui
         Me.ofdOffsets.DefaultExt = "xml"
         Me.ofdOffsets.FileName = "OpenFileDialog1"
         resources.ApplyResources(Me.ofdOffsets, "ofdOffsets")
+        '
+        'cbVerbose
+        '
+        resources.ApplyResources(Me.cbVerbose, "cbVerbose")
+        Me.cbVerbose.Checked = Global.GrblPanel.My.MySettings.Default.StatusVerbose
+        Me.cbVerbose.DataBindings.Add(New System.Windows.Forms.Binding("Checked", Global.GrblPanel.My.MySettings.Default, "statusVerbose", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
+        Me.cbVerbose.Name = "cbVerbose"
+        Me.cbVerbose.UseVisualStyleBackColor = True
+        '
+        'tbSettingsGrblLastParam
+        '
+        Me.tbSettingsGrblLastParam.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.GrblPanel.My.MySettings.Default, "GrblLastParamID", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
+        resources.ApplyResources(Me.tbSettingsGrblLastParam, "tbSettingsGrblLastParam")
+        Me.tbSettingsGrblLastParam.Name = "tbSettingsGrblLastParam"
+        Me.tbSettingsGrblLastParam.Text = Global.GrblPanel.My.MySettings.Default.GrblLastParamID
+        Me.ToolTip1.SetToolTip(Me.tbSettingsGrblLastParam, resources.GetString("tbSettingsGrblLastParam.ToolTip"))
+        '
+        'tbTruncationDigits
+        '
+        Me.tbTruncationDigits.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.GrblPanel.My.MySettings.Default, "TruncationDigits", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
+        resources.ApplyResources(Me.tbTruncationDigits, "tbTruncationDigits")
+        Me.tbTruncationDigits.Name = "tbTruncationDigits"
+        Me.tbTruncationDigits.Text = Global.GrblPanel.My.MySettings.Default.TruncationDigits
+        '
+        'tbSettingsDefaultExt
+        '
+        Me.tbSettingsDefaultExt.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.GrblPanel.My.MySettings.Default, "DefaultFileExt", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
+        resources.ApplyResources(Me.tbSettingsDefaultExt, "tbSettingsDefaultExt")
+        Me.tbSettingsDefaultExt.Name = "tbSettingsDefaultExt"
+        Me.tbSettingsDefaultExt.Text = Global.GrblPanel.My.MySettings.Default.DefaultFileExt
+        '
+        'cbSettingsLeftHanded
+        '
+        resources.ApplyResources(Me.cbSettingsLeftHanded, "cbSettingsLeftHanded")
+        Me.cbSettingsLeftHanded.Checked = Global.GrblPanel.My.MySettings.Default.LeftHandedGUI
+        Me.cbSettingsLeftHanded.DataBindings.Add(New System.Windows.Forms.Binding("Checked", Global.GrblPanel.My.MySettings.Default, "LeftHandedGUI", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
+        Me.cbSettingsLeftHanded.Name = "cbSettingsLeftHanded"
+        Me.cbSettingsLeftHanded.UseVisualStyleBackColor = True
+        '
+        'cbSettingsConnectOnLoad
+        '
+        resources.ApplyResources(Me.cbSettingsConnectOnLoad, "cbSettingsConnectOnLoad")
+        Me.cbSettingsConnectOnLoad.Checked = Global.GrblPanel.My.MySettings.Default.GrblConnectOnLoad
+        Me.cbSettingsConnectOnLoad.DataBindings.Add(New System.Windows.Forms.Binding("Checked", Global.GrblPanel.My.MySettings.Default, "GrblConnectOnLoad", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
+        Me.cbSettingsConnectOnLoad.Name = "cbSettingsConnectOnLoad"
+        Me.ToolTip1.SetToolTip(Me.cbSettingsConnectOnLoad, resources.GetString("cbSettingsConnectOnLoad.ToolTip"))
+        Me.cbSettingsConnectOnLoad.UseVisualStyleBackColor = True
+        '
+        'cbSettingsPauseOnError
+        '
+        resources.ApplyResources(Me.cbSettingsPauseOnError, "cbSettingsPauseOnError")
+        Me.cbSettingsPauseOnError.Checked = Global.GrblPanel.My.MySettings.Default.GCodePauseOnError
+        Me.cbSettingsPauseOnError.CheckState = System.Windows.Forms.CheckState.Checked
+        Me.cbSettingsPauseOnError.DataBindings.Add(New System.Windows.Forms.Binding("Checked", Global.GrblPanel.My.MySettings.Default, "GCodePauseOnError", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
+        Me.cbSettingsPauseOnError.Name = "cbSettingsPauseOnError"
+        Me.cbSettingsPauseOnError.UseVisualStyleBackColor = True
+        '
+        'cbStatusPollEnable
+        '
+        resources.ApplyResources(Me.cbStatusPollEnable, "cbStatusPollEnable")
+        Me.cbStatusPollEnable.Checked = Global.GrblPanel.My.MySettings.Default.StatusPollEnabled
+        Me.cbStatusPollEnable.CheckState = System.Windows.Forms.CheckState.Checked
+        Me.cbStatusPollEnable.DataBindings.Add(New System.Windows.Forms.Binding("Checked", Global.GrblPanel.My.MySettings.Default, "StatusPollEnabled", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
+        Me.cbStatusPollEnable.Name = "cbStatusPollEnable"
+        Me.cbStatusPollEnable.UseVisualStyleBackColor = True
+        '
+        'tbSettingsRBuffSize
+        '
+        Me.tbSettingsRBuffSize.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.GrblPanel.My.MySettings.Default, "RBuffMaxSize", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
+        resources.ApplyResources(Me.tbSettingsRBuffSize, "tbSettingsRBuffSize")
+        Me.tbSettingsRBuffSize.Name = "tbSettingsRBuffSize"
+        Me.tbSettingsRBuffSize.Text = Global.GrblPanel.My.MySettings.Default.RBuffMaxSize
+        '
+        'tbSettingsQSize
+        '
+        Me.tbSettingsQSize.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.GrblPanel.My.MySettings.Default, "QBuffMaxSize", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
+        resources.ApplyResources(Me.tbSettingsQSize, "tbSettingsQSize")
+        Me.tbSettingsQSize.Name = "tbSettingsQSize"
+        Me.tbSettingsQSize.Text = Global.GrblPanel.My.MySettings.Default.QBuffMaxSize
+        '
+        'tbSettingsPollRate
+        '
+        Me.tbSettingsPollRate.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.GrblPanel.My.MySettings.Default, "statusPollInterval", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
+        resources.ApplyResources(Me.tbSettingsPollRate, "tbSettingsPollRate")
+        Me.tbSettingsPollRate.Name = "tbSettingsPollRate"
+        Me.tbSettingsPollRate.Text = Global.GrblPanel.My.MySettings.Default.StatusPollInterval
+        '
+        'tbSettingsSpclPosition2
+        '
+        Me.tbSettingsSpclPosition2.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.GrblPanel.My.MySettings.Default, "MachineSpclPosition2", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
+        resources.ApplyResources(Me.tbSettingsSpclPosition2, "tbSettingsSpclPosition2")
+        Me.tbSettingsSpclPosition2.Name = "tbSettingsSpclPosition2"
+        Me.tbSettingsSpclPosition2.Text = Global.GrblPanel.My.MySettings.Default.MachineSpclPosition2
+        '
+        'tbWorkZ0Cmd
+        '
+        Me.tbWorkZ0Cmd.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.GrblPanel.My.MySettings.Default, "WorkZ0Cmd", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
+        resources.ApplyResources(Me.tbWorkZ0Cmd, "tbWorkZ0Cmd")
+        Me.tbWorkZ0Cmd.Name = "tbWorkZ0Cmd"
+        Me.tbWorkZ0Cmd.Text = Global.GrblPanel.My.MySettings.Default.WorkZ0Cmd
+        '
+        'tbWorkY0Cmd
+        '
+        Me.tbWorkY0Cmd.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.GrblPanel.My.MySettings.Default, "WorkY0Cmd", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
+        resources.ApplyResources(Me.tbWorkY0Cmd, "tbWorkY0Cmd")
+        Me.tbWorkY0Cmd.Name = "tbWorkY0Cmd"
+        Me.tbWorkY0Cmd.Text = Global.GrblPanel.My.MySettings.Default.WorkY0Cmd
+        '
+        'tbWorkX0Cmd
+        '
+        Me.tbWorkX0Cmd.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.GrblPanel.My.MySettings.Default, "WorkX0Cmd", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
+        resources.ApplyResources(Me.tbWorkX0Cmd, "tbWorkX0Cmd")
+        Me.tbWorkX0Cmd.Name = "tbWorkX0Cmd"
+        Me.tbWorkX0Cmd.Text = Global.GrblPanel.My.MySettings.Default.WorkX0Cmd
+        '
+        'tbSettingsZeroXYZCmd
+        '
+        Me.tbSettingsZeroXYZCmd.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.GrblPanel.My.MySettings.Default, "Work0Cmd", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
+        resources.ApplyResources(Me.tbSettingsZeroXYZCmd, "tbSettingsZeroXYZCmd")
+        Me.tbSettingsZeroXYZCmd.Name = "tbSettingsZeroXYZCmd"
+        Me.tbSettingsZeroXYZCmd.Text = Global.GrblPanel.My.MySettings.Default.Work0Cmd
+        '
+        'tbSettingsSpclPosition1
+        '
+        Me.tbSettingsSpclPosition1.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.GrblPanel.My.MySettings.Default, "MachineSpclPosition1", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
+        resources.ApplyResources(Me.tbSettingsSpclPosition1, "tbSettingsSpclPosition1")
+        Me.tbSettingsSpclPosition1.Name = "tbSettingsSpclPosition1"
+        Me.tbSettingsSpclPosition1.Text = Global.GrblPanel.My.MySettings.Default.MachineSpclPosition1
+        '
+        'cbSettingsKeyboardJogging
+        '
+        resources.ApplyResources(Me.cbSettingsKeyboardJogging, "cbSettingsKeyboardJogging")
+        Me.cbSettingsKeyboardJogging.Checked = Global.GrblPanel.My.MySettings.Default.JoggingUseKeyboard
+        Me.cbSettingsKeyboardJogging.DataBindings.Add(New System.Windows.Forms.Binding("Checked", Global.GrblPanel.My.MySettings.Default, "JoggingUseKeyboard", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
+        Me.cbSettingsKeyboardJogging.Name = "cbSettingsKeyboardJogging"
+        Me.ToolTip1.SetToolTip(Me.cbSettingsKeyboardJogging, resources.GetString("cbSettingsKeyboardJogging.ToolTip"))
+        Me.cbSettingsKeyboardJogging.UseVisualStyleBackColor = True
+        '
+        'tbSettingsZRepeat
+        '
+        Me.tbSettingsZRepeat.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.GrblPanel.My.MySettings.Default, "JoggingZRepeat", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
+        resources.ApplyResources(Me.tbSettingsZRepeat, "tbSettingsZRepeat")
+        Me.tbSettingsZRepeat.Name = "tbSettingsZRepeat"
+        Me.tbSettingsZRepeat.Text = Global.GrblPanel.My.MySettings.Default.JoggingZRepeat
+        '
+        'tbSettingsYRepeat
+        '
+        Me.tbSettingsYRepeat.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.GrblPanel.My.MySettings.Default, "JoggingYRepeat", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
+        resources.ApplyResources(Me.tbSettingsYRepeat, "tbSettingsYRepeat")
+        Me.tbSettingsYRepeat.Name = "tbSettingsYRepeat"
+        Me.tbSettingsYRepeat.Text = Global.GrblPanel.My.MySettings.Default.JoggingYRepeat
+        '
+        'tbSettingsXRepeat
+        '
+        Me.tbSettingsXRepeat.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.GrblPanel.My.MySettings.Default, "JoggingXRepeat", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
+        resources.ApplyResources(Me.tbSettingsXRepeat, "tbSettingsXRepeat")
+        Me.tbSettingsXRepeat.Name = "tbSettingsXRepeat"
+        Me.tbSettingsXRepeat.Text = Global.GrblPanel.My.MySettings.Default.JoggingXRepeat
+        '
+        'tbSettingsFRMetric
+        '
+        Me.tbSettingsFRMetric.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.GrblPanel.My.MySettings.Default, "JoggingFRMetric", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
+        resources.ApplyResources(Me.tbSettingsFRMetric, "tbSettingsFRMetric")
+        Me.tbSettingsFRMetric.Name = "tbSettingsFRMetric"
+        Me.tbSettingsFRMetric.Text = Global.GrblPanel.My.MySettings.Default.JoggingFRMetric
+        '
+        'tbSettingsFIMetric
+        '
+        Me.tbSettingsFIMetric.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.GrblPanel.My.MySettings.Default, "JoggingFIMEtric", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
+        resources.ApplyResources(Me.tbSettingsFIMetric, "tbSettingsFIMetric")
+        Me.tbSettingsFIMetric.Name = "tbSettingsFIMetric"
+        Me.tbSettingsFIMetric.Text = Global.GrblPanel.My.MySettings.Default.JoggingFIMEtric
+        '
+        'tbSettingsFRImperial
+        '
+        Me.tbSettingsFRImperial.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.GrblPanel.My.MySettings.Default, "JoggingFRImperial", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
+        resources.ApplyResources(Me.tbSettingsFRImperial, "tbSettingsFRImperial")
+        Me.tbSettingsFRImperial.Name = "tbSettingsFRImperial"
+        Me.tbSettingsFRImperial.Text = Global.GrblPanel.My.MySettings.Default.JoggingFRImperial
+        '
+        'cbSettingsMetric
+        '
+        resources.ApplyResources(Me.cbSettingsMetric, "cbSettingsMetric")
+        Me.cbSettingsMetric.Checked = Global.GrblPanel.My.MySettings.Default.JoggingUnitsMetric
+        Me.cbSettingsMetric.DataBindings.Add(New System.Windows.Forms.Binding("Checked", Global.GrblPanel.My.MySettings.Default, "joggingUnitsMetric", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
+        Me.cbSettingsMetric.Name = "cbSettingsMetric"
+        Me.cbSettingsMetric.UseVisualStyleBackColor = True
+        '
+        'tbSettingsFIImperial
+        '
+        Me.tbSettingsFIImperial.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.GrblPanel.My.MySettings.Default, "JoggingFIImperial", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
+        resources.ApplyResources(Me.tbSettingsFIImperial, "tbSettingsFIImperial")
+        Me.tbSettingsFIImperial.Name = "tbSettingsFIImperial"
+        Me.tbSettingsFIImperial.Text = Global.GrblPanel.My.MySettings.Default.JoggingFIImperial
         '
         'GrblGui
         '

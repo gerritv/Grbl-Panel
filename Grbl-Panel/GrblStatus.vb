@@ -285,8 +285,8 @@ Partial Class GrblGui
                         Case "Bf"
                             Dim values = Split(portion(1), ",")
                             Try
-                                prgBarQ.Value = 15 - values(0)
-                                prgbRxBuf.Value = 128 - values(1)
+                                prgBarQ.Value = info.QueueSize - values(0)
+                                prgbRxBuf.Value = info.BufferSize - values(1)
                             Catch
                             End Try
                         Case "F"

@@ -1,5 +1,8 @@
 This file documents changes made:
-V1.0.9.17	- 2017 Nov 13
+V1.0.9.18	- 2018 Oct 6
+			- Implement using buffer size from Grbl for display
+			- Implement additional key mappings
+			- Fix Late Bind warni9.17	- 2017 Nov 13
 			- Fix to allow entry of '-' in Work position text boxes, Issue #111
 V1.0.9.16	- 2017 Nov 10
 			- Fix crash on invalid tool number< Issue #128
